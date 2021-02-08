@@ -12,7 +12,7 @@ Technical constraints
 | _Solid_ | _Solid specifications will guide us about how to implement a reliable, scalable, easy to mantain and stable software _ 
 |===
 
-Organizativa constraints
+Organizative constraints
 |===
 |Constraint|Description
 | _Time limit_ | _The project will be released by the end of May 2021_
