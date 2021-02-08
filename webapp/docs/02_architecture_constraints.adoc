@@ -5,14 +5,14 @@
 [role="arc42help"]
 ****
 
-*Technical constraints*
+.*Technical constraints*
 |===
 |Constraint|Description
 | _React_ | _For the front-end develop, we will use React, it will aloow us to create complexes UI using JavaScript_ 
 | _Solid_ | _Solid specifications will guide us about how to implement a reliable, scalable, easy to mantain and stable software _ 
 |===
 
-Organizative constraints
+.*Organizative constraints*
 |===
 |Constraint|Description
 | _Time limit_ | _The project will be released by the end of May 2021_
