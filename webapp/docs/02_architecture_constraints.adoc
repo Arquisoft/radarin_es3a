@@ -9,15 +9,15 @@
 |===
 |*Constraint*|*Description*
 | *_React_* | _For the front-end develop, we will use React, it will aloow us to create complexes UI using JavaScript_ 
-| _*Solid*_ | _Solid specifications will guide us about how to implement a reliable, scalable, easy to mantain and stable software _ 
+| *_Solid_* | _Solid specifications will guide us about how to implement a reliable, scalable, easy to mantain and stable software _ 
 |===
 
 .*Organizative constraints*
 |===
 |*Constraint*|*Description*
-| _*Time limit*_ | _The project will be released by the end of May 2021_
-| _*Team*_ | _The project will be developed by a team of 6 components_
-| _*Version control*_ | _The project will be managed using git, by creating issues that will be assign to a team component who will do it_
+| *_Time limit_* | _The project will be released by the end of May 2021_
+| *_Team_* | _The project will be developed by a team of 6 components_
+| *_Version control_* | _The project will be managed using git, by creating issues that will be assign to a team component who will do it_
 |===
 
 ****
