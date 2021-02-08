@@ -9,7 +9,7 @@
 |===
 |*Constraint*|*Description*
 | *_React_* | _For the front-end develop, we will use React, it will aloow us to create complexes UI using JavaScript_ 
-| *_Solid_* | _Solid specifications will guide us about how to implement a reliable, scalable, easy to mantain and stable software _ 
+| *_Solid_* | _Solid specifications will guide us about how to implement a reliable, scalable, easy to mantain and stable software_ 
 |===
 
 .*Organizative constraints*
