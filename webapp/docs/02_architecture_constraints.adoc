@@ -8,7 +8,7 @@
 .*Technical constraints*
 |===
 |*Constraint*|*Description*
-| _*React*_ | _For the front-end develop, we will use React, it will aloow us to create complexes UI using JavaScript_ 
+| *_React_* | _For the front-end develop, we will use React, it will aloow us to create complexes UI using JavaScript_ 
 | _*Solid*_ | _Solid specifications will guide us about how to implement a reliable, scalable, easy to mantain and stable software _ 
 |===
 
