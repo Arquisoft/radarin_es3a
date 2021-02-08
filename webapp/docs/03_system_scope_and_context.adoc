@@ -1,51 +1,22 @@
 [[section-system-scope-and-context]]
 
-//additional style for arc42 help callouts
-ifdef::basebackend-html[]
-++++
-<style>
-.arc42help {font-size:small; width: 14px; height: 16px; overflow: hidden; position: absolute; right: 0px; padding: 2px 0px 3px 2px;}
-.arc42help::before {content: "?";}
-.arc42help:hover {width:auto; height: auto; z-index: 100; padding: 10px;}
-.arc42help:hover::before {content: "";}
-@media print {
-	.arc42help {display:hidden;}
-}
-</style>
-++++
-endif::basebackend-html[]
-
 == System Scope and Context
 
-
-[role="arc42help"]
-****
 .Contents
-System scope and context - as the name suggests - delimits your system (i.e. your scope) from all its communication partners
-(neighboring systems and users, i.e. the context of your system). It thereby specifies the external interfaces.
-
-If necessary, differentiate the business context (domain specific inputs and outputs) from the technical context (channels, protocols, hardware).
-
+Radarin is an application that will allow users to find nearby friends, one feature that we want to remark is that stores the minimun required user data in base of the SOLID principles, the rest of the information will be requested to the user via user POD.
 .Motivation
 The domain interfaces and technical interfaces to communication partners are among your system's most critical aspects. Make sure that you completely understand them.
-
 .Form
 Various options:
 
 * Context diagrams
 * Lists of communication partners and their interfaces.
-****
 
+[role="arc42help"]
 
 === Business Context
 
-
-
 image:./images/BusinessContext.png[Business Context]
-
-
-
-
 
 [role="arc42help"]
 
