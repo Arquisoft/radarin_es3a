@@ -41,7 +41,7 @@ Various options:
 
 
 
-image:./images/LogoASW.png[Business Context]
+image:./images/BusinessContext.png[Business Context]
 
 
 
