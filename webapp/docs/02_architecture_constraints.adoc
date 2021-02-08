@@ -4,20 +4,15 @@
 
 [role="arc42help"]
 ****
-.Contents
-Any requirement that constrains software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.
 
-.Motivation
-Architects should know exactly where they are free in their design decisions and where they must adhere to constraints.
-Constraints must always be dealt with; they may be negotiable, though.
-
-.Form
+Technical constraints
 |===
 |Constraint|Description
 | _React_ | _For the front-end develop, we will use React, it will aloow us to create complexes UI using JavaScript_ 
 | _Solid_ | _Solid specifications will guide us about how to implement a reliable, scalable, easy to mantain and stable software _ 
 |===
 
+Organizativa constraints
 |===
 |Constraint|Description
 | _Time limit_ | _The project will be released by the end of May 2021_
