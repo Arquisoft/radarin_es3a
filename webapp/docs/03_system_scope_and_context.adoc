@@ -41,10 +41,9 @@ Various options:
 
 
 
-image:BusinessContext.png[Business Context]
+image:./images/LogoASW.png[Business Context]
 
-:toc: left
-:imagesdir: ./images
+
 
 
 
