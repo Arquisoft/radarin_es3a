@@ -5,7 +5,7 @@
 [role="arc42help"]
 ****
 
-==Technical constraints
+*Technical constraints*
 |===
 |Constraint|Description
 | _React_ | _For the front-end develop, we will use React, it will aloow us to create complexes UI using JavaScript_ 
