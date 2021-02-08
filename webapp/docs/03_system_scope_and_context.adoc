@@ -4,13 +4,7 @@
 
 .Contents
 Radarin is an application that will allow users to find nearby friends, one feature that we want to remark is that stores the minimun required user data in base of the SOLID principles, the rest of the information will be requested to the user via user POD.
-.Motivation
-The domain interfaces and technical interfaces to communication partners are among your system's most critical aspects. Make sure that you completely understand them.
-.Form
-Various options:
 
-* Context diagrams
-* Lists of communication partners and their interfaces.
 
 [role="arc42help"]
 
@@ -20,42 +14,40 @@ image:./images/BusinessContext.png[Business Context]
 
 [role="arc42help"]
 
-****
-.Contents
-Specification of *all* communication partners (users, IT-systems, ...) with explanations of domain specific inputs and outputs or interfaces.
-Optionally you can add domain specific formats or communication protocols.
-
-.Motivation
-All stakeholders should understand which data are exchanged with the environment of the system.
-
-.Form
-All kinds of diagrams that show the system as a black box and specify the domain interfaces to communication partners.
-
-Alternatively (or additionally) you can use a table.
-The title of the table is the name of your system, the three columns contain the name of the communication partner, the inputs, and the outputs.
-****
 
 **<Diagram or Table>**
+
+[options="header",cols="1,2"]
+|===
+|Stakeholder|Motivation
+| _User_ | _Any user should be able to send his location and receive the location of the nearby friends_ 
+| _Server Web Radarin_ | _Processes the information given by the users, consults the user POD and retrieves the information from the google API_ 
+| _POD_ | _The data of any usser should be properly protected with a Solid Server with POD_ 
+| _Google API_ | _The application should be able to communicate with the google maps API_ 
+|===
 
 **<optionally: Explanation of external domain interfaces>**
 
 === Technical Context
 
+
+image:./images/TechnicalContext.png[Business Context]
+
+_This is a temporal table and has been made by en2a group on 2019-2020 course_
+
 [role="arc42help"]
-****
-.Contents
-Technical interfaces (channels and transmission media) linking your system to its environment. In addition a mapping of domain specific input/output to the channels, i.e. an explanation with I/O uses which channel.
 
-.Motivation
-Many stakeholders make architectural decision based on the technical interfaces between the system and its context. Especially infrastructure or hardware designers decide these technical interfaces.
-
-.Form
-E.g. UML deployment diagram describing channels to neighboring systems,
-together with a mapping table showing the relationships between channels and input/output.
-
-****
 
 **<Diagram or Table>**
+
+[options="header",cols="1,2"]
+|===
+|...|...
+| _..._ | _..._ 
+| _..._ | _..._ 
+| _..._ | _..._ 
+|===
+
 
 **<optionally: Explanation of technical interfaces>**
 
