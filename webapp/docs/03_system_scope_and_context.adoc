@@ -23,10 +23,8 @@ Various options:
 
 === Business Context
 
-= image:Business Context.png[arc42] Radarin 0
-// toc-title definition MUST follow document title without blank line!
+= image:BusinessContext.png
 :toc: left
-:toc-title: Table of Contents
 :imagesdir: ./images
 
 [role="arc42help"]
