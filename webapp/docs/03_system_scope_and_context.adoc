@@ -23,7 +23,7 @@ Various options:
 
 === Business Context
 
-= image: BusinessContext.png
+= image: LogoASW.png
 :toc: left
 :imagesdir: ./images
 
