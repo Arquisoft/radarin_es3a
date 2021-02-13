@@ -3,7 +3,6 @@
 
 
 [role="arc42help"]
-****
 
 .*Technical constraints*
 |===
@@ -20,5 +19,4 @@
 | *_Version control_* | _The project will be managed using git, by creating issues that will be assign to a team component who will do it_
 |===
 
-****
  
