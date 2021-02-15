@@ -3,7 +3,7 @@
 
 
 [role="arc42help"]
-
+[options="header",cols="1,2"]
 .*Technical constraints*
 |===
 |*Constraint*|*Description*
@@ -11,6 +11,8 @@
 | *_Solid_* | _Solid specifications will guide us about how to implement a reliable, scalable, easy to mantain and stable software_ 
 |===
 
+
+[options="header",cols="1,2"]
 .*Organizative constraints*
 |===
 |*Constraint*|*Description*
