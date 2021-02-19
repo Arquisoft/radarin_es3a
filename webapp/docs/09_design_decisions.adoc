@@ -1,6 +1,9 @@
 [[section-design-decisions]]
 == Design Decisions
 
+ - The application will have a log in screen, that will ask for the WebID to connect to the user's Pod.
+ - The application will show the user a map with all connected friends geolocated, upon exiting log in, with no further action taken. (Shall be re-redacted)
+ 
 
 [role="arc42help"]
 ****
