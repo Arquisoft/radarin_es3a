@@ -2,6 +2,20 @@
 == Risks and Technical Debts
 
 
+
+
+|===
+|Risk|Explanation|Solution
+| Docker | _ Very low knoledge _ 
+| SOLID | _  _ 
+| POD | _  _ 
+| REACT | _ Conocimiento pobre _ 
+| Google API | _  _ 
+|===
+
+
+
+
 [role="arc42help"]
 ****
 .Contents

@@ -15,10 +15,7 @@ The user sends his location to the web service, this service requests the necesa
 
 image:./images/BusinessContext.png[Business Context]
 
-[role="arc42help"]
 
-
-**<Diagram or Table>**
 
 [options="header",cols="1,2"]
 |===
