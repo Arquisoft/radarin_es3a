@@ -2,16 +2,43 @@
 == Risks and Technical Debts
 
 
-[role="arc42help"]
-****
-.Contents
-A list of identified technical risks or technical debts, ordered by priority
 
-.Motivation
-“Risk management is project management for grown-ups” (Tim Lister, Atlantic Systems Guild.) 
 
-This should be your motto for systematic detection and evaluation of risks and technical debts in the architecture, which will be needed by management stakeholders (e.g. project managers, product owners) as part of the overall risk analysis and measurement planning.
 
-.Form
-List of risks and/or technical debts, probably including suggested measures to minimize, mitigate or avoid risks or reduce technical debts.
-****
+.Risks Table
+|=========================================================
+| Risk | Explanation | Solution 
+
+
+| SOLID
+| We have never used SOLID before, so we dont have any kind of knoledge about it.
+| We can read the available documentation and ask for help to more veteran developers in this matter.
+
+| POD
+| The fact that this is a very new technology makes it hard to know something about it.
+| The only solution is to give it a try and use it by creating one and making different scenarios/tests with it. One very basic solution would be creating a contacts agenda with it.
+
+| REACT
+| In our team there is no one that knows about React. But we have previous knoledge about Js wich makes it easier to learn about it.
+| Trial and Error. We will have to explore the technology by directly using it to develop this application.
+
+| Docker
+| We dont need to know very much about it because is more important to focus our work into the other materials. Nevertheless we think is important to establish the very basics anyway.
+| We need to learn the basic commands and operations of this platform to properly work with it.
+
+| Git
+| We have 
+| We need to learn the basic commands and operations of this platform to properly work with it.
+
+
+|=========================================================
+
+
+.Technical Debts Table
+|=========================================================
+| Technical Debt | Explanation 
+
+|None|As long as the proyect is not started we will not have Technical Debts.
+
+|=========================================================
+
