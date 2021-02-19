@@ -3,6 +3,10 @@
 
 == Building Block View
 
+
+image:./images/BuildingBlockDiagram.png[Building Block]
+
+
 [role="arc42help"]
 ****
 .Content
