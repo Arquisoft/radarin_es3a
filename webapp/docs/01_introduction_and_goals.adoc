@@ -10,6 +10,8 @@ Describes the relevant requirements and the driving forces that software archite
 * relevant stakeholders and their expectations
 ****
 
+This project aims to develop a mobile radar, that allows any user to track the location of other added users to the system. The system can be accesed via website.
+
 === Requirements Overview
 
 [role="arc42help"]
@@ -29,6 +31,15 @@ If requirements documents exist this overview should refer to these documents.
 
 Keep these excerpts as short as possible. Balance readability of this document with potential redundancy w.r.t to requirements documents.
 ****
+We are to develop a mobile and web application for the localization of different ussers in the system.
+
+The functionality that the application will provide:
+
+. Registration in the system.
+
+. Adding of other ussers.
+
+. Localization of added ussers.
 
 === Quality Goals
 
@@ -44,6 +55,14 @@ If you as an architect do not know how the quality of your work will be judged â
 .Form
 A table with quality goals and concrete scenarios, ordered by priorities
 ****
+[options="header",cols="1,2"]
+|===
+|Quality goal|Motivation
+| _Understandability_ | _Any user should be able to easily understand and comprehend the functionality and ussage_ 
+| _Attractiveness_ | _The user interface should be attractive to pottential ussers_ 
+| _Security_ | _The data of any usser should be properly protected_ 
+| _Testability_ | _The application should be able to go through different test_ 
+|===
 
 === Stakeholders
 
@@ -67,9 +86,10 @@ These stakeholders determine the extent and the level of detail of your work and
 Table with role names, person names, and their expectations with respect to the architecture and its documentation.
 ****
 
-[options="header",cols="1,2,2"]
+[options="header",cols="1,2"]
 |===
-|Role/Name|Contact|Expectations
-| _<Role-1>_ | _<Contact-1>_ | _<Expectation-1>_
-| _<Role-2>_ | _<Contact-2>_ | _<Expectation-2>_
+|Role/Name|Expectations
+| _Clients_ | _Those who asked for the development of the project. They expect a fully functional application allowing for the usage of the radar._
+| _Development team_ | _Those in charge of developing the application, expecting to learn about new technologies._
+| _Users_ | _Those who will use the application. They will expect a simple to understand interface and the least ammount of complications._
 |===

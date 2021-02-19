@@ -11,7 +11,7 @@
 
 
 | SOLID
-| We have never used SOLID before, so we dont have any kind of knoledge about it.
+| We have never used SOLID before, so we dont have any kind of knowledge about it.
 | We can read the available documentation and ask for help to more veteran developers in this matter.
 
 | POD
@@ -19,7 +19,7 @@
 | The only solution is to give it a try and use it by creating one and making different scenarios/tests with it. One very basic solution would be creating a contacts agenda with it.
 
 | REACT
-| In our team there is no one that knows about React. But we have previous knoledge about Js wich makes it easier to learn about it.
+| In our team there is no one that knows about React. But we have previous knowledge about Js wich makes it easier to learn about it.
 | Trial and Error. We will have to explore the technology by directly using it to develop this application.
 
 | Docker
@@ -27,9 +27,8 @@
 | We need to learn the basic commands and operations of this platform to properly work with it.
 
 | Git
-| We have 
-| We need to learn the basic commands and operations of this platform to properly work with it.
-
+| We have some flaws with the basic command knowledge.
+| This is not a major problem because we have a lot of documentation of how to use git, also we have previous knowledge acquired throughout the past years.
 
 |=========================================================
 
