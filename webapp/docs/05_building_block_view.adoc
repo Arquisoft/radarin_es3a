@@ -3,8 +3,11 @@
 
 == Building Block View
 
+This diagram represents the main abstract structure of the application.
 
 image:./images/BuildingBlockDiagram.png[Building Block]
+
+
 
 
 [role="arc42help"]
@@ -38,7 +41,61 @@ Thus it contains the white box description of selected building blocks of level 
 *Level 3* zooms into selected building blocks of level 2, and so on.
 ****
 
-=== Whitebox Overall System
+=== Whitebox Overall System  (Level 1)
+
+===== Motivation
+
+This shows a basic structure of the system application. The locations uf the users are stored on their own PODs, only the essential information is stored on the application.
+
+
+===== Contained Building Blocks
+|=========================================================
+| **Name** | **Responsibility**
+
+| Radarin
+| The Application that the user interacts with. This represents the whole estructure of the main product.
+
+| POD
+| Data stored securely with the purpouse of creating a value to the user. This is needed to implement the Solid principles. 
+
+|=========================================================
+
+
+=== Level 2
+
+===== Motivation
+ 
+This level represents the basic view of the application, in other words, the esential components of the application.
+
+===== Contained Building Blocks
+
+[cols="1,2" options="header"]
+|===
+| **Name** | **Responsibility**
+| App | Set of the diferents modules used on the development of the application.
+| Modules | Stands for the npm modules installed in the project and our dependencies to them.
+|===
+
+
+=== Level 3
+
+==== App
+
+===== Motivation
+
+Representation of the main blocks of the application for structuring the diferent parts of it. All of them are used in diferent objectives, every one of them will specialize in one part of the core application.
+
+===== Contained Building Blocks
+
+[cols="1,2" options="header"]
+|===
+| **Name** | **Responsibility**
+| Internationalization | This will make the application more friendly with different kind of users.
+| Controllers | This will communicate the user with the application.
+| Services | This will controll the logic of the aplication.
+| Entities | This will be the classes generated to give persistency to the application.
+|===
+
 
 [role="arc42help"]
 ****

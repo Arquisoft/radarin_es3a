@@ -7,18 +7,32 @@
 
 image:./images/StarUML_DomainModel.png[Domain model]
 
+=== User Experience concepts (UX)
+
+
+
+
+=== Safety and security
+
+
+
+=== Testability
+
+
+
+=== Performance
+
+
+
+
+=== Architecture and design patterns
+
+
+
+
+
+=== Internacionalization
 
 
 
 image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscutting concepts"]
-****
-
-=== _<Concept 2>_
-
-_<explanation>_
-
-...
-
-=== _<Concept n>_
-
-_<explanation>_
