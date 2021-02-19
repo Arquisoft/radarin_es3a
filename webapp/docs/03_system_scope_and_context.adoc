@@ -18,9 +18,7 @@ image:./images/BusinessContext.png[Business Context]
 [role="arc42help"]
 
 
-**<Diagram or Table>**
 
-[options="header",cols="1,2"]
 |===
 |Stakeholder|Motivation
 | _User_ | _Any user should be able to send his location and receive the location of the nearby friends_ 
