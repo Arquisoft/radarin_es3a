@@ -30,13 +30,75 @@ There are many notations for describing scenarios, e.g.
 
 ****
 
-=== <Runtime Scenario 1>
+****
 
+=== <Sign up>
 
-* _<insert runtime diagram or textual description of the scenario>_
-* _<insert description of the notable aspects of the interactions between the
-building block instances depicted in this diagram.>_
+Any person can sign up in the application via the log in screen. Signing up comences upon touching the "Sign up" button.
 
+1. The user touches the "sign up" button.
+2. The user selects a valid pod.
+3. The user enters credentials, such as an email, a non-registrated username, and a valid password; and touches the sign up button.
+4. The application registers said user in its database.
+
+actor User
+database Pod
+User -> Radarin: Touches sign up button
+User -> Radarin: Selects Pod
+User -> Radarin: Enters credentials
+Radarin -> Pod: Requests registration
+Pod -> Radarin: Accepts registration
+Radarin -> User: Grants access to functionality
+
+****
+
+=== <Log in>
+
+A potential user may log in the application via the log in screen. Log in comences upon entering the application.
+
+1. The user enters their credentials, such as their username and password.
+2. The user touches the log in button.
+3. The application, if the log in is valid, returns the functionality of the application.
+
+actor User
+database Pod
+User -> Radarin: Enters credentials
+User -> Radarin: Touches log in button
+Radarin -> Pod: Log in request
+Pod -> Radarin: Log in response
+Radarin -> User: Shows content
+
+=== <Register friends>
+
+1. The user touches the "add a friend" button.
+2. The user enters said friend's WebID.
+3. The application sends a petition to the associated Pod.
+4. Said Pod sends back a confirmation.
+5. The user is shown the new friend in their friends list.
+
+actor User
+database FriendPod
+User -> Radarin: Touches the add a friend button
+User -> Radarin: Enters a friend's WebID
+Radarin -> FriendPod: Sends petition
+FriendPod -> Radarin: Sends confirmation
+Radarin -> User: Shows updated friend list
+
+=== <Geolocate friends>
+
+1. The user access the application.
+2. The application request the localization of added friends in the friend list.
+3. Connected friends send back the localization.
+4. The application shows the user a map with the localization of said friends.
+
+actor User
+database FriendsPods
+User -> Radarin: Access application
+Radarin -> FriendsPods: Request localization
+FriendsPods -> Radarin: Provides localization
+Radarin -> User: Shows friends location
+
+****
 It is possible to use a sequence diagram:
 
 [plantuml,"Sequence diagram",png]
@@ -55,3 +117,24 @@ Alice <-- Bob: another authentication Response
 === ...
 
 === <Runtime Scenario n>
+
+Posibles casos de uso:
+ - Registrar a un amigo**
+ - Geolocalizar amigos conectados**
+ - Hackear el Gobierno de los E.E.U.U.
+ - Cambiar estado acerca de tu ubicación*+
+ - #teamLineaContinua
+ - Raúl alcanza el Nirvhana
+ - Paso 7:Beneficios
+ - ?
+ - STONKS
+ - Este es un chiste muy SOLIDo (perdón)
+ - Está en un estado aceptable
+ - No pude REACTcionar
+ - Node.js cómo parar de hacer esto
+ - Hay chistes por Docker
+ - "Mecagon la puta, tío" -- Juan
+ - Raúl alcanza el Nirvhana inverso
+ - Big brain time
+
+****
