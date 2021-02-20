@@ -5,7 +5,7 @@
 [role="arc42help"]
 ****
 
-=== Backend
+= Backend
 
 .Solid-file-client:
 We will use this library to interchange information from POD and github. It works with json archives.
@@ -15,7 +15,7 @@ Those libraries are the pods itself, where we will save some of the critical inf
 .Solid:
 It will be the core of the backend, everything will be managed using the SOLID principles.
 
-=== Frontend
+== Frontend
 .React-bootstrap:
 We will use this technology to make the designs, the UI.
 
