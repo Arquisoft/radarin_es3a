@@ -1,11 +1,11 @@
 [[section-solution-strategy]]
-== Solution Strategy
+= Solution Strategy
 
 
 [role="arc42help"]
 ****
 
-= Backend
+== Backend
 
 .Solid-file-client:
 We will use this library to interchange information from POD and github. It works with json archives.
@@ -15,7 +15,7 @@ Those libraries are the pods itself, where we will save some of the critical inf
 .Solid:
 It will be the core of the backend, everything will be managed using the SOLID principles.
 
-== Frontend
+=== Frontend
 
 .React-bootstrap:
 We will use this technology to make the designs, the UI.
@@ -23,7 +23,7 @@ We will use this technology to make the designs, the UI.
 .GoogleMapsAPI:
 This API will simplify a lot the location and ubication requirements of the project.
 
-=== Developer Tools
+==== Developer Tools
 .Github managers:
 To simplify the usage of the github platform and avoid possible problems. Some people of the team use the native solution from github, github desktop, and some others use GitKraken, a third-party alternative
 
