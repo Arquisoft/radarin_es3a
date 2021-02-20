@@ -4,6 +4,9 @@
 == Deployment View
 
 [role="arc42help"]
+
+image:./images/deploymentDiagram.png[Domain model]
+
 ****
 .Content
 The deployment view describes:
