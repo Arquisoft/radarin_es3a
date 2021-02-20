@@ -16,6 +16,7 @@ Those libraries are the pods itself, where we will save some of the critical inf
 It will be the core of the backend, everything will be managed using the SOLID principles.
 
 == Frontend
+
 .React-bootstrap:
 We will use this technology to make the designs, the UI.
 
