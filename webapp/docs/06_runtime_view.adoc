@@ -30,8 +30,8 @@ There are many notations for describing scenarios, e.g.
 
 ****
 
+[role="arc42help"]
 ****
-
 === <Sign up>
 
 Any person can sign up in the application via the log in screen. Signing up comences upon touching the "Sign up" button.
@@ -52,7 +52,7 @@ Radarin -> User: Grants access to functionality
 
 ****
 
-=== <Log in>
+=== Log in
 
 A potential user may log in the application via the log in screen. Log in comences upon entering the application.
 
@@ -60,6 +60,8 @@ A potential user may log in the application via the log in screen. Log in comenc
 2. The user touches the log in button.
 3. The application, if the log in is valid, returns the functionality of the application.
 
+[plantuml,"Log in diagram",png]
+----
 actor User
 database Pod
 User -> Radarin: Enters credentials
@@ -67,8 +69,9 @@ User -> Radarin: Touches log in button
 Radarin -> Pod: Log in request
 Pod -> Radarin: Log in response
 Radarin -> User: Shows content
+----
 
-=== <Register friends>
+=== Register friends
 
 1. The user touches the "add a friend" button.
 2. The user enters said friend's WebID.
@@ -76,6 +79,8 @@ Radarin -> User: Shows content
 4. Said Pod sends back a confirmation.
 5. The user is shown the new friend in their friends list.
 
+[plantuml,"Register friends diagram",png]
+----
 actor User
 database FriendPod
 User -> Radarin: Touches the add a friend button
@@ -83,25 +88,31 @@ User -> Radarin: Enters a friend's WebID
 Radarin -> FriendPod: Sends petition
 FriendPod -> Radarin: Sends confirmation
 Radarin -> User: Shows updated friend list
+----
 
-=== <Geolocate friends>
+=== Geolocate friends
 
 1. The user access the application.
 2. The application request the localization of added friends in the friend list.
 3. Connected friends send back the localization.
 4. The application shows the user a map with the localization of said friends.
 
+[plantuml,"Geolocate friends diagram",png]
+----
 actor User
 database FriendsPods
 User -> Radarin: Access application
 Radarin -> FriendsPods: Request localization
 FriendsPods -> Radarin: Provides localization
 Radarin -> User: Shows friends location
+----
 
+[role="arc42help"]
 ****
 Pulsar boton actualizar localizacion
 ****
 
+[role="arc42help"]
 ****
 It is possible to use a sequence diagram:
 
