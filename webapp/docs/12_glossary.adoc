@@ -26,6 +26,8 @@ Potentially more columns in case you need translations.
 [options="header"]
 |===
 | Term         | Definition
-| <Term-1>     | <definition-1>
-| <Term-2>     | <definition-2>
+| Solid (Project)    | Technology that allows for storage of personal data in decentralized repositories
+| Pod     | Personal respository in which a user storage their data individually
+| React.js     | Javascript library designed around bulding user interfaces for web applications
+| Docker     | Virtualization system that allows any developer to work with a common set of characteristics
 |===
