@@ -133,11 +133,11 @@ Posibles casos de uso:
  - ?
  - STONKS
  - Este es un chiste muy SOLIDo (perdon)
- - Está en un estado aceptable
+ - Esto en un estado aceptable
  - No pude REACTcionar
- - Node.js como parar de hacer esto
+ - Node.js cmo parar de hacer esto
  - Hay chistes por Docker
- - "Mecagon la puta, tio" -- Juan
+ - "Mecagon la puta, to" -- Juan
  - Raul alcanza el Nirvhana inverso
  - Big brain time
 
