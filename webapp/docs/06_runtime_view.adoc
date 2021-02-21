@@ -122,19 +122,19 @@ Posibles casos de uso:
  - Registrar a un amigo**
  - Geolocalizar amigos conectados**
  - Hackear el Gobierno de los E.E.U.U.
- - Cambiar estado acerca de tu ubicación*+
+ - Cambiar estado acerca de tu ubicacion*+
  - #teamLineaContinua
- - Raúl alcanza el Nirvhana
+ - Raul alcanza el Nirvhana
  - Paso 7:Beneficios
  - ?
  - STONKS
- - Este es un chiste muy SOLIDo (perdón)
- - Está en un estado aceptable
+ - Este es un chiste muy SOLIDo (perdon)
+ - Esto en un estado aceptable
  - No pude REACTcionar
- - Node.js cómo parar de hacer esto
+ - Node.js cmo parar de hacer esto
  - Hay chistes por Docker
- - "Mecagon la puta, tío" -- Juan
- - Raúl alcanza el Nirvhana inverso
+ - "Mecagon la puta, to" -- Juan
+ - Raul alcanza el Nirvhana inverso
  - Big brain time
 
 ****
