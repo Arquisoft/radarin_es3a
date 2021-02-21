@@ -1,9 +1,28 @@
 [[section-design-decisions]]
 == Design Decisions
 
- - The application will have a log in screen, that will ask for the WebID to connect to the user's Pod.
- - The application will show the user a map with all connected friends geolocated, upon exiting log in, with no further action taken. (Shall be re-redacted)
+ === Access  
+ The application will have a log in screen that will ask for the WebID to connect to the user's Pod. This is based in the fact that it will not use a typical credential system based on username and password, as it will make use of the Solid arquetype.
+ This method will allow for more personal privacy, though it requires the user to have a personal Pod.
  
+ === Framework
+ The application will be created making use of React.js, as it will allow for a better construction of the user interface. 
+ Additionally, as React.js is designed so it can work with dynamic data, and given that our application will be always taking continous input on geolocalization, it presents a formidable advantage in terms of data management.
+ Moreover, React.js' syntax is similar to that of HTML, with which our team is used to work.
+ 
+ === Data storage
+ Given the project is to be created following the Solid arquetype, our main data storage system will be based upon the Solid Pods. 
+ 
+ === Geolocalization 
+ As it would be costly for the overall performance, it has been decided that the geolocalization information will be storaged only at time intervals, overwriting previous data for a given user. Other users will be able to access the localization last storaged. This will be complemented with the option for any given user to manually update their localization.
+ Any user will also be able to turn off the geolocalization system in any moment they want, preventing the application to storage any more data until the user decides so.
+ 
+ ****
+ === The application will show the user a map with all connected friends geolocated, upon exiting log in, with no further action taken. (Shall be re-redacted)
+ === Botones de permisos de localizacion/estar compartiendo localizacion o no (si no se comparte ubicacion, no se puede ver la del resto)
+ === Compartir informacion de localizacvion cada X tiempo; localizacion nueva superpone en el Pod a la antigua
+ === Debatir interfaz grafica (a tener en cuenta si va aqui o no)
+ ****
 
 [role="arc42help"]
 ****
