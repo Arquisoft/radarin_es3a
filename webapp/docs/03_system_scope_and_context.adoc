@@ -9,7 +9,7 @@ The user sends his location to the web service, this service requests the necesa
 
 
 
-[role="arc42help"]
+
 
 === Business Context
 
