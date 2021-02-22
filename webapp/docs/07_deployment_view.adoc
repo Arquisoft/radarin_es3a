@@ -14,9 +14,13 @@ The aim of this project is to allow people to locate themselves with their frien
 As it is shown in the diagram at the beginning of the section the main parts of the project will be:
 
 *The user's device
+
 *The web server, where the app really runs
+
 *The application itself
+
 *The POD server
+
 *The user's PODs
 
 ****
