@@ -41,7 +41,8 @@ This level represents the basic view of the application, in other words, the ese
 [cols="1,2" options="header"]
 |===
 | **Name** | **Responsibility**
-| App | Set of the diferents modules used on the development of the application.
+| Web Service | This is the representation of the application on the web.
+| Aplication | Set of the diferents modules used on the development of the application.
 | Modules | Stands for the npm modules installed in the project and our dependencies to them.
 |===
 
