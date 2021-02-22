@@ -8,7 +8,7 @@
 We will use this library to interchange information from POD and github. It works with json archives.
 
 .Inrupt-javascript-libraries:
-Those libraries are the pods itself, where we will save some of the critical info of the users
+The libraries for the usage of the PODs, it is the union between the solid code and the POD storage.
 .Solid:
 It will be the core of the backend, everything will be managed using the SOLID principles.
 
