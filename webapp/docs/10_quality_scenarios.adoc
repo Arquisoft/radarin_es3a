@@ -12,7 +12,6 @@ This section contains all quality requirements as quality tree with scenarios, d
 
 === Quality Tree
 
-[role="arc42help"]
 ****
 image:./images/10_QualityTree.png["Quality Tree"]
 ****
@@ -20,7 +19,6 @@ image:./images/10_QualityTree.png["Quality Tree"]
 === Quality Scenarios
 
 ****
-[role="arc42help"]
 [options="header",cols="1,2,3"]
 |===
 |*Attribute*|*Scenario*|*Priority*
