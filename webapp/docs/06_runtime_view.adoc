@@ -37,17 +37,17 @@ Radarin -> User: Shows content
 ----
 actor User1
 actor User2
-User1 -> User1 Application: Touches the add a friend button
-User1 -> User1 Application: Enters a friend's WebID
-User1 Application --> User2Pod: Sends petition
-User2Pod -> User2 Application: Notifies petition
-User2 Application --> User2: Wait for confirmation
-User2 -> User2 Application: Touches the accept request button
-User2 Application -> User2Pod: Sends confirmation
+User1 -> User1Application: Touches the add a friend button
+User1 -> User1Application: Enters a friend's WebID
+User1Application --> User2Pod: Sends petition
+User2Pod -> User2Application: Notifies petition
+User2Application --> User2: Wait for confirmation
+User2 -> User2Application: Touches the accept request button
+User2Application -> User2Pod: Sends confirmation
 User2Pod -> User2Pod: Register User1 as friend
-User2Pod -> User1 Application: Sends confirmation
-User1 Application -> User1Pod: Sends confirmation
-User1 Application -> User1: Notifies confirmation
+User2Pod -> User1Application: Sends confirmation
+User1Application -> User1Pod: Sends confirmation
+User1Application -> User1: Notifies confirmation
 ----
 
 === Geolocate friends
