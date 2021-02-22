@@ -11,7 +11,7 @@
 
 
 | SOLID
-| We have never used SOLID before, so we dont have any kind of knowledge about it.
+| We have never used SOLID before, so we dont have any kind of knowledge about it. Also SOLID is a new technology with few documentation besides it being hard to work with it.
 | We can read the available documentation and ask for help to more veteran developers in this matter.
 
 | POD
@@ -37,7 +37,8 @@
 |=========================================================
 | Technical Debt | Explanation 
 
-|None|As long as the proyect is not started we will not have Technical Debts.
+|Use React| We decided to use React because it bring us a lot of the facilities, such as a good compatibility with solid and a wide variety of documentation to about it. 
+|Use SOLID| The way we would use SOLID is using PODs bringing the user the control of their data and only storing the essential data in our data base, this data are the user nick, password and the WEBID, also we would store temporally the locations of the users till they logout the app.
 
 |=========================================================
 
