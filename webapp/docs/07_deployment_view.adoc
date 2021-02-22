@@ -1,7 +1,7 @@
 == Deployment View
 ****
 
-image:./images/07-deploymentDiagram.png[Infraestructure]
+image:07-deploymentDiagram.png[Infraestructure]
 
 The user will need his phone connected to the internet, where he can deploy the app.
 Our application, Radarin, will be hosted in github pages.
