@@ -4,20 +4,25 @@
 
 === Log in
 
-A potential user may log in the application via the log in screen. Log in comences upon entering the application.
+A potential user may log in the application via the log in screen. Log in comences upon entering the application, either in a mobile phone or a web browser.
 
 1. The user enters their credentials, such as their username and password.
 2. The user touches the log in button.
-3. The application, if the log in is valid, returns the functionality of the application.
+3. The application services check if the log in is valid.
+4. The entities send the information needed to the services.
+5. The services prepare the functionality to be given to the user.
+5. The controllers provide the user with the functionality.
 
 [plantuml,"Log in diagram",png]
 ----
 actor User
-User -> Radarin: Enters credentials
-User -> Radarin: Touches log in button
-Radarin -> Pod: Log in request
-Pod -> Radarin: Log in response
-Radarin -> User: Shows content
+User -> Controllers: Enters credentials
+User -> Controllers: Touches log in button
+Controllers -> Services: Request validation
+Services -> Entities: Check validation
+Entities --> Services: Return validation 
+Services --> Controllers: Prepare functionality
+Controllers --> User: Provide functionality
 ----
 
 === Register friends
@@ -52,18 +57,18 @@ User1Application -> User1: Notifies confirmation
 
 === Geolocate friends
 
-1. The user access the application.
-2. The application request the localization of added friends in the friend list.
-3. Connected friends send back the localization.
-4. The application shows the user a map with the localization of said friends.
+1. The user asks for the geolocalization information.
+2. The application request the geolocalization information in the Pods of added friends.
+3. Said friend's Pods send back the information.
+4. The application shows the user the information.
 
 [plantuml,"Geolocate friends diagram",png]
 ----
 actor User
-User -> Radarin: Access application
-Radarin -> FriendsPods: Request localization
-FriendsPods -> Radarin: Provides localization
-Radarin -> User: Shows friends location
+User -> Application: Request geolocalization information
+Application -> FriendsPods: Request information
+FriendsPods --> Application: Provides geolocalization data
+Application --> User: Shows locations
 ----
 
 
