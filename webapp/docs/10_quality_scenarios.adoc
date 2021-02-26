@@ -2,13 +2,7 @@
 == Quality Requirements
 
 
-[role="arc42help"]
-****
 
-.Content
-This section contains all quality requirements as quality tree with scenarios, described in section 1.2. (quality goals)
-
-****
 
 === Quality Tree
 

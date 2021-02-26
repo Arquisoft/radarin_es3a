@@ -4,54 +4,71 @@
 
 === Log in
 
-A potential user may log in the application via the log in screen. Log in comences upon entering the application.
+A potential user may log in the application via the log in screen. Log in comences upon entering the application, either in a mobile phone or a web browser.
 
 1. The user enters their credentials, such as their username and password.
 2. The user touches the log in button.
-3. The application, if the log in is valid, returns the functionality of the application.
+3. The application services check if the log in is valid.
+4. The entities send the information needed to the services.
+5. The services prepare the functionality to be given to the user.
+5. The controllers provide the user with the functionality.
 
 [plantuml,"Log in diagram",png]
 ----
 actor User
-User -> Radarin: Enters credentials
-User -> Radarin: Touches log in button
-Radarin -> Pod: Log in request
-Pod -> Radarin: Log in response
-Radarin -> User: Shows content
+User -> Controllers: Enters credentials
+User -> Controllers: Touches log in button
+Controllers -> Services: Request validation
+Services -> Entities: Check validation
+Entities --> Services: Return validation 
+Services --> Controllers: Prepare functionality
+Controllers --> User: Provide functionality
 ----
 
 === Register friends
 
-1. The user touches the "add a friend" button.
-2. The user enters said friend's WebID.
-3. The application sends a petition to the associated Pod.
-4. Said Pod sends back a confirmation.
-5. The user is shown the new friend in their friends list.
+1. User1 touches the "add a friend" button.
+2. User1 enters said friend's WebID.
+3. User1 application sends a petition to User2 Pod with the information.
+4. User2 Pod notifies User2 application.
+5. User2 application waits for confirmation on the friend request from User2.
+6. User2 touches the "accept friend request" button.
+7. User2 application sends the information to User2 Pod.
+8. User2 Pod registers User1 as a friend, and sends the confirmation to User1 application.
+9. User1 application sends the information to User1 Pod.
+10. User1 application notifies User1.
 
 [plantuml,"Register friends diagram",png]
 ----
-actor User
-User -> Radarin: Touches the add a friend button
-User -> Radarin: Enters a friend's WebID
-Radarin -> FriendPod: Sends petition
-FriendPod -> Radarin: Sends confirmation
-Radarin -> User: Shows updated friend list
+actor User1
+actor User2
+User1 -> User1Application: Touches the add a friend button
+User1 -> User1Application: Enters a friend's WebID
+User1Application --> User2Pod: Sends petition
+User2Pod -> User2Application: Notifies petition
+User2Application --> User2: Wait for confirmation
+User2 -> User2Application: Touches the accept request button
+User2Application -> User2Pod: Sends confirmation
+User2Pod -> User2Pod: Register User1 as friend
+User2Pod -> User1Application: Sends confirmation
+User1Application -> User1Pod: Sends confirmation
+User1Application -> User1: Notifies confirmation
 ----
 
 === Geolocate friends
 
-1. The user access the application.
-2. The application request the localization of added friends in the friend list.
-3. Connected friends send back the localization.
-4. The application shows the user a map with the localization of said friends.
+1. The user asks for the geolocalization information.
+2. The application request the geolocalization information in the Pods of added friends.
+3. Said friend's Pods send back the information.
+4. The application shows the user the information.
 
 [plantuml,"Geolocate friends diagram",png]
 ----
 actor User
-User -> Radarin: Access application
-Radarin -> FriendsPods: Request localization
-FriendsPods -> Radarin: Provides localization
-Radarin -> User: Shows friends location
+User -> Application: Request geolocalization information
+Application -> FriendsPods: Request information
+FriendsPods --> Application: Provides geolocalization data
+Application --> User: Shows locations
 ----
 
 
