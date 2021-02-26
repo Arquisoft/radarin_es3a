@@ -18,7 +18,7 @@ The functionality that the application will provide:
 
 === Quality Goals
 
-[options="header",cols="1,2"]
+[options="header"]
 |===
 |Quality goal|Motivation
 | _Understandability_ | _Any user should be able to easily understand and comprehend the functionality and ussage_ 
@@ -30,10 +30,11 @@ The functionality that the application will provide:
 === Stakeholders
 
 
-[options="header",cols="1,2"]
+[options="header"]
 |===
 |Role/Name|Expectations
 | _Clients_ | _Those who asked for the development of the project. They expect a fully functional application allowing for the usage of the radar._
 | _Development team_ | _Those in charge of developing the application, expecting to learn about new technologies._
-| _Users_ | _Those who will use the application. They will expect a simple to understand interface and the least ammount of complications._
+| _Users_ | _Those who will use the application. They will expect a simple to understand interface and a system capable of protecting their personal data efectibly._
+| _Solid community_ | _Community that wants developers to produce as many applications following their principles as possible, in order to progress and improve their project._
 |===
