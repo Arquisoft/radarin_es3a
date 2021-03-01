@@ -29,6 +29,7 @@ The functionality that the application will provide:
 
 === Stakeholders
 
+image::01_ContextDiagram.png[Context Context]
 
 [options="header"]
 |===
