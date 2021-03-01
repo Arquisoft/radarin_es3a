@@ -22,5 +22,6 @@ image:10_QualityTree.png["Quality Tree"]
 | *_Usability_* | The application must be easy to use | Medium
 | *_Testability_* | Unit tests, acceptance tests and load tests | Medium
 | *_Portability_* | The application can be used in PC or mobile device | Low
+| *_Internationalization_* | The application will be available in more than one language | Low
 |===
 ****
