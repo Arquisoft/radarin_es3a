@@ -3,12 +3,28 @@ import './App.css';
 import LogoR from './LogoR.svg';
 import Welcome from './components/Welcome';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { fetchProfile } from "./services/fetchProfile";
 
 import {LoggedIn, LoggedOut,Value, Image, List} from '@solid/react';
 import MapContainer from './components/MapContainer';
 import PopUpPod from './components/PopUpPod';
 
 export default function App() {
+class App extends React.Component{
+  constructor(){
+    super()
+    this.state = {users:[]}
+    //Console.log("aa");
+
+    this.profile = fetchProfile();
+  }
+
+
+  refreshUsers(users){
+    this.setState({users:users})
+  }
+
+  render(){
     return(
       <div>
       <header className="App-header">
