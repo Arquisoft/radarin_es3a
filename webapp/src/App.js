@@ -5,13 +5,17 @@ import Welcome from './components/Welcome';
 import EmailForm from "./components/EmailForm";
 import UserList from "./components/UserList";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { fetchProfile } from "./services/fetchProfile";
 
 class App extends React.Component{
   constructor(){
     super()
     this.state = {users:[]}
     //Console.log("aa");
+
+    this.profile = fetchProfile();
   }
+
 
   refreshUsers(users){
     this.setState({users:users})

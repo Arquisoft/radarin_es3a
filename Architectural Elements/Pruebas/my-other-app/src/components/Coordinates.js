@@ -25,7 +25,7 @@ export function Coordinates () {
     setFormContent('');
   }
 
-  async function deleteNote(note) {
+  /* async function deleteNote(note) {
     const notesDocument = updatedNotesList || notesList;
     if (!notesDocument) {
       return;
@@ -34,7 +34,7 @@ export function Coordinates () {
     notesDocument.removeSubject(note.asRef());
     const updatedDoc = await notesDocument.save();
     setUpdatedNotesList(updatedDoc);
-  }
+  } */
 
 
   const noteElements = notes.map((note) => (
