@@ -29,7 +29,7 @@ class EmailForm extends React.Component{
       if (response.error)
         this.setState({welcomeMsg:response.error})
       else if (response.name===this.state.username)
-        this.setState({welcomeMsg:"Welcome to ASW"})
+        this.setState({welcomeMsg:"Welcome ASW"})
       else
         this.setState({welcomeMsg:"Unexpected error, maybe the restapi is still sleeping..."})
       //Refresh the users
