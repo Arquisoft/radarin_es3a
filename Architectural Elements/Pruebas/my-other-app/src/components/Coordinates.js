@@ -18,10 +18,24 @@ export function Coordinates () {
     if (!notesList) {
       return;
     }
+
+    // deleteNote(notesList);
     const updatedDoc = await updateCoordinate(formContent, notesList);
     setUpdatedNotesList(updatedDoc);
     setFormContent('');
   }
+
+  async function deleteNote(note) {
+    const notesDocument = updatedNotesList || notesList;
+    if (!notesDocument) {
+      return;
+    }
+
+    notesDocument.removeSubject(note.asRef());
+    const updatedDoc = await notesDocument.save();
+    setUpdatedNotesList(updatedDoc);
+  }
+
 
   const noteElements = notes.map((note) => (
     <article key={note.asRef()} className="card content">
@@ -48,7 +62,7 @@ export function Coordinates () {
           </div>
           <div className="field">
             <div className="control">
-              <button type="submit" className="button is-primary">Add note</button>
+              <button type="submit" className="button is-primary">Add coordinate</button>
             </div>
           </div>
         </form>
