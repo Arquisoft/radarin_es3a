@@ -8,9 +8,12 @@ import  PopUpPod  from './components/PopUpPod';
 
 import { createDocument, fetchDocument } from 'tripledoc';
 import { space, rdf, foaf, solid, schema } from 'rdf-namespaces';
+import  Map  from './components/Map';
+import credentials from './credentials';
 
 import auth from 'solid-auth-client';
 
+const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${credentials.mapsKey}`;
 
 
 async function getName(webId) {
@@ -68,34 +71,31 @@ var b = getNotesList(a);
 
 export default function App() {
   return (
-    <React.StrictMode>
-
-    <LoggedOut>
-      <div>
-          {/* <LoginButton popup="./popup.html"/> */}
-          <p>Please, log in your Pod.</p>
-          <PopUpPod/>
-      </div>
-    </LoggedOut>
-
-    <LoggedIn>
-      <p>Welcome, <Value src="user.name"/>.</p>
-      <h2>Friends</h2>
-      {/*
-      <ul>
-        {elements.map((value, index) => {
-          return <li key={index}>{value}</li>
-          
-        })}
-      </ul>
-      */}
-      <List src="user.friends"/>
-
-      <p>Prueba: {useWebId() + "/algo"}</p>
-      <p>Prueba2: {b.toString()}</p>
-      <p>Prueba3: {a.toString()}</p>
-    </LoggedIn>
-
-    </React.StrictMode>
+    <div>
+      <header>
+        <h1>Prueba 1 / React-Solid
+        </h1>
+      </header>
+      <main>
+        <LoggedIn>
+          <p>Welcome back, <Value src="user.name"/>.</p>
+          {/*<Image src="user.image" defaultSrc="logo192.png" className="pic"/>*/}
+          <p> <Value src="user.email"/>.</p>
+          <h2>Friends</h2>
+          <List src="user.friends.firstName"/>
+          <Dashboard/>
+          <Map 
+          googleMapURL= {mapURL}
+          containerElement= {<div style={{height: '50vh'}}/>}
+          mapElement= {<div style={{height:'100vh'}}/>}
+          loadingElement={<p>Cargando</p>}/>
+        </LoggedIn>
+        <LoggedOut>
+            <p>You are logged out.</p>
+        </LoggedOut>
+      </main>
+      <footer>
+      </footer>
+    </div>
   );
 }

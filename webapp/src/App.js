@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
-import logo from './logo.svg';
+import LogoR from './LogoR.svg';
 import Welcome from './components/Welcome';
-import EmailForm from "./components/EmailForm";
-import UserList from "./components/UserList";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchProfile } from "./services/fetchProfile";
 import { space } from 'rdf-namespaces';
+import {LoggedIn, LoggedOut,Value, Image, List} from '@solid/react';
+import MapContainer from './components/MapContainer';
+import PopUpPod from './components/PopUpPod';
+
 
 class App extends React.Component{
   constructor(){
@@ -24,22 +26,35 @@ class App extends React.Component{
   }
 
   render(){
+
     return(
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
+      <div>
+      <header className="App-header">
+          <img src={LogoR} className="App-logo" alt="LogoR"/>
           <Welcome name="ASW students"/>
         </header>
-        <div className="App-content">
-          <EmailForm refreshUsers={this.refreshUsers.bind(this)}/>
-          <UserList users={this.state.users}/>
-          <a className="App-link"
+      <main>
+        <LoggedIn>
+          <p>Welcome back, <Value src="user.name"/>.</p>
+          <Image src="user.image" defaultSrc="logo192.png" className="pic"/>
+          <p> <Value src="user.email"/>.</p>
+          <h2>Friends</h2>
+          <List src="user.friends"/>
+          <MapContainer/>
+        </LoggedIn>
+        <LoggedOut>
+            <PopUpPod/>
+            <p>You are logged out.</p>
+        </LoggedOut>
+      </main>
+      <footer>
+      <a className="App-link"
             href="https://github.com/pglez82/radarin_0"
             target="_blank"
             rel="noopener noreferrer">Source code</a>
-        </div>
-      </div>
-    )
+      </footer>
+    </div>
+    );
   }
 }
 
