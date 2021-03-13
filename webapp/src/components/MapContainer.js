@@ -35,7 +35,7 @@ var options = {
           },
         },
         {
-          name: "Mi localizacion",
+          name: "Mi local2",
           location: { 
             lat: 0,
             lng: 0 
@@ -44,7 +44,7 @@ var options = {
       ];
   
   const mapStyles = {        
-    height: "50vh",
+    height: "90vh",
     width: "100%"};
   
   const defaultCenter = {
