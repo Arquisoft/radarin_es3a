@@ -6,6 +6,7 @@ import EmailForm from "./components/EmailForm";
 import UserList from "./components/UserList";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchProfile } from "./services/fetchProfile";
+import { space } from 'rdf-namespaces';
 
 class App extends React.Component{
   constructor(){
@@ -16,6 +17,7 @@ class App extends React.Component{
     this.profile = fetchProfile();
   }
 
+  
 
   refreshUsers(users){
     this.setState({users:users})
