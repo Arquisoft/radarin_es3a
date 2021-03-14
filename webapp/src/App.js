@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {LoggedIn, LoggedOut,Value, Image, List} from '@solid/react';
 import MapContainer from './components/MapContainer';
 import PopUpPod from './components/PopUpPod';
+import UsersLocation from './components/UsersLocation';
 
 export default function App() {
     return(
@@ -22,6 +23,7 @@ export default function App() {
           <p> <Value src="user.email"/>.</p>
           <h2>Friends</h2>
           <List src="user.friends"/>
+          <UsersLocation/>
           <MapContainer/>
         </LoggedIn>
         <LoggedOut>
