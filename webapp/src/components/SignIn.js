@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import { LoggedIn, LoggedOut, LogoutButton, LoginButton } from '@solid/react';
 import LogoR from '../LogoR.svg';
 
 function Copyright() {
@@ -63,7 +63,7 @@ export default function SignIn() {
         <img src={LogoR} className={classes.rIcon} alt='icono' />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+        Login
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -71,23 +71,13 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="WebID"
+            label="WebID"
+            name="WebID"
+            autoComplete="WebID"
             autoFocus
           />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
+
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
@@ -99,8 +89,13 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            Login
           </Button>
+          <LoginButton popup="popup.html" type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit} >Connect to Solid POD</LoginButton>
           <Grid container>
             {/* <Grid item xs>
               <Link href="#" variant="body2">
@@ -108,8 +103,8 @@ export default function SignIn() {
               </Link>
             </Grid> */}
             <Grid item>
-              <Link href="/signUp" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link href="https://solidproject.org/users/get-a-pod"  target="_blank" variant="body2">
+                {"Don't have a Solid POD? Get One now."}
               </Link>
             </Grid>
           </Grid>

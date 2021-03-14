@@ -9,7 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import LogoR from './LogoR.svg';
 import Button from '@material-ui/core/Button';
-import { LoggedIn, LoggedOut } from '@solid/react';
+import { LoggedIn, LoggedOut, LogoutButton } from '@solid/react';
 import MapContainer from './components/MapContainer';
 import { Route } from "wouter";
 import { Welcome } from './components/Welcome'
@@ -18,11 +18,15 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import UsersLocation from './components/UsersLocation'
 
+
+
 const useStyles = makeStyles((theme) => ({
+
+
   root: {
     flexGrow: 1
   },
-  menuButton: {
+  navButton: {
     marginRight: theme.spacing(2),
   },
   title: {
@@ -41,6 +45,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white',
     padding: '1.5vh',
+  },
+  menuButton: {
+
   }
 }));
 
@@ -53,6 +60,10 @@ export default function ButtonAppBar() {
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
+  };
+
+  const handleChangeToSignIn = () => {
+    setAnchorEl();
   };
 
   const handleMenu = (event) => {
@@ -77,7 +88,7 @@ export default function ButtonAppBar() {
             </LoggedIn>
           </Typography>
           <LoggedOut>
-            <SignIn>Sign In</SignIn>
+            <Button  className="menuButton" href='SignIn'>Sign In</Button>
           </LoggedOut>
           <LoggedIn>
             {auth && (
@@ -106,12 +117,12 @@ export default function ButtonAppBar() {
                   open={open}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleMenu}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem onClick={handleClose}>Friends</MenuItem>
-                  <MenuItem onClick={handleClose}>Refresh location</MenuItem>
-                  <MenuItem onClick={handleClose}>About</MenuItem>
-                  <MenuItem onClick={handleClose}>Log Out</MenuItem>
+                  <MenuItem onClick={handleClose} > <Button  className="menuButton" href='SignIn'>Profile</Button>  </MenuItem>
+                  <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>My account</Button></MenuItem>
+                  <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>Friends</Button></MenuItem>
+                  <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>Refresh location</Button></MenuItem>
+                  <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>About</Button></MenuItem>
+                  <MenuItem onClick={handleClose}><LogoutButton  className="menuButton">Log Out</LogoutButton></MenuItem>
                 </Menu>
               </div>
             )}
