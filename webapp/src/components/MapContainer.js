@@ -20,10 +20,10 @@ async function success(pos) {
   longitude = crd.longitude;
 
   var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual
-    if(session) {
-      // Guardar localización en base de datos
-      updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
-    }
+  if(session) {
+    // Guardar localización en base de datos
+    await updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
+  }
 };
 
 function error(err) {
@@ -40,16 +40,6 @@ const containerStyle = {
 
 function MapContainer() {
 
-  const locations = [
-    {
-      name: "Mi localizacion",
-      location: { 
-        lat: latitude,
-        lng: longitude 
-      },
-    }
-  ];
-
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: credentials.mapsKey
@@ -62,7 +52,7 @@ function MapContainer() {
         center={{ lat: latitude, lng:longitude}}
       >
         {
-            <Markers/>
+            <Markers userLocation={ {lat: latitude, lng: longitude} }/>
         }
         <></>
       </GoogleMap>
