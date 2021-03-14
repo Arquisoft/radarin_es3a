@@ -1,7 +1,10 @@
 import React from 'react';
 
-function Welcome(props) {
-  return <h1>Hi, {props.name}!</h1>;
-}
+export const Welcome = () => {
 
-export default Welcome;
+  return (
+    <div>
+      <h1>Bienvenidos a Radarin</h1>
+    </div>
+  );
+}
