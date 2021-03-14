@@ -40,7 +40,21 @@ const containerStyle = {
 
 function MapContainer() {
 
-  const locations = [
+  const [map, setMap] = React.useState(null)
+
+  const onLoad = React.useCallback(function callback(map) {
+    const bounds = new window.google.maps.LatLngBounds();
+    map.fitBounds(bounds);
+    // map.center({ lat: latitude, lng:longitude});
+    setMap(map)
+  }, [])
+
+  const onUnmount = React.useCallback(function callback(map) {
+    setMap(null)
+  }, [])
+
+
+/*   const locations = [
     {
       name: "Mi localizacion",
       location: { 
@@ -48,7 +62,7 @@ function MapContainer() {
         lng: longitude 
       },
     }
-  ];
+  ]; */
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -59,12 +73,15 @@ function MapContainer() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         zoom={14}
-        center={{ lat: latitude, lng:longitude}}
+        defaultCenter={{ lat: latitude, lng:longitude}}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
       >
         {
             <Markers/>
         }
         <></>
+        
       </GoogleMap>
   ) : <></>
 }
