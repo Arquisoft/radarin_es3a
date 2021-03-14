@@ -28,7 +28,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   rIcon: {
-    width: '30%'
+    width: '3em',
+    height: '3em',
+    padding: '0.4em'
+
   },
   button: {
     background: 'linear-gradient(45deg, #aa7fb9 30%, #912c43 90%)',
@@ -63,10 +66,10 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static" style={{ backgroundColor: '#aa7fb9' }} >
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <a href='/welcome'><img src={LogoR} className={classes.rIcon} alt='icono' /></a>
-          </IconButton>
+
           <Typography variant="h6" className={classes.title}>
+
+          <a href='/welcome'><img src={LogoR} className={classes.rIcon} alt='icono' /></a>
             <LoggedIn>
               <Button href='/map' className={classes.button}>Mapa</Button>
             </LoggedIn>
@@ -101,8 +104,12 @@ export default function ButtonAppBar() {
                   open={open}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={handleMenu}>Profile</MenuItem>
                   <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>Friends</MenuItem>
+                  <MenuItem onClick={handleClose}>Refresh location</MenuItem>
+                  <MenuItem onClick={handleClose}>About</MenuItem>
+                  <MenuItem onClick={handleClose}>Log Out</MenuItem>
                 </Menu>
               </div>
             )}

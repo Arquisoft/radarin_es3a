@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import LogoR from '../LogoR.svg';
 
 function Copyright() {
   return (
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    // backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -43,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  rIcon: {
+    whidth: '100%',
+    height:'100%',
   },
 }));
 
@@ -54,7 +59,7 @@ export default function SignUp() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+        <img src={LogoR} className={classes.rIcon} alt='icono' />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign up
@@ -123,7 +128,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/signIn" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
