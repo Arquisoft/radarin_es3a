@@ -1,6 +1,7 @@
 import React from 'react';
 import { GoogleMap, LoadScript,Marker } from '@react-google-maps/api';
 import credentials from './credentials';
+import { updateLocation } from '../api/api';
 
 //Opciones Geolocalizacion
 var options = {
@@ -14,6 +15,10 @@ var options = {
     var crd = pos.coords;
     latitude = crd.latitude;
     longitude = crd.longitude;
+
+    var webId = "https://tcuetosf.inrupt.net/"; // Obtener webId del usuario actual 
+    // Guardar localización en base de datos
+    updateLocation(webId, { lat: crd.latitude, lng: crd.longitude });
   };
   
   function error(err) {
