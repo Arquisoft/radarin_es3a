@@ -1,73 +1,83 @@
-import React from 'react';
-import { GoogleMap, LoadScript,Marker } from '@react-google-maps/api';
+import React from 'react'
+import { GoogleMap, useJsApiLoader,Marker } from '@react-google-maps/api';
 import credentials from './credentials';
 
-//Opciones Geolocalizacion
+
+var latitude;
+var longitude;
+
 var options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-  };
-  var latitude;
-  var longitude;
-  function success(pos) {
-    var crd = pos.coords;
-    latitude = crd.latitude;
-    longitude = crd.longitude;
-  };
-  
-  function error(err) {
-    console.warn('ERROR(' + err.code + '): ' + err.message);
-  };
-  
-  const geo = navigator.geolocation.getCurrentPosition(success, error, options);
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+function success(pos) {
+  var crd = pos.coords;
+  latitude = crd.latitude;
+  longitude = crd.longitude;
+};
 
+function error(err) {
+  console.warn('ERROR(' + err.code + '): ' + err.message);
+};
 
-  //Mapa 
-  export const MapContainer = () => {
-    
-    const locations = [
-        {
-          name: "Mi localizacion",
-          location: { 
-            lat: latitude,
-            lng: longitude 
-          },
-        },
-        {
-          name: "Mi local2",
-          location: { 
-            lat: 0,
-            lng: 0 
-          },
+const geo = navigator.geolocation.getCurrentPosition(success, error, options);
+
+const containerStyle = {
+  width: '100%',
+  height: '90vh'
+};
+
+function MapContainer() {
+
+  const locations = [
+    {
+      name: "Mi localizacion",
+      location: { 
+        lat: latitude,
+        lng: longitude 
+      },
+    }
+  ];
+
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: credentials.mapsKey
+  })
+
+  const [map, setMap] = React.useState(null)
+
+  const onLoad = React.useCallback(function callback(map) {
+    const bounds = new window.google.maps.LatLngBounds();
+    map.fitBounds(bounds);
+    setMap(map)
+  }, [])
+
+  const onUnmount = React.useCallback(function callback(map) {
+    setMap(null)
+  }, [])
+
+  return isLoaded ? (
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={
+          {lat: latitude,
+          lng: longitude}
         }
-      ];
-  
-  const mapStyles = {        
-    height: "90vh",
-    width: "100%"};
-  
-  const defaultCenter = {
-    lat: latitude, lng: longitude
-  }
-
-  return (
-     <LoadScript
-       googleMapsApiKey= {credentials.mapsKey}>
-        <GoogleMap
-          mapContainerStyle={mapStyles}
-          zoom={13}
-          center={defaultCenter}>
-         {
+        zoom={14}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        {
             locations.map(item => {
               return (
               <Marker key={item.name} position={item.location}/>
               )
             })
         }
-     </GoogleMap>
-     </LoadScript>
-  )
+        <></>
+      </GoogleMap>
+  ) : <></>
 }
 
-export default MapContainer;
+export default React.memo(MapContainer)

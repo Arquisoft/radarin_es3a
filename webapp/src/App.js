@@ -65,7 +65,9 @@ export default function ButtonAppBar() {
           <a href='/welcome'><img src = {LogoR} className = {classes.rIcon} alt= 'icono'/></a>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
+            <LoggedIn>
             <Button href='/map' className = {classes.button}>Mapa</Button>
+            </LoggedIn>
           </Typography>
           <LoggedOut>
             <Button href='/login' className = {classes.button}>Login</Button>
