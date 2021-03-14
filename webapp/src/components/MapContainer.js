@@ -45,7 +45,7 @@ function MapContainer() {
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds();
     map.fitBounds(bounds);
-    // map.center({ lat: latitude, lng:longitude});
+    map.setCenter({ lat: latitude, lng:longitude});
     setMap(map)
   }, [])
 
@@ -73,7 +73,7 @@ function MapContainer() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         zoom={14}
-        defaultCenter={{ lat: latitude, lng:longitude}}
+        center={{ lat: latitude, lng:longitude}}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
