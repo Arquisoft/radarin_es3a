@@ -67,11 +67,9 @@ export default function ButtonAppBar() {
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             <LoggedIn>
-            <Button href='/map' className = {classes.button}>Mapa</Button>
+              <Button href='/map' className = {classes.button}>Mapa</Button>
+              <Button href='/locations' className = {classes.button}>Localizaciones</Button>
             </LoggedIn>
-          </Typography>
-          <Typography variant="h6" className={classes.title}>
-            <Button href='/locations' className = {classes.button}>Localizaciones</Button>
           </Typography>
           <LoggedOut>
             <Button href='/login' className = {classes.button}>Login</Button>
