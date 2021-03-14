@@ -17,9 +17,11 @@ var options = {
     latitude = crd.latitude;
     longitude = crd.longitude;
 
-    var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual 
-    // Guardar localización en base de datos
-    updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
+    var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual
+    if(session) {
+      // Guardar localización en base de datos
+      updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
+    }
   };
   
   function error(err) {
@@ -41,7 +43,7 @@ var options = {
           },
         },
         {
-          name: "Mi localizacion",
+          name: "Mi localizacion 2",
           location: { 
             lat: 0,
             lng: 0 
