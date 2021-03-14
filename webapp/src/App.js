@@ -9,11 +9,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import LogoR from './LogoR.svg';
 import Button from '@material-ui/core/Button';
-import {LoggedIn, LoggedOut} from '@solid/react';
+import { LoggedIn, LoggedOut } from '@solid/react';
 import MapContainer from './components/MapContainer';
-import {Route} from "wouter";
-import {Welcome} from './components/Welcome'
+import { Route } from "wouter";
+import { Welcome } from './components/Welcome'
 import PopUpPod from './components/PopUpPod'
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-  rIcon : {
+  rIcon: {
     width: '30%'
   },
   button: {
@@ -59,58 +61,60 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{backgroundColor: '#aa7fb9'}} >
+      <AppBar position="static" style={{ backgroundColor: '#aa7fb9' }} >
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-          <a href='/welcome'><img src = {LogoR} className = {classes.rIcon} alt= 'icono'/></a>
+            <a href='/welcome'><img src={LogoR} className={classes.rIcon} alt='icono' /></a>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             <LoggedIn>
-            <Button href='/map' className = {classes.button}>Mapa</Button>
+              <Button href='/map' className={classes.button}>Mapa</Button>
             </LoggedIn>
           </Typography>
           <LoggedOut>
-            <Button href='/login' className = {classes.button}>Login</Button>
+            <SignIn>Sign In</SignIn>
           </LoggedOut>
           <LoggedIn>
-          {auth && (
-            <div>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
-            </div>
-          )}
+            {auth && (
+              <div>
+                <IconButton
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleMenu}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={open}
+                  onClose={handleClose}
+                >
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                </Menu>
+              </div>
+            )}
           </LoggedIn>
         </Toolbar>
       </AppBar>
-      <Route component= {Welcome} path="/welcome" />
-      <Route component= {MapContainer} path="/map" />
-      <Route component= {PopUpPod} path="/login" />
+      <Route component={Welcome} path="/welcome" />
+      <Route component={MapContainer} path="/map" />
+      <Route component={PopUpPod} path="/login" />
+      <Route component={SignIn} path="/SignIn" />
+      <Route component={SignUp} path="/SignUp" />
     </div>
-    
+
   );
 }

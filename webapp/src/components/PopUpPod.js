@@ -1,6 +1,10 @@
 import React from 'react';
 import { LoginButton } from '@solid/react';
 import SolidAuth from 'solid-auth-client';
+import ReactDOM from 'react-dom';
+import Button from '@material-ui/core/Button';
+
+
 
 const suggestedWebId = (URLSearchParams && document.location.search)
   ? (new URLSearchParams(document.location.search)).get('webid')
@@ -44,5 +48,9 @@ export default function PopUpPod() {
 
   return (
     <LoginButton popup="popup.html" className="button is-large is-primary">Connect</LoginButton>
+
+      
+      
+    
   );
 }
