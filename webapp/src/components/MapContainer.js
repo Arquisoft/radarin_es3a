@@ -20,10 +20,10 @@ async function success(pos) {
   longitude = crd.longitude;
 
   var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual
-    if(session) {
-      // Guardar localización en base de datos
-      updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
-    }
+  if(session) {
+    // Guardar localización en base de datos
+    await updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
+  }
 };
 
 function error(err) {
@@ -78,7 +78,7 @@ function MapContainer() {
         onUnmount={onUnmount}
       >
         {
-            <Markers/>
+            <Markers userLocation={ {lat: latitude, lng: longitude} }/>
         }
         <></>
         
