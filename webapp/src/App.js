@@ -18,6 +18,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import UsersLocation from './components/UsersLocation'
 import { ProviderLogin, withWebId } from '@inrupt/solid-react-components';
+import FriendList from './components/FriendList'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -123,7 +124,7 @@ export default function ButtonAppBar() {
                   <MenuItem onClick={handleClose} > <Button  className="menuButton" >Profile</Button>  </MenuItem>
                   {/* <LoggedOut><MenuItem onClick={handleClose} > <LoginButton  className="menuButton" popup="popup.html"/>  </MenuItem></LoggedOut> */}
                   <MenuItem onClick={handleClose}><Button  className="menuButton" >My account</Button></MenuItem>
-                  <MenuItem onClick={handleClose}><Button  className="menuButton" href="locations" >Friends</Button></MenuItem>
+                  <MenuItem onClick={handleClose}><Button  className="menuButton" href="fRIENDlIST" >Friends</Button></MenuItem>
                   <MenuItem onClick={handleClose}><Button  className="menuButton" >Refresh location</Button></MenuItem>
                   <MenuItem onClick={handleClose}><Button  className="menuButton" >About</Button></MenuItem>
                   <LoggedIn></LoggedIn><MenuItem onClick={handleClose}><LogoutButton  className="menuButton">Log Out</LogoutButton></MenuItem><LoggedIn/>
@@ -140,6 +141,7 @@ export default function ButtonAppBar() {
       <Route component={SignIn} path="/SignIn" />
       <Route component={SignUp} path="/SignUp" />
       <Route component= {UsersLocation} path="/locations" />
+      <Route component= {FriendList} path="/fRIENDlIST" />
 
     </div>
 
