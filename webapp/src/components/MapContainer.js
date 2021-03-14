@@ -1,6 +1,9 @@
 import React from 'react'
 import { GoogleMap, useJsApiLoader,Marker } from '@react-google-maps/api';
 import credentials from './credentials';
+import { getUsers, updateLocation } from '../api/api';
+import solidAuth from 'solid-auth-client';
+import Markers from './Markers';
 
 
 var latitude;
@@ -11,10 +14,16 @@ var options = {
   timeout: 5000,
   maximumAge: 0
 };
-function success(pos) {
+async function success(pos) {
   var crd = pos.coords;
   latitude = crd.latitude;
   longitude = crd.longitude;
+
+  var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual
+    if(session) {
+      // Guardar localización en base de datos
+      updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
+    }
 };
 
 function error(err) {
@@ -27,6 +36,7 @@ const containerStyle = {
   width: '100%',
   height: '90vh'
 };
+
 
 function MapContainer() {
 
@@ -52,11 +62,7 @@ function MapContainer() {
         center={{ lat: latitude, lng:longitude}}
       >
         {
-            locations.map(item => {
-              return (
-              <Marker key={item.name} position={item.location}/>
-              )
-            })
+            <Markers/>
         }
         <></>
       </GoogleMap>

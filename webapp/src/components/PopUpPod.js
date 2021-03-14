@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 
 
+import { addUser } from '../api/api';
 
 const suggestedWebId = (URLSearchParams && document.location.search)
   ? (new URLSearchParams(document.location.search)).get('webid')
@@ -19,6 +20,7 @@ export default function PopUpPod() {
         return;
       }
 
+      addUser(chosenWebId, {lat: 0, lng: 0});
       SolidAuth.login(chosenWebId);
     }
 

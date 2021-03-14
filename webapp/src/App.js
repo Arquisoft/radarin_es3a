@@ -16,6 +16,7 @@ import { Welcome } from './components/Welcome'
 import PopUpPod from './components/PopUpPod'
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import UsersLocation from './components/UsersLocation'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,7 +72,8 @@ export default function ButtonAppBar() {
 
           <a href='/welcome'><img src={LogoR} className={classes.rIcon} alt='icono' /></a>
             <LoggedIn>
-              <Button href='/map' className={classes.button}>Mapa</Button>
+              <Button href='/map' className = {classes.button}>Mapa</Button>
+              <Button href='/locations' className = {classes.button}>Localizaciones</Button>
             </LoggedIn>
           </Typography>
           <LoggedOut>
@@ -116,11 +118,14 @@ export default function ButtonAppBar() {
           </LoggedIn>
         </Toolbar>
       </AppBar>
+
       <Route component={Welcome} path="/welcome" />
       <Route component={MapContainer} path="/map" />
       <Route component={PopUpPod} path="/login" />
       <Route component={SignIn} path="/SignIn" />
       <Route component={SignUp} path="/SignUp" />
+      <Route component= {UsersLocation} path="/locations" />
+
     </div>
 
   );
