@@ -120,6 +120,7 @@ export default function ButtonAppBar() {
                   onClose={handleClose}
                 >
                   <MenuItem onClick={handleClose} > <Button  className="menuButton" href='SignIn'>Profile</Button>  </MenuItem>
+                  <MenuItem onClick={handleClose} > <Button  className="menuButton" href='login'>Login</Button>  </MenuItem>
                   <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>My account</Button></MenuItem>
                   <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>Friends</Button></MenuItem>
                   <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>Refresh location</Button></MenuItem>
