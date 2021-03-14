@@ -9,7 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import LogoR from './LogoR.svg';
 import Button from '@material-ui/core/Button';
-import { LoggedIn, LoggedOut, LogoutButton } from '@solid/react';
+import { LoggedIn, LoggedOut, LoginButton, LogoutButton } from '@solid/react';
 import MapContainer from './components/MapContainer';
 import { Route } from "wouter";
 import { Welcome } from './components/Welcome'
@@ -82,15 +82,18 @@ export default function ButtonAppBar() {
         <Toolbar>
 
           <Typography variant="h6" className={classes.title}>
-
-          <a href='/welcome'><img src={LogoR} className={classes.rIcon} alt='icono' /></a>
+          
+          {/* <a href='/welcome'><img src={LogoR} className={classes.rIcon} alt='icono' /></a> */}
             <LoggedIn>
               <Button href='/map' className = {classes.button}>Mapa</Button>
               <Button href='/locations' className = {classes.button}>Localizaciones</Button>
             </LoggedIn>
           </Typography>
           <LoggedOut>
-            <Button  className="menuButton" href='SignIn'>Sign In</Button>
+            {/* <Button  className="menuButton" href='SignIn'>Sign In</Button> 
+            <Button  className="menuButton" href='SignIn'>Sign In</Button> 
+            <LoginButton href='/login'>Log In</LoginButton> */}
+            <LoginButton popup="popup.html"/>
           </LoggedOut>
           <LoggedIn>
             {auth && (
@@ -119,13 +122,13 @@ export default function ButtonAppBar() {
                   open={open}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleClose} > <Button  className="menuButton" href='SignIn'>Profile</Button>  </MenuItem>
-                  <MenuItem onClick={handleClose} > <Button  className="menuButton" href='login'>Login</Button>  </MenuItem>
-                  <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>My account</Button></MenuItem>
-                  <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>Friends</Button></MenuItem>
-                  <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>Refresh location</Button></MenuItem>
-                  <MenuItem onClick={handleClose}><Button  className="menuButton" href='SignIn'>About</Button></MenuItem>
-                  <MenuItem onClick={handleClose}><LogoutButton  className="menuButton">Log Out</LogoutButton></MenuItem>
+                  <MenuItem onClick={handleClose} > <Button  className="menuButton" >Profile</Button>  </MenuItem>
+                  {/* <LoggedOut><MenuItem onClick={handleClose} > <LoginButton  className="menuButton" popup="popup.html"/>  </MenuItem></LoggedOut> */}
+                  <MenuItem onClick={handleClose}><Button  className="menuButton" >My account</Button></MenuItem>
+                  <MenuItem onClick={handleClose}><Button  className="menuButton" >Friends</Button></MenuItem>
+                  <MenuItem onClick={handleClose}><Button  className="menuButton" >Refresh location</Button></MenuItem>
+                  <MenuItem onClick={handleClose}><Button  className="menuButton" >About</Button></MenuItem>
+                  <LoggedIn></LoggedIn><MenuItem onClick={handleClose}><LogoutButton  className="menuButton">Log Out</LogoutButton></MenuItem><LoggedIn/>
                 </Menu>
               </div>
             )}
