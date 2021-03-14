@@ -17,7 +17,7 @@ import PopUpPod from './components/PopUpPod'
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import UsersLocation from './components/UsersLocation'
-
+import { ProviderLogin, withWebId } from '@inrupt/solid-react-components';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -47,7 +47,9 @@ const useStyles = makeStyles((theme) => ({
     padding: '1.5vh',
   },
   menuButton: {
-
+    width: '100%',
+    height: '100%',
+    padding: '0em'
   }
 }));
 

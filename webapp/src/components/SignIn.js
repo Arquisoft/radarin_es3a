@@ -14,6 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { LoggedIn, LoggedOut, LogoutButton, LoginButton } from '@solid/react';
 import LogoR from '../LogoR.svg';
+import { ProviderLogin, withWebId } from '@inrupt/solid-react-components';
+
 
 function Copyright() {
   return (
@@ -66,7 +68,7 @@ export default function SignIn() {
         Login
         </Typography>
         <form className={classes.form} noValidate>
-          <TextField
+          {/* <TextField
             variant="outlined"
             margin="normal"
             required
@@ -76,9 +78,12 @@ export default function SignIn() {
             name="WebID"
             autoComplete="WebID"
             autoFocus
-          />
+          /> */}
 
-          <FormControlLabel
+<LoginButton className="loginButton" popup="https://inrupt.net/common/popup.html">Login</LoginButton>
+          <ProviderLogin errorsText={{emptyWebId: 'Hola q tal t olvidaste algo crack'}} />
+          {/* <PrivateRoute component={Container} /> */}
+          {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
@@ -90,12 +95,8 @@ export default function SignIn() {
             className={classes.submit}
           >
             Login
-          </Button>
-          <LoginButton popup="popup.html" type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit} >Connect to Solid POD</LoginButton>
+          </Button> */}
+          {/* <LoginButton className={classes.submit} >Connect to Solid POD</LoginButton> */}
           <Grid container>
             {/* <Grid item xs>
               <Link href="#" variant="body2">
