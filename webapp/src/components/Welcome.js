@@ -1,32 +1,19 @@
 import React from 'react';
+import { useSolidString } from '../hooks/useSolidString';
 import { getPodString } from '../services/getPodString';
 import { getUserWebId } from '../services/getUserWebId';
+import { setPodString } from '../services/setPodString';
 
 function Welcome(props) {
 
-  var valor;
+  const webId = useSolidString(getPodString);
 
-  const webId2 = Promise.resolve(getUserWebId());
-  webId2.then(() => {valor = 'prueba1'});
-
-  
-
-  const webId = getUserWebId()
-    .then((response) => {return response.toString()});
-
-    
-  const showWebId = async () => {
-    const a = await webId;
-    console.log(a.toString());
-    valor = a.toString();
-  };
-  
-  showWebId();
+  setPodString();
 
   return (
     <>
       <h1>Hi, {props.name}!</h1>
-      <p> Prueba {valor}</p>
+      <p> Prueba {webId}</p>
     </>
   );
 }

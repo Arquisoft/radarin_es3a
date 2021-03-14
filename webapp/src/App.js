@@ -3,7 +3,7 @@ import './App.css';
 import LogoR from './LogoR.svg';
 import Welcome from './components/Welcome';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {LoggedIn, LoggedOut,Value, Image, List} from '@solid/react';
+import {LoggedIn, LoggedOut,Value, Image, List, LogoutButton} from '@solid/react';
 import MapContainer from './components/MapContainer';
 import PopUpPod from './components/PopUpPod';
 
@@ -38,6 +38,7 @@ class App extends React.Component{
           <h2>Friends</h2>
           <List src="user.friends"/>
           <MapContainer/>
+          <LogoutButton/>
         </LoggedIn>
         <LoggedOut>
             <PopUpPod/>
