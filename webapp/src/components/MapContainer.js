@@ -44,29 +44,12 @@ function MapContainer() {
     id: 'google-map-script',
     googleMapsApiKey: credentials.mapsKey
   })
-
-  const [map, setMap] = React.useState(null)
-
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map)
-  }, [])
-
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
-  }, [])
-
+  
   return isLoaded ? (
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={
-          {lat: latitude,
-          lng: longitude}
-        }
         zoom={14}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
+        center={{ lat: latitude, lng:longitude}}
       >
         {
             locations.map(item => {
