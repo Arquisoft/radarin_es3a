@@ -3,18 +3,19 @@
 
 
 === Access  
-The application will have a log in screen that will ask for the WebID to connect to the user's Pod. This is based in the fact that it will not use a typical credential system based on username and password, as it will make use of the Solid arquetype.
-This method will allow for more personal privacy, though it requires the user to have a personal Pod.
+The application will have a log in screen that will ask for the WebID to connect to the user's Pod, alongside a user ID and a password. 
+Though the application will enforce the use of a personal data Pod, authentification will be done with the user credentials.
  
 === Framework
 The application will be created making use of React.js, as it will allow for a better construction of the user interface. 
 Additionally, as React.js is designed so it can work with dynamic data, and given that our application will be always taking continous input on geolocalization, it presents a formidable advantage in terms of data management.
-Moreover, React.js' syntax is similar to that of HTML, with which our team is used to work.
+Moreover, React.js' syntax is similar to that of HTML, with which our team is used to work. Even so, as Solid has a lot of coverage from React components libraries, and given the restriction to use Solid Pods as a mean of storing data, React will prove of bigger use to the team.
  
 === Data storage
-Given the project is to be created following the Solid arquetype, our main data storage system will be based upon the Solid Pods. 
+Given the project is to be created following the Solid arquetype, some of our data will be storaged upon the Solid Pods. 
+However, the main chunk of information will be running alongside the database of Mongo DB, as it will improve velocity and data accesibility.
+Solid Pods will be used mainly to storage the user's ID for the credentials of the application.
  
 === Geolocalization 
-As it would be costly for the overall performance, it has been decided that the geolocalization information will be storaged only at time intervals, overwriting previous data for a given user. Other users will be able to access the localization last storaged. This will be complemented with the option for any given user to manually update their localization.
-Any user will also be able to turn off the geolocalization system in any moment they want, preventing the application to storage any more data until the user decides so.
+Geolocalization will dynamically updated on periodic intervals, using the Mongo DB database as an intermediate user. Solid Pods will not be used for the means of storing geolocalization data.
 

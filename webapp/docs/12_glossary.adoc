@@ -12,4 +12,6 @@
 | React.js     | Javascript library designed around bulding user interfaces for web applications
 | Docker     | Virtualization system that allows any developer to work with a common set of characteristics
 | Application     |  Set of all the Radarin parts, this can be the web service or the application with its own respective modules.
+| Libraries     |  Collections of functionality from JavaScript or other platforms, meant to help in development.
+| Mongo DB     |  Database based on documents, which the application will use.
 |===
