@@ -2,6 +2,7 @@ import React from 'react';
 import { GoogleMap, LoadScript,Marker } from '@react-google-maps/api';
 import credentials from './credentials';
 import { updateLocation } from '../api/api';
+import solidAuth from 'solid-auth-client';
 
 //Opciones Geolocalizacion
 var options = {
@@ -11,14 +12,14 @@ var options = {
   };
   var latitude;
   var longitude;
-  function success(pos) {
+  async function success(pos) {
     var crd = pos.coords;
     latitude = crd.latitude;
     longitude = crd.longitude;
 
-    var webId = "https://tcuetosf.inrupt.net/"; // Obtener webId del usuario actual 
+    var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual 
     // Guardar localización en base de datos
-    updateLocation(webId, { lat: crd.latitude, lng: crd.longitude });
+    updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
   };
   
   function error(err) {

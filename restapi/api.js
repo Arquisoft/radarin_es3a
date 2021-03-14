@@ -37,9 +37,14 @@ router.post("/users/update", async (req, res) => {
     let location = req.body.location;
 
     let user = await User.findOne({ webId: webId });
-    if(!user)
-        res.send({error:"Error: This user is not registered"});
-    else {
+    if(!user) {
+        user = new User({
+            webId: webId,
+            location: location,
+        })
+        await user.save()
+        res.send(user);
+    } else {
         user.location = location;
         await user.save();
         res.send(user);
