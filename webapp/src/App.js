@@ -47,8 +47,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '1.5vh',
   },
   menuButton: {
-    width: '100%',
-    height: '100%',
+    width: '5em',
+    height: '5em',
     padding: '0em'
   }
 }));
@@ -64,9 +64,7 @@ export default function ButtonAppBar() {
     setAuth(event.target.checked);
   };
 
-  const handleChangeToSignIn = () => {
-    setAnchorEl();
-  };
+
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -125,7 +123,7 @@ export default function ButtonAppBar() {
                   <MenuItem onClick={handleClose} > <Button  className="menuButton" >Profile</Button>  </MenuItem>
                   {/* <LoggedOut><MenuItem onClick={handleClose} > <LoginButton  className="menuButton" popup="popup.html"/>  </MenuItem></LoggedOut> */}
                   <MenuItem onClick={handleClose}><Button  className="menuButton" >My account</Button></MenuItem>
-                  <MenuItem onClick={handleClose}><Button  className="menuButton" >Friends</Button></MenuItem>
+                  <MenuItem onClick={handleClose}><Button  className="menuButton" href="locations" >Friends</Button></MenuItem>
                   <MenuItem onClick={handleClose}><Button  className="menuButton" >Refresh location</Button></MenuItem>
                   <MenuItem onClick={handleClose}><Button  className="menuButton" >About</Button></MenuItem>
                   <LoggedIn></LoggedIn><MenuItem onClick={handleClose}><LogoutButton  className="menuButton">Log Out</LogoutButton></MenuItem><LoggedIn/>
