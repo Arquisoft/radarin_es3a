@@ -20,7 +20,7 @@ class Markers extends React.Component{
             var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual
             if(session) {
                 // Modificar ubicación del usuario
-                users.find(u => u.webId == session.webId).location = this.props.userLocation;
+                users.find(u => u.webId === session.webId).location = this.props.userLocation;
             }
             this.setState({users:users});
         }

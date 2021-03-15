@@ -1,8 +1,6 @@
 import React from 'react';
 import { LoginButton } from '@solid/react';
 import SolidAuth from 'solid-auth-client';
-import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
 
 
 import { addUser } from '../api/api';

@@ -1,7 +1,7 @@
 import React from 'react'
-import { GoogleMap, useJsApiLoader,Marker } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader} from '@react-google-maps/api';
 import credentials from './credentials';
-import { getUsers, updateLocation } from '../api/api';
+import { updateLocation } from '../api/api';
 import solidAuth from 'solid-auth-client';
 import Markers from './Markers';
 
