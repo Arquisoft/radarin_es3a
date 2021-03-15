@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import LogoR from './LogoR.svg';
 import Button from '@material-ui/core/Button';
 import { LoggedIn, LoggedOut, LoginButton, LogoutButton } from '@solid/react';
 import MapContainer from './components/MapContainer';
@@ -17,7 +16,6 @@ import PopUpPod from './components/PopUpPod'
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import UsersLocation from './components/UsersLocation'
-import { ProviderLogin, withWebId } from '@inrupt/solid-react-components';
 import FriendList from './components/FriendList'
 
 
@@ -60,12 +58,6 @@ export default function ButtonAppBar() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
-
-
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
