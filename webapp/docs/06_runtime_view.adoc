@@ -2,20 +2,50 @@
 == Runtime View
 
 
+=== Register
+
+Any potential user may want to register in the application, to start using the features provided.
+
+1. The user enters his WebID
+2. The user touches the register button
+3. If they do not have a WebID, they are redirected to create a Solid Pod
+4. The user chooses credentials
+5. The application contrasts the credentials with the database
+6. If successful, the user is provided with an account
+
+[plantuml,"Register diagram",png]
+----
+actor User
+User -> Registration menu: Enters WebID
+User -> Registration menu: Touches register button
+Registration menu -> Pod interface: Redirects user to create Pod
+User -> Registration menu: Chooses credentials
+Registration menu -> Application: Sends credentials
+Application -> Database: Checks if credentials already exist
+Database --> Application: Returns confirmation
+Application --> User: Provides account
+----
+
 === Log in
 
 A potential user may log in the application via the log in screen. Log in comences upon entering the application, either in a mobile phone or a web browser.
 
-1. The user enters their credentials, such as their username and password.
-2. The user touches the log in button.
-3. The application services check if the log in is valid.
-4. The entities send the information needed to the services.
-5. The services prepare the functionality to be given to the user.
-5. The controllers provide the user with the functionality.
+1. The user enters their WebID.
+2. The user touches the log in button (for Solid).
+3. The Solid Pod returns log in confirmation.
+4. The user enters their credentials, such as their username and password.
+5. The user touches the log in button (for the application).
+6. The application services check if the log in is valid.
+7. The entities send the information needed to the services.
+8. The services prepare the functionality to be given to the user.
+9. The controllers provide the user with the functionality.
 
 [plantuml,"Log in diagram",png]
 ----
 actor User
+User -> Solid Pod: Enters WebID
+User -> Solid Pod: Touches log in button
+Solid Pod --> User: Returns log in confirmation
 User -> Controllers: Enters credentials
 User -> Controllers: Touches log in button
 Controllers -> Services: Request validation
@@ -58,16 +88,16 @@ User1Application -> User1: Notifies confirmation
 === Geolocate friends
 
 1. The user asks for the geolocalization information.
-2. The application request the geolocalization information in the Pods of added friends.
-3. Said friend's Pods send back the information.
+2. The application request the geolocalization information of added friends in the database.
+3. The database sends back the information.
 4. The application shows the user the information.
 
 [plantuml,"Geolocate friends diagram",png]
 ----
 actor User
 User -> Application: Request geolocalization information
-Application -> FriendsPods: Request information
-FriendsPods --> Application: Provides geolocalization data
+Application -> Database: Request information
+Database --> Application: Provides geolocalization data
 Application --> User: Shows locations
 ----
 
