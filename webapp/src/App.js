@@ -12,11 +12,7 @@ class App extends React.Component{
   constructor(){
     super()
     this.state = {users:[]}
-    //Console.log("aa");
-
   }
-
-  
 
   refreshUsers(users){
     this.setState({users:users})

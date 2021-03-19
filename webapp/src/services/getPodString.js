@@ -17,7 +17,7 @@ export async function getPodString() {
 
     const myDataset = await getSolidDataset(
         //webId + '/public/geo.ttl'
-        'https://indiference.inrupt.net/public/geo.ttl'
+        'https://UO258273.inrupt.net/public/geo.ttl'
     );
 
     const profile = getThingAll(
