@@ -36,8 +36,12 @@ async function success(pos) {
   function error(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
   };
-
+try {
   const geo = navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
+} catch (error) {
+  console.error(error);
+}
+
 //-------------------------------------------------
 
 
