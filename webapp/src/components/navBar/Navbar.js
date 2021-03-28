@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Dropdown from './Dropdown';
-import {LoggedOut,LoggedIn} from '@solid/react'
+import {LoggedOut,LoggedIn, LogoutButton, LoginButton} from '@solid/react'
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -75,24 +75,12 @@ function Navbar() {
         </ul>
         <LoggedIn>
         <li className='nav-item'>
-            <Link
-              to='/log-out'
-              className='btnL'
-              onClick={closeMobileMenu}
-            >
-              Log out
-            </Link>
+          <LogoutButton className='btnL' onClick={closeMobileMenu}>Log out</LogoutButton>
           </li>
           </LoggedIn>
           <LoggedOut>
         <li className='nav-item'>
-            <Link
-              to='/sign-in'
-              className='btnL'
-              onClick={closeMobileMenu}
-            >
-              Sign In
-            </Link>
+          <LoginButton className='btnL' onClick={closeMobileMenu} popup="popup.html">Sign In</LoginButton>
           </li>
           </LoggedOut>
       </nav>
