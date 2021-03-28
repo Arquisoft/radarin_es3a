@@ -4,6 +4,7 @@ import mapStyles from './mapStyles'
 import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
 import Markers from './Markers'
+import credentials from './credentials'
 
 
 
@@ -17,7 +18,6 @@ var longitude;
 var optionsGeo = {
     enableHighAccuracy: true,
     timeout: 5000,
-    maximumAge: 0
   };
 async function success(pos) {
     var crd = pos.coords;
@@ -29,6 +29,8 @@ async function success(pos) {
       // Guardar localización en base de datos
       await updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
     }
+    center = {lat: latitude,
+      lng: longitude}
   };
   
   function error(err) {
@@ -41,10 +43,10 @@ async function success(pos) {
 
 
 const mapContainerStyle = {
-    width: "99vw",
-    height: "90vh",
+    width: "100vw",
+    height: "80vh",
 };
-const center = {
+var center = {
     lat: 43.36029,
     lng: -5.84476
 }
@@ -52,25 +54,15 @@ const options = {
     styles: mapStyles,
     disableDefaultUI : true,
     zoomControl: true,
+    minZoom: 10,
+    maxZoom: 20,
 }
 
 export default function MapComponent (){
 
     const{isLoaded,loadError} = useLoadScript({
-        googleMapsApiKey: "AIzaSyBeOXOZqlVVZgu-NdCIMGysieC4RWDjX6A"
+        googleMapsApiKey: credentials.mapsKey
     });
-
-    const [markers, setMarkers] = React.useState([]);
-    const [selected, setSelected] = React.useState(null);
-
-    // const onMapClick = React.useCallback((event) =>{
-    //     setMarkers(current => [...current, {
-    //         lat: event.latLng.lat(),
-    //         lng: event.latLng.lng(),
-    //         time: new Date(),
-    //     },
-    // ]);
-    // });
 
     const mapRef = React.useRef();
     const onMapLoad = React.useCallback((map) => {mapRef.current = map;}, []);
@@ -78,14 +70,12 @@ export default function MapComponent (){
     if(loadError) return "Error loadinf maps"
     if(!isLoaded) return "Loading Maps"
 
-
     return <div>
         <GoogleMap 
         mapContainerStyle={mapContainerStyle} 
-        zoom={8} 
+        zoom={15} 
         center = {center}
         options={options}
-        //onClick={onMapClick}
         onLoad={onMapLoad}
         >
         <Markers userLocation={ {lat: latitude, lng: longitude}}

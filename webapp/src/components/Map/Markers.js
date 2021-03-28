@@ -38,8 +38,8 @@ class Markers extends React.Component{
                 key={item.webId}
                 position={item.location}
                 icon={{
-                url: '/LogoR.svg',
-                scaledSize: new window.google.maps.Size(40,40),
+                url: '/iconLogo.svg',
+                scaledSize: new window.google.maps.Size(100,100),
                 }}
                 />
                 )
