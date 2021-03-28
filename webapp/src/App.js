@@ -9,7 +9,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import { LoggedIn, LoggedOut, LoginButton, LogoutButton } from '@solid/react';
-import MapContainer from './components/MapContainer';
 import { Route } from "wouter";
 import { Welcome } from './components/Welcome'
 import PopUpPod from './components/PopUpPod'
@@ -17,7 +16,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import UsersLocation from './components/UsersLocation'
 import FriendList from './components/FriendList'
-
+import MapComponent from './components/Map/MapComponent';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -128,7 +127,7 @@ export default function ButtonAppBar() {
       </AppBar>
 
       <Route component={Welcome} path="/welcome" />
-      <Route component={MapContainer} path="/map" />
+      <Route component={MapComponent} path="/map" />
       <Route component={PopUpPod} path="/login" />
       <Route component={SignIn} path="/SignIn" />
       <Route component={SignUp} path="/SignUp" />

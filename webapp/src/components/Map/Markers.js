@@ -1,7 +1,7 @@
 import React from 'react';
 import { Marker } from '@react-google-maps/api';
 import solidAuth from 'solid-auth-client';
-import { getUsers } from '../api/api';
+import { getUsers } from '../../api/api';
 
 
 class Markers extends React.Component{
@@ -34,7 +34,14 @@ class Markers extends React.Component{
         return (
             this.state.users.map(item => {
                 return (
-                <Marker key={item.webId} position={item.location}/>
+                <Marker 
+                key={item.webId}
+                position={item.location}
+                icon={{
+                url: '/LogoR.svg',
+                scaledSize: new window.google.maps.Size(40,40),
+                }}
+                />
                 )
               })
         )
