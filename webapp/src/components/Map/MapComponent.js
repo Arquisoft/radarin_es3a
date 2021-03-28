@@ -36,11 +36,7 @@ async function success(pos) {
   function error(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
   };
-
-  const geo = navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
 //-------------------------------------------------
-
-
 
 const mapContainerStyle = {
     width: "100vw",
@@ -59,6 +55,7 @@ const options = {
 }
 
 export default function MapComponent (){
+    navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
 
     const{isLoaded,loadError} = useLoadScript({
         googleMapsApiKey: credentials.mapsKey
