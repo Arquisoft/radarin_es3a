@@ -30,7 +30,11 @@ function error(err) {
   console.warn('ERROR(' + err.code + '): ' + err.message);
 };
 
-const geo = navigator.geolocation.getCurrentPosition(success, error, options);
+try{
+
+ const geo = navigator.geolocation.getCurrentPosition(success, error, options);
+ } catch(e) { console.error(e); }
+ 
 
 const containerStyle = {
   width: '100%',

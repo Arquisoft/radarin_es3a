@@ -1,5 +1,6 @@
 const request = require('supertest');
 const server = require('./server-for-tests')
+// const app = require('../')
 
 /**
  * Connect to a new in-memory database before running any tests.
@@ -22,9 +23,9 @@ afterAll(async () => {
     await server.closeDB()
 })
 
-/**
- * Product test suite.
- */
+// /**
+//  * Product test suite.
+//  */
 // describe('user ', () => {
 //     /**
 //      * Test that we can list users without any error.
