@@ -1,7 +1,8 @@
 import React from 'react';
 import './Welcome.css';
 
-export const Welcome = () => {
+// export const Welcome = () => {
+  export default function Welcome  ()  {  
 
   return (
     <div className="welcome">

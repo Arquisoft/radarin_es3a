@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/navBar/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {Welcome}  from './components/welcome/Welcome';
+import Welcome  from './components/welcome/Welcome';
 import PopUpPod from './components/PopUpPod';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
@@ -16,7 +16,7 @@ export default function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path='/' exact component={Welcome} />
+        <Route path='/' component={Welcome} />
         <Route path='/map' component={MapComponent} />
         <Route path='/login' component={PopUpPod} />
         <Route path='/sign-in' component={SignIn} />
