@@ -7,6 +7,11 @@
   font-size: 1.2rem;
 }
 
+/* .logoDivlogo{
+  display: inline-block;
+  padding-bottom: 2em;
+} */
+
 .navbar-logo {
   color: #fff;
   justify-self: start;
@@ -14,6 +19,7 @@
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
+  margin-top: 10px;
 }
 
 .fa-firstdraft {
@@ -145,6 +151,7 @@
   }
 
   .logo{
+
     height: 10vh;
   }
 }

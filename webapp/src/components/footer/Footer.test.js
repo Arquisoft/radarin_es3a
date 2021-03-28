@@ -6,22 +6,22 @@ import ShallowRenderer from 'react-test-renderer/shallow';
 // import ReactDOM from 'react-dom';
 import Footer from './Footer';
 
-configure({adapter: new Adapter()});
-describe('<Footer />',()=>{
-   afterAll(cleanup);
-  
+configure({ adapter: new Adapter() });
+describe('<Footer />', () => {
+    afterAll(cleanup);
 
-   it('renders without crashing', () => {
+
+    it('renders without crashing', () => {
         const editor = shallow(<Footer />);
         expect(editor.find('footer.footer').length).toEqual(1);
-   });
+    });
 
 
-   it('renders text of the footer', () => {
-    const editor = shallow(<Footer />);
-    const expectedOutput = '<p>Proyecto creado para la asignatura de ASW de la Escuela de Ingenieria Informatica de Oviedo</p>';
-    const realOutput = editor.find('footer.footer').html();
-    expect(realOutput.indexOf(expectedOutput)> -1).toEqual(true);
-});
+    it('renders text of the footer', () => {
+        const editor = shallow(<Footer />);
+        const expectedOutput = '<p>Proyecto creado para la asignatura de ASW de la Escuela de Ingenieria Informatica de Oviedo</p>';
+        const realOutput = editor.find('footer.footer').html();
+        expect(realOutput.indexOf(expectedOutput) > -1).toEqual(true);
+    });
 
 });
