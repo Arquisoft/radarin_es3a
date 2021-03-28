@@ -5,7 +5,7 @@ import ShallowRenderer from 'react-test-renderer/shallow';
 
 import App from './App';
 import ReactDOM from 'react-dom';
-
+afterAll(cleanup);
 configure({adapter: new Adapter()});
 describe('<App />',()=>{
     it('renders without crashing', () => {
@@ -14,7 +14,7 @@ describe('<App />',()=>{
     });
 
     it('App renders without crashing', () => {
-        afterAll(cleanup);
+        
         const { container } = render(<App />);
         expect(container).toBeTruthy();
       });
