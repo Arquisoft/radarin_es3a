@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme';
-
+import ShallowRenderer from 'react-test-renderer/shallow';
 
 import App from './App';
 import ReactDOM from 'react-dom';
@@ -15,20 +15,20 @@ describe('<App />',()=>{
         ReactDOM.render(<App />, div);
     });
     it('renders the welcome message', () => {
-        const editor = shallow('<FriendList />');
+        const editor = shallow(<FriendList />);
         console.log(editor.find('h1').length);
         expected(editor.find('h1').length).toEqual(1);
 
 
     });
     // it('renders an output area', () => {
-    //     const editor = shallow('<App />');
+    //     const editor = shallow(<App />);
     //     expected(editor.find('div.welcome').length).toEqual(1);
 
     // });
 
     // it('renders an output area', () => {
-    //     const editor = shallow('<App />');
+    //     const editor = shallow(<App />);
     //     const expectedOutput = '<div class="welcome"><h1>Bienvenidos a Radarin</h1><p>En esta aplicacion podras localizar a tus amigos cercanos</p></div>';
     //     const realOutput = editor.find('div.welcome').html();
 
@@ -38,7 +38,7 @@ describe('<App />',()=>{
     // });
 
     // it('renders an output area', () => {
-    //     const editor = shallow('<App />');
+    //     const editor = shallow(<App />);
     //     const expectedOutput = '<div class="welcome"><h1>Bienvenidos a Radarin</h1><p>En esta aplicacion podras localizar a tus amigos cercanos</p></div>';
     //     const realOutput = editor.find('div.welcome').html();
 
