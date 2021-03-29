@@ -8,7 +8,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import UsersLocation from './components/UsersLocation'
 import FriendList from './components/FriendList'
-import MapComponent from './components/map_inter/MapComponent';
+import MapComponent from './components/map/MapComponent';
 import Footer from './components/footer/Footer' 
 
 export default function App() {

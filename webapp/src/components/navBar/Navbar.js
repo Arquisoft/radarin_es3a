@@ -8,7 +8,8 @@ function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
-  const handleClick = () => setClick(!click);
+  // Saltaba error, comentado - Raúl
+  //const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   const onMouseEnter = () => {
@@ -31,7 +32,7 @@ function Navbar() {
     <>
       <nav className='navbar'>
         {/* <div class="logoDivlogo"> */}
-        <img src='/navbarIcon.svg' to='/' className='logo'/>
+        <img src='/navbarIcon.svg' to='/' className='logo' alt="Radarin" />
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           RADARIN
         </Link>
