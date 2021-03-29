@@ -6,7 +6,7 @@ import solidAuth from 'solid-auth-client';
 import Markers from './Markers'
 import credentials from './credentials'
 
-
+ 
 
 
 

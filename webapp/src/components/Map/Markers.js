@@ -13,7 +13,7 @@ class Markers extends React.Component{
     componentDidMount(){
         this.fetchUsers()
     }
-
+ 
     async fetchUsers() {
         try{
             let users = await getUsers();
