@@ -1,4 +1,4 @@
-export default[
+const mapStyles = [
     {
         "featureType": "all",
         "elementType": "labels",
@@ -17,7 +17,7 @@ export default[
             },
             {
                 "color": "#000000"
-            },
+            }, 
             {
                 "lightness": 40
             }
@@ -261,3 +261,5 @@ export default[
         ]
     }
 ]
+
+export default mapStyles;
