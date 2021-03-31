@@ -15,8 +15,10 @@ import { Welcome } from './components/Welcome'
 import PopUpPod from './components/PopUpPod'
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
-import UsersLocation from './components/UsersLocation'
-import FriendList from './components/FriendList'
+import UsersLocation from './components/UsersLocation';
+import FriendList from './components/FriendList';
+import Mailer from './api/mailer';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -78,6 +80,7 @@ export default function ButtonAppBar() {
             <LoggedIn>
               <Button href='/map' className = {classes.button}>Mapa</Button>
               <Button href='/locations' className = {classes.button}>Localizaciones</Button>
+              <Button className = {classes.button} onClick={Mailer}>sendMail</Button>
             </LoggedIn>
           </Typography>
           <LoggedOut>

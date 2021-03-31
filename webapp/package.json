@@ -14,6 +14,7 @@
     "bootstrap": "^4.5.3",
     "express": "^4.17.1",
     "google-maps-react": "^2.0.6",
+    "nodemailer": "^6.5.0",
     "rdf-namespaces": "^1.9.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
