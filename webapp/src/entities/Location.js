@@ -1,6 +1,5 @@
 class Location {
     contructor() {
-        super();
         this.latitude;
         this.longitude;
         this.name;
