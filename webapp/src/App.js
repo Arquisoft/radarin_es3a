@@ -17,7 +17,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import UsersLocation from './components/UsersLocation';
 import FriendList from './components/FriendList';
-import Mailer from './api/mailer';
+import { notify } from './services/mailCtrl'
 
 
 
@@ -69,6 +69,10 @@ export default function ButtonAppBar() {
     setAnchorEl(null);
   };
 
+  const handleSendEmail = () => {
+    notify();
+  };
+
   return (
     <div className={classes.root}>
       <AppBar position="static" style={{ backgroundColor: '#aa7fb9' }} >
@@ -80,7 +84,7 @@ export default function ButtonAppBar() {
             <LoggedIn>
               <Button href='/map' className = {classes.button}>Mapa</Button>
               <Button href='/locations' className = {classes.button}>Localizaciones</Button>
-              <Button className = {classes.button} onClick={Mailer}>sendMail</Button>
+              <Button className = {classes.button} onClick={handleSendEmail}>sendMail</Button>
             </LoggedIn>
           </Typography>
           <LoggedOut>
