@@ -1,7 +1,8 @@
 import React from 'react';
 import { Marker } from '@react-google-maps/api';
 import solidAuth from 'solid-auth-client';
-import { getUsers } from '../../api/api';
+import { getUserByWebId, getUsers } from '../../api/api';
+import { fetchFriends } from '../../services/fetchFriends';
 
 
 class Markers extends React.Component{
@@ -16,11 +17,20 @@ class Markers extends React.Component{
  
     async fetchUsers() {
         try{
-            let users = await getUsers();
-            var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual
-            if(session) {
-                // Modificar ubicación del usuario
-                users.find(u => u.webId === session.webId).location = this.props.userLocation;
+            let users = [];
+
+            const currentSession = await solidAuth.currentSession();
+            if(!currentSession)
+                return;
+
+
+            let friends = await fetchFriends();
+            friends.push(currentSession.webId);
+            
+            for(let index in friends) {
+                let user = await getUserByWebId(friends[index]);
+                if(user) 
+                    users.push(user);
             }
             this.setState({users:users});
         }

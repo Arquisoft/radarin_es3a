@@ -20,7 +20,10 @@ export async function getUsers(){
 export async function getUserByWebId(webId) {
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
     console.log(apiEndPoint);
-    let response = await fetch(apiEndPoint+'/users/' + webId);
+    let response = await fetch(apiEndPoint+'/users/byWebId', {
+        method: 'GET',
+        headers: {'webId': webId}
+    });
     return await response.json();
 }
 

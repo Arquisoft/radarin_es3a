@@ -35,7 +35,7 @@ async function success(pos) {
 
     // Notificar que ha abierto la app
     notifyOpenMap();
-  };
+}
   
   function error(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
@@ -79,8 +79,7 @@ export default function MapComponent (){
         options={options}
         onLoad={onMapLoad}
         >
-        <Markers userLocation={ {lat: latitude, lng: longitude}}
-        />
+        <Markers />
         </GoogleMap>
     </div>
 }
