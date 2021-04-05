@@ -33,3 +33,14 @@ export async function updateLocation(webId, location) {
       })
     return await response.json()
 }
+
+// Enviar email
+export async function sendEmail(subject, message, destinatary) {
+    const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
+    let response = await fetch(apiEndPoint + '/email/send', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({'subject': subject, 'destinatary': destinatary, 'message': message})
+    });
+    return await response.json();
+}

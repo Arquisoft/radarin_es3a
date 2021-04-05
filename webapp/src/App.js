@@ -16,7 +16,7 @@ export default function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path='/' component={Welcome} />
+        <Route path='/' exact component={Welcome} />
         <Route path='/map' component={MapComponent} />
         <Route path='/login' component={PopUpPod} />
         <Route path='/sign-in' component={SignIn} />

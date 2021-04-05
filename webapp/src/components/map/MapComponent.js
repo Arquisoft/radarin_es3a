@@ -5,6 +5,7 @@ import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
 import Markers from './Markers'
 import credentials from './credentials'
+import { notifyOpenMap } from '../../services/mailCtrl';
 
  
 
@@ -31,6 +32,9 @@ async function success(pos) {
     }
     center = {lat: latitude,
       lng: longitude}
+
+    // Notificar que ha abierto la app
+    notifyOpenMap();
   };
   
   function error(err) {
