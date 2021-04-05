@@ -1,23 +1,23 @@
-// import { render, cleanup } from '@testing-library/react';
-// import Adapter from 'enzyme-adapter-react-16';
-// import { shallow, configure } from 'enzyme';
-// import ShallowRenderer from 'react-test-renderer/shallow';
+import { render, cleanup } from '@testing-library/react';
+import Adapter from 'enzyme-adapter-react-16';
+import { shallow, configure } from 'enzyme';
+import ShallowRenderer from 'react-test-renderer/shallow';
 
-// import App from './App';
-// import ReactDOM from 'react-dom';
-// afterAll(cleanup);
-// configure({adapter: new Adapter()});
+import App from './App';
+import ReactDOM from 'react-dom';
+afterAll(cleanup);
+configure({adapter: new Adapter()});
 describe('<App />',()=>{
-    test('renders without crashing', () => {
-        //const div = document.createElement('div');
-        //ReactDOM.render(<App />, div);
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<App />, div);
     });
 
-    // it('App renders without crashing', () => {
+    it('App renders without crashing', () => {
         
-    //     const { container } = render(<App />);
-    //     expect(container).toBeTruthy();
-    //   });
+        const { container } = render(<App />);
+        expect(container).toBeTruthy();
+      });
 
 });
 // 
