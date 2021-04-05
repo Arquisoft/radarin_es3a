@@ -24,7 +24,13 @@ export async function getUserByWebId(webId) {
         method: 'GET',
         headers: {'webId': webId}
     });
-    return await response.json();
+    
+    try {
+        return await response.json();
+    } catch(error) {
+        return undefined;
+    }
+    
 }
 
 export async function updateLocation(webId, location) {

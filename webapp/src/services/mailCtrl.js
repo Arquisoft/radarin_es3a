@@ -34,9 +34,9 @@ export async function notifyOpenMap() {
         let friendEmail = await fetchEmail(friends[index]);
         if(friendEmail) {
             let friendName = await fetchName(friends[index]);
-            //sendEmail("Radarin_es3a", 
-            //            "Hola " + friendName + ", ¡Tu amig@ " + name + " se acaba de conectar a Radarin_es3a!",
-            //            friendEmail);
+            sendEmail("Radarin_es3a", 
+                        "Hola " + friendName + ", ¡Tu amig@ " + name + " se acaba de conectar a Radarin_es3a!",
+                        friendEmail);
         }
     }
 
