@@ -5,14 +5,12 @@ import {
     setUrl,
     getUrl,
     saveSolidDatasetAt,
-    setThing,
-    getStringNoLocale,
-    setStringNoLocale
+    setThing
 } from "@inrupt/solid-client";
 
 import solidAuth from 'solid-auth-client';
 
-import { FOAF, VCARD } from "@inrupt/vocab-common-rdf";
+import { VCARD } from "@inrupt/vocab-common-rdf";
 
 export async function fetchEmail(webId) {
     const myDataset = await getSolidDataset(webId.split("#me")[0]);
@@ -38,14 +36,8 @@ export async function fetchEmail(webId) {
 export async function replaceEmail(webId) {
     var myDataset = await getSolidDataset(webId.split("#me")[0]);
     const profile = getThing(myDataset, webId);
-    //const name = await getStringNoLocale(profile, FOAF.name);
-    //console.log(name)
 
-    var newName = setStringNoLocale(profile, FOAF.name, "Prueba");
-    myDataset = setThing(myDataset, profile);
-    await saveSolidDatasetAt(webId.split("#me")[0], myDataset, { fetch: solidAuth.fetch });
-
-    /**const emailUrl = await getUrl(profile, VCARD.hasEmail);
+    const emailUrl = await getUrl(profile, VCARD.hasEmail);
 
     if(!emailUrl)
         return;
@@ -59,5 +51,4 @@ export async function replaceEmail(webId) {
     var newEmail = setUrl(emailThing, VCARD.value, "mailto:ejemplo@email.com");
     emailDataset = setThing(emailDataset, newEmail);
     await saveSolidDatasetAt(emailUrl, emailDataset, { fetch: solidAuth.fetch });
-    **/
 }
