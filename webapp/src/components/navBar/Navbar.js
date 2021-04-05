@@ -30,12 +30,10 @@ function Navbar() {
   return (
     <>
       <nav className='navbar'>
-        {/* <div class="logoDivlogo"> */}
         <img src='/navbarIcon.svg' to='/' className='logo'/>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           RADARIN
         </Link>
-        {/* </div> */}
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
             <Link to='/' className='nav-links' onClick={closeMobileMenu}>
