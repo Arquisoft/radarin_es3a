@@ -2,8 +2,7 @@ import React from 'react';
 import './Welcome.css';
 
 // export const Welcome = () => {
-  export default function Welcome  ()  {  
-
+export default function Welcome  ()  { 
   return (
     <div className="welcome">
       <h1>Bienvenidos a Radarin</h1>

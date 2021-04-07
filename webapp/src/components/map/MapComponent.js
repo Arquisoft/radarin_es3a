@@ -1,11 +1,10 @@
 import React from 'react'
 import { GoogleMap, useLoadScript} from '@react-google-maps/api';
 import mapStyles from './mapStyles'
-import { updateLocation } from '../../api/api';
-import solidAuth from 'solid-auth-client';
 import Markers from './Markers'
 import credentials from './credentials'
-import { notifyOpenMap } from '../../services/mailCtrl';
+import { notifyOpenMap } from '../../services/notify';
+import { saveUserLocation } from '../../services/updateUserData';
 
  
 
@@ -25,16 +24,13 @@ async function success(pos) {
     latitude = crd.latitude;
     longitude = crd.longitude;
   
-    var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual
-    if(session) {
-      // Guardar localización en base de datos
-      await updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
-    }
+    await saveUserLocation({ lat: crd.latitude, lng: crd.longitude });
+    
     center = {lat: latitude,
       lng: longitude}
 
     // Notificar que ha abierto la app
-    notifyOpenMap();
+    //notifyOpenMap()
 }
   
   function error(err) {

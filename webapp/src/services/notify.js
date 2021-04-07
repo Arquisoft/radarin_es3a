@@ -1,19 +1,28 @@
 import { fetchFriends } from "./fetchFriends";
 import { fetchEmail, replaceEmail } from "./fetchEmail";
 import solidAuth from 'solid-auth-client';
-import { sendEmail } from "../api/api";
+import { getUserByWebId, sendEmail, sendNotification } from "../api/api";
 import { fetchName } from "./fetchProfile";
+import { getToken } from "./firebase";
 
 let isMapNotAreadyAccessed = true;
 
-export async function notify() {
-    const currentSession = await solidAuth.currentSession();
+export async function notify(webId) {
+    /* const currentSession = await solidAuth.currentSession();
     if(!currentSession)
         return;
 
     let email = await fetchEmail(currentSession.webId);
     if(email)
-        sendEmail("Prueba de envío de email", "Esto es una prueba de Radarin_es3a", email);
+        sendEmail("Prueba de envío de email", "Esto es una prueba de Radarin_es3a", email); */
+
+    const user = await getUserByWebId(webId);
+    const token = user.token;
+    if(!token)
+        return;
+
+    sendNotification("Holaaaa", "Esto es una prueba de notificación", token);
+   
 }
 
 export async function notifyOpenMap() {
