@@ -50,23 +50,20 @@ class Markers extends React.Component {
 
             
             var userLoggedIn = await getUserByWebId(currentSession.webId);
-            console.log(userLoggedIn);
-            console.log(userLoggedIn.location.lat);
-            console.log(userLoggedIn.location.lng);
             const radius = 10
             
             for (let index in friends) {
                 
                 let user = await getUserByWebId(friends[index]);
                     if (user){
-                        // console.log(user);
+                        
                         if (distanceInKmBetweenEarthCoordinates(
                             userLoggedIn.location.lat,userLoggedIn.location.lng,
                             user.location.lat,user.location.lng) < radius)
                              {
                             users.push(user);
                         }
-                        // users.push(user);
+                        
                     } 
 
                 
