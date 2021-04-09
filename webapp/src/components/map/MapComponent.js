@@ -15,6 +15,7 @@ import { notifyOpenMap } from '../../services/mailCtrl';
 
 var latitude;
 var longitude;
+let users = [];
 
 var optionsGeo = {
     enableHighAccuracy: true,
@@ -42,6 +43,10 @@ async function success(pos) {
   };
 //-------------------------------------------------
 
+ function usersData(userList) {
+    users = userList;
+}
+
 const mapContainerStyle = {
     width: "100vw",
     height: "80vh",
@@ -57,6 +62,12 @@ const options = {
     minZoom: 10,
     maxZoom: 20,
 }
+var preferredZoom = 15;
+async function centerOn(pLatitude,pLongitude,pZoom){
+  preferredZoom = pZoom;
+  center.lat = pLatitude;
+  center.lng = pLongitude; 
+};
 
 export default function MapComponent (){
     navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
@@ -70,11 +81,16 @@ export default function MapComponent (){
 
     if(loadError) return "Error loadinf maps"
     if(!isLoaded) return "Loading Maps"
+    // users.forEach(element => {
+    //   console.log(element.latitude)
+    // });
+    
+    centerOn(43.36,-5.84,15)
 
     return <div>
         <GoogleMap 
         mapContainerStyle={mapContainerStyle} 
-        zoom={15} 
+        zoom={preferredZoom} 
         center = {center}
         options={options}
         onLoad={onMapLoad}
