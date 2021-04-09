@@ -7,7 +7,7 @@ import PopUpPod from './components/PopUpPod';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import UsersLocation from './components/UsersLocation'
-import FriendList from './components/FriendList'
+import FriendList from './components/friendlist/FriendList'
 import MapComponent from './components/map/MapComponent';
 import Footer from './components/footer/Footer'
 import { getToken, onMessageListener } from './services/firebase';
