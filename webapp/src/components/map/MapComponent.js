@@ -30,7 +30,7 @@ async function success(pos) {
       lng: longitude}
 
     // Notificar que ha abierto la app
-    //notifyOpenMap()
+    notifyOpenMap()
 }
   
   function error(err) {

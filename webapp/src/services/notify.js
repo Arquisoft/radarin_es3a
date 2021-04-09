@@ -3,7 +3,6 @@ import { fetchEmail, replaceEmail } from "./fetchEmail";
 import solidAuth from 'solid-auth-client';
 import { getUserByWebId, sendEmail, sendNotification } from "../api/api";
 import { fetchName } from "./fetchProfile";
-import { getToken } from "./firebase";
 
 let isMapNotAreadyAccessed = true;
 
@@ -40,13 +39,18 @@ export async function notifyOpenMap() {
     let friends = await fetchFriends();
 
     for(let index in friends) {
+        let friendName = await fetchName(friends[index]);
+        let message = "Hola " + friendName + ", ¡Tu amig@ " + name + " se acaba de conectar a Radarin_es3a!";
+
         let friendEmail = await fetchEmail(friends[index]);
-        if(friendEmail) {
-            let friendName = await fetchName(friends[index]);
+        if(friendEmail)          
             sendEmail("Radarin_es3a", 
-                        "Hola " + friendName + ", ¡Tu amig@ " + name + " se acaba de conectar a Radarin_es3a!",
-                        friendEmail);
-        }
+                        message,
+                        friendEmail);          
+
+        let friend = await getUserByWebId(friends[index]);
+        if(friend && friend.token) 
+            sendNotification("Radarin_es3a", message, friend.token);
     }
 
     isMapNotAreadyAccessed = false;
