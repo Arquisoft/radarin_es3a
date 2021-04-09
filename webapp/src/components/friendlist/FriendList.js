@@ -19,26 +19,24 @@ class FriendList extends React.Component{
         users = users.map(function(u, i) {
             let user = {
                 webId: u,
-                photo: "",
+                photo: './user.png',
                 name: ""
             };
             fetchPhoto(user.webId).then(photo => { 
+                if(!photo)
+                    return
                 users[i].photo = photo;
                 that.setState({users: users})
             });
             fetchName(user.webId).then(name =>  {
+                if(!name)
+                    name = users[i].webId;
                 users[i].name = name
                 that.setState({users: users})
             });
 
             return user;
         });
-        console.log(users)
-        //for(let index in users) {
-        //    users[index].photo = await fetchPhoto(users[index].webId);
-        //    users[index].name = await fetchName(users[index].webId);
-        //}
-        
         this.setState({users: users})
     }
     
