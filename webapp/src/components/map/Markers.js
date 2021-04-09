@@ -4,6 +4,7 @@ import solidAuth from 'solid-auth-client';
 import { getUserByWebId, getUsers } from '../../api/api';
 import { fetchFriends } from '../../services/fetchFriends';
 import MapComponent from './MapComponent';
+import { map } from 'rdf-namespaces/dist/schema';
 
 function degreesToRadians(degrees) {
     return degrees * Math.PI / 180;
@@ -27,7 +28,7 @@ function degreesToRadians(degrees) {
 class Markers extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { users: [] }
+        this.state = { users: []}
     }
 
     componentDidMount() {
