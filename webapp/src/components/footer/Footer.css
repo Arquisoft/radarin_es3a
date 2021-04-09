@@ -1,0 +1,17 @@
+
+.footer {
+    text-align: center;
+    padding: 1em 0;
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    color: #777;
+    margin-top: auto;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a:link, a:visited, a:active {
+    text-decoration: none;
+    color: #FFF;
+}

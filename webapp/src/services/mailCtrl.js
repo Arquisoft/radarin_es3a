@@ -4,6 +4,7 @@ import solidAuth from 'solid-auth-client';
 import { sendEmail } from "../api/api";
 import { fetchName } from "./fetchProfile";
 
+let isMapNotAreadyAccessed = true;
 
 export async function notify() {
     const currentSession = await solidAuth.currentSession();
@@ -16,6 +17,15 @@ export async function notify() {
 }
 
 export async function notifyOpenMap() {
+    if (isMapNotAreadyAccessed) {
+        console.log("Mapa aún no accedido")
+    } else {
+        console.log("Mapa ya accedido")
+    }
+    
+    if(!isMapNotAreadyAccessed)
+        return;
+
     const currentSession = await solidAuth.currentSession();
     let name = await fetchName(currentSession.webId);
     let friends = await fetchFriends();
@@ -23,11 +33,12 @@ export async function notifyOpenMap() {
     for(let index in friends) {
         let friendEmail = await fetchEmail(friends[index]);
         if(friendEmail) {
-            console.log(friendEmail)
             let friendName = await fetchName(friends[index]);
             sendEmail("Radarin_es3a", 
                         "Hola " + friendName + ", ¡Tu amig@ " + name + " se acaba de conectar a Radarin_es3a!",
-                        friendName);
+                        friendEmail);
         }
     }
+
+    isMapNotAreadyAccessed = false;
 }

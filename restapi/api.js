@@ -27,8 +27,8 @@ router.post("/users/add", async (req, res) => {
     }
 });
 
-router.get("/users/:webId", async (req, res) => {
-    var webId = req.params.webId;
+router.get("/users/byWebId", async (req, res) => {
+    var webId = req.headers.webid;
     let user = await User.findOne({ webId: webId });
     res.send(user);
 });
