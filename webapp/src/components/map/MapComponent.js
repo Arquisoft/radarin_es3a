@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React,{useState} from 'react'
 import { GoogleMap, useLoadScript} from '@react-google-maps/api';
 import mapStyles from './mapStyles'
 import Markers from './Markers'
 import credentials from './credentials'
-import { notifyOpenMap } from '../../services/notify';
-import { updateLocation } from '../../api/api';
-import solidAuth from 'solid-auth-client';
+import { notifyOpenMap } from '../../services/mailCtrl';
 
  
 //-------------------------------------------------\
@@ -50,7 +48,7 @@ const options = {
 }
 var preferredZoom = 15;
 try{
-const geo =  navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
+navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
 }catch(err){console.log(err)}
 
 export default function MapComponent (){
