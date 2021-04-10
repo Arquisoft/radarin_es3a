@@ -19,8 +19,50 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d92ac0b-0dce-424d-bd61-25586f63fb33" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/mobileapp/prueba1/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mobileapp/prueba1/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="490a8f1a-2485-489a-b0e0-f1e5efc08c5c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/androidTest/java/com/example/pruebajuan/ExampleInstrumentedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/java/com/example/pruebajuan/FirstFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/java/com/example/pruebajuan/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/java/com/example/pruebajuan/SecondFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/layout/content_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/layout/fragment_first.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/layout/fragment_second.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/menu/menu_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/app/src/test/java/com/example/pruebajuan/ExampleUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobileapp/pruebaJuan/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,41 +70,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="mobileapp" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1qqZ6yaJ6vnT8NW6cVWAgumgxXo" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1qrCRKb5JExWI71tmvvONhpKsid" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="android.sdk.path" value="$PROJECT_DIR$/../../Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9d92ac0b-0dce-424d-bd61-25586f63fb33" name="Default Changelist" comment="" />
-      <created>1617808910300</created>
+      <changelist id="490a8f1a-2485-489a-b0e0-f1e5efc08c5c" name="Default Changelist" comment="" />
+      <created>1617828315341</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1617808910300</updated>
+      <updated>1617828315341</updated>
     </task>
-    <task id="LOCAL-00001" summary="Aplicación móvil base.">
-      <created>1617814510151</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1617814510151</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -77,19 +113,14 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Aplicación móvil base." />
-    <option name="LAST_COMMIT_MESSAGE" value="Aplicación móvil base." />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="1146" y="255" key="FileChooserDialogImpl" timestamp="1617809685958">
+    <state x="699" y="267" key="FileChooserDialogImpl" timestamp="1618055690200">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1146" y="255" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617809685958" />
-    <state x="791" y="262" key="IDE.errors.dialog" timestamp="1617814283166">
+    <state x="699" y="267" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1618055690200" />
+    <state x="684" y="308" key="git4idea.merge.GitPullDialog" timestamp="1618003482482">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="791" y="262" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617814283166" />
+    <state x="684" y="308" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618003482482" />
   </component>
 </project>
