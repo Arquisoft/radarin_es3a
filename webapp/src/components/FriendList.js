@@ -1,4 +1,4 @@
-import { List, Value } from '@solid/react';
+import { List } from '@solid/react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
