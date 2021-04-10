@@ -48,8 +48,7 @@ export async function notifyOpenMap() {
     for(let index in friends) {
         let friendName = await fetchName(friends[index]);
         let message = "Hola " + friendName + ", ¡Tu amig@ " + name + " se acaba de conectar a Radarin_es3a!";
-
-        /** 
+       
         let friendEmail = await fetchEmail(friends[index]);
         if(friendEmail)          
             sendEmail("Radarin_es3a", 
@@ -59,7 +58,6 @@ export async function notifyOpenMap() {
         let friend = await getUserByWebId(friends[index]);
         if(friend && friend.token) 
             sendNotification("Radarin_es3a", message, friend.token);
-            */
     }
 
     isMapNotAreadyAccessed = false;
