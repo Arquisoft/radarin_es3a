@@ -51,6 +51,7 @@ function requestPermission(func) {
 });
 }
 
+// Foreground listener
 export const onMessageListener = () =>
   new Promise((resolve) => {
     messaging.onMessage((payload) => {

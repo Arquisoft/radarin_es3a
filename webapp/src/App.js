@@ -4,18 +4,16 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Welcome  from './components/welcome/Welcome';
 import PopUpPod from './components/PopUpPod';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
+import SignIn from './components/signIn/SignIn';
 import UsersLocation from './components/UsersLocation'
 import FriendList from './components/friendlist/FriendList'
 import MapComponent from './components/map/MapComponent';
-import Footer from './components/footer/Footer'
 import { getToken, onMessageListener } from './services/firebase';
 import { saveUserToken } from './services/updateUserData';
 import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { store } from 'react-notifications-component';
-import { usergroup_of } from 'rdf-namespaces/dist/sioc';
+import Footer from './components/footer/Footer';
 
 export default function App() {
 
@@ -39,7 +37,7 @@ export default function App() {
       }
     });
   }).catch(err => console.log('failed: ', err));
-
+  
   return (
     <Router>
       <ReactNotification types={[
@@ -54,7 +52,6 @@ export default function App() {
         <Route path='/map' component={MapComponent} />
         <Route path='/login' component={PopUpPod} />
         <Route path='/sign-in' component={SignIn} />
-        <Route path='/sign-up' component={SignUp} />
         <Route path='/locations' component={UsersLocation} />
         <Route path='/friend-list' component={FriendList} />
       </Switch>
