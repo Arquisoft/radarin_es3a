@@ -69,7 +69,7 @@ export default function SignIn() {
         Login
         </Typography>
         <form class="text" className={classes.form} noValidate>
-          {/* <LoginButton class="text" className="loginButton" popup="https://inrupt.net/common/popup.html">Login</LoginButton> */}
+          
           { <ProviderLogin class="text"
               selectPlaceholder={("Selecciona tu Proveedor")}
               inputPlaholder={("Web Id")}
@@ -91,6 +91,8 @@ export default function SignIn() {
               }}
               providers={Provider.getIdentityProviders().value}
             /> }
+            {/* <LoginButton class="text" className="loginButton" popup="https://inrupt.net/common/popup.html">Login</LoginButton> */}
+            <LoginButton className='btnL'  popup="popup.html">Login</LoginButton>
           <Grid  container>
 
             <Grid item>
