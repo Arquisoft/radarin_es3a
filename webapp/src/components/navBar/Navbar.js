@@ -8,7 +8,8 @@ function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
-  const handleClick = () => setClick(!click);
+  // Saltaba error, comentado - Raúl
+  //const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   const onMouseEnter = () => {
@@ -80,7 +81,13 @@ function Navbar() {
           </LoggedIn>
           <LoggedOut>
         <li className='nav-item'>
-          <LoginButton className='btnL' onClick={closeMobileMenu} popup="popup.html">Sign In</LoginButton>
+        <Link
+              to='/sign-in'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Sign In
+            </Link>
           </li>
           </LoggedOut>
       </nav>
