@@ -15,7 +15,6 @@ import { saveUserToken } from './services/updateUserData';
 import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { store } from 'react-notifications-component';
-import { usergroup_of } from 'rdf-namespaces/dist/sioc';
 
 export default function App() {
 
