@@ -118,7 +118,7 @@ router.post("/notification", async(req, res) => {
             "title": title, 
             "body": message, 
             "click_action": "https://radarines3awebapp.herokuapp.com/", 
-            "icon": "https://radarines3awebapp.herokuapp.com/logo192.png" 
+            "icon": "https://radarines3awebapp.herokuapp.com/LogoR.png" 
         }, 
         "to": to
     };
