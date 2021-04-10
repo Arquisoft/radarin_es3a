@@ -4,6 +4,7 @@ import credentials from './credentials';
 import { updateLocation } from '../api/api';
 import solidAuth from 'solid-auth-client';
 import Markers from './Markers';
+import { notifyOpenMap } from '../services/mailCtrl';
 
 
 var latitude;
@@ -47,6 +48,9 @@ function MapContainer() {
     map.fitBounds(bounds);
     map.setCenter({ lat: latitude, lng:longitude});
     setMap(map)
+
+    // Notificar que ha abierto la app
+    notifyOpenMap();
   }, [])
 
   const onUnmount = React.useCallback(function callback(map) {
