@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
 
     WebView myWebView;
-    String url = "https://radarines3awebapp.herokuapp.com/";
+    String url = "https://stackoverflow.com/questions/10169821/how-to-work-with-pop-ups-window-in-android-webview";
+    //String url = "https://radarines3awebapp.herokuapp.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
+        myWebView.setWebViewClient(new WebViewClient());
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
