@@ -1,6 +1,8 @@
+import { Button } from '@material-ui/core';
 import React from 'react';
 import ListGroup from "react-bootstrap/ListGroup";
 import { getUsers } from '../api/api';
+import {notify} from '../services/notify'
 
 
 class UsersLocation extends React.Component{
@@ -31,7 +33,7 @@ class UsersLocation extends React.Component{
                 <ListGroup>
                     {this.state.users.map(function(user, i){
                         return <ListGroup.Item id={i} key={i}>{user.webId + ' (' + user.location.lat 
-                            + ", " + user.location.lng + ')'}</ListGroup.Item>
+                            + ", " + user.location.lng + ')'} <Button onClick={() => notify(user.webId)} >Enviar notificación</Button></ListGroup.Item>
                     })}
                 </ListGroup>
            </div>

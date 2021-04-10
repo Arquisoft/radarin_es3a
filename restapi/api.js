@@ -2,6 +2,7 @@ const express = require("express")
 const User = require("./models/users")
 const router = express.Router()
 const nodemailer = require('nodemailer');
+const { default: axios } = require("axios");
 
 // Get all users
 router.get("/users/list", async (req, res) => {
@@ -52,6 +53,29 @@ router.post("/users/update", async (req, res) => {
     }
 });
 
+router.post("/users/update/token", async (req, res) => {
+    let webId = req.body.webId;
+    let token = req.body.token;
+
+    let user = await User.findOne({ webId: webId });
+    if(!user) {
+        user = new User({
+            webId: webId,
+            token: token,
+            location: {
+                lat: "",
+                long: ""
+            }
+        })
+        await user.save()
+        res.send(user);
+    } else {
+        user.token = token;
+        await user.save();
+        res.send(user);
+    }
+});
+
 router.post("/email/send", async(req, res) => {
     let destinatary = req.body.destinatary;
     let message = req.body.message;
@@ -82,6 +106,33 @@ router.post("/email/send", async(req, res) => {
             res.status(200).jsonp(req.body);
         }
     });
+});
+
+router.post("/notification", async(req, res) => {
+    const title = req.body.title;
+    const message = req.body.message;
+    const to = req.body.destinatary;
+
+    const data = {
+        "notification": { 
+            "title": title, 
+            "body": message, 
+            "click_action": "https://radarines3awebapp.herokuapp.com/", 
+            "icon": "https://radarines3awebapp.herokuapp.com/LogoR.png" 
+        }, 
+        "to": to
+    };
+    const config = {
+        "mode": "cors",
+        "headers": {
+          "authorization": 
+          "key=AAAAXtyz3bo:APA91bGeQa6vRw2sX0v_9oK603PSFzKnqujvuLC0w7msxCONzFfGmewaIbv7K-POoDFL5Ufu879b6NEos0ZBcUwYB9rfDl2zZVc8-dkYkleSbviX1RcbAbAzPqHO4tc0Ufb0SkHz17Sg",
+          "content-type": "application/json"
+        }
+    }
+
+    axios.post("https://fcm.googleapis.com/fcm/send", data, config)
+        
 });
 
 module.exports = router
