@@ -1,7 +1,6 @@
 import {
     getSolidDataset,
     getThing,
-    addUrl,
     setUrl,
     getUrl,
     saveSolidDatasetAt,

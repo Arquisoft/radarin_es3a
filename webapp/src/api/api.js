@@ -1,4 +1,4 @@
-import { title } from "rdf-namespaces/dist/dc"
+
 
 //REACT_APP_API_URI is an enviroment variable defined in the file .env.development or .env.production
 export async function addUser(webId, location){

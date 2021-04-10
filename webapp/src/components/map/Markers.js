@@ -1,10 +1,8 @@
 import React from 'react';
 import { Marker } from '@react-google-maps/api';
 import solidAuth from 'solid-auth-client';
-import { getUserByWebId, getUsers } from '../../api/api';
+import { getUserByWebId } from '../../api/api';
 import { fetchFriends } from '../../services/fetchFriends';
-import MapComponent from './MapComponent';
-import { map } from 'rdf-namespaces/dist/schema';
 
 function degreesToRadians(degrees) {
     return degrees * Math.PI / 180;
