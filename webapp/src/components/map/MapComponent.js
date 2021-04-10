@@ -1,13 +1,11 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState } from 'react'
 import { GoogleMap, useLoadScript} from '@react-google-maps/api';
 import mapStyles from './mapStyles'
-import { updateLocation } from '../../api/api';
-import solidAuth from 'solid-auth-client';
 import Markers from './Markers'
 import credentials from './credentials'
-import { notifyOpenMap } from '../../services/mailCtrl';
-import { setStringWithLocale } from '@inrupt/solid-client';
-import { map, position } from 'rdf-namespaces/dist/schema';
+import { notifyOpenMap } from '../../services/notify';
+import { updateLocation } from '../../api/api';
+import solidAuth from 'solid-auth-client';
 
  
 //-------------------------------------------------\

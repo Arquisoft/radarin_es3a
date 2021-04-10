@@ -4,3 +4,13 @@
   padding: 0;
   font-family: 'PT Sans', sans-serif;
 }
+
+.notification__item--custom {
+  background-color: white;
+  border-left: 8px solid #dd8ea4;
+}
+
+.notification__item--custom .notification__message,
+.notification__item--custom .notification__title{
+  color:black
+}
