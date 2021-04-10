@@ -1,6 +1,5 @@
 class User {
     contructor() {
-        super();
         this.uuid;
         this.friendList;
         this.webId;

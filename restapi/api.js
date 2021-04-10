@@ -1,6 +1,8 @@
 const express = require("express")
 const User = require("./models/users")
 const router = express.Router()
+const nodemailer = require('nodemailer');
+const { default: axios } = require("axios");
 
 // Get all users
 router.get("/users/list", async (req, res) => {
@@ -26,8 +28,8 @@ router.post("/users/add", async (req, res) => {
     }
 });
 
-router.get("/users/:webId", async (req, res) => {
-    var webId = req.params.webId;
+router.get("/users/byWebId", async (req, res) => {
+    var webId = req.headers.webid;
     let user = await User.findOne({ webId: webId });
     res.send(user);
 });
@@ -49,6 +51,84 @@ router.post("/users/update", async (req, res) => {
         await user.save();
         res.send(user);
     }
+});
+
+router.post("/users/update/token", async (req, res) => {
+    let webId = req.body.webId;
+    let token = req.body.token;
+
+    let user = await User.findOne({ webId: webId });
+    if(!user) {
+        user = new User({
+            webId: webId,
+            token: token,
+        })
+        await user.save()
+        res.send(user);
+    } else {
+        user.token = token;
+        await user.save();
+        res.send(user);
+    }
+});
+
+router.post("/email/send", async(req, res) => {
+    let destinatary = req.body.destinatary;
+    let message = req.body.message;
+    let subject = req.body.subject;
+
+    let mailTransporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'Radarin.info@gmail.com',
+            pass: 'Radarin2021'
+        }
+    });
+    
+    let mailDetails = {
+        from: 'Radarin.info@gmail.com',
+        to: destinatary,
+        subject: subject,
+        text: message
+    };
+    
+    mailTransporter.sendMail(mailDetails, function(error, info) {
+        console.log("sending");
+        if(err) {
+            console.log('Error Occurs');
+            res.send(500, error.message);
+        } else {
+            console.log('Email sent successfully');
+            res.status(200).jsonp(req.body);
+        }
+    });
+});
+
+router.post("/notification", async(req, res) => {
+    const title = req.body.title;
+    const message = req.body.message;
+    const to = req.body.destinatary;
+
+    const data = {
+        "notification": { 
+            "title": title, 
+            "body": message, 
+            "click_action": "http://localhost:3000", 
+            "icon": "http://localhost:3000/logo192.png" 
+        }, 
+        "to": to
+    };
+    const config = {
+        "mode": "cors",
+        "headers": {
+          "authorization": 
+          "key=AAAAXtyz3bo:APA91bGeQa6vRw2sX0v_9oK603PSFzKnqujvuLC0w7msxCONzFfGmewaIbv7K-POoDFL5Ufu879b6NEos0ZBcUwYB9rfDl2zZVc8-dkYkleSbviX1RcbAbAzPqHO4tc0Ufb0SkHz17Sg",
+          "content-type": "application/json"
+        }
+    }
+
+    axios.post("https://fcm.googleapis.com/fcm/send", data, config)
+        
 });
 
 module.exports = router
