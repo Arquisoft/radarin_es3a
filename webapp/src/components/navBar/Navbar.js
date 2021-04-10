@@ -83,7 +83,13 @@ function Navbar() {
           </LoggedIn>
           <LoggedOut>
         <li className='nav-item'>
-          <LoginButton className='btnL' onClick={closeMobileMenu} popup="popup.html">Sign In</LoginButton>
+        <Link
+              to='/sign-in'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Sign In
+            </Link>
           </li>
           </LoggedOut>
       </nav>

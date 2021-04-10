@@ -4,6 +4,7 @@ import solidAuth from 'solid-auth-client';
 import { getUserByWebId, getUsers } from '../../api/api';
 import { fetchFriends } from '../../services/fetchFriends';
 import MapComponent from './MapComponent';
+import { map } from 'rdf-namespaces/dist/schema';
 
 function degreesToRadians(degrees) {
     return degrees * Math.PI / 180;
@@ -27,7 +28,7 @@ function degreesToRadians(degrees) {
 class Markers extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { users: [] }
+        this.state = { users: []}
     }
 
     componentDidMount() {
@@ -49,23 +50,20 @@ class Markers extends React.Component {
 
             
             var userLoggedIn = await getUserByWebId(currentSession.webId);
-            console.log(userLoggedIn);
-            console.log(userLoggedIn.location.lat);
-            console.log(userLoggedIn.location.lng);
             const radius = 10
             
             for (let index in friends) {
                 
                 let user = await getUserByWebId(friends[index]);
                     if (user){
-                        // console.log(user);
+                        
                         if (distanceInKmBetweenEarthCoordinates(
                             userLoggedIn.location.lat,userLoggedIn.location.lng,
                             user.location.lat,user.location.lng) < radius)
                              {
                             users.push(user);
                         }
-                        // users.push(user);
+                        
                     } 
 
                 
