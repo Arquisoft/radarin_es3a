@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchFriends } from '../../services/fetchFriends';
 import { fetchName, fetchPhoto } from '../../services/fetchProfile';
 import './FriendList.css'
+import solidAuth from 'solid-auth-client';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
@@ -23,6 +24,11 @@ class FriendList extends React.Component {
     }
 
     async fetchUsers() {
+
+        const currentSession = await solidAuth.currentSession();
+        if (!currentSession)
+                return;
+
         let that = this;
         let users = await fetchFriends();
         users = users.map(function (u, i) {

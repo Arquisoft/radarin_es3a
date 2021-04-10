@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Dropdown from './Dropdown';
-import {LoggedOut,LoggedIn, LogoutButton, LoginButton} from '@solid/react'
+import {LoggedOut,LoggedIn, LogoutButton} from '@solid/react'
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -43,6 +43,7 @@ function Navbar() {
               Home
             </Link>
           </li>
+          <LoggedIn>
           <li className='nav-item'>
             <Link
               to='/map'
@@ -66,6 +67,7 @@ function Navbar() {
             </Link>
             {dropdown && <Dropdown />}
           </li>
+          </LoggedIn>
           <li className='nav-item'>
             <Link
               to='/about-us'
