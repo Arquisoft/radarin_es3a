@@ -35,8 +35,15 @@ export async function notifyOpenMap() {
         return;
 
     const currentSession = await solidAuth.currentSession();
-    let name = await fetchName(currentSession.webId);
-    let friends = await fetchFriends();
+    let name;
+    let friends;
+    try{
+        
+        name = await fetchName(currentSession.webId);
+        friends = await fetchFriends();
+    }catch(err){console.log(err);}
+    
+    
 
     for(let index in friends) {
         let friendName = await fetchName(friends[index]);
