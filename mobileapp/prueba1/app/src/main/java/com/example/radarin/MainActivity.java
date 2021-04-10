@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your local Raúl", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Replace with your otro Raúl", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
