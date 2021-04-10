@@ -6,7 +6,7 @@ import Welcome  from './components/welcome/Welcome';
 import PopUpPod from './components/PopUpPod';
 import SignIn from './components/signIn/SignIn';
 import UsersLocation from './components/UsersLocation'
-import FriendList from './components/FriendList'
+import FriendList from './components/friendlist/FriendList'
 import MapComponent from './components/map/MapComponent';
 import { getToken, onMessageListener } from './services/firebase';
 import { saveUserToken } from './services/updateUserData';
