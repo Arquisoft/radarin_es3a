@@ -56,7 +56,7 @@ class FriendList extends React.Component {
                 <div >
                     {this.state.users.map(function (user, i) {
                         return (
-                            <List>
+                            <List key= {i}>
                                 <ListItem alignItems="flex-start" id={i} key={i}>
                                     <ListItemAvatar >
                                         <Avatar style={{
