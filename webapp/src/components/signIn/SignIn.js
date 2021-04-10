@@ -3,36 +3,16 @@ import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { LoginButton } from '@solid/react';
 import LogoR from '../../LogoR.svg';
-import { ProviderLogin, withWebId ,  Uploader,
-  ProfileUploader,
-  useNotification,
+import { ProviderLogin,
   FormModel,
-  Spinner,
-  ProfileViewer} from '@inrupt/solid-react-components';
-import { grey } from '@material-ui/core/colors';
+  Spinner} from '@inrupt/solid-react-components'; 
 import './SignIn.css'
 import Provider from './provider'
 
-
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   body: {

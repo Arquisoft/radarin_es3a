@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import { GoogleMap, useLoadScript} from '@react-google-maps/api';
 import mapStyles from './mapStyles'
 import { updateLocation } from '../../api/api';
@@ -6,8 +6,6 @@ import solidAuth from 'solid-auth-client';
 import Markers from './Markers'
 import credentials from './credentials'
 import { notifyOpenMap } from '../../services/mailCtrl';
-import { setStringWithLocale } from '@inrupt/solid-client';
-import { map, position } from 'rdf-namespaces/dist/schema';
 
  
 //-------------------------------------------------\
@@ -51,9 +49,9 @@ const options = {
   maxZoom: 20,
 }
 var preferredZoom = 15;
-
-const geo =  navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
-
+try{
+navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
+}catch(err){console.log(err)}
 
 export default function MapComponent (){
 

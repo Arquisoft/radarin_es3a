@@ -1,5 +1,5 @@
 import { fetchFriends } from "./fetchFriends";
-import { fetchEmail, replaceEmail } from "./fetchEmail";
+import { fetchEmail } from "./fetchEmail";
 import solidAuth from 'solid-auth-client';
 import { sendEmail } from "../api/api";
 import { fetchName } from "./fetchProfile";
