@@ -44,3 +44,6 @@ form {
     margin-top: 1vh;
     width: 20vw;
 }
+.MuiGrid-container{
+    justify-content: center;
+}
