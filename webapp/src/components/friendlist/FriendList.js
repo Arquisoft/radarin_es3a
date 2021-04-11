@@ -92,6 +92,7 @@ class FriendList extends React.Component {
                                                     }}>
                                                     {user.webId}
                                                 </Typography>
+                                                {/* <div><a href={user.webid}>{user.webId}</a></div> */}
                                             </React.Fragment>
                                         }
 
