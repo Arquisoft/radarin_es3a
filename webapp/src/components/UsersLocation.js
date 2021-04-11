@@ -2,7 +2,8 @@ import { Button } from '@material-ui/core';
 import React from 'react';
 import ListGroup from "react-bootstrap/ListGroup";
 import { getUsers } from '../api/api';
-import {notify} from '../services/notify'
+import {notify} from '../services/notify';
+import './UsersLocation.css';
 
 
 class UsersLocation extends React.Component{

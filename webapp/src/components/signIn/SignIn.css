@@ -1,6 +1,6 @@
 body {
     background-color: #222222 !important;
-
+    justify-content: center;
 }
 .text {
     color: #FFFFFF;
@@ -8,6 +8,39 @@ body {
 .sc-eCssSg {
     color: #FFFFFF;
 }
-.btnL {
-    /* -moz-box-align: center; */
+.paper {
+    margin-top: 8vh;
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+
+  }
+form {
+    width: 20vw;
+    margin-top: 1vh;
+  }
+.rIcon {
+    position: relative;
+    width: 2vw;
+    left: 0.5vw;
+  }
+.icon-circle{
+    margin-top: 1vh;
+    border-radius: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    background-color: #fff;
+    width: 3vw;
+    height: 3vw;
+    overflow:hidden;
+}
+.solid-pod-link{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+.solid-provider-select{
+    margin-top: 1vh;
+    width: 20vw;
 }
