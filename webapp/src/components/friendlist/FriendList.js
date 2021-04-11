@@ -11,6 +11,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import { Link } from '@solid/react';
 
 
 class FriendList extends React.Component {
@@ -92,7 +93,6 @@ class FriendList extends React.Component {
                                                     }}>
                                                     {user.webId}
                                                 </Typography>
-                                                {/* <div><a href={user.webid}>{user.webId}</a></div> */}
                                             </React.Fragment>
                                         }
 
