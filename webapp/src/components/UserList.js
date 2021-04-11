@@ -4,7 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 class UserList extends React.Component{
     render() {
-        return (
+        return ( 
             <div className="UserList">
                 <h2>List of already registered users</h2>
                 <ListGroup>

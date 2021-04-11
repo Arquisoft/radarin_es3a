@@ -3,7 +3,9 @@
 == System Scope and Context
 
 .Contents
-Radarin is an application that will allow users to find nearby friends, one feature that we want to remark is that stores the minimun required user data in base of the SOLID principles, the rest of the information will be requested to the user via user POD.
+Radarin is an application that will allow users to find nearby friends. One feature that we want to remark is that stores the minimun required user data in base of the SOLID principles, the rest of the information will be requested to the user via user POD.
+
+The application additionally manage the friend list of the user mediating withe the Solid system.
 
 The user sends his location to the web service, this service requests the necesary data from the user POD, then this service makes the query to the Google Maps API which returns the map with the required data to the web service. Once this data is recolected the web service returns the user the final product. 
 
