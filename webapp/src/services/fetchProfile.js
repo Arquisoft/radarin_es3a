@@ -20,6 +20,8 @@ export async function fetchProfile () {
 }
 
 export async function fetchName(webId) {
+  if(!webId)
+    return null;
   const webIdDoc = await fetchDocument(webId);
   const profile = webIdDoc.getSubject(webId);
 
@@ -29,7 +31,7 @@ export async function fetchName(webId) {
 
 export async function fetchPhoto(webId) {
   if(!webId)
-    return;
+    return null;
 
   var myDataset = await getSolidDataset(webId.split("#me")[0]);
   const profile = getThing(myDataset, webId);
