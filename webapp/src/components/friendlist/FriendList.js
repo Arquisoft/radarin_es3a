@@ -27,7 +27,7 @@ class FriendList extends React.Component {
 
         const currentSession = await solidAuth.currentSession();
         if (!currentSession)
-                return;
+                return null;
 
         let that = this;
         let users = await fetchFriends();
@@ -59,7 +59,7 @@ class FriendList extends React.Component {
         return (
             <>
                 <h1>Lista de amigos</h1>
-                <div >
+                <div id='list-test'>
                     {this.state.users.map(function (user, i) {
                         return (
                             <List key= {i}>
@@ -103,7 +103,7 @@ class FriendList extends React.Component {
                         );
                     })}
                 </div>
-                <div>
+                <div className="box-test">
                     <Box style={{
                         width: '100%',
                         height: '6em',
