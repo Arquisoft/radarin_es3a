@@ -2,59 +2,50 @@
 == Runtime View
 
 
-=== Register
+=== Register  
 
-Any potential user may want to register in the application, to start using the features provided.
+Any potential user may want to register in the application, to start using the features provided. Register runs along the Solid system.
 
-1. The user enters his WebID
-2. The user touches the register button
-3. If they do not have a WebID, they are redirected to create a Solid Pod
-4. The user chooses credentials
-5. The application contrasts the credentials with the database
-6. If successful, the user is provided with an account
+1. The user touches the "Get a Solid Pod" button
+2. The user chooses credentials
+3. If successful, the user is provided with a Solid Pod account
 
 [plantuml,"Register diagram",png]
 ----
 actor User
-User -> Registration menu: Enters WebID
-User -> Registration menu: Touches register button
+User -> Registration menu: Touches "Get a Solid Pod" button
 Registration menu -> Pod interface: Redirects user to create Pod
-User -> Registration menu: Chooses credentials
-Registration menu -> Application: Sends credentials
-Application -> Database: Checks if credentials already exist
-Database --> Application: Returns confirmation
-Application --> User: Provides account
+User -> Pod interface: Chooses credentials
+Pod interface --> User: Provides account
 ----
 
-=== Log in
+=== Log in  
 
-A potential user may log in the application via the log in screen. Log in comences upon entering the application, either in a mobile phone or a web browser.
+A potential user may log in the application via the log in screen. Log in comences upon entering the application, either in a mobile phone or a web browser, as the mobile app includes the exact behaviour.
 
-1. The user enters their WebID.
-2. The user touches the log in button (for Solid).
+1. The user touches the log in button.
+2. The user enters their Solid credentials in a new window.
 3. The Solid Pod returns log in confirmation.
-4. The user enters their credentials, such as their username and password.
-5. The user touches the log in button (for the application).
-6. The application services check if the log in is valid.
-7. The entities send the information needed to the services.
-8. The services prepare the functionality to be given to the user.
-9. The controllers provide the user with the functionality.
+4. The application services check if the log in is valid.
+5. The entities send the information needed to the services.
+6. The services prepare the functionality to be given to the user.
+7. The controllers provide the user with the functionality.
 
 [plantuml,"Log in diagram",png]
 ----
 actor User
-User -> Solid Pod: Enters WebID
-User -> Solid Pod: Touches log in button
-Solid Pod --> User: Returns log in confirmation
-User -> Controllers: Enters credentials
-User -> Controllers: Touches log in button
-Controllers -> Services: Request validation
+User -> Application: Touches log in button
+Application -> Solid Pod: Sends request
+User -> Solid Pod: Enters credentials
+Solid Pod --> Application: Returns log in confirmation
+Application -> Services: Request validation
 Services -> Entities: Check validation
 Entities --> Services: Return validation 
 Services --> Controllers: Prepare functionality
 Controllers --> User: Provide functionality
 ----
 
+****
 === Register friends
 
 1. User1 touches the "add a friend" button.
@@ -84,10 +75,11 @@ User2Pod -> User1Application: Sends confirmation
 User1Application -> User1Pod: Sends confirmation
 User1Application -> User1: Notifies confirmation
 ----
+****
 
-=== Geolocate friends
+=== Geolocate friends  
 
-1. The user asks for the geolocalization information.
+1. The user enters the maps.
 2. The application request the geolocalization information of added friends in the database.
 3. The database sends back the information.
 4. The application shows the user the information.
@@ -95,7 +87,7 @@ User1Application -> User1: Notifies confirmation
 [plantuml,"Geolocate friends diagram",png]
 ----
 actor User
-User -> Application: Request geolocalization information
+User -> Application: Enters the map
 Application -> Database: Request information
 Database --> Application: Provides geolocalization data
 Application --> User: Shows locations
