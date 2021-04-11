@@ -64,7 +64,7 @@ router.post("/users/update/token", async (req, res) => {
             token: token,
             location: {
                 lat: "",
-                long: ""
+                lng: ""
             }
         })
         await user.save()
