@@ -16,7 +16,13 @@ It will be the core of the backend, everything will be managed using the SOLID p
 This API will allow us to implement emails as a way of notificate the users
 
 .Firebase Cloud Messaging API:
-This API will allow us to have in real time notifications, also a notification center for the user to see what he missed
+This API will allow us to have real time notifications, also a notification center for the user to see what he missed
+
+.MongoDB
+This will manage the database.
+
+.MongoDB Atlas
+It is a server of mongoDB, so the app will be able to get the informatiuon of the user wherever he is.
 
 === Frontend
 .React-bootstrap:
