@@ -18,7 +18,6 @@ describe('<App />',()=>{
         const { container } = render(<App />);
         expect(container).toBeTruthy();
       });
-
 });
 // 
 
