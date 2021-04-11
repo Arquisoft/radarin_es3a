@@ -14,7 +14,7 @@ Moreover, React.js' syntax is similar to that of HTML, with which our team is us
 === Data storage
 Given the project is to be created following the Solid arquetype, some of our data will be storaged upon the Solid Pods. 
 However, the main chunk of information will be running alongside the database of Mongo DB, as it will improve velocity and data accesibility.
-Solid Pods will be used mainly to storage the user's ID for the credentials of the application.
+Solid Pods will be used mainly to storage the user's email used when sending the notifications.
  
 === Geolocalization 
 Geolocalization will dynamically updated on periodic intervals, using the Mongo DB database as an intermediate user. Solid Pods will not be used for the means of storing geolocalization data.

@@ -14,7 +14,7 @@ image:05-BuildingBlockDiagram.png[Building Block]
 
 ===== Motivation
 
-This shows a basic structure of the system application. The locations uf the users are stored on their own PODs, only the essential information is stored on the application.
+This shows a basic structure of the system application. The locations uf the users are stored on their own PODs, only the essential information is stored on the application, that will be persistent. 
 
 
 ===== Contained Building Blocks
@@ -41,8 +41,9 @@ This level represents the basic view of the application, in other words, the ese
 [cols="1,2" options="header"]
 |===
 | **Name** | **Responsibility**
-| Web Service | This is the representation of the application on the web.
-| Aplication | Set of the diferents modules used on the development of the application.
+| Web Application | This is the representation of the application on the web.
+| Mobile Aplication |  This is the representation of the application on the mopbile phone.
+| Database | This is the representation of the application on the web.
 | Modules | Stands for the npm modules installed in the project and our dependencies to them.
 |===
 
@@ -60,10 +61,9 @@ Representation of the main blocks of the application for structuring the diferen
 [cols="1,2" options="header"]
 |===
 | **Name** | **Responsibility**
-| Internationalization | This will make the application more friendly with different kind of users.
-| Controllers | This will communicate the user with the application.
-| Services | This will controll the logic of the aplication.
-| Entities | This will be the classes generated to give persistency to the application.
+| Components | This will communicate the user with the application, providing the interface alongside some functionality.
+| Services | This will provide the main logic of the aplication.
+| Entities | This will be the classes generated to give persistency to the application, managed by the database.
 |===
 
 

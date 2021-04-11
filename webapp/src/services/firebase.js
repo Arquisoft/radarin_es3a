@@ -13,9 +13,15 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const messaging = firebase.messaging();
+var messaging ;
+try {
+  messaging = firebase.messaging();
+} catch (error) {
+  console.log(error);
+}
 
 export const getToken = (func) => {
+  if(messaging)
   return messaging.getToken({vapidKey: 'BHlbBCyBGj27GsWwC87p4G15nhu2HgROHqAi8ty92MHgv3YVVXvK_YPy_FFRHGUain-0KSPQgrbdH4SY0aDXfc4'})
       .then((currentToken) => {
     if (currentToken) {
