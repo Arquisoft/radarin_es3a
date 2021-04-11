@@ -6,7 +6,8 @@ const schema = mongoose.Schema({
     location: {
         lat: Number,
         lng: Number
-    }
+    },
+    token: String
 })
 
 module.exports = mongoose.model("User", schema)

@@ -12,12 +12,27 @@ The libraries for the usage of the PODs, it is the union between the solid code 
 .Solid:
 It will be the core of the backend, everything will be managed using the SOLID principles.
 
+.NodeMailer API:
+This API will allow us to implement emails as a way of notificate the users
+
+.Firebase Cloud Messaging API:
+This API will allow us to have real time notifications, also a notification center for the user to see what he missed
+
+.MongoDB
+This will manage the database.
+
+.MongoDB Atlas
+It is a server of mongoDB, so the app will be able to get the informatiuon of the user wherever he is.
+
 === Frontend
 .React-bootstrap:
 We will use this technology to make the designs, the UI.
-
 .GoogleMapsAPI:
 This API will simplify a lot the location and ubication requirements of the project.
+.React components
+For the implementation of the interface
+
+
 
 === Developer Tools
 .Github managers:
@@ -28,6 +43,12 @@ To develop the code.
 
 .Docker app
 The docker app configures the system to work with the docker environment.
+
+.XCode
+For the develop of the iOS app
+
+.Android Studio
+For the develop of the Andoid app
 
 ***
 

@@ -29,7 +29,7 @@ The main reason for using Solid is because it brings safety and security for our
 
 === Performance
 
-One of the decision that we took for getting a good performance is that we are not going to refresh the location for each milisecond, this will be done in short more logic periods of time. p.ex.: 1 min. time delay. 
+Due to the use of MongoDB, we do not have the necessity to stop the location refreshing . This will be done in short periods of time.
 
 
 === Architecture and design patterns
