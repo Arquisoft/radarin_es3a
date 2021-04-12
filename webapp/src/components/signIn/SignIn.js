@@ -77,7 +77,7 @@ export default function SignIn() {
               btnTxtWebId={("Insertar WebID")}
               btnTxtProvider={("Selecciona tu Proveedor")}
               className="provider-login-component"
-              callbackUri={`${window.location.origin}/`}
+              callbackUri={`${window.location.origin}/map`}
               errorsText={{
                 unknown: ("Error Desconocido"),
                 webIdNotValid: ("Error webID No Valido"),
