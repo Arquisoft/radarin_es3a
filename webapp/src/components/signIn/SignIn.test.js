@@ -1,8 +1,7 @@
 import SignIn from './SignIn'
 import { cleanup } from '@testing-library/react';
-import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import { shallow, configure, mount } from 'enzyme';
+import { shallow, configure } from 'enzyme';
 
 
 
@@ -12,8 +11,8 @@ describe('<SignIn />',()=>{
 
     // Comprobaciones para "h1"
     // Renderiza el elemento "h1"
-    it('Renders "h1" element without crashing', () => {
-        const editor = shallow(<SignIn />);
+    it('Renders h1 element without crashing', () => {
+        const editor = shallow(<SignIn/>);
         expect(editor.find('div').length).toEqual(2);
     });
 });

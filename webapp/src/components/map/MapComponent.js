@@ -50,8 +50,8 @@ const options = {
 }
 var preferredZoom = 15;
 try{
-navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
-}catch(err){console.log(err)}
+  navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
+}catch(err){console.log()}
 
 export default function MapComponent (){
 
