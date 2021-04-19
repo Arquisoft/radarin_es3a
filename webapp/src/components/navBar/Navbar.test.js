@@ -13,20 +13,4 @@ describe('<Navbar />', () => {
         const editor = shallow(<Navbar />);
         expect(editor.find('nav.navbar').length).toEqual(1);
     });
-
-
-    // it('renders text of item home', () => {
-    //     const editor = shallow(<Navbar />);
-    //     const expectedOutput = '<a class="nav-links" href="/">Home</a>';
-    //     const realOutput = editor.find('li.nav-item').html();
-    //     expect(realOutput.indexOf(expectedOutput) > -1).toEqual(true);
-    // });
-
-    // it('renders logo', () => {
-    //     const editor = shallow(<Navbar />);
-    //     const expectedOutput = '<a class="nav-links" href="/">Home</a>';
-    //     const realOutput = editor.find('li.nav-item').html();
-    //     expect(realOutput.indexOf(expectedOutput) > -1).toEqual(true);
-    // });
-
 });
