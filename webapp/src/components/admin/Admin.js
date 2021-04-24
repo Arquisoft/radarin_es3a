@@ -5,6 +5,7 @@ import './Admin.css'
 import { getUsers } from '../../api/api';
 // import {deleteFromDB} from '../../services/deleteFromDB';
 import ListGroup from "react-bootstrap/ListGroup";
+import { Button, Container, Row, Col } from 'react-bootstrap';
 
 
 
@@ -45,42 +46,62 @@ class Admin extends React.Component {
 
 
     render() {
-        return (
-            <>
-                <div class="row align-items-start">
-                    <h1 class="titulo">Opciones de Administrador</h1>
+        if (!this.state.users) {
+            return (<div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
-                <div class="container">
+            </div>)
+        } else {
 
-                    <div class="row">
-                        <div class="col-sm">
-                            <h2 class="">Manejo Usuarios</h2>
-                            <ListGroup>
-                                {this.state.users.map(function (user, i) {
-                                    return <ListGroup.Item id={i} key={i}class="list-group"><li class="list-group-item">{user}</li>
-                                        {/* <Button type="button" class="btn btn-danger" onClick={() => deleteFromDB(user.webId)} >Enviar notificación</Button> */}
-                                    </ListGroup.Item>
-                                })}
-                            </ListGroup>
-                        </div>
-                        <div class="col-sm">
-                            <h2 class="">Usuarios Conectados</h2>
-                            <ListGroup>
-                                {this.state.users.map(function (user, i) {
-                                    return <ListGroup.Item id={i} key={i}>{user.webId}
-                                    </ListGroup.Item>
-                                })}
-                            </ListGroup>
-                        </div>
-
+            return (
+                <>
+                    <Container>
+                    <div class="row align-items-start">
+                        <h1 class="display-1 text-primary">Opciones de Administrador</h1>
                     </div>
-                </div>
+                        <Row>
+                            <Col md={4}>
+                            <h2 class="display-4">Manejo Usuarios</h2>
+                                <ListGroup>
+                                    {this.state.users.map(function (user, i) {
+                                        return <ListGroup.Item id={i} key={i} class="list-group"><li class="list-group-item">{user}</li>
+                                            {/* <Button type="button" class="btn btn-danger" onClick={() => deleteFromDB(user.webId)} >Enviar notificación</Button> */}
+                                        </ListGroup.Item>
+                                    })}
+                                </ListGroup>
+                            </Col>
+                            <Col md={{ span: 4, offset: 4 }}>{`md={{ span: 4, offset: 4 }}`}</Col>
+                        </Row>
+                    </Container>
+
+                    
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h2 class="display-4">Usuarios Conectados</h2>
+                                    <ListGroup>
+                                        {this.state.users.map(function (user, i) {
+                                            return <ListGroup.Item id={i} key={i}>{user.webId}
+                                            </ListGroup.Item>
+                                        })}
+                                    </ListGroup>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
 
 
-            </>
-        )
+                </>
+            )
+        }
     }
 }
 
