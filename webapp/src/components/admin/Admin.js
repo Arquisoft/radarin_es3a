@@ -56,35 +56,27 @@ class Admin extends React.Component {
 
             return (
                 <>
+                <Container fluid className="p-3">
                     <Container>
-                    <div class="row align-items-start">
-                        <h1 class="display-1 text-primary">Opciones de Administrador</h1>
-                    </div>
+                        <div class="row align-items-start">
+                            <h1 class="display-1 text-primary">Opciones de Administrador</h1>
+                        </div>
                         <Row>
                             <Col md={4}>
-                            <h2 class="display-4">Manejo Usuarios</h2>
-                                <ListGroup>
-                                    {this.state.users.map(function (user, i) {
-                                        return <ListGroup.Item id={i} key={i} class="list-group"><li class="list-group-item">{user}</li>
-                                            {/* <Button type="button" class="btn btn-danger" onClick={() => deleteFromDB(user.webId)} >Enviar notificación</Button> */}
-                                        </ListGroup.Item>
-                                    })}
-                                </ListGroup>
+                                <div>
+                                    <h2 class="display-4">Manejo Usuarios</h2>
+                                    <ListGroup>
+                                        {this.state.users.map(function (user, i) {
+                                            return <ListGroup.Item id={i} key={i} class="list-group"><li class="list-group-item">{user}</li>
+                                                {/* <Button type="button" class="btn btn-danger" onClick={() => deleteFromDB(user.webId)} >Enviar notificación</Button> */}
+                                            </ListGroup.Item>
+                                        })}
+                                    </ListGroup>
+                                </div>
+
                             </Col>
-                            <Col md={{ span: 4, offset: 4 }}>{`md={{ span: 4, offset: 4 }}`}</Col>
-                        </Row>
-                    </Container>
-
-                    
-                    <div class="container">
-
-                        <div class="row">
-                            <div class="col-md-4">
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h2 class="display-4">Usuarios Conectados</h2>
+                            <Col md={4}>
+                                <div><h2 class="display-4">Usuarios Conectados</h2>
                                     <ListGroup>
                                         {this.state.users.map(function (user, i) {
                                             return <ListGroup.Item id={i} key={i}>{user.webId}
@@ -92,13 +84,10 @@ class Admin extends React.Component {
                                         })}
                                     </ListGroup>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
+                            </Col>
+                        </Row>
+                    </Container>
+                </Container>
                 </>
             )
         }
