@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Welcome  from './components/welcome/Welcome';
 import SignIn from './components/signIn/SignIn';
 import UsersLocation from './components/UsersLocation'
+import Admin from './components/admin/Admin'
 import FriendList from './components/friendlist/FriendList'
 import MapComponent from './components/map/MapComponent';
 import { getToken, onMessageListener } from './services/firebase';
@@ -51,6 +52,7 @@ export default function App() {
         <Route path='/map' component={MapComponent} />
         <Route path='/sign-in' component={SignIn} />
         <Route path='/locations' component={UsersLocation} />
+        <Route path='/admin' component={Admin} />
         <Route path='/friend-list' component={FriendList} />
       </Switch>
       <Footer/>

@@ -53,6 +53,15 @@ function Navbar() {
               Map
             </Link>
           </li>
+          <li className='nav-item'>
+            <Link
+              to='/admin'
+              className='nav-links'
+              onClick={closeMobileMenu}
+            >
+              Admin
+            </Link>
+          </li>
           <li
             className='nav-item'
             onMouseEnter={onMouseEnter}
