@@ -59,11 +59,9 @@ class Admin extends React.Component {
 
             return (
                 <>
-                <Container fluid className="p-3">
-                    <Container>
-                        <div class="row align-items-start">
-                            <h1 class="display-1 text-primary">Opciones de Administrador</h1>
-                        </div>
+                <Container fluid={4} className="p-3">
+                    {/* <Container> */}
+
                         <Row>
                             <Col md={4}>
                                 <div>
@@ -89,7 +87,7 @@ class Admin extends React.Component {
                                 </div>
                             </Col>
                         </Row>
-                    </Container>
+                    {/* </Container> */}
                 </Container>
                 </>
             )
