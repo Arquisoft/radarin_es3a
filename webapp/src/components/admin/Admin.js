@@ -3,8 +3,8 @@ import React from 'react';
 import { fetchName } from '../../services/fetchProfile';
 import './Admin.css'
 import { getUsers } from '../../api/api';
-import {deleteUser} from '../../services/deleteFromDB';
-import ListGroup from "react-bootstrap/ListGroup";
+import { deleteUser } from '../../services/deleteFromDB';
+// import ListGroup from "react-bootstrap/ListGroup";
 import { Button, Container, Row, Col } from 'react-bootstrap';
 
 
@@ -20,8 +20,7 @@ class Admin extends React.Component {
     }
 
     async fetchUsers() {
-        //TODO orden nombre usuario y dcha eliminar
-        //TODO boostrap
+
         try {
             let users = await getUsers();
             let usersFiltrados = [];
@@ -49,49 +48,50 @@ class Admin extends React.Component {
 
 
     render() {
-        if (!this.state.users) {
-            return (<div class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+
+
+        return (
+            <>
+                
+                <div class="container border border-light rounded">
+                    <div class="row">
+                        <div class="col-md-auto">
+                            <h2 class="display-4 text-light">Manejo Usuarios</h2>
+
+                            {this.state.users.map(function (user, i) {
+                                return (
+                                    <div class="card w-100 text-white bg-dark">
+                                        <div class="card-body ">
+                                            <h5 class="card-title">{user}</h5>
+                                            {<Button type="button" class="btn btn-danger" onClick={() => deleteUser(user.webId)} >Eliminar usuario</Button>}
+                                        </div>
+                                    </div>
+                                )
+                            })}
+
+                        </div>
+                        <div class="col-md-auto">
+                            <h2 class="display-4 text-light">Usuarios Conectados</h2>
+                            {this.state.users.map(function (user, i) {
+                                return (
+                                    <div class="card w-100 text-white bg-dark">
+                                        <div class="card-body ">
+                                            <h5 class="card-title">{user}</h5>
+                                            <span class="badge badge-pill badge-success">Success</span>
+                                            <span class="badge badge-pill badge-danger">Danger</span>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+
+                    </div>
                 </div>
-            </div>)
-        } else {
 
-            return (
-                <>
-                <Container fluid={4} className="p-3">
-                    {/* <Container> */}
 
-                        <Row>
-                            <Col md={4}>
-                                <div>
-                                    <h2 class="display-4">Manejo Usuarios</h2>
-                                    <ListGroup>
-                                        {this.state.users.map(function (user, i) {
-                                            return <ListGroup.Item id={i} key={i} class="list-group"><li class="list-group-item">{user}</li>
-                                                {<Button type="button" class="btn btn-danger" onClick={() => deleteUser(user.webId)} >Eliminar usuario</Button>}
-                                            </ListGroup.Item>
-                                        })}
-                                    </ListGroup>
-                                </div>
+            </>
+        )
 
-                            </Col>
-                            <Col md={4}>
-                                <div><h2 class="display-4">Usuarios Conectados</h2>
-                                    <ListGroup>
-                                        {this.state.users.map(function (user, i) {
-                                            return <ListGroup.Item id={i} key={i}>{user.webId}
-                                            </ListGroup.Item>
-                                        })}
-                                    </ListGroup>
-                                </div>
-                            </Col>
-                        </Row>
-                    {/* </Container> */}
-                </Container>
-                </>
-            )
-        }
     }
 }
 
