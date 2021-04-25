@@ -51,12 +51,14 @@ export default function App() {
       <Switch>
         <Route path='/' exact component={Welcome} />
         <Route path='/map' component={MapComponent} />
-        <Route path='/sign-in' component={SignIn} />
+        
+          <Route path='/sign-in'  component={SignIn} />
+     
         <Route path='/locations' component={UsersLocation} />
         <Route path='/admin' component={Admin} />
         <Route path='/friend-list' component={FriendList} />
       </Switch>
       <Footer/>
     </Router>
-  );
+  );          
 }

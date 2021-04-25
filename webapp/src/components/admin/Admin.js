@@ -23,7 +23,7 @@ class Admin extends React.Component {
         try {
             let users = await getUsers();
             let usersFiltrados = [];
-            let todosLosUsers
+            // let todosLosUsers
             for (let index in users) {
                 try {
                     //let u = await fetchName(users[index].webId);
