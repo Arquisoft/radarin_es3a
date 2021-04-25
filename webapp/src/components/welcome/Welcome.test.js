@@ -54,7 +54,7 @@ describe('<Welcome />',()=>{
     //----------------------------
     // it('renders an output area', () => {
     //     const editor = shallow(<Welcome />);
-    //     const expectedOutput = '<div class="welcome"><h1>Bienvenidos a Radarin</h1><p>En esta aplicacion podras localizar a tus amigos cercanos</p></div>';
+    //     const expectedOutput = '<div className="welcome"><h1>Bienvenidos a Radarin</h1><p>En esta aplicacion podras localizar a tus amigos cercanos</p></div>';
     //     const realOutput = editor.find('div.welcome').html();
 
     //     editor.setState({ value: ""});

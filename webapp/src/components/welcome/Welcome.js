@@ -9,8 +9,8 @@ export default function Welcome  ()  {
 
 
     <div className="welcome">
-      <h1  class="text-light " >Bienvenidos a Radarin</h1>
-      <p  class="text-light " >En esta aplicacion podras localizar a tus amigos cercanos</p>
+      <h1  className="text-light " >Bienvenidos a Radarin</h1>
+      <p  className="text-light " >En esta aplicacion podras localizar a tus amigos cercanos</p>
 
     </div>
   );

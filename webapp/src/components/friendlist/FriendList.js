@@ -58,7 +58,7 @@ class FriendList extends React.Component {
     render() {
         return (
             <>
-                <h1 class="text-light">Lista de amigos</h1>
+                <h1 className="text-light">Lista de amigos</h1>
                 <div id='list-test'>
                     {this.state.users.map(function (user, i) {
                         return (
@@ -73,7 +73,7 @@ class FriendList extends React.Component {
                                     <ListItemText
                                         primary={
                                             <React.Fragment>
-                                                <Typography  class="text-light"
+                                                <Typography  className="text-light"
                                                     style={{
                                                         fontWeight: 600,
                                                         fontSize: 18

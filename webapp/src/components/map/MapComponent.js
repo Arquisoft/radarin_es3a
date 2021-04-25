@@ -88,8 +88,8 @@ export default function MapComponent() {
   return (
 
     <div>
-      <div class="container">
-        <span class="text-light p-1 w-25">Distancia deseada: </span>
+      <div className="container">
+        <span className="text-light p-1 w-25">Distancia deseada: </span>
       </div>
 
       <GoogleMap

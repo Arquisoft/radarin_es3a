@@ -4,6 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { getUsers } from '../api/api';
 import {notify} from '../services/notify';
 import './UsersLocation.css';
+import { fetchName } from '../services/fetchProfile';
 
 
 class UsersLocation extends React.Component{
@@ -19,6 +20,20 @@ class UsersLocation extends React.Component{
     async fetchUsers() {
         try{
             let users = await getUsers();
+            let usersFiltrados = [];
+            // let todosLosUsers
+            for (let index in users) {
+                try {
+                    //let u = await fetchName(users[index].webId);
+                    //todosLosUsers.push(u)
+                    let user = await fetchName(users[index].webId);
+                    if (!(user === "radarin")) {
+                        usersFiltrados.push(users[index])
+                    }
+                } catch (error) {
+                    console.log("No se ha podido insertar: " + users[index].webId);
+                }
+            }
             this.setState({users:users});
         }
         catch(error)
@@ -29,8 +44,8 @@ class UsersLocation extends React.Component{
 
     render() {
         return (
-            <div className="UserList">
-                <h2>List of location of already registered users</h2>
+            <div className="UserList container">
+                <h2 className="text-light display-4 p-3">List of location of already registered users</h2>
                 <ListGroup>
                     {this.state.users.map(function(user, i){
                         return <ListGroup.Item id={i} key={i}>{user.webId + ' (' + user.location.lat 

@@ -5,9 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import LogoR from '../../LogoR.svg';
-import { ProviderLogin ,
-  FormModel,
-  Spinner} from '@inrupt/solid-react-components';
+import { ProviderLogin } from '@inrupt/solid-react-components';
 import './SignIn.css'
 import Provider from './provider'
 

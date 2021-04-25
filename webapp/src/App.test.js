@@ -29,7 +29,7 @@ describe('<App />',()=>{
     // test('renders learn react link', () => {
     //     render(<App />);
     //     const linkElement = screen.getByText(/Source code/i);
-    //     //'<button class="solid auth login">Log in</button>'
+    //     //'<button className="solid auth login">Log in</button>'
     //     expect(linkElement).toBeInTheDocument();
     // });
 

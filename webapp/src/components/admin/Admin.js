@@ -29,7 +29,7 @@ class Admin extends React.Component {
                     //let u = await fetchName(users[index].webId);
                     //todosLosUsers.push(u)
                     let user = await fetchName(users[index].webId);
-                    if (user != "radarin") {
+                    if (!(user === "radarin")) {
                         usersFiltrados.push(user)
                     }
                 } catch (error) {
@@ -52,33 +52,33 @@ class Admin extends React.Component {
         return (
             <>
                 
-                <div class="container">
-                    <h1 class="display-5 text-light">Zona del Administrador</h1>
-                    <div class="row">
-                        <div class="col-md-auto p-3 border border-light rounded">
-                            <h2 class="display-6 text-light">Manejo Usuarios</h2>
+                <div className="container">
+                    <h1 className="display-5 text-light">Zona del Administrador</h1>
+                    <div className="row">
+                        <div className="col-md-auto p-3 border border-light rounded">
+                            <h2 className="display-6 text-light">Manejo Usuarios</h2>
 
                             {this.state.users.map(function (user, i) {
                                 return (
-                                    <div class="card w-100 text-white bg-dark">
-                                        <div class="card-body ">
-                                            <h5 class="card-title">{user}</h5>
-                                            {<Button type="button" class="btn btn-danger" onClick={() => deleteUser(user.webId)} >Eliminar usuario</Button>}
+                                    <div className="card w-100 text-white bg-dark">
+                                        <div className="card-body ">
+                                            <h5 className="card-title">{user}</h5>
+                                            {<Button type="button" className="btn btn-danger" onClick={() => deleteUser(user.webId)} >Eliminar usuario</Button>}
                                         </div>
                                     </div>
                                 )
                             })}
 
                         </div>
-                        <div class="col-md-auto  p-3 border border-light rounded">
-                            <h2 class="display-6 text-light">Usuarios Conectados</h2>
+                        <div className="col-md-auto  p-3 border border-light rounded">
+                            <h2 className="display-6 text-light">Usuarios Conectados</h2>
                             {this.state.users.map(function (user, i) {
                                 return (
-                                    <div class="card w-100 text-white bg-dark">
-                                        <div class="card-body ">
-                                            <h5 class="card-title">{user}</h5>
-                                            <span class="badge badge-pill badge-success">Success</span>
-                                            <span class="badge badge-pill badge-danger">Danger</span>
+                                    <div className="card w-100 text-white bg-dark">
+                                        <div className="card-body ">
+                                            <h5 className="card-title">{user}</h5>
+                                            <span className="badge badge-pill badge-success">Success</span>
+                                            <span className="badge badge-pill badge-danger">Danger</span>
                                         </div>
                                     </div>
                                 )
