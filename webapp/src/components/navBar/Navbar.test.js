@@ -11,6 +11,9 @@ describe('<Navbar />', () => {
 
     it('renders without crashing', () => {
         const editor = shallow(<Navbar />);
-        expect(editor.find('nav.navbar').length).toEqual(1);
+        const expectedOutput = '<p class="logoLetra"><img src="/navbarIcon.svg" to="/" class="logo" class="navbar-brand " alt="Radarin"/>RADARIN</p>';
+        const realOutput = editor.find('p').html();
+        console.log(realOutput);
+        expect(realOutput.indexOf(expectedOutput)> -1).toEqual(true);
     });
 });
