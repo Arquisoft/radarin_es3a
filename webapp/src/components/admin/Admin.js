@@ -4,8 +4,7 @@ import { fetchName } from '../../services/fetchProfile';
 import './Admin.css'
 import { getUsers } from '../../api/api';
 import { deleteUser } from '../../services/deleteFromDB';
-// import ListGroup from "react-bootstrap/ListGroup";
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 
 
@@ -53,10 +52,11 @@ class Admin extends React.Component {
         return (
             <>
                 
-                <div class="container border border-light rounded">
+                <div class="container">
+                    <h1 class="display-5 text-light">Zona del Administrador</h1>
                     <div class="row">
-                        <div class="col-md-auto">
-                            <h2 class="display-4 text-light">Manejo Usuarios</h2>
+                        <div class="col-md-auto p-3 border border-light rounded">
+                            <h2 class="display-6 text-light">Manejo Usuarios</h2>
 
                             {this.state.users.map(function (user, i) {
                                 return (
@@ -70,8 +70,8 @@ class Admin extends React.Component {
                             })}
 
                         </div>
-                        <div class="col-md-auto">
-                            <h2 class="display-4 text-light">Usuarios Conectados</h2>
+                        <div class="col-md-auto  p-3 border border-light rounded">
+                            <h2 class="display-6 text-light">Usuarios Conectados</h2>
                             {this.state.users.map(function (user, i) {
                                 return (
                                     <div class="card w-100 text-white bg-dark">
