@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/js/dist/dropdown';
 
 function Navbar() {
-  const [ setClick] = useState(false);
+  const [click, setClick] = useState(false);
 
 
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);

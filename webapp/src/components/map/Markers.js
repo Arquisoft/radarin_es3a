@@ -49,6 +49,7 @@ class Markers extends React.Component {
             
             var userLoggedIn = await getUserByWebId(currentSession.webId);
             const radius = 10
+            // this.setState({radius:radius});
             
             for (let index in friends) {
                 
