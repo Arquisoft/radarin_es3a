@@ -10,6 +10,9 @@ function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
   // Saltaba error, comentado - Raúl
   //const handleClick = () => setClick(!click);
@@ -35,37 +38,37 @@ function Navbar() {
     <>
       <nav class="navbar  navbar-expand-lg navbar-dark bg-dark ">
         {/* <a class="navbar-brand" href="#">Navbar</a> */}
-        <img src='/navbarIcon.svg' to='/' className='logo' class="navbar-brand d-print-inline w-25 p-3" alt="Radarin" />
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>RADARIN</Link>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <img src='/navbarIcon.svg' to='/' className='logo' class="navbar-brand d-print-inline w-25 p-3" alt="Radarin" ></img>
+        <Link to='/' className='nav-links' onClick={closeMobileMenu} class=" navbar-logo" >RADARIN</Link>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"  aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" class={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`}>
           <ul class="navbar-nav">
             <li class="nav-item active">
               <Link to='/' className='nav-links' onClick={closeMobileMenu}  class="nav-link">Home</Link>
             </li>
+            <LoggedIn>
             <li class="nav-item">
                <Link to='/map' className='nav-links' onClick={closeMobileMenu}  class="nav-link">Map</Link>
             </li>
             <li class="nav-item">
               <Link to='/admin' className='nav-links' onClick={closeMobileMenu}  class="nav-link">Admin</Link>
             </li>
+            </LoggedIn>
             <li class="nav-item">
-              <a href="#">
                 <Link to='/about-us' className='nav-links' onClick={closeMobileMenu}  class="nav-link">About us</Link>
-              </a>
             </li>
             <LoggedIn>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <Link to='/friend-list' className='nav-links' onClick={closeMobileMenu}>
+                 <Link to='/friend-list' className='nav-links' onClick={closeMobileMenu}class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Friends <i className='fas fa-caret-down' />
                   </Link>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <Link to='/friend-list' className='nav-links' onClick={closeMobileMenu} class="dropdown-item" >FriendList</Link>
-                  <Link to='/locations' className='nav-links' onClick={closeMobileMenu} class="dropdown-item" >Locations of Friends</Link>
+ 
+                <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                  <Link to='/friend-list' className='nav-links' onClick={closeMobileMenu} class="dropdown-item text-light bg-dark" >FriendList</Link>
+                  <Link to='/locations' className='nav-links' onClick={closeMobileMenu} class="dropdown-item text-light bg-dark" >Locations of Friends</Link>
                 </div>
               </li>
               <li class='nav-item'>
