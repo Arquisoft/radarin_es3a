@@ -14,6 +14,7 @@ import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { store } from 'react-notifications-component';
 import Footer from './components/footer/Footer';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function App() {
 
