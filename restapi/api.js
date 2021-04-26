@@ -7,7 +7,7 @@ const { default: axios } = require("axios");
 // Get all users
 router.get("/users/list", async (req, res) => {
     const users = await User.find({}).sort('-_id') //Inverse order
-	res.send(users)
+    res.send(users)
 })
 
 //register a new user
@@ -17,14 +17,26 @@ router.post("/users/add", async (req, res) => {
     //Check if the device is already in the db
     let user = await User.findOne({ webId: webId })
     if (user)
-        res.send({error:"Error: This user is already registered"})
-    else{
+        res.send({ error: "Error: This user is already registered" })
+    else {
         user = new User({
             webId: webId,
             location: location,
         })
         await user.save()
         res.send(user)
+    }
+});
+
+//removes an existing user
+router.post("users/remove", async (req, res) => {
+    let webId = req.body.webId;
+    //Check if the device is already in the db
+    let user = await User.findOne({ webId: webId })
+    if (user)
+        await user.remove({ webId: webId })
+    else {
+        res.send({ error: "Error: This user does not exist" })
     }
 });
 
@@ -39,7 +51,7 @@ router.post("/users/update", async (req, res) => {
     let location = req.body.location;
 
     let user = await User.findOne({ webId: webId });
-    if(!user) {
+    if (!user) {
         user = new User({
             webId: webId,
             location: location,
@@ -58,7 +70,7 @@ router.post("/users/update/token", async (req, res) => {
     let token = req.body.token;
 
     let user = await User.findOne({ webId: webId });
-    if(!user) {
+    if (!user) {
         user = new User({
             webId: webId,
             token: token,
@@ -76,7 +88,7 @@ router.post("/users/update/token", async (req, res) => {
     }
 });
 
-router.post("/email/send", async(req, res) => {
+router.post("/email/send", async (req, res) => {
     let destinatary = req.body.destinatary;
     let message = req.body.message;
     let subject = req.body.subject;
@@ -88,17 +100,17 @@ router.post("/email/send", async(req, res) => {
             pass: 'Radarin2021'
         }
     });
-    
+
     let mailDetails = {
         from: 'Radarin.info@gmail.com',
         to: destinatary,
         subject: subject,
         text: message
     };
-    
-    mailTransporter.sendMail(mailDetails, function(error, info) {
+
+    mailTransporter.sendMail(mailDetails, function (error, info) {
         console.log("sending");
-        if(err) {
+        if (err) {
             console.log('Error Occurs');
             res.send(500, error.message);
         } else {
@@ -108,31 +120,31 @@ router.post("/email/send", async(req, res) => {
     });
 });
 
-router.post("/notification", async(req, res) => {
+router.post("/notification", async (req, res) => {
     const title = req.body.title;
     const message = req.body.message;
     const to = req.body.destinatary;
 
     const data = {
-        "notification": { 
-            "title": title, 
-            "body": message, 
-            "click_action": "https://radarines3awebapp.herokuapp.com/", 
-            "icon": "https://radarines3awebapp.herokuapp.com/LogoR.png" 
-        }, 
+        "notification": {
+            "title": title,
+            "body": message,
+            "click_action": "https://radarines3awebapp.herokuapp.com/",
+            "icon": "https://radarines3awebapp.herokuapp.com/LogoR.png"
+        },
         "to": to
     };
     const config = {
         "mode": "cors",
         "headers": {
-          "authorization": 
-          "key=AAAAXtyz3bo:APA91bGeQa6vRw2sX0v_9oK603PSFzKnqujvuLC0w7msxCONzFfGmewaIbv7K-POoDFL5Ufu879b6NEos0ZBcUwYB9rfDl2zZVc8-dkYkleSbviX1RcbAbAzPqHO4tc0Ufb0SkHz17Sg",
-          "content-type": "application/json"
+            "authorization":
+                "key=AAAAXtyz3bo:APA91bGeQa6vRw2sX0v_9oK603PSFzKnqujvuLC0w7msxCONzFfGmewaIbv7K-POoDFL5Ufu879b6NEos0ZBcUwYB9rfDl2zZVc8-dkYkleSbviX1RcbAbAzPqHO4tc0Ufb0SkHz17Sg",
+            "content-type": "application/json"
         }
     }
 
     axios.post("https://fcm.googleapis.com/fcm/send", data, config)
-        
+
 });
 
 module.exports = router

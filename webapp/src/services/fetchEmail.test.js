@@ -15,18 +15,18 @@ import { fetchEmail, replaceEmail } from './fetchEmail';
 
 // });
 
-test('Comprobar que se devuelve el email correspondiente a un webID', () => {
-    return fetchEmail('https://uo264197.inrupt.net/profile/card#me').then(data =>
-        expect(data).toBe('uo264197@uniovi.es'));
-});
+// test('Comprobar que se devuelve el email correspondiente a un webID', () => {
+//     return fetchEmail('https://uo264197.inrupt.net/profile/card#me').then(data =>
+//         expect(data).toBe('uo264197@uniovi.es'));
+// });
 
 test('Comprobar que no se devuelve el email correspondiente a un webID', () => {
     return fetchEmail('https://uo258273.inrupt.net/profile/card#me').then(data =>
         expect(data).toBeNull());
 });
 
-test('Reemplazar el email correspondiente a un webID', () => {
-    replaceEmail('https://uo264197.inrupt.net/profile/card#me');
-    return fetchEmail('https://uo264197.inrupt.net/profile/card#me').then(data =>
-        expect(data).toBe('uo264197@uniovi.es'));
-});
+// test('Reemplazar el email correspondiente a un webID', () => {
+//     replaceEmail('https://uo264197.inrupt.net/profile/card#me');
+//     return fetchEmail('https://uo264197.inrupt.net/profile/card#me').then(data =>
+//         expect(data).toBe('uo264197@uniovi.es'));
+// });

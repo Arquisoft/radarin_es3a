@@ -35,39 +35,5 @@ describe('<FriendList />',()=>{
         expect(editor.find('div').length).toEqual(2); 
     });
 
-    /*
-    it('Renders content of first "div" element', () => {
-        const editor = shallow(<FriendList />);
-        const output = editor.find('div')[0].html();
-        const expected;
-        expect(output.indexOf(expectedOutput) > -1).toEqual(true);
-    });
-    */
- 
-    /*
-    it('Renders content of second "div" element', () => {
-        const editor = shallow((
-            <FriendList />
-        ));
-        const expected = '<div class="box-test"><div class="MuiBox-root MuiBox-root-1" style="width:100%;height:6em"></div></div>';
-        console.log(expected);
-        
-        const output = editor.find('.box-test').html();
-        console.log(output);
-        expect(output.indexOf(expected) > -1).toEqual(true);
-    }); 
-    */
-    
-    //<div class="MuiBox-root MuiBox-root-4" style="width: 100%; height: 6em;"></div>
-
-    /*
-    it('Renders content of second "div" element', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<Welcome />, div);
-
-        const expected = "<div class=\"MuiBox-root MuiBox-root-1\" style=\"width: 100%; height: 6em;\"></div>";
-        expect(output.indexOf(expected) > -1).toEqual(true);
-    });
-    */
 });
 

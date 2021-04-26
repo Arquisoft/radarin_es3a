@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Welcome  from './components/welcome/Welcome';
 import SignIn from './components/signIn/SignIn';
 import UsersLocation from './components/UsersLocation'
+import Admin from './components/admin/Admin'
 import FriendList from './components/friendlist/FriendList'
 import MapComponent from './components/map/MapComponent';
 import { getToken, onMessageListener } from './services/firebase';
@@ -13,6 +14,7 @@ import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { store } from 'react-notifications-component';
 import Footer from './components/footer/Footer';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function App() {
 
@@ -49,11 +51,14 @@ export default function App() {
       <Switch>
         <Route path='/' exact component={Welcome} />
         <Route path='/map' component={MapComponent} />
-        <Route path='/sign-in' component={SignIn} />
+        
+          <Route path='/sign-in'  component={SignIn} />
+     
         <Route path='/locations' component={UsersLocation} />
+        <Route path='/admin' component={Admin} />
         <Route path='/friend-list' component={FriendList} />
       </Switch>
       <Footer/>
     </Router>
-  );
+  );          
 }
