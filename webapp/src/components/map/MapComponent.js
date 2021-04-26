@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import mapStyles from './mapStyles'
 import Markers from './Markers'
@@ -7,6 +7,7 @@ import { notifyOpenMap } from '../../services/notify';
 import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
 import { requiredGender } from 'rdf-namespaces/dist/schema';
+
 
 //-------------------------------------------------\
 var latitude;
@@ -37,6 +38,7 @@ var optionsGeo = {
 };
 //-------------------------------------------------
 
+
 const mapContainerStyle = {
   width: "100vw",
   height: "80vh",
@@ -55,13 +57,24 @@ try {
 
 export default function MapComponent() {
 
-  const [radioBusqueda, setFname] = useState(100)
+  const [radioBusqueda, setFname] = useState(10)
 
-  const handleChange = e => {   
-    // render();  
+  const handleChange = e => {
+    window.location.reload(false);
     setFname(e.target.value)
-    }
+  }
 
+  // useEffect(() => {
+  //   const gameStartInternal = setInterval(() => {
+  //     setFname((t) => t + 1);
+  //   }, 1000);
+  
+  //   return () => {
+  //     clearInterval(gameStartInternal);
+  //   };
+  // }, []);
+
+  
 
   const [pPosition, setCurrentPosition] = useState(() => {
     navigator.geolocation.getCurrentPosition(
@@ -93,10 +106,7 @@ export default function MapComponent() {
   if (!isLoaded) { return "Loading Maps"; }
 
 
-  
-  setInterval(() => {
-    console.log('Interval triggered');
-  }, 1000);
+
 
 
   return (
