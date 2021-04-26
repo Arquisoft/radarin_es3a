@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <>
       <nav className="navbar  navbar-expand-lg navbar-dark bg-dark ">
-        <Link to='/' className='nav-links navbar-logo' onClick={closeMobileMenu} ><p className="logoLetra logo navbar-brand"><img src='/navbarIcon.svg' to='/' alt="Radarin" ></img>RADARIN</p></Link>
+        <Link to='/' className='nav-links navbar-logo' onClick={closeMobileMenu} ><p className="logoLetra logo navbar-brand"><img src="/navbarIcon.svg" to="/" alt="Radarin" ></img>RADARIN</p></Link>
         
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"  aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
           <span className="navbar-toggler-icon"></span>
@@ -44,7 +44,7 @@ function Navbar() {
             </li>
             <LoggedIn>
               <li className="nav-item dropdown">
-                 <Link className='nav-links nav-link dropdown-toggle' onClick={closeMobileMenu} id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <Link to="#" className='nav-links nav-link dropdown-toggle' onClick={closeMobileMenu} id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Friends <i className='fas fa-caret-down' />
                   </Link>
  
