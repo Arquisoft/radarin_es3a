@@ -45,7 +45,7 @@ function Navbar() {
             </li>
             <LoggedIn>
               <li className="nav-item dropdown">
-                 <Link to='/friend-list' className='nav-links nav-link dropdown-toggle' onClick={closeMobileMenu} id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <Link className='nav-links nav-link dropdown-toggle' onClick={closeMobileMenu} id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Friends <i className='fas fa-caret-down' />
                   </Link>
  
