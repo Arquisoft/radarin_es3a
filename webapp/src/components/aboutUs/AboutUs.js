@@ -67,7 +67,7 @@ class AboutUs extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="about-us-container">
                 <div className="container">
                     <h1 className="display-5 text-light">Radarin Es3a</h1>
                     <div>
@@ -96,7 +96,7 @@ class AboutUs extends React.Component {
                     </div>
 
                 </div>
-            </>
+            </div>
         )
 
     }
