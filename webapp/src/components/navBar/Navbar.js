@@ -21,7 +21,6 @@ function Navbar() {
   return (
     <>
       <nav className="navbar  navbar-expand-lg navbar-dark bg-dark ">
-        
         <Link to='/' className='nav-links navbar-logo' onClick={closeMobileMenu} ><p className="logoLetra logo navbar-brand"><img src='/navbarIcon.svg' to='/' alt="Radarin" ></img>RADARIN</p></Link>
         
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"  aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>

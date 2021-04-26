@@ -52,7 +52,7 @@ class Admin extends React.Component {
         return (
             <>
                 
-                <div className="container">
+                <div className="container adminContainer">
                     <h1 className="display-5 text-light">Zona del Administrador</h1>
                     <div className="row">
                         <div className="col-md-auto p-3 border border-light rounded">
