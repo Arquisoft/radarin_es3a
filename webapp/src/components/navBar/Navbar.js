@@ -6,8 +6,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/js/dist/dropdown';
 
 function Navbar() {
-  
-  const [click, setClick] = useState(false);
+  function setClick(){
+    return false;
+  }
 
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
@@ -15,7 +16,7 @@ function Navbar() {
 
   // Saltaba error, comentado - Raúl
   //const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  const closeMobileMenu = () => setClick();
 
   return (
     <>
@@ -26,7 +27,7 @@ function Navbar() {
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"  aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse  text-light bg-dark" id="navbarNavDropdown" className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`}>
+        <div  id="navbarNavDropdown" className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`}>
           <ul className="navbar-nav">
             <li className="nav-item active">
               <Link to='/' className='nav-links nav-link' onClick={closeMobileMenu}>Home</Link>
@@ -49,7 +50,7 @@ function Navbar() {
                   </Link>
  
                 <div className="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                  <Link to='/friend-list' className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >FriendList</Link>
+                  <Link className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >FriendList</Link>
                   <Link to='/locations' className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >Locations of Friends</Link>
                 </div>
               </li>
