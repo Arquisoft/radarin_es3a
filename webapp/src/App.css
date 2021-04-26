@@ -6,6 +6,7 @@
 }
 
 .notification__item--custom {
+  z-index: 0;
   background-color: white;
   border-left: 8px solid #dd8ea4;
 }
