@@ -58,7 +58,7 @@ export default function MapComponent() {
   const [radioBusqueda, setFname] = useState(100)
 
   const handleChange = e => {   
-    render();  
+    // render();  
     setFname(e.target.value)
     }
 
@@ -94,7 +94,9 @@ export default function MapComponent() {
 
 
   
-
+  setInterval(() => {
+    console.log('Interval triggered');
+  }, 1000);
 
 
   return (
