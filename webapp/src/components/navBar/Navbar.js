@@ -50,7 +50,7 @@ function Navbar() {
                   </Link>
  
                 <div className="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                  <Link className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >FriendList</Link>
+                  <Link to='/friend-list' className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >FriendList</Link>
                   <Link to='/locations' className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >Locations of Friends</Link>
                 </div>
               </li>
