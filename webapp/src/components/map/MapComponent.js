@@ -22,9 +22,6 @@ async function success(pos) {
     // Guardar localización en base de datos
     await updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
   }
-
-  // Notificar que ha abierto la app
-  notifyOpenMap();
 }
 
 function error(err) {
@@ -48,10 +45,15 @@ const options = {
   minZoom: 10,
   maxZoom: 20,
 }
+
+// Notificar que ha abierto la app
+notifyOpenMap();
+
 var preferredZoom = 15;
 try{
-navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
-}catch(err){console.log(err)}
+  navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
+}catch(err) { console.log(err) }
+
 
 export default function MapComponent (){
 
