@@ -38,7 +38,7 @@ function Navbar() {
     <>
       <nav class="navbar  navbar-expand-lg navbar-dark bg-dark ">
         
-        <Link to='/' className='nav-links' onClick={closeMobileMenu} class=" navbar-logo" ><p class="logoLetra"><img src='/navbarIcon.svg' to='/' className='logo' class="navbar-brand " alt="Radarin" ></img>RADARIN</p></Link>
+        <Link to='/' className='nav-links navbar-logo mr-auto' onClick={closeMobileMenu} ><p className="logoLetra logo navbar-brand"><img src='/navbarIcon.svg' to='/' alt="Radarin" ></img>RADARIN</p></Link>
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"  aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
           <span class="navbar-toggler-icon"></span>
