@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import Dropdown from './Dropdown';
 import { LoggedOut, LoggedIn, LogoutButton } from '@solid/react'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/js/dist/dropdown';
 
 function Navbar() {
-  const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
+  function setClick(){
+    return false;
+  }
 
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
@@ -16,67 +16,51 @@ function Navbar() {
 
   // Saltaba error, comentado - Raúl
   //const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-
-  const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
-
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
+  const closeMobileMenu = () => setClick();
 
   return (
     <>
-      <nav class="navbar  navbar-expand-lg navbar-dark bg-dark ">
+      <nav className="navbar  navbar-expand-lg navbar-dark bg-dark ">
         
-        <Link to='/' className='nav-links navbar-logo mr-auto' onClick={closeMobileMenu} ><p className="logoLetra logo navbar-brand"><img src='/navbarIcon.svg' to='/' alt="Radarin" ></img>RADARIN</p></Link>
+        <Link to='/' className='nav-links navbar-logo' onClick={closeMobileMenu} ><p className="logoLetra logo navbar-brand"><img src='/navbarIcon.svg' to='/' alt="Radarin" ></img>RADARIN</p></Link>
         
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"  aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
-          <span class="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"  aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse  text-light bg-dark" id="navbarNavDropdown" class={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`}>
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}  class="nav-link">Home</Link>
+        <div  id="navbarNavDropdown" className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`}>
+          <ul className="navbar-nav">
+            <li className="nav-item active">
+              <Link to='/' className='nav-links nav-link' onClick={closeMobileMenu}>Home</Link>
             </li>
             <LoggedIn>
-            <li class="nav-item">
-               <Link to='/map' className='nav-links' onClick={closeMobileMenu}  class="nav-link">Map</Link>
+            <li className="nav-item">
+               <Link to='/map' className='nav-links nav-link' onClick={closeMobileMenu}>Map</Link>
             </li>
-            <li class="nav-item">
-              <Link to='/admin' className='nav-links' onClick={closeMobileMenu}  class="nav-link">Admin</Link>
+            <li className="nav-item">
+              <Link to='/admin' className='nav-links nav-link' onClick={closeMobileMenu}>Admin</Link>
             </li>
             </LoggedIn>
-            <li class="nav-item">
-                <Link to='/about-us' className='nav-links' onClick={closeMobileMenu}  class="nav-link">About us</Link>
+            <li className="nav-item">
+                <Link to='/about-us' className='nav-links nav-link' onClick={closeMobileMenu}>About us</Link>
             </li>
             <LoggedIn>
-              <li class="nav-item dropdown">
-                 <Link to='/friend-list' className='nav-links' onClick={closeMobileMenu}class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <li className="nav-item dropdown">
+                 <Link className='nav-links nav-link dropdown-toggle' onClick={closeMobileMenu} id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Friends <i className='fas fa-caret-down' />
                   </Link>
  
-                <div class="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                  <Link to='/friend-list' className='nav-links' onClick={closeMobileMenu} class="dropdown-item text-light bg-dark" >FriendList</Link>
-                  <Link to='/locations' className='nav-links' onClick={closeMobileMenu} class="dropdown-item text-light bg-dark" >Locations of Friends</Link>
+                <div className="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                  <Link to='/friend-list' className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >FriendList</Link>
+                  <Link to='/locations' className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >Locations of Friends</Link>
                 </div>
               </li>
-              <li class='nav-item'>
-                <LogoutButton type="button" className='btnL' class='btn btn-danger' onClick={closeMobileMenu}>Log out</LogoutButton>
+              <li className='nav-item'>
+                <LogoutButton type="button" className='btn btn-danger btnL' onClick={closeMobileMenu}>Log out</LogoutButton>
               </li>
             </LoggedIn>
             <LoggedOut>
-              <li class='nav-item'>
-                <Link to='/sign-in' type="button" className='nav-links' onClick={closeMobileMenu}  class='btn btn-primary'>Sign In</Link>
+              <li className='nav-item'>
+                <Link to='/sign-in' type="button" className='btn btn-primary nav-links' onClick={closeMobileMenu} >Sign In</Link>
               </li>
             </LoggedOut>
           </ul>

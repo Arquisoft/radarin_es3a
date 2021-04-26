@@ -27,6 +27,7 @@ class Markers extends React.Component {
     constructor(props) {
         super(props);
         this.state = { users: []}
+        console.log(this.props.rad)
     }
 
     componentDidMount() {
@@ -48,7 +49,8 @@ class Markers extends React.Component {
 
             
             var userLoggedIn = await getUserByWebId(currentSession.webId);
-            const radius = 10
+            const radius = this.props.rad;
+            // this.setState({radius:radius});
             
             for (let index in friends) {
                 

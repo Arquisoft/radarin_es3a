@@ -5,9 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import LogoR from '../../LogoR.svg';
-import { ProviderLogin ,
-  FormModel,
-  Spinner} from '@inrupt/solid-react-components';
+import { ProviderLogin } from '@inrupt/solid-react-components';
 import './SignIn.css'
 import Provider from './provider'
 
@@ -46,47 +44,7 @@ export default function SignIn() {
               }}
               providers={Provider.getIdentityProviders().value}
             /> }
-            <FormModel
-        {...{
-          modelSource: 'https://jmartin.inrupt.net/public/formmodel/float.ttl#formRoot',
-          dataSource: 'https://jmartin.inrupt.net/profile/card#me',
-          options: {
-            theme: {
-              inputText: 'sdk-input',
-              inputCheckbox: 'sdk-checkbox checkbox',
-              inputTextArea: 'sdk-textarea',
-              multiple: 'sdk-multiple-button',
-              form: 'inrupt-sdk-form',
-              childGroup: 'inrupt-form-group'
-            },
-            autosaveIndicator: Spinner,
-            autosave: true,
-            viewer: false,
-            language: 'en'
-          },
-          onError: error => {
-            // eslint-disable-next-line no-console
-            console.log(error, 'error');
-          },
-          onSuccess: success => {
-            // eslint-disable-next-line no-console
-            console.log(success);
-          },
-          onSave: response => {
-            // eslint-disable-next-line no-console
-            console.log(response);
-          },
-          onAddNewField: response => {
-            // eslint-disable-next-line no-console
-            console.log(response);
-          },
-          onDelete: response => {
-            // eslint-disable-next-line no-console
-            console.log(response);
-          }
-        }}
-        liveUpdate
-      />
+
           <Grid  container className='.solid-pod-link'>
 
             <Grid item>

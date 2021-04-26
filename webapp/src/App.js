@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Welcome  from './components/welcome/Welcome';
 import SignIn from './components/signIn/SignIn';
+import AboutUs from './components/aboutUs/AboutUs';
 import UsersLocation from './components/UsersLocation'
 import Admin from './components/admin/Admin'
 import FriendList from './components/friendlist/FriendList'
@@ -51,12 +52,14 @@ export default function App() {
       <Switch>
         <Route path='/' exact component={Welcome} />
         <Route path='/map' component={MapComponent} />
-        <Route path='/sign-in' component={SignIn} />
+        
+          <Route path='/sign-in'  component={SignIn} />
+          <Route path='/about-us'  component={AboutUs} />
         <Route path='/locations' component={UsersLocation} />
         <Route path='/admin' component={Admin} />
         <Route path='/friend-list' component={FriendList} />
       </Switch>
       <Footer/>
     </Router>
-  );
+  );          
 }
