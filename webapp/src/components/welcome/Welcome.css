@@ -2,7 +2,9 @@
     margin: auto;
     text-align: center;
     padding: 30vh 0;
+    height: calc(100vh - 230px);
   }
   p{
       padding: 1vh;
   }
+  

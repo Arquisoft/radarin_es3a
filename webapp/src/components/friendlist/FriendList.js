@@ -57,7 +57,7 @@ class FriendList extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="friendlistContainer">
                 <h1 className="text-light">Lista de amigos</h1>
                 <div id='list-test'>
                     {this.state.users.map(function (user, i) {
@@ -110,7 +110,7 @@ class FriendList extends React.Component {
                     }}>
                     </Box>
                 </div>
-            </>
+            </div>
         )
     }
 }

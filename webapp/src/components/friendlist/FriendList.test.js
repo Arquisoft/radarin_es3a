@@ -32,7 +32,7 @@ describe('<FriendList />',()=>{
     // Ambos "div" se renderizan
     it('Renders "div" elements without crashing', () => {
         const editor = shallow(<FriendList />);
-        expect(editor.find('div').length).toEqual(2); 
+        expect(editor.find('div').length).toEqual(3); 
     });
 
 });
