@@ -15,6 +15,8 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         askLocationPermission();
 
         myWebView.setWebViewClient(new WebViewClient());
+
+        //buttonProcess();
     }
 
     private void askLocationPermission() {
@@ -111,4 +115,16 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onKeyDown(keyCode, event);
     }
+
+    /*public void buttonProcess() {
+        Button botonWeb = (Button) findViewById(R.id.buttonWeb);
+
+        botonWeb.setOnClickListener(view -> {
+            EditText urlCambio = (EditText) findViewById(R.id.web);
+            url = urlCambio.getText().toString();
+
+            //myWebView = (WebView) findViewById(R.id.webRadarin);
+            myWebView.loadUrl(url);
+        });
+    }*/
 }
