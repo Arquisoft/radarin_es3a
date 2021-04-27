@@ -7,6 +7,8 @@ import android.view.KeyEvent;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
 
         myWebView.setWebViewClient(new WebViewClient());
+
+        //buttonProcess();
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -45,4 +49,16 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onKeyDown(keyCode, event);
     }
+
+    /*public void buttonProcess() {
+        Button botonWeb = (Button) findViewById(R.id.buttonWeb);
+
+        botonWeb.setOnClickListener(view -> {
+            EditText urlCambio = (EditText) findViewById(R.id.web);
+            url = urlCambio.getText().toString();
+
+            //myWebView = (WebView) findViewById(R.id.webRadarin);
+            myWebView.loadUrl(url);
+        });
+    }*/
 }
