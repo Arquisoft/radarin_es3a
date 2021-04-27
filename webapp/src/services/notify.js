@@ -17,7 +17,7 @@ export async function notify(webId) {
 
     const user = await getUserByWebId(webId);
     const token = user.token;
-    if(!token)
+    if(!token || token === '')
         return;
 
     sendNotification("Holaaaa", "Esto es una prueba de notificación", token);

@@ -45,7 +45,6 @@ export default function MapComponent() {
         actualPosition = { lat: position.coords.latitude, lng: position.coords.longitude }
 
         solidAuth.currentSession().then( session => {
-          console.log(position)
           if (session) 
             updateLocation(session.webId, actualPosition);
           }) 
