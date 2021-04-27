@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/navBar/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -20,13 +20,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 export default function App() {
 
   useEffect(() => {
-    getToken( token => {
-      saveUserToken(token);
-     });
+    // Obtener token de app móvil
+    if(window.Android) 
+      prepareToAndroidNotifications()
+    else 
+      getToken( token => {
+        saveUserToken(token);
+      });
   }, []);
 
   onMessageListener().then(payload => {
-    console.log(payload);
     store.addNotification({
       title: payload.notification.title,
       message: payload.notification.body,
@@ -62,4 +65,17 @@ export default function App() {
       <Footer/>
     </Router>
   );          
+}
+
+function prepareToAndroidNotifications() {
+  window.saveToken = new Event('saveToken');
+
+  window.addEventListener('saveToken', function() {
+    const token = window.Android.getToken()
+    console.log("Token obtenido en evento: " + token)
+    if(token)
+      saveUserToken(token);
+  }, false);
+
+  window.Android.getFirebaseToken()
 }
