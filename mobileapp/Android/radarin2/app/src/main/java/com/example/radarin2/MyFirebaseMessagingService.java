@@ -2,32 +2,16 @@ package com.example.radarin2;
 
 import android.os.Build;
 import android.util.Log;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     public static final String TAG = "Firebase Messaging";
-
-    private WebView webView;
-    private AndroidJS androidJS = new AndroidJS();
-
-    public MyFirebaseMessagingService() {
-    }
-
-    public void setWebView(WebView webView) {
-        this.webView = webView;
-        this.webView.addJavascriptInterface(androidJS, "Android");
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -40,57 +24,49 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         sendRegistrationToServer(token);
     }
 
-    public void sendRegistrationToServer(String token) {
-        if(webView == null)
+    @Override
+    public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
+        super.onMessageReceived(remoteMessage);
+
+        Log.d(TAG, "Showing notification");
+
+        MainActivity.androidJSInterface.setRemoteMessage(remoteMessage.getNotification());
+
+        if( MainActivity.myWebView == null)
+            return;
+
+        MainActivity.myWebView.post(new Runnable() {
+            @Override
+            public void run() {
+                sendMessageToWeb();
+            }
+        });
+
+    }
+
+    public void sendMessageToWeb() {
+        String event = "(function() { window.dispatchEvent(window.showNotification); })();";
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+            MainActivity.myWebView.evaluateJavascript(event, null);
+        } else {
+            MainActivity.myWebView.loadUrl("javascript:" + event);
+        }
+    }
+
+    public static void sendRegistrationToServer(String token) {
+        if( MainActivity.myWebView == null)
             return;
 
         Log.d(TAG, "Updating token");
 
-        androidJS.setToken(token);
+        MainActivity.androidJSInterface.setToken(token);
 
-        // Evento para guardar token de webapp        webView.evaluateJavascript("(function() { window.dispatchEvent(event); })();", null);
+        // Evento para guardar token de webapp
         String event = "(function() { window.dispatchEvent(window.saveToken); })();";
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-            webView.evaluateJavascript(event, null);
+            MainActivity.myWebView.evaluateJavascript(event, null);
         } else {
-            webView.loadUrl("javascript:" + event);
-        }
-    }
-
-    public class AndroidJS {
-
-        public String token;
-
-        public void setToken(String token) {
-            this.token = token;
-        }
-
-        @JavascriptInterface
-        public void getFirebaseToken() {
-            FirebaseMessaging.getInstance().getToken()
-                    .addOnCompleteListener(new OnCompleteListener<String>() {
-                        @Override
-                        public void onComplete(@NonNull Task<String> task) {
-                            if (!task.isSuccessful()) {
-                                Log.w(TAG, "Fetching FCM registration token failed", task.getException());
-                                return;
-                            }
-
-                            // Get new FCM registration token
-                            String token = task.getResult();
-
-                            // Log and toast
-                            String msg = "Obtenido token: " + token;
-                            Log.d(TAG, msg);
-
-                            sendRegistrationToServer(token);
-                        }
-                    });
-        }
-
-        @JavascriptInterface
-        public String getToken() {
-            return token;
+            MainActivity.myWebView.loadUrl("javascript:" + event);
         }
     }
 }

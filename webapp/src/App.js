@@ -30,19 +30,9 @@ export default function App() {
   }, []);
 
   onMessageListener().then(payload => {
-    store.addNotification({
-      title: payload.notification.title,
-      message: payload.notification.body,
-      type: "custom",
-      container: "top-center",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated", "animate__fadeOut"],
-      dismiss: {
-        duration: 3000
-      }
-    });
+    showNotification(payload.notification)
   }).catch(err => console.log('failed: ', err));
-  
+
   return (
     <Router>
       <ReactNotification types={[
@@ -67,15 +57,38 @@ export default function App() {
   );          
 }
 
+function showNotification(notification) {
+  store.addNotification({
+    title: notification.title ? notification.title : "Notificación",
+    message: notification.body ? notification.body : "Tienes una notificación",
+    type: "custom",
+    container: "top-center",
+    animationIn: ["animate__animated", "animate__fadeIn"],
+    animationOut: ["animate__animated", "animate__fadeOut"],
+    dismiss: {
+      duration: 3000
+    }
+  });
+}
+
 function prepareToAndroidNotifications() {
   window.saveToken = new Event('saveToken');
 
   window.addEventListener('saveToken', function() {
     const token = window.Android.getToken()
-    console.log("Token obtenido en evento: " + token)
     if(token)
       saveUserToken(token);
   }, false);
 
   window.Android.getFirebaseToken()
+
+  window.showNotification = new Event('showNotification')
+
+  window.addEventListener('showNotification', () => {
+    const notification = {
+      'title': window.Android.getNotificationTitle(),
+      'body': window.Android.getNotificationBody()
+    }
+    showNotification(notification)
+  })
 }

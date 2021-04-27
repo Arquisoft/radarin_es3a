@@ -1,37 +1,27 @@
 package com.example.radarin2;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.webkit.GeolocationPermissions;
-import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
 
     private final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
 
-    WebView myWebView;
-    String url = "https://radarines3awebapp.herokuapp.com/";
+    public static WebView myWebView;
+    public static AndroidJSInterface androidJSInterface = new AndroidJSInterface();
+    String url = "192.168.1.133:3000";
 
     private String mGeoLocationRequestOrigin;
     private GeolocationPermissions.Callback mGeoLocationCallback;
@@ -46,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         myWebView = (WebView) findViewById(R.id.webRadarin);
         myWebView.loadUrl(url);
 
-        messagingService.setWebView(myWebView);
+        myWebView.addJavascriptInterface(androidJSInterface, "Android");
 
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
