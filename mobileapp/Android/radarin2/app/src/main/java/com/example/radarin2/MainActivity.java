@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static WebView myWebView;
     public static AndroidJSInterface androidJSInterface = new AndroidJSInterface();
-    String url = "192.168.1.133:3000";
+    String url = "https://radarines3awebapp.herokuapp.com/";
 
     private String mGeoLocationRequestOrigin;
     private GeolocationPermissions.Callback mGeoLocationCallback;
