@@ -45,6 +45,10 @@ class Markers extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timer)
+    }
+
     async fetchFriends() {
         const currentSession = await solidAuth.currentSession();
         if (!currentSession)
@@ -92,7 +96,7 @@ class Markers extends React.Component {
                     } 
                 })
             })
-            setInterval(() => that.update(), 3000)
+            this.timer = setInterval(() => that.update(), 3000)
         }
         catch (error) {
             console.log(error)

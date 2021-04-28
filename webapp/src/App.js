@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/navBar/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -8,7 +8,6 @@ import AboutUs from './components/aboutUs/AboutUs';
 import UsersLocation from './components/UsersLocation'
 import Admin from './components/admin/Admin'
 import FriendList from './components/friendlist/FriendList'
-import MapComponent from './components/map/MapComponent';
 import { getToken, onMessageListener } from './services/firebase';
 import { saveUserToken } from './services/updateUserData';
 import ReactNotification from 'react-notifications-component'
@@ -16,6 +15,7 @@ import 'react-notifications-component/dist/theme.css'
 import { store } from 'react-notifications-component';
 import Footer from './components/footer/Footer';
 import 'bootstrap/dist/css/bootstrap.css';
+import MapContainer from './components/map/MapContainer';
 
 export default function App() {
 
@@ -44,10 +44,9 @@ export default function App() {
       <Navbar />
       <Switch>
         <Route path='/' exact component={Welcome} />
-        <Route path='/map' component={MapComponent} />
-        
-          <Route path='/sign-in'  component={SignIn} />
-          <Route path='/about-us'  component={AboutUs} />
+        <Route path='/map' component={MapContainer} />
+        <Route path='/sign-in'  component={SignIn} />
+        <Route path='/about-us'  component={AboutUs} />
         <Route path='/locations' component={UsersLocation} />
         <Route path='/admin' component={Admin} />
         <Route path='/friend-list' component={FriendList} />

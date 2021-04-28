@@ -52,10 +52,13 @@ export default function MapComponent() {
   }
   );
 
+  var timer;
   useEffect(() => {
     if(!watchId) {
-      setInterval(updateUserLocation, 1000)
+      timer = setInterval(updateUserLocation, 1000)
     }
+
+    return () => clearInterval(timer)
   })
 
   let radio = 100;
@@ -69,6 +72,7 @@ export default function MapComponent() {
 
   function updateUserLocation() {
     navigator.geolocation.clearWatch( watchId ) 
+    console.log("Updating")
     watchId = navigator.geolocation.watchPosition((newPos) => {
         if(!actualPosition || (actualPosition.lat !== newPos.coords.latitude 
             || actualPosition.lng !== newPos.coords.longitude)) {
