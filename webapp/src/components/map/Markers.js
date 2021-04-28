@@ -4,6 +4,7 @@ import solidAuth from 'solid-auth-client';
 import { getUserByWebId } from '../../api/api';
 import { fetchFriends } from '../../services/fetchFriends';
 import { notifyNearbyFriend } from '../../services/notify';
+import { stopUpdating } from './MapComponent';
 
 let radius = 50;
 
@@ -48,6 +49,7 @@ class Markers extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.timer)
+        stopUpdating()
     }
 
     async fetchFriends() {

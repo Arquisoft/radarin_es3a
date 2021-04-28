@@ -54,11 +54,10 @@ export default function MapComponent() {
 
   var timer;
   useEffect(() => {
-    if(!watchId) {
+    if(!watchId) 
       timer = setInterval(updateUserLocation, 1000)
-    }
-
-    return () => clearInterval(timer)
+    
+      stopUpdating = () => clearInterval(timer);
   })
 
   let radio = 100;
@@ -122,3 +121,5 @@ export default function MapComponent() {
     </div>
   )
 }
+
+export function stopUpdating() {};
