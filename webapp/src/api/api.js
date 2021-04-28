@@ -2,6 +2,7 @@
 
 //REACT_APP_API_URI is an enviroment variable defined in the file .env.development or .env.production
 export async function addUser(webId, location){
+    console.log("Hola")
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
     let response = await fetch(apiEndPoint+'/users/add', {
         method: 'POST',
@@ -14,13 +15,22 @@ export async function addUser(webId, location){
 //remove the wanted user
 export async function deleteFromDB(webId){
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
-    console.log(apiEndPoint)
-    let response = await fetch(apiEndPoint+'/users/remove',{
-        mothod: 'POST',
-        headers: {'Content-Type': 'application/json'},
+    console.log("webapp/api")
+    let response = await fetch(apiEndPoint+"/users/remove",{
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
         body: JSON.stringify({'webId': webId})
     })
-    return await response.json()
+    console.log("webapp/api response")
+    console.log(webId)
+    console.log(response)
+    try {
+        console.log("webapp/api try")
+        return await response.json();
+    } catch(error) {
+        console.log("weapp/api error")
+        return undefined;
+    }
 }
 
 export async function getUsers(){
