@@ -6,3 +6,7 @@ app.listen(port)
 // var EmailCtrl = require('./path/to/controller/mailCtrl');
 //email route
 // router.post('/email', EmailCtrl.sendEmail);
+
+app.get('*' , (req, res) => {
+    res.sendFile(path.join(__dirname,'build','index.html')); 
+});
