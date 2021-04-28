@@ -3,6 +3,7 @@ import { fetchEmail } from "./fetchEmail";
 import solidAuth from 'solid-auth-client';
 import { getUserByWebId, sendEmail, sendNotification } from "../api/api";
 import { fetchName } from "./fetchProfile";
+import { showNotification } from '../App'
 
 let isMapNotAreadyAccessed = true;
 
@@ -62,4 +63,16 @@ export async function notifyOpenMap() {
     }
 
     isMapNotAreadyAccessed = false;
+}
+
+export function notifyNearbyFriend(friendWebId) {
+    solidAuth.currentSession().then(session => {
+        if(!session)
+            return
+        fetchName(friendWebId).then(friendName => {
+            showNotification({ 
+                'title': '¡Estás cerca de un amigo!',
+                'body': 'Tu amig@ ' + friendName + ' está cerca de ti'})
+        })
+    })
 }

@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core';
 
 export default function MapContainer() {
 
-    const [on, setOn] = useState(false)
+    const [on, setOn] = useState(true)
 
     function switchOnOff() {
         console.log("Encendiendo/apagando")

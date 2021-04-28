@@ -3,6 +3,7 @@ import { Marker } from '@react-google-maps/api';
 import solidAuth from 'solid-auth-client';
 import { getUserByWebId } from '../../api/api';
 import { fetchFriends } from '../../services/fetchFriends';
+import { notifyNearbyFriend } from '../../services/notify';
 
 let radius = 50;
 
@@ -126,8 +127,10 @@ class Markers extends React.Component {
                         else 
                             users.splice(index, 1)
                     }
-                } else if(inRadius)
+                } else if(inRadius) {
+                    notifyNearbyFriend(newUser.webId)
                     users.push(newUser)
+                }
                 that.setState({ users: users });
             })
         })

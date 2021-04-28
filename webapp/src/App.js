@@ -56,7 +56,7 @@ export default function App() {
   );          
 }
 
-function showNotification(notification) {
+export function showNotification(notification) {
   store.addNotification({
     title: notification.title ? notification.title : "Notificación",
     message: notification.body ? notification.body : "Tienes una notificación",
