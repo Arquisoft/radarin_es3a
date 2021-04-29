@@ -5,7 +5,8 @@ import Markers, { changeRadius, updateUserMarker } from './Markers'
 import credentials from './credentials'
 import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
-
+import Tooltip from '@material-ui/core/Tooltip';
+import './MapComponent.css'
 
 //-------------------------------------------------\
 var latitude;
@@ -15,7 +16,7 @@ var watchId;
 var actualPosition;
 
 const mapContainerStyle = {
-  width: "100vw",
+  width: "100%",
   height: "80vh",
 };
 const options = {
@@ -26,6 +27,16 @@ const options = {
   maxZoom: 20,
 }
 
+
+function ValueLabelComponent(props) {
+  const { children, open, value } = props;
+
+  return (
+    <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
+      {children}
+    </Tooltip>
+  );
+}
 // Notificar que ha abierto la app
 //notifyOpenMap();
 
@@ -55,14 +66,14 @@ export default function MapComponent() {
         {
           lat: position.coords.latitude,
           lng: position.coords.longitude
-        }) 
+        })
 
         actualPosition = { lat: position.coords.latitude, lng: position.coords.longitude }
 
-        solidAuth.currentSession().then( session => {
-          if (session) 
+        solidAuth.currentSession().then(session => {
+          if (session)
             updateLocation(session.webId, actualPosition);
-          }) 
+        })
       }, () => null);
   }
   );
@@ -84,23 +95,23 @@ export default function MapComponent() {
   function updateUserLocation() {
     navigator.geolocation.clearWatch( watchId ) 
     watchId = navigator.geolocation.watchPosition((newPos) => {
-        if(!actualPosition || (actualPosition.lat !== newPos.coords.latitude 
-            || actualPosition.lng !== newPos.coords.longitude)) {
+      if (!actualPosition || (actualPosition.lat !== newPos.coords.latitude
+        || actualPosition.lng !== newPos.coords.longitude)) {
 
-          actualPosition = { lat: newPos.coords.latitude, lng: newPos.coords.longitude }
+        actualPosition = { lat: newPos.coords.latitude, lng: newPos.coords.longitude }
 
-          solidAuth.currentSession().then(session => {
-            if (session) {
-              updateUserMarker(actualPosition)
-              updateLocation(session.webId, actualPosition)
-              setCurrentPosition(prevC => prevC =
-                  {
-                    lat: newPos.coords.latitude,
-                    lng: newPos.coords.longitude
-                  })
-            }
-          })
-        }
+        solidAuth.currentSession().then(session => {
+          if (session) {
+            updateUserMarker(actualPosition)
+            updateLocation(session.webId, actualPosition)
+            setCurrentPosition(prevC => prevC =
+            {
+              lat: newPos.coords.latitude,
+              lng: newPos.coords.longitude
+            })
+          }
+        })
+      }
     })
   }
 
@@ -116,13 +127,7 @@ export default function MapComponent() {
 
   return (
 
-    <div>
-      <div className="container">
-        <span className="text-light p-1 w-25">Distancia deseada: </span>
-        <input type="text" value={radioBusqueda} onChange={handleChange}  ></input>
-        <span className="text-light p-1 w-25">Value: {radioBusqueda} </span>
-      </div>
-
+    <div className="mapa">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={preferredZoom}
@@ -135,5 +140,8 @@ export default function MapComponent() {
                             position={userSelected.location}><div>Hola</div></InfoWindow> : null}
       </GoogleMap>
     </div>
+
+
+
   )
 }
