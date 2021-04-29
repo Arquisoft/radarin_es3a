@@ -17,3 +17,13 @@ export async function saveUserLocation(location) {
     }
     return null;
 }
+
+export async function removeUserToken() {
+    const currentSession = await solidAuth.currentSession();
+    if(!currentSession)
+        return null;
+
+    updateToken(currentSession.webId, '');
+}
+
+solidAuth.on('logout', (event) => removeUserToken())

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import mapStyles from './mapStyles'
-import Markers from './Markers'
+import Markers, { updateUserMarker } from './Markers'
 import credentials from './credentials'
 import { notifyOpenMap } from '../../services/notify';
 import { updateLocation } from '../../api/api';
@@ -13,30 +13,8 @@ import { requiredGender } from 'rdf-namespaces/dist/schema';
 var latitude;
 var longitude;
 
-async function success(pos) {
-  var crd = pos.coords;
-  latitude = crd.latitude;
-  longitude = crd.longitude;
-
-  var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual
-  if (session) {
-    // Guardar localización en base de datos
-    await updateLocation(session.webId, { lat: crd.latitude, lng: crd.longitude });
-  }
-
-  // Notificar que ha abierto la app
-  notifyOpenMap();
-}
-
-function error(err) {
-  console.warn('ERROR(' + err.code + '): ' + err.message);
-};
-
-var optionsGeo = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-};
-//-------------------------------------------------
+var watchId;
+var actualPosition;
 
 
 const mapContainerStyle = {
@@ -50,10 +28,11 @@ const options = {
   minZoom: 10,
   maxZoom: 20,
 }
+
+// Notificar que ha abierto la app
+//notifyOpenMap();
+
 var preferredZoom = 15;
-try {
-  navigator.geolocation.getCurrentPosition(success, error, optionsGeo);
-} catch (err) { console.log() }
 
 export default function MapComponent() {
 
@@ -74,16 +53,57 @@ export default function MapComponent() {
         {
           lat: position.coords.latitude,
           lng: position.coords.longitude
-        })
+        }) 
+
+        actualPosition = { lat: position.coords.latitude, lng: position.coords.longitude }
+
+        solidAuth.currentSession().then( session => {
+          if (session) 
+            updateLocation(session.webId, actualPosition);
+          }) 
       }, () => null);
   }
   );
+
+  var timer;
+  useEffect(() => {
+    if(!watchId) 
+      timer = setInterval(updateUserLocation, 1000)
+    
+      stopUpdating = () => clearInterval(timer);
+  })
+
+  let radio = 100;
 
   function restarCurrentPosition() {
     setCurrentPosition(prevC => prevC = {
       lat: latitude,
       lng: longitude
     });
+  }
+
+  function updateUserLocation() {
+    navigator.geolocation.clearWatch( watchId ) 
+    console.log("Updating")
+    watchId = navigator.geolocation.watchPosition((newPos) => {
+        if(!actualPosition || (actualPosition.lat !== newPos.coords.latitude 
+            || actualPosition.lng !== newPos.coords.longitude)) {
+
+          actualPosition = { lat: newPos.coords.latitude, lng: newPos.coords.longitude }
+
+          solidAuth.currentSession().then(session => {
+            if (session) {
+              updateUserMarker(actualPosition)
+              updateLocation(session.webId, actualPosition)
+              setCurrentPosition(prevC => prevC =
+                  {
+                    lat: newPos.coords.latitude,
+                    lng: newPos.coords.longitude
+                  })
+            }
+          })
+        }
+    })
   }
 
   const { isLoaded, loadError } = useLoadScript({
@@ -120,3 +140,5 @@ export default function MapComponent() {
     </div>
   )
 }
+
+export function stopUpdating() {};
