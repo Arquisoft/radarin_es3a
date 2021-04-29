@@ -7,7 +7,9 @@ import { notifyOpenMap } from '../../services/notify';
 import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
 import { requiredGender } from 'rdf-namespaces/dist/schema';
-
+import Slider from '@material-ui/core/Slider';
+import Tooltip from '@material-ui/core/Tooltip';
+import SliderRadio from './SliderRadio';
 
 //-------------------------------------------------\
 var latitude;
@@ -29,6 +31,16 @@ const options = {
   maxZoom: 20,
 }
 
+
+function ValueLabelComponent(props) {
+  const { children, open, value } = props;
+
+  return (
+    <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
+      {children}
+    </Tooltip>
+  );
+}
 // Notificar que ha abierto la app
 //notifyOpenMap();
 
@@ -45,7 +57,7 @@ export default function MapComponent() {
   }
 
 
-  
+
 
   const [pPosition, setCurrentPosition] = useState(() => {
     navigator.geolocation.getCurrentPosition(
@@ -54,24 +66,24 @@ export default function MapComponent() {
         {
           lat: position.coords.latitude,
           lng: position.coords.longitude
-        }) 
+        })
 
         actualPosition = { lat: position.coords.latitude, lng: position.coords.longitude }
 
-        solidAuth.currentSession().then( session => {
-          if (session) 
+        solidAuth.currentSession().then(session => {
+          if (session)
             updateLocation(session.webId, actualPosition);
-          }) 
+        })
       }, () => null);
   }
   );
 
   var timer;
   useEffect(() => {
-    if(!watchId) 
+    if (!watchId)
       timer = setInterval(updateUserLocation, 1000)
-    
-      stopUpdating = () => clearInterval(timer);
+
+    stopUpdating = () => clearInterval(timer);
   })
 
   function restarCurrentPosition() {
@@ -82,25 +94,25 @@ export default function MapComponent() {
   }
 
   function updateUserLocation() {
-    navigator.geolocation.clearWatch( watchId ) 
+    navigator.geolocation.clearWatch(watchId)
     watchId = navigator.geolocation.watchPosition((newPos) => {
-        if(!actualPosition || (actualPosition.lat !== newPos.coords.latitude 
-            || actualPosition.lng !== newPos.coords.longitude)) {
+      if (!actualPosition || (actualPosition.lat !== newPos.coords.latitude
+        || actualPosition.lng !== newPos.coords.longitude)) {
 
-          actualPosition = { lat: newPos.coords.latitude, lng: newPos.coords.longitude }
+        actualPosition = { lat: newPos.coords.latitude, lng: newPos.coords.longitude }
 
-          solidAuth.currentSession().then(session => {
-            if (session) {
-              updateUserMarker(actualPosition)
-              updateLocation(session.webId, actualPosition)
-              setCurrentPosition(prevC => prevC =
-                  {
-                    lat: newPos.coords.latitude,
-                    lng: newPos.coords.longitude
-                  })
-            }
-          })
-        }
+        solidAuth.currentSession().then(session => {
+          if (session) {
+            updateUserMarker(actualPosition)
+            updateLocation(session.webId, actualPosition)
+            setCurrentPosition(prevC => prevC =
+            {
+              lat: newPos.coords.latitude,
+              lng: newPos.coords.longitude
+            })
+          }
+        })
+      }
     })
   }
 
@@ -120,23 +132,18 @@ export default function MapComponent() {
 
   return (
 
-    <div>
-      <div className="container">
-        <span className="text-light p-1 w-25">Distancia deseada: </span>
-        <input type="text" value={radioBusqueda} onChange={handleChange}  ></input>
-        <span className="text-light p-1 w-25">Value: {radioBusqueda} </span>
-      </div>
 
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={preferredZoom}
-        center={pPosition}
-        options={options}
-        onLoad={onMapLoad}>
-        <Markers rad={radioBusqueda} />
-      </GoogleMap>
-    </div>
+
+    <GoogleMap
+      mapContainerStyle={mapContainerStyle}
+      zoom={preferredZoom}
+      center={pPosition}
+      options={options}
+      onLoad={onMapLoad}>
+      <Markers rad={radioBusqueda} />
+    </GoogleMap>
+
   )
 }
 
-export function stopUpdating() {};
+export function stopUpdating() { };
