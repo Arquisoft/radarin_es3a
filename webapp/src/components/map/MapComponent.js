@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import mapStyles from './mapStyles'
-import Markers, { updateUserMarker } from './Markers'
+import Markers, { changeRadius, updateUserMarker } from './Markers'
 import credentials from './credentials'
 import { notifyOpenMap } from '../../services/notify';
 import { updateLocation } from '../../api/api';
@@ -39,9 +39,9 @@ export default function MapComponent() {
   const [radioBusqueda, setFname] = useState(10)
 
   const handleChange = e => {
-    // window.location.reload(false);
+    //window.location.reload(false);
     setFname(e.target.value)
-    // Markers.
+    changeRadius(e.target.value)
   }
 
 
@@ -74,8 +74,6 @@ export default function MapComponent() {
       stopUpdating = () => clearInterval(timer);
   })
 
-  let radio = 100;
-
   function restarCurrentPosition() {
     setCurrentPosition(prevC => prevC = {
       lat: latitude,
@@ -85,7 +83,6 @@ export default function MapComponent() {
 
   function updateUserLocation() {
     navigator.geolocation.clearWatch( watchId ) 
-    console.log("Updating")
     watchId = navigator.geolocation.watchPosition((newPos) => {
         if(!actualPosition || (actualPosition.lat !== newPos.coords.latitude 
             || actualPosition.lng !== newPos.coords.longitude)) {
