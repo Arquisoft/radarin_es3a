@@ -8,6 +8,10 @@ import { stopUpdating } from './MapComponent';
 
 let radius = 50;
 
+export function changeRadius(newRadius) {
+    radius = newRadius
+}
+
 function degreesToRadians(degrees) {
     return degrees * Math.PI / 180;
   }
