@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { GoogleMap, useLoadScript } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, InfoWindow} from '@react-google-maps/api';
 import mapStyles from './mapStyles'
-import Markers, { changeRadius, updateUserMarker } from './Markers'
+import Markers, { updateUserMarker } from './Markers'
 import credentials from './credentials'
 import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
-
+import './MapComponent.css'
 
 //-------------------------------------------------\
 var latitude;
@@ -15,7 +15,7 @@ var watchId;
 var actualPosition;
 
 const mapContainerStyle = {
-  width: "100vw",
+  width: "100%",
   height: "80vh",
 };
 const options = {
@@ -30,19 +30,18 @@ const options = {
 //notifyOpenMap();
 
 var preferredZoom = 15;
+var showWindow;
+
+export function setUser(user){ showWindow(user); }
+
 
 export default function MapComponent() {
 
-  const [radioBusqueda, setFname] = useState(10)
+  const [radioBusqueda] = useState(10)
 
-  const handleChange = e => {
-    //window.location.reload(false);
-    setFname(e.target.value)
-    changeRadius(e.target.value)
-  }
+  const [userSelected, setUserSelected] = useState()
+  showWindow = (user) => { setUserSelected(user) };
 
-
-  
 
   const [pPosition, setCurrentPosition] = useState(() => {
     navigator.geolocation.getCurrentPosition(
@@ -51,14 +50,14 @@ export default function MapComponent() {
         {
           lat: position.coords.latitude,
           lng: position.coords.longitude
-        }) 
+        })
 
         actualPosition = { lat: position.coords.latitude, lng: position.coords.longitude }
 
-        solidAuth.currentSession().then( session => {
-          if (session) 
+        solidAuth.currentSession().then(session => {
+          if (session)
             updateLocation(session.webId, actualPosition);
-          }) 
+        })
       }, () => null);
   }
   );
@@ -80,23 +79,23 @@ export default function MapComponent() {
   function updateUserLocation() {
     navigator.geolocation.clearWatch( watchId ) 
     watchId = navigator.geolocation.watchPosition((newPos) => {
-        if(!actualPosition || (actualPosition.lat !== newPos.coords.latitude 
-            || actualPosition.lng !== newPos.coords.longitude)) {
+      if (!actualPosition || (actualPosition.lat !== newPos.coords.latitude
+        || actualPosition.lng !== newPos.coords.longitude)) {
 
-          actualPosition = { lat: newPos.coords.latitude, lng: newPos.coords.longitude }
+        actualPosition = { lat: newPos.coords.latitude, lng: newPos.coords.longitude }
 
-          solidAuth.currentSession().then(session => {
-            if (session) {
-              updateUserMarker(actualPosition)
-              updateLocation(session.webId, actualPosition)
-              setCurrentPosition(prevC => prevC =
-                  {
-                    lat: newPos.coords.latitude,
-                    lng: newPos.coords.longitude
-                  })
-            }
-          })
-        }
+        solidAuth.currentSession().then(session => {
+          if (session) {
+            updateUserMarker(actualPosition)
+            updateLocation(session.webId, actualPosition)
+            setCurrentPosition(prevC => prevC =
+            {
+              lat: newPos.coords.latitude,
+              lng: newPos.coords.longitude
+            })
+          }
+        })
+      }
     })
   }
 
@@ -110,19 +109,9 @@ export default function MapComponent() {
   if (loadError) return "Error loadinf maps"
   if (!isLoaded) { return "Loading Maps"; }
 
-
-
-
-
   return (
 
-    <div>
-      <div className="container">
-        <span className="text-light p-1 w-25">Distancia deseada: </span>
-        <input type="text" value={radioBusqueda} onChange={handleChange}  ></input>
-        <span className="text-light p-1 w-25">Value: {radioBusqueda} </span>
-      </div>
-
+    <div className="mapa">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={preferredZoom}
@@ -130,7 +119,14 @@ export default function MapComponent() {
         options={options}
         onLoad={onMapLoad}>
         <Markers rad={radioBusqueda} />
+        { userSelected ? <InfoWindow 
+
+                            onCloseClick={() => setUserSelected(undefined)}
+                            position={{lat: userSelected.location.lat + 0.0005, lng: userSelected.location.lng}}><div>{userSelected.name}</div></InfoWindow> : null}
       </GoogleMap>
     </div>
+
+
+
   )
 }
