@@ -11,7 +11,7 @@ import { Button } from 'react-bootstrap';
 class Admin extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { users: [] }
+        this.state = { users: []  }
     }
 
     componentDidMount() {
@@ -43,8 +43,15 @@ class Admin extends React.Component {
     }
 
 
-    render() {
 
+
+    render() {
+        const handleClickOnDelete = (user) => {    
+            deleteUser(user);
+            console.log(user);
+            // this.setState({});
+          }
+        
 
         return (
             <>
@@ -60,7 +67,7 @@ class Admin extends React.Component {
                                     <div className="card w-100 text-white bg-dark">
                                         <div className="card-body ">
                                             <h5 className="card-title">{user}</h5>
-                                            {<Button type="button" className="btn btn-danger" onClick={() => deleteUser(user)} >Eliminar usuario</Button>}
+                                            {<Button type="button" className="btn btn-danger" onClick={handleClickOnDelete(user)} >Eliminar usuario</Button>}
                                         </div>
                                     </div>
                                 )

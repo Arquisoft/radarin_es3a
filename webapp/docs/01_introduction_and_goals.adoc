@@ -6,15 +6,15 @@ This project aims to develop a mobile radar, that allows any user to track the l
 
 === Requirements Overview
 
-We are to develop a mobile and web application for the localization of different ussers in the system.
+We are going to develop a mobile and web application for the localization of different users in the system.
 
 The functionality that the application will provide:
 
 . Registration in the system.
 
-. Adding of other ussers.
+. Adding of other users.
 
-. Localization of added ussers.
+. Localization of added users.
 
 === Quality Goals
 

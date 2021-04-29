@@ -64,15 +64,6 @@ export default function MapComponent() {
     setFname(e.target.value)
   }
 
-  // useEffect(() => {
-  //   const gameStartInternal = setInterval(() => {
-  //     setFname((t) => t + 1);
-  //   }, 1000);
-  
-  //   return () => {
-  //     clearInterval(gameStartInternal);
-  //   };
-  // }, []);
 
   
 
