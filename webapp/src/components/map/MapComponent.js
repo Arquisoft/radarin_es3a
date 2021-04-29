@@ -10,6 +10,7 @@ import { requiredGender } from 'rdf-namespaces/dist/schema';
 import Slider from '@material-ui/core/Slider';
 import Tooltip from '@material-ui/core/Tooltip';
 import SliderRadio from './SliderRadio';
+import './MapComponent.css'
 
 //-------------------------------------------------\
 var latitude;
@@ -20,7 +21,7 @@ var actualPosition;
 
 
 const mapContainerStyle = {
-  width: "100vw",
+  width: "100%",
   height: "80vh",
 };
 const options = {
@@ -80,10 +81,13 @@ export default function MapComponent() {
 
   var timer;
   useEffect(() => {
-    if (!watchId)
+    if (!watchId) {
+      if (timer)
+        clearInterval(timer);
       timer = setInterval(updateUserLocation, 1000)
+    }
 
-    stopUpdating = () => clearInterval(timer);
+    return () => { clearInterval(timer); };
   })
 
   function restarCurrentPosition() {
@@ -132,18 +136,18 @@ export default function MapComponent() {
 
   return (
 
+    <div className="mapa">
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        zoom={preferredZoom}
+        center={pPosition}
+        options={options}
+        onLoad={onMapLoad}>
+        <Markers rad={radioBusqueda} />
+      </GoogleMap>
+    </div>
 
 
-    <GoogleMap
-      mapContainerStyle={mapContainerStyle}
-      zoom={preferredZoom}
-      center={pPosition}
-      options={options}
-      onLoad={onMapLoad}>
-      <Markers rad={radioBusqueda} />
-    </GoogleMap>
 
   )
 }
-
-export function stopUpdating() { };
