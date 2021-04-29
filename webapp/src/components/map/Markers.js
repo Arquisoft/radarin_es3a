@@ -114,8 +114,7 @@ class Markers extends React.Component {
         let friends = this.state.friends
         let users = this.state.users
         let that = this
-        radius = this.state.rad
-        // console.log(radius)
+
 
         friends.forEach(friend => {
             getUserByWebId(friend.webId).then( newUser => {
