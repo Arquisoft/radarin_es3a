@@ -9,7 +9,6 @@ export default function MapContainer() {
     const [on, setOn] = useState(true)
 
     function switchOnOff() {
-        console.log("Encendiendo/apagando")
         if(on)
             saveUserLocation(undefined) // Limpiar localización
         setOn(!on)
