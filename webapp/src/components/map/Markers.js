@@ -4,6 +4,7 @@ import solidAuth from 'solid-auth-client';
 import { getUserByWebId } from '../../api/api';
 import { fetchFriends } from '../../services/fetchFriends';
 import { notifyNearbyFriend } from '../../services/notify';
+import { fetchName, fetchPhoto } from '../../services/fetchProfile';
 
 let radius = 50;
 let updateMarker = (location) => { console.log("No definido") }
@@ -98,6 +99,9 @@ class Markers extends React.Component {
                                 user.location.lat,user.location.lng) < radius) {
                             users.push(user);
                             that.setState({ users: users });
+                            // Cargar información por si la necesitamos luego
+                            fetchName(user.webId)
+                            fetchPhoto(user.webId)
                         }
                     } 
                 })

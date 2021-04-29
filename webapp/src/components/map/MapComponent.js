@@ -67,9 +67,7 @@ export default function MapComponent() {
     let timer
     timer = setInterval(updateUserLocation, 1000)
     
-    console.log(timer)
-    
-     return () => { clearInterval(timer); };
+    return () => { clearInterval(timer); };
   })
 
   function restarCurrentPosition() {
@@ -80,7 +78,6 @@ export default function MapComponent() {
   }
 
   function updateUserLocation() {
-    console.log("updating")
     navigator.geolocation.clearWatch( watchId ) 
     watchId = navigator.geolocation.watchPosition((newPos) => {
         if(!actualPosition || (actualPosition.lat !== newPos.coords.latitude 

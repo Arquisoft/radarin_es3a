@@ -1,17 +1,17 @@
 import {
     getSolidDataset,
     getThing,
-    setUrl,
-    getUrl,
-    saveSolidDatasetAt,
-    setThing
+    getUrl
 } from "@inrupt/solid-client";
-
-import solidAuth from 'solid-auth-client';
 
 import { VCARD } from "@inrupt/vocab-common-rdf";
 
+let emails = new Map()
+
 export async function fetchEmail(webId) {
+    if(emails.get(webId))
+        return emails.get(webId)
+
     const myDataset = await getSolidDataset(webId.split("#me")[0]);
     const profile = getThing(myDataset, webId);
     const emailUrl = await getUrl(profile, VCARD.hasEmail);
@@ -26,28 +26,10 @@ export async function fetchEmail(webId) {
         return null;
 
     var email = getUrl(emailThing, VCARD.value)
-    if (email)
+    if (email) {
         email = email.split("mailto:")[1];
+        emails.set(webId, email)
+    }
 
     return email;
-}
-
-export async function replaceEmail(webId) {
-    var myDataset = await getSolidDataset(webId.split("#me")[0]);
-    const profile = getThing(myDataset, webId);
-
-    const emailUrl = await getUrl(profile, VCARD.hasEmail);
-
-    if (!emailUrl)
-        return;
-
-    let emailDataset = await getSolidDataset(emailUrl);
-    let emailThing = getThing(emailDataset, emailUrl);
-
-    if (!emailThing)
-        return;
-
-    var newEmail = setUrl(emailThing, VCARD.value, "mailto:ejemplo@email.com");
-    emailDataset = setThing(emailDataset, newEmail);
-    await saveSolidDatasetAt(emailUrl, emailDataset, { fetch: solidAuth.fetch });
 }

@@ -21,12 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
     public static WebView myWebView;
     public static AndroidJSInterface androidJSInterface = new AndroidJSInterface();
-    String url = "https://radarines3awebapp.herokuapp.com/";
+    private String url = "https://radarines3awebapp.herokuapp.com/";
 
     private String mGeoLocationRequestOrigin;
     private GeolocationPermissions.Callback mGeoLocationCallback;
-
-    private MyFirebaseMessagingService messagingService = new MyFirebaseMessagingService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         askLocationPermission();
 
         myWebView.setWebViewClient(new WebViewClient());
-
-        //buttonProcess();
     }
 
     private void askLocationPermission() {
@@ -94,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             }
+            default:
+                break;
         }
         // other 'case' lines to check for other
         // permissions this app might request
@@ -111,21 +109,11 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     }
                     return true;
+                default:
+                    return false;
             }
         }
 
         return super.onKeyDown(keyCode, event);
     }
-
-    /*public void buttonProcess() {
-        Button botonWeb = (Button) findViewById(R.id.buttonWeb);
-
-        botonWeb.setOnClickListener(view -> {
-            EditText urlCambio = (EditText) findViewById(R.id.web);
-            url = urlCambio.getText().toString();
-
-            //myWebView = (WebView) findViewById(R.id.webRadarin);
-            myWebView.loadUrl(url);
-        });
-    }*/
 }

@@ -10,12 +10,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
-import org.json.JSONObject;
-import org.json.JSONStringer;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class AndroidJSInterface {
 
     public String token;
