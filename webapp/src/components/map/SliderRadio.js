@@ -6,15 +6,49 @@ import Slider from "@material-ui/core/Slider";
 import Input from "@material-ui/core/Input";
 // import VolumeUp from "@material-ui/icons/VolumeUp";
 import Markers, { changeRadius, updateUserMarker } from './Markers'
+import { color } from "rdf-namespaces/dist/schema";
 
 const useStyles = makeStyles({
   root: {
-    width: 250
+    color: '#e56387',
+    width: 300,
+    height: 8,
+  },
+  slider: {
+    width: 210,
+    color:'#e56387',
+    padding: 0,
+    margin:0
   },
   input: {
-    width: 42
-  }
+    width: 50,
+  },
+  thumb: {
+    height: 24,
+    width: 24,
+    backgroundColor: '#fff',
+    border: '2px solid currentColor',
+    marginTop: -8,
+    marginLeft: -12,
+    '&:focus, &:hover, &$active': {
+      boxShadow: 'inherit',
+    },
+  },
+  active: {},
+  valueLabel: {
+    left: 'calc(-50% + 4px)',
+  },
+  track: {
+    height: 8,
+    borderRadius: 4,
+  },
+  rail: {
+    height: 8,
+    borderRadius: 4,
+  },
 });
+
+
 
 export default function InputSlider() {
   const classes = useStyles();
@@ -45,7 +79,7 @@ export default function InputSlider() {
           {/* <VolumeUp /> */}
         </Grid>
         <Grid item xs>
-          <Slider
+          <Slider className={classes.slider}
             value={typeof value === "number" ? value : 0}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
