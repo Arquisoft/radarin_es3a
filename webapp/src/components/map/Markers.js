@@ -117,7 +117,7 @@ class Markers extends React.Component {
 
         friends.forEach(friend => {
             getUserByWebId(friend.webId).then( newUser => {
-                if(!newUser)
+                if(!newUser || !newUser.location)
                     return;
 
                 friend.location = newUser.location
