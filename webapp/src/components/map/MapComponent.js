@@ -68,10 +68,13 @@ export default function MapComponent() {
 
   var timer;
   useEffect(() => {
-    if(!watchId) 
+    if(!watchId) {
+      if(timer)
+        clearInterval(timer);
       timer = setInterval(updateUserLocation, 1000)
+    }
     
-      stopUpdating = () => clearInterval(timer);
+     return () => { clearInterval(timer); };
   })
 
   function restarCurrentPosition() {
@@ -138,5 +141,3 @@ export default function MapComponent() {
     </div>
   )
 }
-
-export function stopUpdating() {};
