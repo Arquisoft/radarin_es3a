@@ -5,6 +5,7 @@ import { getUserByWebId } from '../../api/api';
 import { fetchFriends } from '../../services/fetchFriends';
 import { notifyNearbyFriend } from '../../services/notify';
 import { fetchName, fetchPhoto } from '../../services/fetchProfile';
+import { setUser } from './MapComponent';
 
 let radius = 50;
 let updateMarker = (location) => { console.log("No definido") }
@@ -163,6 +164,7 @@ class Markers extends React.Component {
                             url: '/iconLogo.svg',
                             scaledSize: new window.google.maps.Size(100, 100)
                         }}
+                        onClick = {() => setUser(item)}
                     />
                 )
             })

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { GoogleMap, useLoadScript } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, InfoWindow} from '@react-google-maps/api';
 import mapStyles from './mapStyles'
 import Markers, { changeRadius, updateUserMarker } from './Markers'
 import credentials from './credentials'
@@ -30,19 +30,23 @@ const options = {
 //notifyOpenMap();
 
 var preferredZoom = 15;
+var showWindow;
+
+export function setUser(user){ showWindow(user); }
+
 
 export default function MapComponent() {
 
   const [radioBusqueda, setFname] = useState(10)
+
+  const [userSelected, setUserSelected] = useState()
+  showWindow = (user) => { setUserSelected(user) };
 
   const handleChange = e => {
     //window.location.reload(false);
     setFname(e.target.value)
     changeRadius(e.target.value)
   }
-
-
-  
 
   const [pPosition, setCurrentPosition] = useState(() => {
     navigator.geolocation.getCurrentPosition(
@@ -110,10 +114,6 @@ export default function MapComponent() {
   if (loadError) return "Error loadinf maps"
   if (!isLoaded) { return "Loading Maps"; }
 
-
-
-
-
   return (
 
     <div>
@@ -130,6 +130,9 @@ export default function MapComponent() {
         options={options}
         onLoad={onMapLoad}>
         <Markers rad={radioBusqueda} />
+        { userSelected ? <InfoWindow 
+                            onCloseClick={() => setUserSelected(undefined)}
+                            position={userSelected.location}><div>Hola</div></InfoWindow> : null}
       </GoogleMap>
     </div>
   )
