@@ -11,13 +11,16 @@ var firebaseConfig = {
     measurementId: "G-VLC6HJHN5M"
 };
 // Initialize Firebase
+try {
 firebase.initializeApp(firebaseConfig);
-
+} catch (error) {
+  // console.log(error);
+}
 var messaging ;
 try {
   messaging = firebase.messaging();
 } catch (error) {
-  console.log(error);
+  // console.log(error);
 }
 
 export const getToken = (func) => {

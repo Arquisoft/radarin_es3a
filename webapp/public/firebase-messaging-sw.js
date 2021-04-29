@@ -12,8 +12,11 @@ var firebaseConfig = {
     appId: "1:407429701050:web:811db1dbe2157f07981183",
     measurementId: "G-VLC6HJHN5M"
 };
-
-firebase.initializeApp(firebaseConfig);
+try {
+  firebase.initializeApp(firebaseConfig);
+} catch (error) {
+  // console.log(error)
+}
 
 // Retrieve firebase messaging
 const messaging = firebase.messaging();

@@ -39,8 +39,9 @@ export default function MapComponent() {
   const [radioBusqueda, setFname] = useState(10)
 
   const handleChange = e => {
-    window.location.reload(false);
+    // window.location.reload(false);
     setFname(e.target.value)
+    // Markers.
   }
 
 
