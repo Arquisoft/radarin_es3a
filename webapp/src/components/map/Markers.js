@@ -4,7 +4,7 @@ import solidAuth from 'solid-auth-client';
 import { getUserByWebId } from '../../api/api';
 import { fetchFriends } from '../../services/fetchFriends';
 import { notifyNearbyFriend } from '../../services/notify';
-import { fetchName, fetchPhoto } from '../../services/fetchProfile';
+import { fetchName } from '../../services/fetchProfile';
 import { setUser } from './MapComponent';
 
 let radius = 50;
@@ -94,16 +94,20 @@ class Markers extends React.Component {
             friends.forEach((friend) => {
                 getUserByWebId(friend.webId).then( user => {
                     if (user){
-                        friend.location = user.location
-                        if (distanceInKmBetweenEarthCoordinates(
-                                that.userLoggedIn.location.lat, that.userLoggedIn.location.lng,
-                                user.location.lat,user.location.lng) < radius) {
-                            users.push(user);
-                            that.setState({ users: users });
-                            // Cargar información por si la necesitamos luego
-                            fetchName(user.webId)
-                            fetchPhoto(user.webId)
-                        }
+                        // Cargar información por si la necesitamos luego
+                        fetchName(user.webId).then((name) => {
+                            user.name = name;
+                            friend.name = name;
+                            if(!user.location)
+                                return;
+                            friend.location = user.location
+                            if (distanceInKmBetweenEarthCoordinates(
+                                    that.userLoggedIn.location.lat, that.userLoggedIn.location.lng,
+                                    user.location.lat,user.location.lng) < radius) {
+                                users.push(user);
+                                that.setState({ users: users });
+                            }
+                        })
                     } 
                 })
             })
@@ -124,6 +128,7 @@ class Markers extends React.Component {
                 if(!newUser)
                     return;
 
+                newUser.name = friend.name;
                 // Comprobar si ya estaba en el mapa
                 let index = users.findIndex(user => user.webId === newUser.webId)
                 if(!newUser.location) { // No está conectado

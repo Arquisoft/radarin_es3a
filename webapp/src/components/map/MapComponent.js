@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { GoogleMap, useLoadScript, InfoWindow} from '@react-google-maps/api';
 import mapStyles from './mapStyles'
-import Markers, { changeRadius, updateUserMarker } from './Markers'
+import Markers, { updateUserMarker } from './Markers'
 import credentials from './credentials'
 import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
-import Tooltip from '@material-ui/core/Tooltip';
 import './MapComponent.css'
 
 //-------------------------------------------------\
@@ -27,16 +26,6 @@ const options = {
   maxZoom: 20,
 }
 
-
-function ValueLabelComponent(props) {
-  const { children, open, value } = props;
-
-  return (
-    <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
-      {children}
-    </Tooltip>
-  );
-}
 // Notificar que ha abierto la app
 //notifyOpenMap();
 
@@ -48,16 +37,11 @@ export function setUser(user){ showWindow(user); }
 
 export default function MapComponent() {
 
-  const [radioBusqueda, setFname] = useState(10)
+  const [radioBusqueda] = useState(10)
 
   const [userSelected, setUserSelected] = useState()
   showWindow = (user) => { setUserSelected(user) };
 
-  const handleChange = e => {
-    //window.location.reload(false);
-    setFname(e.target.value)
-    changeRadius(e.target.value)
-  }
 
   const [pPosition, setCurrentPosition] = useState(() => {
     navigator.geolocation.getCurrentPosition(
@@ -137,7 +121,7 @@ export default function MapComponent() {
         <Markers rad={radioBusqueda} />
         { userSelected ? <InfoWindow 
                             onCloseClick={() => setUserSelected(undefined)}
-                            position={userSelected.location}><div>Hola</div></InfoWindow> : null}
+                            position={userSelected.location}><div>{userSelected.name}</div></InfoWindow> : null}
       </GoogleMap>
     </div>
 
