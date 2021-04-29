@@ -6,8 +6,6 @@ import { getUsers } from '../../api/api';
 import { deleteUser } from '../../services/deleteFromDB';
 import { Button } from 'react-bootstrap';
 
-
-
 class Admin extends React.Component {
     constructor(props) {
         super(props);

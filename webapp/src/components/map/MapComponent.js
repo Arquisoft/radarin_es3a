@@ -120,8 +120,9 @@ export default function MapComponent() {
         onLoad={onMapLoad}>
         <Markers rad={radioBusqueda} />
         { userSelected ? <InfoWindow 
+
                             onCloseClick={() => setUserSelected(undefined)}
-                            position={userSelected.location}><div>{userSelected.name}</div></InfoWindow> : null}
+                            position={{lat: userSelected.location.lat + 0.0005, lng: userSelected.location.lng}}><div>{userSelected.name}</div></InfoWindow> : null}
       </GoogleMap>
     </div>
 
