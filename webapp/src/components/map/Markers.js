@@ -6,6 +6,7 @@ import { fetchFriends } from '../../services/fetchFriends';
 import { notifyNearbyFriend } from '../../services/notify';
 
 let radius = 50;
+let updateMarker = (location) => { console.log("No definido") }
 
 export function changeRadius(newRadius) {
     radius = newRadius
@@ -43,7 +44,7 @@ class Markers extends React.Component {
 
         let users = this.state.users
         let that = this
-        updateUserMarker = (location) => {
+        updateMarker = (location) => {
             that.userLoggedIn.location = location
             users[0] = that.userLoggedIn;
             that.setState({ users: users })
@@ -164,8 +165,6 @@ class Markers extends React.Component {
         )
     }
 }
-
-var updateMarker = (location) => { console.log("No definido") }
 
 export function updateUserMarker(location) { updateMarker(location) }
 export default Markers

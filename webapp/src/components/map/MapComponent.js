@@ -3,10 +3,8 @@ import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import mapStyles from './mapStyles'
 import Markers, { changeRadius, updateUserMarker } from './Markers'
 import credentials from './credentials'
-import { notifyOpenMap } from '../../services/notify';
 import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
-import { requiredGender } from 'rdf-namespaces/dist/schema';
 
 
 //-------------------------------------------------\
@@ -15,7 +13,6 @@ var longitude;
 
 var watchId;
 var actualPosition;
-
 
 const mapContainerStyle = {
   width: "100vw",
@@ -66,13 +63,11 @@ export default function MapComponent() {
   }
   );
 
-  var timer;
   useEffect(() => {
-    if(!watchId) {
-      if(timer)
-        clearInterval(timer);
-      timer = setInterval(updateUserLocation, 1000)
-    }
+    let timer
+    timer = setInterval(updateUserLocation, 1000)
+    
+    console.log(timer)
     
      return () => { clearInterval(timer); };
   })
@@ -85,6 +80,7 @@ export default function MapComponent() {
   }
 
   function updateUserLocation() {
+    console.log("updating")
     navigator.geolocation.clearWatch( watchId ) 
     watchId = navigator.geolocation.watchPosition((newPos) => {
         if(!actualPosition || (actualPosition.lat !== newPos.coords.latitude 
