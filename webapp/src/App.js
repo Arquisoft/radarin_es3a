@@ -43,8 +43,7 @@ export default function App() {
         ]}/>
       <Navbar />
       <Switch>
-        <Route path='/' exact component={Welcome} />
-        <Route path='/map' component={MapContainer} />
+        <Route path='/' component={MapContainer} />
         <Route path='/sign-in'  component={SignIn} />
         <Route path='/about-us'  component={AboutUs} />
         <Route path='/locations' component={UsersLocation} />

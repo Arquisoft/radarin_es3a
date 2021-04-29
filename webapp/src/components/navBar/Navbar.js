@@ -28,9 +28,6 @@ function Navbar() {
         </button>
         <div  id="navbarNavDropdown" className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`}>
           <ul className="navbar-nav">
-            <li className="nav-item active">
-              <Link to='/' className='nav-links nav-link' onClick={closeMobileMenu}>Home</Link>
-            </li>
             <LoggedIn>
             <li className="nav-item">
                <Link to='/map' className='nav-links nav-link' onClick={closeMobileMenu}>Map</Link>
