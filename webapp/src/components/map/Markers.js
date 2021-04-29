@@ -4,7 +4,6 @@ import solidAuth from 'solid-auth-client';
 import { getUserByWebId } from '../../api/api';
 import { fetchFriends } from '../../services/fetchFriends';
 import { notifyNearbyFriend } from '../../services/notify';
-import { stopUpdating } from './MapComponent';
 
 let radius = 50;
 
@@ -44,16 +43,15 @@ class Markers extends React.Component {
 
         let users = this.state.users
         let that = this
-        updateUserMarker = (location) => {
+        updateUserMarker ((location) => {
             that.userLoggedIn.location = location
             users[0] = that.userLoggedIn;
             that.setState({ users: users })
-        }
+        })
     }
 
     componentWillUnmount() {
         clearInterval(this.timer)
-        stopUpdating()
     }
 
     async fetchFriends() {
@@ -114,20 +112,25 @@ class Markers extends React.Component {
         let friends = this.state.friends
         let users = this.state.users
         let that = this
-        radius = this.state.rad
-        // console.log(radius)
 
         friends.forEach(friend => {
             getUserByWebId(friend.webId).then( newUser => {
                 if(!newUser)
                     return;
 
+                // Comprobar si ya estaba en el mapa
+                let index = users.findIndex(user => user.webId === newUser.webId)
+                if(!newUser.location) { // No está conectado
+                    if(index !== -1) // Está en el mapa y se ha desconectado
+                        users.splice(index, 1)
+                    return
+                }
+
+
                 friend.location = newUser.location
                 let inRadius = distanceInKmBetweenEarthCoordinates(
                     that.userLoggedIn.location.lat, that.userLoggedIn.location.lng,
                     newUser.location.lat, newUser.location.lng) < radius
-                // Comprobar si ya estaba en el mapa
-                let index = users.findIndex(user => user.webId === newUser.webId)
                 if(index !== -1) {
                     if(newUser.location !== users[index].location) {
                         if(inRadius)

@@ -3,10 +3,8 @@ import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import mapStyles from './mapStyles'
 import Markers, { changeRadius, updateUserMarker } from './Markers'
 import credentials from './credentials'
-import { notifyOpenMap } from '../../services/notify';
 import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
-import { requiredGender } from 'rdf-namespaces/dist/schema';
 
 
 //-------------------------------------------------\
@@ -66,12 +64,13 @@ export default function MapComponent() {
   }
   );
 
-  var timer;
+  
   useEffect(() => {
+    var timer;
     if(!watchId) 
       timer = setInterval(updateUserLocation, 1000)
     
-      stopUpdating = () => clearInterval(timer);
+      stopUpdating(() => clearInterval(timer));
   })
 
   function restarCurrentPosition() {
