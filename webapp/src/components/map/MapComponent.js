@@ -6,6 +6,8 @@ import credentials from './credentials'
 import { notifyOpenMap } from '../../services/notify';
 import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
+import { requiredGender } from 'rdf-namespaces/dist/schema';
+
 
 //-------------------------------------------------\
 var latitude;
@@ -13,6 +15,7 @@ var longitude;
 
 var watchId;
 var actualPosition;
+
 
 const mapContainerStyle = {
   width: "100vw",
@@ -32,6 +35,16 @@ const options = {
 var preferredZoom = 15;
 
 export default function MapComponent() {
+
+  const [radioBusqueda, setFname] = useState(10)
+
+  const handleChange = e => {
+    window.location.reload(false);
+    setFname(e.target.value)
+  }
+
+
+  
 
   const [pPosition, setCurrentPosition] = useState(() => {
     navigator.geolocation.getCurrentPosition(
@@ -103,11 +116,17 @@ export default function MapComponent() {
   if (loadError) return "Error loadinf maps"
   if (!isLoaded) { return "Loading Maps"; }
 
+
+
+
+
   return (
 
     <div>
       <div className="container">
         <span className="text-light p-1 w-25">Distancia deseada: </span>
+        <input type="text" value={radioBusqueda} onChange={handleChange}  ></input>
+        <span className="text-light p-1 w-25">Value: {radioBusqueda} </span>
       </div>
 
       <GoogleMap
@@ -116,7 +135,7 @@ export default function MapComponent() {
         center={pPosition}
         options={options}
         onLoad={onMapLoad}>
-        <Markers rad={radio} />
+        <Markers rad={radioBusqueda} />
       </GoogleMap>
     </div>
   )

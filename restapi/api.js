@@ -29,12 +29,15 @@ router.post("/users/add", async (req, res) => {
 });
 
 //removes an existing user
-router.post("users/remove", async (req, res) => {
+router.post("/users/remove", async (req, res) => {
     let webId = req.body.webId;
     //Check if the device is already in the db
     let user = await User.findOne({ webId: webId })
-    if (user)
+    console.log("restapi/api")
+    if (user) {
         await user.remove({ webId: webId })
+        res.send(user)
+    }
     else {
         res.send({ error: "Error: This user does not exist" })
     }

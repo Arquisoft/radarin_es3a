@@ -1,9 +1,21 @@
 import solidAuth from 'solid-auth-client';
-import { deleteFromDB } from '../api/api';
+import { fetchName } from '../services/fetchProfile';
+import { deleteFromDB, getUsers } from '../api/api';
 
-export async function deleteUser(webId) {
+export async function deleteUser(name) {
+
     const currentSession = await solidAuth.currentSession();
     if (!currentSession)
         return null;
-    deleteFromDB(webId);
+    let users = await getUsers();
+    for (let index in users) {
+        try {
+            let user = await fetchName(users[index].webId);
+            if ((user === name )) {
+              deleteFromDB(users[index].webId);
+            }
+        } catch (error) {
+            console.log("No se ha podido insertar: " + users[index].webId);
+        }
+    }
 }
