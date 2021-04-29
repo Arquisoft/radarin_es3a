@@ -117,15 +117,22 @@ class Markers extends React.Component {
 
         friends.forEach(friend => {
             getUserByWebId(friend.webId).then( newUser => {
-                if(!newUser || !newUser.location)
+                if(!newUser)
                     return;
+
+                // Comprobar si ya estaba en el mapa
+                let index = users.findIndex(user => user.webId === newUser.webId)
+                if(!newUser.location) { // No está conectado
+                    if(index !== -1) // Está en el mapa y se ha desconectado
+                        users.splice(index, 1)
+                    return
+                }
+
 
                 friend.location = newUser.location
                 let inRadius = distanceInKmBetweenEarthCoordinates(
                     that.userLoggedIn.location.lat, that.userLoggedIn.location.lng,
                     newUser.location.lat, newUser.location.lng) < radius
-                // Comprobar si ya estaba en el mapa
-                let index = users.findIndex(user => user.webId === newUser.webId)
                 if(index !== -1) {
                     if(newUser.location !== users[index].location) {
                         if(inRadius)
