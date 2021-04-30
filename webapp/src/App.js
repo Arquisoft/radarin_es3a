@@ -104,6 +104,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
     log
     ? <Component {...props} />
-    : <Redirect to='/sign-in'/> 
+    : <Redirect to='/'/> 
     )}/>
 )
