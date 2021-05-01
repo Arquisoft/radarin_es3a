@@ -21,7 +21,6 @@ class Admin extends React.Component {
     async fetchUsers() {
         try {
             getUsers().then((users) => {
-                console.log(users)
                 let usersFiltrados = [];
                 users.forEach(index => {
                     try {
@@ -37,18 +36,14 @@ class Admin extends React.Component {
                         console.log("No se ha podido insertar: " + index.webId);
                     }
                 });
-                console.log(usersFiltrados)
                 this.setState({ users: usersFiltrados });
                 //this.setState({ users: todosLosUsers });
-            })
+            });
         }
         catch (error) {
             console.log("Error fetching user list from restapi. Is it on?");
         }
     }
-
-
-
 
     render() {
         const handleClickOnDelete = (user) => {    
@@ -57,7 +52,6 @@ class Admin extends React.Component {
             // this.setState({});
           }
         
-
         return (
             <>
                 
@@ -72,7 +66,7 @@ class Admin extends React.Component {
                                     <div className="card w-100 text-white bg-dark">
                                         <div className="card-body ">
                                             <h5 className="card-title">{user}</h5>
-                                            {<Button type="button" className="btn btn-danger" onClick={handleClickOnDelete(user)} >Eliminar usuario</Button>}
+                                            {<Button type="button" className="btn btn-danger" onClick={()=> handleClickOnDelete(user)} >Eliminar usuario</Button>}
                                         </div>
                                     </div>
                                 )
@@ -93,14 +87,10 @@ class Admin extends React.Component {
                                 )
                             })}
                         </div>
-
                     </div>
                 </div>
-
-
             </>
-        )
-
+        );
     }
 }
 

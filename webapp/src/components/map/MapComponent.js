@@ -55,19 +55,21 @@ export default function MapComponent() {
         actualPosition = { lat: position.coords.latitude, lng: position.coords.longitude }
 
         solidAuth.currentSession().then(session => {
-          if (session)
+          if (session) {
             updateLocation(session.webId, actualPosition);
+            updateUserMarker(actualPosition);
+          }
         })
       }, () => null);
   }
   );
 
   useEffect(() => {
-    let timer
-    timer = setInterval(updateUserLocation, 1000)
+    let timer;
+    timer = setInterval(updateUserLocation, 1000);
     
     return () => { clearInterval(timer); };
-  })
+  });
 
   function restarCurrentPosition() {
     setCurrentPosition(prevC => prevC = {
@@ -77,26 +79,26 @@ export default function MapComponent() {
   }
 
   function updateUserLocation() {
-    navigator.geolocation.clearWatch( watchId ) 
+    navigator.geolocation.clearWatch( watchId );
     watchId = navigator.geolocation.watchPosition((newPos) => {
       if (!actualPosition || (actualPosition.lat !== newPos.coords.latitude
         || actualPosition.lng !== newPos.coords.longitude)) {
 
-        actualPosition = { lat: newPos.coords.latitude, lng: newPos.coords.longitude }
+        actualPosition = { lat: newPos.coords.latitude, lng: newPos.coords.longitude };
 
         solidAuth.currentSession().then(session => {
           if (session) {
-            updateUserMarker(actualPosition)
-            updateLocation(session.webId, actualPosition)
+            updateUserMarker(actualPosition);
+            updateLocation(session.webId, actualPosition);
             setCurrentPosition(prevC => prevC =
             {
               lat: newPos.coords.latitude,
               lng: newPos.coords.longitude
-            })
+            });
           }
-        })
+        });
       }
-    })
+    });
   }
 
   const { isLoaded, loadError } = useLoadScript({
@@ -110,7 +112,6 @@ export default function MapComponent() {
   if (!isLoaded) { return "Loading Maps"; }
 
   return (
-
     <div className="mapa">
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
@@ -119,14 +120,10 @@ export default function MapComponent() {
         options={options}
         onLoad={onMapLoad}>
         <Markers rad={radioBusqueda} />
-        { userSelected ? <InfoWindow 
-
-                            onCloseClick={() => setUserSelected(undefined)}
-                            position={{lat: userSelected.location.lat + 0.0005, lng: userSelected.location.lng}}><div>{userSelected.name}</div></InfoWindow> : null}
+        { userSelected ? <InfoWindow
+            onCloseClick={() => setUserSelected(undefined)}
+            position={{lat: userSelected.location.lat + 0.0005, lng: userSelected.location.lng}}><div>{userSelected.name}</div></InfoWindow> : null}
       </GoogleMap>
     </div>
-
-
-
-  )
+  );
 }
