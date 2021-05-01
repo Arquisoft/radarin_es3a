@@ -17,9 +17,6 @@ class Admin extends React.Component {
     componentDidMount() {
         this.fetchUsers()
     }
-    prueba(){
-        console.log("ey")
-    }
 
     async fetchUsers() {
         try {
@@ -37,7 +34,6 @@ class Admin extends React.Component {
             }
             console.log(usersFiltrados)
             this.setState({ users: usersFiltrados });
-            //this.setState({ users: todosLosUsers });
         }
         catch (error) {
             console.log("Error fetching user list from restapi. Is it on?")
