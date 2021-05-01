@@ -11,7 +11,7 @@ export default function MapContainer() {
     const [on, setOn] = useState(false);
 
     function switchOnOff() {
-        setTimeout(function(){ console.log("esperando"); }, 2000);
+        setTimeout(function(){ console.log("esperando"); }, 1000);
         setOn(!on);
     };
 
