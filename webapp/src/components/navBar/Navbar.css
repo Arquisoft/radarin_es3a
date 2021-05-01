@@ -24,11 +24,11 @@
 .navbar-nav {
     position: absolute;
     padding-right: 2vw;
-    right:0;
+    right: 0;
 }
 
 @media (max-width: 992px) {
-  .navbar-nav {
+  .navbar-nav { 
     position: absolute;
     right: 0;
     top: 80px;
@@ -48,12 +48,12 @@
   text-decoration: none;
 }
 
-.navbar-toggler{
+.navbar-toggler {
   position: absolute;
   right: 0;
   margin-right: 3vh;
 }
-.navbar-logo{
+.navbar-logo {
   margin-top: 40px;
   position: absolute;
 }

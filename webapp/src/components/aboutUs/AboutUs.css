@@ -1,6 +1,7 @@
 .imagenCard {
-    max-height: 200px;
+  max-height: 200px;
 }
-.about-us-container{
-    min-height: calc(100vh - 230px);
+
+.about-us-container {
+  min-height: calc(100vh - 230px);
 }
