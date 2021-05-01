@@ -1,5 +1,5 @@
-import firebase from 'firebase/app'
-import 'firebase/messaging';
+import firebase from "firebase/app";
+import "firebase/messaging";
 
 var firebaseConfig = {
     apiKey: "AIzaSyBXfLAAMgu31qw2Y2JTfcj03ZKghEcV6Dw",
@@ -25,24 +25,24 @@ try {
 
 export const getToken = (func) => {
   if(messaging)
-    return messaging.getToken({vapidKey: 'BHlbBCyBGj27GsWwC87p4G15nhu2HgROHqAi8ty92MHgv3YVVXvK_YPy_FFRHGUain-0KSPQgrbdH4SY0aDXfc4'})
+    return messaging.getToken({vapidKey: "BHlbBCyBGj27GsWwC87p4G15nhu2HgROHqAi8ty92MHgv3YVVXvK_YPy_FFRHGUain-0KSPQgrbdH4SY0aDXfc4"})
         .then((currentToken) => {
       if (currentToken) {
-        console.log('current token for client: ', currentToken);
+        console.log("current token for client: ", currentToken);
         func(currentToken);
         // Track the token -> client mapping, by sending to backend server
         // show on the UI that permission is secured
       } else {
-        console.log('No registration token available. Request permission to generate one.');
+        console.log("No registration token available. Request permission to generate one.");
         requestPermission(func);
         // shows on the UI that permission is required 
       }
     }).catch((err) => {
-      console.log('An error occurred while retrieving token. ', err);
+      console.log("An error occurred while retrieving token. ", err);
       // catch error while creating client token
       requestPermission(func);
     });
-}
+};
 
 function requestPermission(func) {
   Notification.requestPermission().then(async permission => {

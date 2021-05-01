@@ -1,10 +1,10 @@
-import MapComponent from './MapComponent';
+import MapComponent from "./MapComponent";
 import { useState } from "react";
-import MapOff from './MapOff';
-import { Button } from '@material-ui/core';
-import SliderContainer from './SliderContainer';
-import MutedComponent from './MutedComponent';
-import './MapContainer.css';
+import MapOff from "./MapOff";
+import { Button } from "@material-ui/core";
+import SliderContainer from "./SliderContainer";
+import MutedComponent from "./MutedComponent";
+import "./MapContainer.css";
 
 export default function MapContainer() {
 
@@ -29,7 +29,7 @@ export default function MapContainer() {
                                 </div>
                             </div>
                             <div className="col md-6 d-flex flex-row-reverse">
-                                <Button className="botonEncenderApagar d-flex justify-content-end" onClick={() => switchOnOff()}>{on ? 'Apagar' : 'Encender'}</Button>
+                                <Button className="botonEncenderApagar d-flex justify-content-end" onClick={() => switchOnOff()}>{on ? "Apagar" : "Encender"}</Button>
                             </div>
 
                         </div>
@@ -47,4 +47,4 @@ export default function MapContainer() {
             </div>
         </div>
     );
-};
+}

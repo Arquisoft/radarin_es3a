@@ -1,21 +1,21 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import LogoR from '../../LogoR.svg';
-import { ProviderLogin } from '@inrupt/solid-react-components';
-import './SignIn.css';
-import Provider from './provider';
+import React from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import LogoR from "../../LogoR.svg";
+import { ProviderLogin } from "@inrupt/solid-react-components";
+import "./SignIn.css";
+import Provider from "./provider";
 
 export default function SignIn() {
   return (
     <Container  component="main" maxWidth="xs">
       <CssBaseline  />
-      <div  className='paper'>
-        <div className='icon-circle' >
-          <img src={LogoR} className='rIcon' alt='icono' />
+      <div  className="paper">
+        <div className="icon-circle" >
+          <img src={LogoR} className="rIcon" alt="icono" />
         </div>
         <Typography className="text" component="h1" variant="h5">
         Login
@@ -44,7 +44,7 @@ export default function SignIn() {
               providers={Provider.getIdentityProviders().value}
             /> }
 
-          <Grid  container className='.solid-pod-link'>
+          <Grid  container className=".solid-pod-link">
 
             <Grid item>
               <Link className="text" href="https://solidproject.org/users/get-a-pod"  target="_blank" variant="body2">
@@ -57,4 +57,4 @@ export default function SignIn() {
 
     </Container>
   );
-};
+}

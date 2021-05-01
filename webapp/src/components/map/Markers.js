@@ -1,15 +1,15 @@
-import React from 'react';
-import { Marker } from '@react-google-maps/api';
-import solidAuth from 'solid-auth-client';
-import { getUserByWebId } from '../../api/api';
-import { fetchFriends } from '../../services/fetchFriends';
-import { notifyNearbyFriend } from '../../services/notify';
-import { fetchName } from '../../services/fetchProfile';
-import { setUser } from './MapComponent';
-import { saveUserLocation } from '../../services/updateUserData';
+import React from "react";
+import { Marker } from "@react-google-maps/api";
+import solidAuth from "solid-auth-client";
+import { getUserByWebId } from "../../api/api";
+import { fetchFriends } from "../../services/fetchFriends";
+import { notifyNearbyFriend } from "../../services/notify";
+import { fetchName } from "../../services/fetchProfile";
+import { setUser } from "./MapComponent";
+import { saveUserLocation } from "../../services/updateUserData";
 
 let radius = 50;
-let updateMarker = (location) => { console.log("No definido") }
+let updateMarker = (location) => { console.log("No definido"); }
 
 export function changeRadius(newRadius) {
     if(!isNaN(newRadius))
@@ -49,9 +49,9 @@ class Markers extends React.Component {
         let users = this.state.users;
         let that = this;
         updateMarker = (location) => {
-            that.userLoggedIn.location = location
+            that.userLoggedIn.location = location;
             users[0] = that.userLoggedIn;
-            that.setState({ users: users })
+            that.setState({ users: users });
         };
     }
 
@@ -85,7 +85,7 @@ class Markers extends React.Component {
                     lat: 0,
                     lng: 0
                 }
-            }
+            };
         });
         this.setState({friends: friends});
 
@@ -124,7 +124,7 @@ class Markers extends React.Component {
                                 users.push(user);
                                 that.setState({ users: users });
                             }
-                        })
+                        });
                     } 
                 })
             });
@@ -185,16 +185,16 @@ class Markers extends React.Component {
                         key={item.webId}
                         position={item.location}
                         icon={{
-                            url: '/iconLogo.svg',
+                            url: "/iconLogo.svg",
                             scaledSize: new window.google.maps.Size(100, 100)
                         }}
                         onClick = {() => setUser(item)}
                     />
-                )
+                );
             })
         )
     }
 }
 
-export function updateUserMarker(location) { updateMarker(location) };
+export function updateUserMarker(location) { updateMarker(location); };
 export default Markers;

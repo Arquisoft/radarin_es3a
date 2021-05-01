@@ -3,4 +3,4 @@ export default function MutedComponent() {
         <div className=""> 
         </div>
       );
-};
+}
