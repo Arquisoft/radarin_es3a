@@ -27,16 +27,18 @@ const options = {
   maxZoom: 20,
 };
 
-// Notificar que ha abierto la app
-notifyOpenMap();
-
 var preferredZoom = 15;
 var showWindow;
 
 export function setUser(user){ showWindow(user); }
+let accedido = false;
 
 
 export default function MapComponent() {
+  if(!accedido)
+    notifyOpenMap(); // Notificar que ha abierto la app
+
+  accedido = true;
 
   const [radioBusqueda] = useState(10);
 

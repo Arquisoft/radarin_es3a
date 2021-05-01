@@ -14,11 +14,7 @@ describe("<FriendList />",()=>{
     
     // Comprobaciones para "h1"
     // Renderiza el elemento "h1"
-<<<<<<< HEAD
-    it("Renders 'h1' element without crashing", () => {
-=======
     it("Renders  \"h1\" element without crashing", () => {
->>>>>>> ce01a55bdf94bdb5a08c7161f4cb1958a1ed640e
         const editor = shallow(<FriendList />);
         expect(editor.find("h1").length).toEqual(1);
     });

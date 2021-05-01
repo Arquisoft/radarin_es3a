@@ -24,17 +24,13 @@ export async function notify(webId) {
     sendNotification("Hola", "Esto es una prueba de notificación", token);
 }
 
-export async function notifyOpenMap() {
-    if (isMapNotAreadyAccessed) {
-        console.log("Mapa aún no accedido");
-    } else {
-        console.log("Mapa ya accedido");
-    }
-    
+export async function notifyOpenMap() {    
     if(!isMapNotAreadyAccessed)
         return;
 
     const currentSession = await solidAuth.currentSession();
+    if(!currentSession)
+        return;
     let name;
     let friends;
     try{
