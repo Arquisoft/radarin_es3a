@@ -1,21 +1,18 @@
-import MapComponent from './MapComponent'
+import MapComponent from './MapComponent';
 import { useState } from "react";
 import MapOff from './MapOff';
-import { saveUserLocation } from '../../services/updateUserData';
 import { Button } from '@material-ui/core';
 import SliderContainer from './SliderContainer';
 import MutedComponent from './MutedComponent';
-import './MapContainer.css'
+import './MapContainer.css';
 
 export default function MapContainer() {
 
-    const [on, setOn] = useState(false)
+    const [on, setOn] = useState(false);
 
     function switchOnOff() {
-        if (on)
-            saveUserLocation(undefined) // Limpiar localización
-        setOn(!on)
-    }
+        setOn(!on);
+    };
 
     return (
         <div className="contenedorMapContainer container-fluid  p-0 m-0">
@@ -50,5 +47,4 @@ export default function MapContainer() {
             </div>
         </div>
     );
-
-}
+};

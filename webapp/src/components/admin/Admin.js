@@ -5,16 +5,14 @@ import { getUsers } from '../../api/api';
 import { deleteUser } from '../../services/deleteFromDB';
 import { Button } from 'react-bootstrap';
 
-
-
 class Admin extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { users: []  }
+        this.state = { users: [] };
     }
 
     componentDidMount() {
-        this.fetchUsers()
+        this.fetchUsers();
     }
 
     async fetchUsers() {
@@ -53,7 +51,6 @@ class Admin extends React.Component {
         
         return (
             <>
-                
                 <div className="container adminContainer">
                     <h1 className="display-5 text-light">Zona del Administrador</h1>
                     <div className="row">
@@ -91,6 +88,6 @@ class Admin extends React.Component {
             </>
         );
     }
-}
+};
 
 export default Admin;

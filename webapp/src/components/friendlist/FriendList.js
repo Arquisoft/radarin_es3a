@@ -16,15 +16,14 @@ import Typography from '@material-ui/core/Typography';
 class FriendList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { users: [] }
+        this.state = { users: [] };
     }
 
     componentDidMount() {
-        this.fetchUsers()
+        this.fetchUsers();
     }
 
     async fetchUsers() {
-
         const currentSession = await solidAuth.currentSession();
         if (!currentSession)
                 return null;
@@ -39,20 +38,20 @@ class FriendList extends React.Component {
             };
             fetchPhoto(user.webId).then(photo => {
                 if (!photo)
-                    return
+                    return;
                 users[i].photo = photo;
-                that.setState({ users: users })
+                that.setState({ users: users });
             });
             fetchName(user.webId).then(name => {
                 if (!name)
                     name = users[i].webId;
-                users[i].name = name
-                that.setState({ users: users })
+                users[i].name = name;
+                that.setState({ users: users });
             });
 
             return user;
         });
-        this.setState({ users: users })
+        this.setState({ users: users });
     }
 
     render() {
@@ -111,8 +110,8 @@ class FriendList extends React.Component {
                     </Box>
                 </div>
             </div>
-        )
+        );
     }
-}
+};
 
 export default FriendList;

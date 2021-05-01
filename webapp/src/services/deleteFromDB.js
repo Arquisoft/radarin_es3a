@@ -3,7 +3,6 @@ import { fetchName } from '../services/fetchProfile';
 import { deleteFromDB, getUsers } from '../api/api';
 
 export async function deleteUser(name) {
-
     const currentSession = await solidAuth.currentSession();
     if (!currentSession)
         return null;
@@ -18,4 +17,4 @@ export async function deleteUser(name) {
             console.log("No se ha podido insertar: " + users[index].webId);
         }
     }
-}
+};

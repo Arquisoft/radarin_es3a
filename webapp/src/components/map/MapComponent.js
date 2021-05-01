@@ -61,8 +61,7 @@ export default function MapComponent() {
           }
         })
       }, () => null);
-  }
-  );
+  });
 
   useEffect(() => {
     let timer;

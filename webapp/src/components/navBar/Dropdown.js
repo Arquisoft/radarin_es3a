@@ -30,6 +30,6 @@ function Dropdown() {
       </ul>
     </>
   );
-}
+};
 
 export default Dropdown;

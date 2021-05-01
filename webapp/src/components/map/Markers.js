@@ -6,6 +6,7 @@ import { fetchFriends } from '../../services/fetchFriends';
 import { notifyNearbyFriend } from '../../services/notify';
 import { fetchName } from '../../services/fetchProfile';
 import { setUser } from './MapComponent';
+import { saveUserLocation } from '../../services/updateUserData';
 
 let radius = 50;
 let updateMarker = (location) => { console.log("No definido") }
@@ -56,6 +57,7 @@ class Markers extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.timer);
+        saveUserLocation(undefined); // Limpiar localización
     }
 
     async fetchFriends() {

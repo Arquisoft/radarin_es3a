@@ -8,7 +8,7 @@ import 'bootstrap/js/dist/dropdown';
 function Navbar() {
   function setClick(){
     return false;
-  }
+  };
 
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
@@ -67,6 +67,6 @@ function Navbar() {
       </nav>
     </>
   );
-}
+};
 
 export default Navbar;

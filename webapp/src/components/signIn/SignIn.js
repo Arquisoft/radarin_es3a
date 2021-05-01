@@ -6,11 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import LogoR from '../../LogoR.svg';
 import { ProviderLogin } from '@inrupt/solid-react-components';
-import './SignIn.css'
-import Provider from './provider'
+import './SignIn.css';
+import Provider from './provider';
 
 export default function SignIn() {
-
   return (
     <Container  component="main" maxWidth="xs">
       <CssBaseline  />
@@ -58,4 +57,4 @@ export default function SignIn() {
 
     </Container>
   );
-}
+};
