@@ -1,5 +1,5 @@
-import React from 'react';
-import './Footer.css';
+import React from "react";
+import "./Footer.css";
 
 export default function Footer(){
     return(
@@ -8,4 +8,4 @@ export default function Footer(){
             <p>Github con el <a href="https://github.com/Arquisoft/radarin_es3a">SourceCode</a></p>
         </footer>
     );
-};
+}

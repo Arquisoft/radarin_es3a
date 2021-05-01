@@ -1,9 +1,9 @@
-import React from 'react';
-import { fetchName } from '../../services/fetchProfile';
-import './Admin.css'
-import { getUsers } from '../../api/api';
-import { deleteUser } from '../../services/deleteFromDB';
-import { Button } from 'react-bootstrap';
+import React from "react";
+import { fetchName } from "../../services/fetchProfile";
+import "./Admin.css";
+import { getUsers } from "../../api/api";
+import { deleteUser } from "../../services/deleteFromDB";
+import { Button } from "react-bootstrap";
 
 class Admin extends React.Component {
     constructor(props) {
@@ -47,8 +47,8 @@ class Admin extends React.Component {
             deleteUser(user);
             let users = this.state.users;
             this.state.users.splice(index,1);
-            this.setState({users: users})
-        }
+            this.setState({users: users});
+        };
         return (
             <>
                 <div className="container adminContainer">
@@ -65,7 +65,7 @@ class Admin extends React.Component {
                                             {<Button type="button" className="btn btn-danger" onClick={() => handleClickOnDelete(user,i)} >Eliminar usuario</Button>}
                                         </div>
                                     </div>
-                                )
+                                );
                             })}
                         </div>
                         <div className="col-md-auto  p-3 border border-light rounded">
@@ -87,6 +87,6 @@ class Admin extends React.Component {
             </>
         );
     }
-};
+}
 
 export default Admin;

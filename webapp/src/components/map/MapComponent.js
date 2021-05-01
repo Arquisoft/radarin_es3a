@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { GoogleMap, useLoadScript, InfoWindow} from '@react-google-maps/api';
-import mapStyles from './mapStyles';
-import Markers, { updateUserMarker } from './Markers';
-import credentials from './credentials';
-import { updateLocation } from '../../api/api';
-import solidAuth from 'solid-auth-client';
-import './MapComponent.css';
+import React, { useState, useEffect } from "react";
+import { GoogleMap, useLoadScript, InfoWindow} from "@react-google-maps/api";
+import mapStyles from "./mapStyles";
+import Markers, { updateUserMarker } from "./Markers";
+import credentials from "./credentials";
+import { updateLocation } from "../../api/api";
+import solidAuth from "solid-auth-client";
+import "./MapComponent.css";
 
 //-------------------------------------------------\
 var latitude;
@@ -32,15 +32,15 @@ const options = {
 var preferredZoom = 15;
 var showWindow;
 
-export function setUser(user){ showWindow(user); };
+export function setUser(user){ showWindow(user); }
 
 
 export default function MapComponent() {
 
   const [radioBusqueda] = useState(10);
 
-  const [userSelected, setUserSelected] = useState()
-  showWindow = (user) => { setUserSelected(user) };
+  const [userSelected, setUserSelected] = useState();
+  showWindow = (user) => { setUserSelected(user); };
 
 
   const [pPosition, setCurrentPosition] = useState(() => {
@@ -50,9 +50,9 @@ export default function MapComponent() {
         {
           lat: position.coords.latitude,
           lng: position.coords.longitude
-        })
+        });
 
-        actualPosition = { lat: position.coords.latitude, lng: position.coords.longitude }
+        actualPosition = { lat: position.coords.latitude, lng: position.coords.longitude };
 
         solidAuth.currentSession().then(session => {
           if (session) {
@@ -75,7 +75,7 @@ export default function MapComponent() {
       lat: latitude,
       lng: longitude
     });
-  };
+  }
 
   function updateUserLocation() {
     navigator.geolocation.clearWatch( watchId );
@@ -107,8 +107,8 @@ export default function MapComponent() {
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => { restarCurrentPosition(); mapRef.current = map; }, []);
 
-  if (loadError) return "Error loadinf maps"
-  if (!isLoaded) { return "Loading Maps"; }
+  if (loadError) return "Error loadinf maps";
+  if (!isLoaded) { return "Loading Maps"; };
 
   return (
     <div className="mapa">
@@ -125,4 +125,4 @@ export default function MapComponent() {
       </GoogleMap>
     </div>
   );
-};
+}

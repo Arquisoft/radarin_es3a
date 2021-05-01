@@ -1,9 +1,9 @@
 import { fetchFriends } from "./fetchFriends";
 import { fetchEmail } from "./fetchEmail";
-import solidAuth from 'solid-auth-client';
+import solidAuth from "solid-auth-client";
 import { getUserByWebId, sendEmail, sendNotification } from "../api/api";
 import { fetchName } from "./fetchProfile";
-import { showNotification } from '../App';
+import { showNotification } from "../App";
 
 let isMapNotAreadyAccessed = true;
 
@@ -12,17 +12,17 @@ export async function notify(webId) {
     try{
         user = await getUserByWebId(webId);
     }catch{
-        user = {token:''};
+        user = {token:""};
     }
     if(!user){
         return;
     }
     const token = user.token;
-    if(!token || token === '')
+    if(!token || token === "")
         return;
 
     sendNotification("Hola", "Esto es una prueba de notificación", token);
-};
+}
 
 export async function notifyOpenMap() {
     if (isMapNotAreadyAccessed) {
@@ -58,7 +58,7 @@ export async function notifyOpenMap() {
     }
 
     isMapNotAreadyAccessed = false;
-};
+}
 
 export function notifyNearbyFriend(friendWebId) {
     solidAuth.currentSession().then(session => {
@@ -66,8 +66,8 @@ export function notifyNearbyFriend(friendWebId) {
             return;
         fetchName(friendWebId).then(friendName => {
             showNotification({ 
-                'title': '¡Estás cerca de un amigo!',
-                'body': 'Tu amig@ ' + friendName + ' está cerca de ti'});
+                "title": "¡Estás cerca de un amigo!",
+                "body": "Tu amig@ " + friendName + " está cerca de ti"});
         });
     });
-};
+}

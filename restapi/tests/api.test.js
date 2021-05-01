@@ -1,13 +1,13 @@
 const request = require('supertest');
-const server = require('./server-for-tests')
+const server = require('./server-for-tests');
 // const app = require('../')
 
 /**
  * Connect to a new in-memory database before running any tests.
  */
 beforeAll(async () => {
-    await server.startdb()
-    app = await server.startserver()
+    await server.startdb();
+    app = await server.startserver();
 });
 
 /**
@@ -19,9 +19,9 @@ afterEach(async () => await server.clearDatabase());
  * Remove and close the db and server.
  */
 afterAll(async () => {
-    await server.closeServer() //finish the server
-    await server.closeDB()
-})
+    await server.closeServer(); //finish the server
+    await server.closeDB();
+});
 
 /**
  * Product test suite.
@@ -38,9 +38,9 @@ describe('user ', () => {
      * Tests that a user can be created through the productService without throwing any errors.
      */
     it('can be created correctly', async () => {
-        webIdEx = 'WebId'
-        locationEx = {lat : 23,lng: 34}
-        const response = await request(app).post('/api/users/add').send({webId: webIdEx,location: locationEx}).set('Accept', 'application/json')
+        webIdEx = 'WebId';
+        locationEx = {lat : 23,lng: 34};
+        const response = await request(app).post('/api/users/add').send({webId: webIdEx,location: locationEx}).set('Accept', 'application/json');
         expect(response.statusCode).toBe(200);
         expect(response.body.webId).toBe(webIdEx);
         expect(response.body.location).toStrictEqual(locationEx);
@@ -50,11 +50,10 @@ describe('user ', () => {
      * */
     it('can get an user by their webId', async () => {
         // Primero guardamos el usuario en la base de datos
-        webIdEx = 'WebId'
-        locationEx = {lat : 23, lng: 34}
+        webIdEx = 'WebId';
+        locationEx = {lat : 23, lng: 34};
         let response = await request(app).post('/api/users/add')
             .send({webId: webIdEx,location: locationEx}).set('Accept', 'application/json');
-
 
         // Lo recuperamos con su webId
         response = await request(app).get('/api/users/byWebId')
@@ -79,13 +78,13 @@ describe('user ', () => {
      */
     it('location of an existing user updated correctly', async () => {
         // Añadimos el usuario
-        webIdEx = 'WebId'
-        locationEx = {lat : 23, lng: 34}
+        webIdEx = 'WebId';
+        locationEx = {lat : 23, lng: 34};
         await request(app).post('/api/users/add')
             .send({webId: webIdEx,location: locationEx}).set('Accept', 'application/json');
 
         // Actualizamos su localización
-        let newLocationEx = {lat: 1, lng: 10}
+        let newLocationEx = {lat: 1, lng: 10};
         const response = await request(app).post('/api/users/update')
             .send({webId: webIdEx, location: newLocationEx}).set('Accept', 'application/json');
         expect(response.statusCode).toBe(200);
@@ -97,8 +96,8 @@ describe('user ', () => {
      */
     it('add a user updating their location', async () => {
         // Intentamos actualizar la ubicación de un usuario que no está en la base de datos
-        webIdEx = 'WebId'
-        locationEx = {lat : 23, lng: 34}
+        webIdEx = 'WebId';
+        locationEx = {lat : 23, lng: 34};
         const response = await request(app).post('/api/users/update')
             .send({webId: webIdEx,location: locationEx}).set('Accept', 'application/json');
 
@@ -112,15 +111,15 @@ describe('user ', () => {
      */
     it('update token of an user', async () => {
         // Añadimos el usuario
-        webIdEx = 'WebId'
-        locationEx = {lat : 23, lng: 34}
+        webIdEx = 'WebId';
+        locationEx = {lat : 23, lng: 34};
         await request(app).post('/api/users/add')
             .send({webId: webIdEx,location: locationEx}).set('Accept', 'application/json');
 
         // Actualizamos su token
-        let newToken = "123456"
+        let newToken = "123456";
         const response = await request(app).post('/api/users/update/token')
-        .send({webId: webIdEx, token: newToken}).set('Accept', 'application/json');
+            .send({webId: webIdEx, token: newToken}).set('Accept', 'application/json');
         // El usuario debería tener los valores antiguos y el nuevo token
         expect(response.statusCode).toBe(200);
         expect(response.body.webId).toBe(webIdEx);
@@ -132,8 +131,8 @@ describe('user ', () => {
      */
      it('add a user updating their token', async () => {
         // Intentamos actualizar el token de un usuario que no está en la base de datos
-        webIdEx = 'WebId'
-        let tokenEx = "123456"
+        webIdEx = 'WebId';
+        let tokenEx = "123456";
         const response = await request(app).post('/api/users/update/token')
             .send({webId: webIdEx, token: tokenEx}).set('Accept', 'application/json');
 

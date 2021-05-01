@@ -1,16 +1,16 @@
-import React from 'react';
-import { fetchFriends } from '../../services/fetchFriends';
-import { fetchName, fetchPhoto } from '../../services/fetchProfile';
-import './FriendList.css'
-import solidAuth from 'solid-auth-client';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import { fetchFriends } from "../../services/fetchFriends";
+import { fetchName, fetchPhoto } from "../../services/fetchProfile";
+import "./FriendList.css";
+import solidAuth from "solid-auth-client";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Divider from "@material-ui/core/Divider";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 
 
 class FriendList extends React.Component {
@@ -33,7 +33,7 @@ class FriendList extends React.Component {
         users = users.map(function (u, i) {
             let user = {
                 webId: u,
-                photo: './user.png',
+                photo: "./user.png",
                 name: ""
             };
             fetchPhoto(user.webId).then(photo => {
@@ -58,7 +58,7 @@ class FriendList extends React.Component {
         return (
             <div className="friendlistContainer">
                 <h1 className="text-light">Lista de amigos</h1>
-                <div id='list-test'>
+                <div id="list-test">
                     {this.state.users.map(function (user, i) {
                         return (
                             <List key= {i}>
@@ -104,14 +104,14 @@ class FriendList extends React.Component {
                 </div>
                 <div className="box-test">
                     <Box style={{
-                        width: '100%',
-                        height: '6em',
+                        width: "100%",
+                        height: "6em",
                     }}>
                     </Box>
                 </div>
             </div>
         );
     }
-};
+}
 
 export default FriendList;

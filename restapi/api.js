@@ -55,8 +55,8 @@ router.post("/users/update", async (req, res) => {
         user = new User({
             webId: webId,
             location: location,
-        })
-        await user.save()
+        });
+        await user.save();
         res.send(user);
     } else {
         user.location = location;

@@ -1,20 +1,20 @@
-import { Button } from '@material-ui/core';
-import React from 'react';
+import { Button } from "@material-ui/core";
+import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
-import { getUsers } from '../api/api';
-import {notify} from '../services/notify';
-import './UsersLocation.css';
-import { fetchName } from '../services/fetchProfile';
+import { getUsers } from "../api/api";
+import {notify} from "../services/notify";
+import "./UsersLocation.css";
+import { fetchName } from "../services/fetchProfile";
 
 
 class UsersLocation extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {users:[]}
+        this.state = {users:[]};
       }
 
     componentDidMount(){
-        this.fetchUsers()
+        this.fetchUsers();
     }
 
     async fetchUsers() {
@@ -38,7 +38,7 @@ class UsersLocation extends React.Component{
         }
         catch(error)
         {
-            console.log("Error fetching user list from restapi. Is it on?")
+            console.log("Error fetching user list from restapi. Is it on?");
         }
     }
 
@@ -48,13 +48,13 @@ class UsersLocation extends React.Component{
                 <h2 className="text-light display-4 p-3">List of location of already registered users</h2>
                 <ListGroup>
                     {this.state.users.map(function(user, i){
-                        return <ListGroup.Item id={i} key={i}>{user.webId + ' (' + user.location.lat 
-                            + ", " + user.location.lng + ')'} <Button onClick={() => notify(user.webId)} >Enviar notificación</Button></ListGroup.Item>
+                        return <ListGroup.Item id={i} key={i}>{user.webId + " (" + user.location.lat 
+                            + ", " + user.location.lng + ")"} <Button onClick={() => notify(user.webId)} >Enviar notificación</Button></ListGroup.Item>;
                     })}
                 </ListGroup>
            </div>
-        )
+        );
     }
 }
 
-export default UsersLocation
+export default UsersLocation;

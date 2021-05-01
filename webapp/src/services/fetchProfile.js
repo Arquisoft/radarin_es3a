@@ -1,7 +1,7 @@
 import { VCARD } from "@inrupt/vocab-common-rdf";
-import { foaf } from 'rdf-namespaces';
-import solidAuth from 'solid-auth-client';
-import { fetchDocument } from 'tripledoc';
+import { foaf } from "rdf-namespaces";
+import solidAuth from "solid-auth-client";
+import { fetchDocument } from "tripledoc";
 import {
   getSolidDataset,
   getThing,

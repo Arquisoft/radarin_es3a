@@ -1,5 +1,5 @@
 import { fetchProfile } from "./fetchProfile";
-import { foaf } from 'rdf-namespaces';
+import { foaf } from "rdf-namespaces";
 
 let friends;
 

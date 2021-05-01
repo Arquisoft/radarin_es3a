@@ -1,6 +1,6 @@
-import solidAuth from 'solid-auth-client';
-import { fetchName } from '../services/fetchProfile';
-import { deleteFromDB, getUsers } from '../api/api';
+import solidAuth from "solid-auth-client";
+import { fetchName } from "../services/fetchProfile";
+import { deleteFromDB, getUsers } from "../api/api";
 
 export async function deleteUser(name) {
     const currentSession = await solidAuth.currentSession();

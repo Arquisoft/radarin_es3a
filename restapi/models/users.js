@@ -1,5 +1,4 @@
-const mongoose = require("mongoose")
-
+const mongoose = require("mongoose");
 
 const schema = mongoose.Schema({
     webId: String,
@@ -8,6 +7,6 @@ const schema = mongoose.Schema({
         lng: Number
     },
     token: String
-})
+});
 
-module.exports = mongoose.model("User", schema)
+module.exports = mongoose.model("User", schema);

@@ -1,4 +1,4 @@
-import { rdf, solid } from 'rdf-namespaces';
+import { rdf, solid } from "rdf-namespaces";
 
 export async function addToTypeIndex (typeIndex, document, forClass) {
   const typeRegistration = typeIndex.addSubject();
