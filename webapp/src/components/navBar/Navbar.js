@@ -18,6 +18,8 @@ function Navbar() {
   //const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick();
 
+  const isAdmin = false;
+
   return (
     <>
       <nav className="navbar  navbar-expand-lg navbar-dark bg-dark ">
@@ -35,10 +37,14 @@ function Navbar() {
             <li className="nav-item">
                <Link to='/map' className='nav-links nav-link' onClick={closeMobileMenu}>Map</Link>
             </li>
-            <li className="nav-item">
-              <Link to='/admin' className='nav-links nav-link' onClick={closeMobileMenu}>Admin</Link>
-            </li>
             </LoggedIn>
+
+            { isAdmin ?
+              <li className="nav-item">
+                <Link to='/admin' className='nav-links nav-link' onClick={closeMobileMenu}>Admin</Link>
+              </li>
+            : null}
+            
             <li className="nav-item">
                 <Link to='/about-us' className='nav-links nav-link' onClick={closeMobileMenu}>About us</Link>
             </li>
@@ -53,6 +59,9 @@ function Navbar() {
                   <Link to='/locations' className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >Locations of Friends</Link>
                 </div>
               </li>
+              </LoggedIn>
+
+              <LoggedIn>
               <li className='nav-item'>
                 <LogoutButton type="button" className='btn btn-danger btnL' onClick={closeMobileMenu}>Log out</LogoutButton>
               </li>
