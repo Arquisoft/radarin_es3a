@@ -6,6 +6,7 @@ import credentials from "./credentials";
 import { updateLocation } from "../../api/api";
 import solidAuth from "solid-auth-client";
 import "./MapComponent.css";
+import { notifyOpenMap } from "../../services/notify";
 
 //-------------------------------------------------\
 var latitude;
@@ -27,7 +28,7 @@ const options = {
 };
 
 // Notificar que ha abierto la app
-//notifyOpenMap();
+notifyOpenMap();
 
 var preferredZoom = 15;
 var showWindow;
@@ -63,20 +64,6 @@ export default function MapComponent() {
       }, () => null);
   });
 
-  useEffect(() => {
-    let timer;
-    timer = setInterval(updateUserLocation, 1000);
-    
-    return () => { clearInterval(timer); };
-  });
-
-  function restarCurrentPosition() {
-    setCurrentPosition(prevC => prevC = {
-      lat: latitude,
-      lng: longitude
-    });
-  }
-
   function updateUserLocation() {
     navigator.geolocation.clearWatch( watchId );
     watchId = navigator.geolocation.watchPosition((newPos) => {
@@ -99,6 +86,20 @@ export default function MapComponent() {
       }
     });
   };
+
+  useEffect(() => {
+    let timer;
+    timer = setInterval(updateUserLocation, 1000);
+    
+    return () => { clearInterval(timer); };
+  });
+
+  function restarCurrentPosition() {
+    setCurrentPosition(prevC => prevC = {
+      lat: latitude,
+      lng: longitude
+    });
+  }
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: credentials.mapsKey

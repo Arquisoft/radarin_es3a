@@ -1,12 +1,12 @@
 const express = require("express");
 const User = require("./models/users");
 const router = express.Router();
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 const { default: axios } = require("axios");
 
 // Get all users
 router.get("/users/list", async (req, res) => {
-    const users = await User.find({}).sort('-_id'); //Inverse order
+    const users = await User.find({}).sort("-_id"); //Inverse order
     res.send(users);
 });
 
@@ -94,15 +94,15 @@ router.post("/email/send", async (req, res) => {
     let subject = req.body.subject;
 
     let mailTransporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: "gmail",
         auth: {
-            user: 'Radarin.info@gmail.com',
-            pass: 'Radarin2021'
+            user: "Radarin.info@gmail.com",
+            pass: "Radarin2021"
         }
     });
 
     let mailDetails = {
-        from: 'Radarin.info@gmail.com',
+        from: "Radarin.info@gmail.com",
         to: destinatary,
         subject: subject,
         text: message
@@ -110,10 +110,10 @@ router.post("/email/send", async (req, res) => {
 
     mailTransporter.sendMail(mailDetails, function (error, info) {
         if (err) {
-            console.log('Error Occurs');
+            console.log("Error Occurs");
             res.send(500, error.message);
         } else {
-            console.log('Email sent successfully');
+            console.log("Email sent successfully");
             res.status(200).jsonp(req.body);
         }
     });

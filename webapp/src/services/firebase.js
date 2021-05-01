@@ -23,6 +23,22 @@ try {
   // console.log(error);
 }
 
+function requestPermission(func) {
+  Notification.requestPermission().then(async permission => {
+    if (permission === "denied") {
+        console.log("Permission wasn't granted. Allow a retry.");
+        return;
+    } else if (permission === "default") {
+        console.log("The permission request was dismissed.");
+        return;
+    }
+    const token = await messaging.getToken();
+    console.log("user token: ", token);
+
+    func(token);
+});
+}
+
 export const getToken = (func) => {
   if(messaging)
     return messaging.getToken({vapidKey: "BHlbBCyBGj27GsWwC87p4G15nhu2HgROHqAi8ty92MHgv3YVVXvK_YPy_FFRHGUain-0KSPQgrbdH4SY0aDXfc4"})
@@ -43,22 +59,6 @@ export const getToken = (func) => {
       requestPermission(func);
     });
 };
-
-function requestPermission(func) {
-  Notification.requestPermission().then(async permission => {
-    if (permission === "denied") {
-        console.log("Permission wasn't granted. Allow a retry.");
-        return;
-    } else if (permission === "default") {
-        console.log("The permission request was dismissed.");
-        return;
-    }
-    const token = await messaging.getToken();
-    console.log("user token: ", token);
-
-    func(token);
-});
-}
 
 // Foreground listener
 export const onMessageListener = () =>

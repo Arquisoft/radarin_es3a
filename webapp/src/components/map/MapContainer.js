@@ -21,7 +21,7 @@ export default function MapContainer() {
                 <div className="col md-12">
 
                     <div className="container-fluid p-0 m-0">
-                        <div className="row">
+                        <div className="row sliderRow">
                             <div className="col md-6 ">
                                 <div className="d-flex justify-content-right  flex-row-reverse">
                                     {on
@@ -32,7 +32,6 @@ export default function MapContainer() {
                             <div className="col md-6 d-flex flex-row-reverse">
                                 <Button className="botonEncenderApagar d-flex justify-content-end" onClick={() => switchOnOff()}>{on ? "Apagar" : "Encender"}</Button>
                             </div>
-
                         </div>
                         <div className="row">
                             <div className="col md-6">
