@@ -25,7 +25,7 @@ export default function App() {
   useEffect(() => {
     // Obtener token de app móvil
     if(window.Android) 
-      prepareToAndroidNotifications()
+      prepareToAndroidNotifications();
     else 
       getToken( token => {
         saveUserToken(token);
@@ -33,7 +33,7 @@ export default function App() {
   }, []);
   
   onMessageListener().then(payload => {
-    showNotification(payload.notification)
+    showNotification(payload.notification);
   }).catch(err => console.log('failed: ', err));
 
   return (
@@ -57,7 +57,7 @@ export default function App() {
       <Footer/>
     </Router>
   );          
-}
+};
 
 export function showNotification(notification) {
   store.addNotification({
@@ -71,29 +71,29 @@ export function showNotification(notification) {
       duration: 3000
     }
   });
-}
+};
 
 function prepareToAndroidNotifications() {
   window.saveToken = new Event('saveToken');
 
   window.addEventListener('saveToken', function() {
-    const token = window.Android.getToken()
+    const token = window.Android.getToken();
     if(token)
       saveUserToken(token);
   }, false);
 
-  window.Android.getFirebaseToken()
+  window.Android.getFirebaseToken();
 
-  window.showNotification = new Event('showNotification')
+  window.showNotification = new Event('showNotification');
 
   window.addEventListener('showNotification', () => {
     const notification = {
       'title': window.Android.getNotificationTitle(),
       'body': window.Android.getNotificationBody()
-    }
-    showNotification(notification)
-  })
-}
+    };
+    showNotification(notification);
+  });
+};
 
 function FuntionGetLoggedUser() {
   const loggedIn = useLoggedIn();
@@ -106,4 +106,4 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     ? <Component {...props} />
     : <Redirect to='/'/> 
     )}/>
-)
+);

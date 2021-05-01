@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Slider from "@material-ui/core/Slider";
 import Input from "@material-ui/core/Input";
 // import VolumeUp from "@material-ui/icons/VolumeUp";
-import { changeRadius } from './Markers'
+import { changeRadius } from './Markers';
 
 const useStyles = makeStyles({
   root: {
@@ -59,7 +59,7 @@ export default function InputSlider() {
 
   const handleInputChange = (event) => {
     setValue(event.target.value === "" ? "" : Number(event.target.value));
-    changeRadius(event.target.value)
+    changeRadius(event.target.value);
   };
 
   const handleBlur = () => {

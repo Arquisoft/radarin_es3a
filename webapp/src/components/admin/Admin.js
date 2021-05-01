@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { fetchName } from '../../services/fetchProfile';
 import './Admin.css'
 import { getUsers } from '../../api/api';

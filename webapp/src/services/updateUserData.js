@@ -26,4 +26,4 @@ export async function removeUserToken() {
     updateToken(currentSession.webId, '');
 }
 
-solidAuth.on('logout', (event) => removeUserToken())
+solidAuth.on('logout', (event) => removeUserToken());

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { GoogleMap, useLoadScript, InfoWindow} from '@react-google-maps/api';
-import mapStyles from './mapStyles'
-import Markers, { updateUserMarker } from './Markers'
-import credentials from './credentials'
+import mapStyles from './mapStyles';
+import Markers, { updateUserMarker } from './Markers';
+import credentials from './credentials';
 import { updateLocation } from '../../api/api';
 import solidAuth from 'solid-auth-client';
-import './MapComponent.css'
+import './MapComponent.css';
 
 //-------------------------------------------------\
 var latitude;
@@ -24,7 +24,7 @@ const options = {
   zoomControl: true,
   minZoom: 10,
   maxZoom: 20,
-}
+};
 
 // Notificar que ha abierto la app
 //notifyOpenMap();
@@ -32,12 +32,12 @@ const options = {
 var preferredZoom = 15;
 var showWindow;
 
-export function setUser(user){ showWindow(user); }
+export function setUser(user){ showWindow(user); };
 
 
 export default function MapComponent() {
 
-  const [radioBusqueda] = useState(10)
+  const [radioBusqueda] = useState(10);
 
   const [userSelected, setUserSelected] = useState()
   showWindow = (user) => { setUserSelected(user) };
@@ -76,7 +76,7 @@ export default function MapComponent() {
       lat: latitude,
       lng: longitude
     });
-  }
+  };
 
   function updateUserLocation() {
     navigator.geolocation.clearWatch( watchId );
@@ -99,7 +99,7 @@ export default function MapComponent() {
         });
       }
     });
-  }
+  };
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: credentials.mapsKey
@@ -126,4 +126,4 @@ export default function MapComponent() {
       </GoogleMap>
     </div>
   );
-}
+};
