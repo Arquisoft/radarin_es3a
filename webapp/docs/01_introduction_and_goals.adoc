@@ -1,20 +1,27 @@
 [[section-introduction-and-goals]]
 == Introduction and Goals
+This porject is about a mobile app, which acts like a radar. Any user can share his location to his friends and see where they are at real time.
+The system can be accessed on android and iOS phones as well as in desktop environments.
 
-
-This project aims to develop a mobile radar, that allows any user to track the location of other added users to the system. The system can be accesed via website.
 
 === Requirements Overview
 
-We are going to develop a mobile and web application for the localization of different users in the system.
+* Functional requirements
 
-The functionality that the application will provide:
+** The user will be able to see a list of his friends
+** The user will be able to see in a map where are his friends
+** The user has the hability of change the distance where the firends are
+** The system will notify the user if a friend is near
+** The admin will be able administrate all the users of the app
+** The admin will be able to delete the users
 
-. Registration in the system.
+* Non functional requirements
 
-. Adding of other users.
-
-. Localization of added users.
+** The project will follow the SOLID principles
+** The information of the users will be stored on SOLID PODS but the location of them
+** The location of the users will be stored on a Mongo database
+** The location is taken from the device from where the user connects
+** The system is deploy on the cloud using the Heroku's environment
 
 === Quality Goals
 
@@ -29,7 +36,7 @@ The functionality that the application will provide:
 
 === Stakeholders
 
-image::01_ContextDiagram.png[Context Context]
+image::images/01_ContextDiagram.png[Context Context]
 
 [options="header"]
 |===
