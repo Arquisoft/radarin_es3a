@@ -20,44 +20,6 @@ import MapContainer from "./components/map/MapContainer";
 
 
 var log;
-export default function App() {
-  log = FuntionGetLoggedUser();
-  useEffect(() => {
-    // Obtener token de app móvil
-    if(window.Android) 
-      prepareToAndroidNotifications();
-    else 
-      getToken( token => {
-        saveUserToken(token);
-      });
-  }, []);
-  
-  onMessageListener().then(payload => {
-    showNotification(payload.notification);
-  }).catch(err => console.log("failed: ", err));
-
-  return (
-    <Router>
-      <ReactNotification types={[
-          {
-            htmlClasses: ["notification__item--custom"],
-            name: "custom"
-          }
-        ]}/>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Welcome} />
-        <PrivateRoute path="/map" component={MapContainer} />
-        <Route path="/sign-in"  component={SignIn} />
-        <Route path="/about-us"  component={AboutUs} />
-        <PrivateRoute path="/locations" component={UsersLocation} />
-        <PrivateRoute path="/admin" component={Admin} />
-        <PrivateRoute path="/friend-list" component={FriendList} />
-      </Switch>
-      <Footer/>
-    </Router>
-  );          
-}
 
 export function showNotification(notification) {
   store.addNotification({
@@ -107,3 +69,42 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     : <Redirect to="/"/> 
     )}/>
 );
+
+export default function App() {
+  log = FuntionGetLoggedUser();
+  useEffect(() => {
+    // Obtener token de app móvil
+    if(window.Android) 
+      prepareToAndroidNotifications();
+    else 
+      getToken( token => {
+        saveUserToken(token);
+      });
+  }, []);
+  
+  onMessageListener().then(payload => {
+    showNotification(payload.notification);
+  }).catch(err => console.log("failed: ", err));
+
+  return (
+    <Router>
+      <ReactNotification types={[
+          {
+            htmlClasses: ["notification__item--custom"],
+            name: "custom"
+          }
+        ]}/>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Welcome} />
+        <PrivateRoute path="/map" component={MapContainer} />
+        <Route path="/sign-in"  component={SignIn} />
+        <Route path="/about-us"  component={AboutUs} />
+        <PrivateRoute path="/locations" component={UsersLocation} />
+        <PrivateRoute path="/admin" component={Admin} />
+        <PrivateRoute path="/friend-list" component={FriendList} />
+      </Switch>
+      <Footer/>
+    </Router>
+  );          
+}

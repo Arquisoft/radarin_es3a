@@ -31,7 +31,6 @@ export default function MapContainer() {
                             <div className="col md-6 d-flex flex-row-reverse">
                                 <Button className="botonEncenderApagar d-flex justify-content-end" onClick={() => switchOnOff()}>{on ? "Apagar" : "Encender"}</Button>
                             </div>
-
                         </div>
                         <div className="row">
                             <div className="col md-6">

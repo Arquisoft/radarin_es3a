@@ -63,20 +63,6 @@ export default function MapComponent() {
       }, () => null);
   });
 
-  useEffect(() => {
-    let timer;
-    timer = setInterval(updateUserLocation, 1000);
-    
-    return () => { clearInterval(timer); };
-  });
-
-  function restarCurrentPosition() {
-    setCurrentPosition(prevC => prevC = {
-      lat: latitude,
-      lng: longitude
-    });
-  }
-
   function updateUserLocation() {
     navigator.geolocation.clearWatch( watchId );
     watchId = navigator.geolocation.watchPosition((newPos) => {
@@ -99,6 +85,20 @@ export default function MapComponent() {
       }
     });
   };
+
+  useEffect(() => {
+    let timer;
+    timer = setInterval(updateUserLocation, 1000);
+    
+    return () => { clearInterval(timer); };
+  });
+
+  function restarCurrentPosition() {
+    setCurrentPosition(prevC => prevC = {
+      lat: latitude,
+      lng: longitude
+    });
+  }
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: credentials.mapsKey
