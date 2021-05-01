@@ -39,11 +39,6 @@ class Admin extends React.Component {
             console.log("Error fetching user list from restapi. Is it on?")
         }
     }     
-    remove = (i)=>{
-       
-       this.state.users.splice(i, 1);
-       this.setState({users: this.state.users});
-    }
 
 
 
