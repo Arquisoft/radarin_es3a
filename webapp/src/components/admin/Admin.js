@@ -43,12 +43,12 @@ class Admin extends React.Component {
     }
 
     render() {
-        const handleClickOnDelete = (user) => {    
+        const handleClickOnDelete = (user, index) =>{
             deleteUser(user);
-            console.log(user);
-            // this.setState({});
-          }
-        
+            let users = this.state.users;
+            this.state.users.splice(index,1);
+            this.setState({users: users})
+        }
         return (
             <>
                 <div className="container adminContainer">
@@ -62,12 +62,11 @@ class Admin extends React.Component {
                                     <div className="card w-100 text-white bg-dark">
                                         <div className="card-body ">
                                             <h5 className="card-title">{user}</h5>
-                                            {<Button type="button" className="btn btn-danger" onClick={()=> handleClickOnDelete(user)} >Eliminar usuario</Button>}
+                                            {<Button type="button" className="btn btn-danger" onClick={() => handleClickOnDelete(user,i)} >Eliminar usuario</Button>}
                                         </div>
                                     </div>
                                 )
                             })}
-
                         </div>
                         <div className="col-md-auto  p-3 border border-light rounded">
                             <h2 className="display-6 text-light">Usuarios Conectados</h2>

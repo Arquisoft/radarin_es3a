@@ -14,7 +14,7 @@ export async function notify(webId) {
     }catch{
         user = {token:''};
     }
-    if(!user) {
+    if(!user){
         return;
     }
     const token = user.token;

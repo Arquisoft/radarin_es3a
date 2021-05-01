@@ -33,7 +33,6 @@ router.post("/users/remove", async (req, res) => {
     let webId = req.body.webId;
     //Check if the device is already in the db
     let user = await User.findOne({ webId: webId });
-    console.log("restapi/api");
     if (user) {
         await user.remove({ webId: webId });
         res.send(user);

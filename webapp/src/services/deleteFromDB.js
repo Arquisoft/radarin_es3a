@@ -17,4 +17,4 @@ export async function deleteUser(name) {
             console.log("No se ha podido insertar: " + users[index].webId);
         }
     }
-};
+}
