@@ -54,7 +54,7 @@ export default function InputSlider() {
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
-    changeRadius(event.target.value)
+    changeRadius(newValue);
   };
 
   const handleInputChange = (event) => {
