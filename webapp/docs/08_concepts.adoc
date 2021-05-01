@@ -5,7 +5,7 @@
 === Domain model
 
 
-image:StarUML_DomainModel.png[Domain model]
+image:images/StarUML_DomainModel.png[Domain model]
 
 User: The user class is a representation of on client of the application, one user obtains the basic information of our data base then the remaining from the POD. One user has one list of users that will be his friends and one waypoint that will be his current location. 
 
@@ -13,7 +13,7 @@ Waypoint: This stands for the current location of one user, it stores the data p
 
 Position: Object that stores the latitude and longitude of one position in the map.
 
-image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscutting concepts"]
+image:images/08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscutting concepts"]
 
 
 === User Experience concepts (UX)

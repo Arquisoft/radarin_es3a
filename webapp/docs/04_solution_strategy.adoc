@@ -50,6 +50,20 @@ For the develop of the iOS app
 .Android Studio
 For the develop of the Andoid app
 
+
+=== How are going to be reached the non fuctional requirements?
+.Privacy:
+The users' location will only be stored while the user is connected.
+The essential information will be stored in SOLID PODs providing a strong privacy.
+
+.Usability:
+The interfaces will be intuitives and easy to use.
+
+.Performance:
+The performance will be smooth, by using technologies that improve it.
+
+.Testability:
+The app will be tested manually and automatically 
 ***
 
 
