@@ -1,9 +1,4 @@
-import { render, screen, cleanup } from '@testing-library/react';
-import React from 'react';
-import Adapter from 'enzyme-adapter-react-16';
-import { shallow, configure } from 'enzyme';
 import { addUser, deleteFromDB ,getUsers, getUserByWebId, updateToken , updateLocation , sendEmail ,sendNotification} from './api';
-
 
 // // Comprueba que getUserByWebId() devuelve undefined si no existe en la base de datos
 //     it('getUserByWebId() retorna undefined si no encuentra el usuario', () => {
@@ -33,7 +28,6 @@ import { addUser, deleteFromDB ,getUsers, getUserByWebId, updateToken , updateLo
 //         expect(data).toBeDefined());
 //     });
 // Introduce un usuario en base de datos con su localizacion
-
     it('addUser() introduce un usuario en la base de datos', () => {
         return addUser("none1",{lat:"424",lng:"4124"}).then(data =>
         expect(data).toBeDefined());

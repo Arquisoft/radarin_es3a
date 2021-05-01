@@ -11,7 +11,9 @@ let radius = 50;
 let updateMarker = (location) => { console.log("No definido") }
 
 export function changeRadius(newRadius) {
-    radius = newRadius
+    if(!isNaN(newRadius))
+        radius = newRadius;
+    return radius;
 }
 
 function degreesToRadians(degrees) {

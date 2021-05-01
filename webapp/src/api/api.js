@@ -15,17 +15,12 @@ export async function addUser(webId, location){
 //remove the wanted user
 export async function deleteFromDB(webId){
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
-    console.log("webapp/api")
     let response = await fetch(apiEndPoint+"/users/remove",{
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({'webId': webId})
     })
-    console.log("webapp/api response")
-    console.log(webId)
-    console.log(response)
     try {
-        console.log("webapp/api try")
         return await response.json();
     } catch(error) {
         console.log("weapp/api error")
