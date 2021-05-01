@@ -19,7 +19,6 @@ class Admin extends React.Component {
     }
 
     async fetchUsers() {
-
         try {
             let users = await getUsers();
             let usersFiltrados = [];
@@ -35,27 +34,29 @@ class Admin extends React.Component {
             }
             console.log(usersFiltrados)
             this.setState({ users: usersFiltrados });
-            //this.setState({ users: todosLosUsers });
         }
         catch (error) {
             console.log("Error fetching user list from restapi. Is it on?")
         }
+    }     
+    remove = (i)=>{
+       
+       this.state.users.splice(i, 1);
+       this.setState({users: this.state.users});
     }
 
 
 
-
     render() {
-        const handleClickOnDelete = (user) => {    
+        const handleClickOnDelete = (user, index) =>{
             deleteUser(user);
-            console.log(user);
-            // this.setState({});
-          }
-        
-
+            let users = this.state.users;
+            this.state.users.splice(index,1);
+            this.setState({users: this.state.users})
+        }
         return (
+
             <>
-                
                 <div className="container adminContainer">
                     <h1 className="display-5 text-light">Zona del Administrador</h1>
                     <div className="row">
@@ -67,7 +68,7 @@ class Admin extends React.Component {
                                     <div className="card w-100 text-white bg-dark">
                                         <div className="card-body ">
                                             <h5 className="card-title">{user}</h5>
-                                            {<Button type="button" className="btn btn-danger" onClick={handleClickOnDelete(user)} >Eliminar usuario</Button>}
+                                            {<Button type="button" className="btn btn-danger" onClick={() => handleClickOnDelete(user,i)} >Eliminar usuario</Button>}
                                         </div>
                                     </div>
                                 )
