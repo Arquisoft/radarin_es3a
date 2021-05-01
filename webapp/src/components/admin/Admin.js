@@ -20,23 +20,30 @@ class Admin extends React.Component {
 
     async fetchUsers() {
         try {
-            let users = await getUsers();
-            let usersFiltrados = [];
-            for (let index in users) {
-                try {
-                    let user = await fetchName(users[index].webId);
-                    if (!(user === "radarin")) {
-                        usersFiltrados.push(user)
+            getUsers().then((users) => {
+                console.log(users)
+                let usersFiltrados = [];
+                users.forEach(index => {
+                    try {
+                        fetchName(index.webId).then((user) => {
+                            if(!user)
+                                return;
+                            if (!(user === "radarin")) {
+                                usersFiltrados.push(user);
+                                this.setState({ users: usersFiltrados });
+                            }
+                        });
+                    } catch (error) {
+                        console.log("No se ha podido insertar: " + index.webId);
                     }
-                } catch (error) {
-                    console.log("No se ha podido insertar: " + users[index].webId);
-                }
-            }
-            console.log(usersFiltrados)
-            this.setState({ users: usersFiltrados });
+                });
+                console.log(usersFiltrados)
+                this.setState({ users: usersFiltrados });
+                //this.setState({ users: todosLosUsers });
+            })
         }
         catch (error) {
-            console.log("Error fetching user list from restapi. Is it on?")
+            console.log("Error fetching user list from restapi. Is it on?");
         }
     }     
 

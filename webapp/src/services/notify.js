@@ -15,14 +15,17 @@ export async function notify(webId) {
     let email = await fetchEmail(currentSession.webId);
     if(email)
         sendEmail("Prueba de envío de email", "Esto es una prueba de Radarin_es3a", email); */
-
-    const user = await getUserByWebId(webId);
+    let user;
+    try{
+        user = await getUserByWebId(webId);
+    }catch{
+        user = {token:''};
+    }
     const token = user.token;
     if(!token || token === '')
         return;
 
-    sendNotification("Holaaaa", "Esto es una prueba de notificación", token);
-   
+    sendNotification("Hola", "Esto es una prueba de notificación", token);
 }
 
 export async function notifyOpenMap() {
