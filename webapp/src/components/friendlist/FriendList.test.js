@@ -14,13 +14,17 @@ describe("<FriendList />",()=>{
     
     // Comprobaciones para "h1"
     // Renderiza el elemento "h1"
+<<<<<<< HEAD
     it("Renders 'h1' element without crashing", () => {
+=======
+    it("Renders  \"h1\" element without crashing", () => {
+>>>>>>> ce01a55bdf94bdb5a08c7161f4cb1958a1ed640e
         const editor = shallow(<FriendList />);
         expect(editor.find("h1").length).toEqual(1);
     });
 
     // Renderiza el texto dentro del "h1"
-    it("Renders text of 'h1' element", () => {
+    it("Renders text of \"h1\" element", () => {
         const editor = shallow(<FriendList />);
         const expectedText = "Lista de amigos";
         const output = editor.find("h1").html();
@@ -30,7 +34,7 @@ describe("<FriendList />",()=>{
 
     // Comprobaciones para "div"
     // Ambos "div" se renderizan
-    it("Renders 'div' elements without crashing", () => {
+    it("Renders \"div\" elements without crashing", () => {
         const editor = shallow(<FriendList />);
         expect(editor.find("div").length).toEqual(3); 
     });

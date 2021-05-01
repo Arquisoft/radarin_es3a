@@ -6,6 +6,7 @@ import credentials from "./credentials";
 import { updateLocation } from "../../api/api";
 import solidAuth from "solid-auth-client";
 import "./MapComponent.css";
+import { notifyOpenMap } from "../../services/notify";
 
 //-------------------------------------------------\
 var latitude;
@@ -27,7 +28,7 @@ const options = {
 };
 
 // Notificar que ha abierto la app
-//notifyOpenMap();
+notifyOpenMap();
 
 var preferredZoom = 15;
 var showWindow;
