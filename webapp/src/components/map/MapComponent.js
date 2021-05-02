@@ -46,8 +46,8 @@ export default function MapComponent() {
   const [userSelected, setUserSelected] = useState();
   showWindow = (user) => { setUserSelected(user); };
 
-
   const [pPosition, setCurrentPosition] = useState(() => {
+    try{
     navigator.geolocation.getCurrentPosition(
       (position) => {
         setCurrentPosition(prevC => prevC =
@@ -64,7 +64,7 @@ export default function MapComponent() {
             updateUserMarker(actualPosition);
           }
         });
-      }, () => null);
+      }, () => null);}catch(err){ actualPosition = { lat: 0, lng: 0 };}
   });
 
   function updateUserLocation() {
