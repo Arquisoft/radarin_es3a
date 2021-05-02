@@ -13,6 +13,6 @@ describe("<SignIn />",() => {
     // Renderiza el elemento "h1"
     it("Renders h1 element without crashing", () => {
         const editor = shallow(<SignIn/>);
-        expect(editor.find("div").length).toEqual(2);
+        expect(editor.find("div").length).toEqual(3);
     });
 });
