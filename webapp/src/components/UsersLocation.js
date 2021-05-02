@@ -28,7 +28,7 @@ class UsersLocation extends React.Component{
                     //todosLosUsers.push(u)
                     let user = await fetchName(users[index].webId);
                     if (!(user === "radarin")) {
-                        usersFiltrados.push(users[index])
+                        usersFiltrados.push(users[index]);
                     }
                 } catch (error) {
                     console.log("No se ha podido insertar: " + users[index].webId);

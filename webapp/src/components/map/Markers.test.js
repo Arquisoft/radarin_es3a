@@ -1,4 +1,4 @@
-import Markers, { updateUserMarker, changeRadius} from "./Markers"
+import Markers, { updateUserMarker, changeRadius} from "./Markers";
 import { render, fireEvent, getByText } from "@testing-library/react";
 
 

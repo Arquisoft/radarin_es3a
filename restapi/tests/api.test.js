@@ -72,7 +72,7 @@ describe("user ", () => {
         expect(response.statusCode).toBe(200);
         expect(response.body.webId).toBe(undefined);
         expect(response.body.location).toStrictEqual(undefined);
-    })
+    });
     /**
      * Test that the location of an existing user can be updated
      */

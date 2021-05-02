@@ -63,7 +63,7 @@ export default function MapComponent() {
             updateLocation(session.webId, actualPosition);
             updateUserMarker(actualPosition);
           }
-        })
+        });
       }, () => null);
   });
 
