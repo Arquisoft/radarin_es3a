@@ -4,4 +4,4 @@ export default function MappOff() {
           <h1  className="text-light">Estás desconectado</h1>   
         </div>
       );
-}
+};

@@ -1,5 +1,5 @@
-import solidAuth from 'solid-auth-client';
-import { updateLocation, updateToken } from '../api/api';
+import solidAuth from "solid-auth-client";
+import { updateLocation, updateToken } from "../api/api";
 
 export async function saveUserToken(token) {
     const currentSession = await solidAuth.currentSession();
@@ -7,7 +7,7 @@ export async function saveUserToken(token) {
         return null;
 
     updateToken(currentSession.webId, token);
-}
+};
 
 export async function saveUserLocation(location) {
     var session = await solidAuth.currentSession(); // Obtener sesión del usuario actual
@@ -16,14 +16,14 @@ export async function saveUserLocation(location) {
        await updateLocation(session.webId, location);
     }
     return null;
-}
+};
 
 export async function removeUserToken() {
     const currentSession = await solidAuth.currentSession();
     if(!currentSession)
         return null;
 
-    updateToken(currentSession.webId, '');
-}
+    updateToken(currentSession.webId, "");
+};
 
-solidAuth.on('logout', (event) => removeUserToken())
+solidAuth.on("logout", (event) => removeUserToken());

@@ -1,5 +1,5 @@
-import React from 'react';
-import './AboutUs.css'
+import React from "react";
+import "./AboutUs.css";
 
 
 class AboutUs extends React.Component {
@@ -83,14 +83,11 @@ class AboutUs extends React.Component {
                                 </div>
                             </>
                         ))}
-
-
                     </div>
 
                 </div>
             </div>
-        )
-
+        );
     }
 }
 

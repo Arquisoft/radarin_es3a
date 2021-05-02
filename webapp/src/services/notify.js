@@ -1,54 +1,43 @@
 import { fetchFriends } from "./fetchFriends";
 import { fetchEmail } from "./fetchEmail";
-import solidAuth from 'solid-auth-client';
+import solidAuth from "solid-auth-client";
 import { getUserByWebId, sendEmail, sendNotification } from "../api/api";
 import { fetchName } from "./fetchProfile";
-import { showNotification } from '../App'
+import { showNotification } from "../App";
 
 let isMapNotAreadyAccessed = true;
 
 export async function notify(webId) {
-    /* const currentSession = await solidAuth.currentSession();
-    if(!currentSession)
-        return;
-
-    let email = await fetchEmail(currentSession.webId);
-    if(email)
-        sendEmail("Prueba de envío de email", "Esto es una prueba de Radarin_es3a", email); */
     let user;
     try{
         user = await getUserByWebId(webId);
     }catch{
-        user = {token:''};
+        user = {token:""};
+    }
+    if(!user){
+        return;
     }
     const token = user.token;
-    if(!token || token === '')
+    if(!token || token === "")
         return;
 
     sendNotification("Hola", "Esto es una prueba de notificación", token);
 }
 
-export async function notifyOpenMap() {
-    if (isMapNotAreadyAccessed) {
-        console.log("Mapa aún no accedido")
-    } else {
-        console.log("Mapa ya accedido")
-    }
-    
+export async function notifyOpenMap() {    
     if(!isMapNotAreadyAccessed)
         return;
 
     const currentSession = await solidAuth.currentSession();
+    if(!currentSession)
+        return;
     let name;
     let friends;
     try{
-        
         name = await fetchName(currentSession.webId);
         friends = await fetchFriends();
     }catch(err){console.log(err);}
-    
-    
-
+  
     for(let index in friends) {
         let friendName = await fetchName(friends[index]);
         let message = "Hola " + friendName + ", ¡Tu amig@ " + name + " se acaba de conectar a Radarin_es3a!";
@@ -61,8 +50,7 @@ export async function notifyOpenMap() {
 
         let friend = await getUserByWebId(friends[index]);
         if(friend && friend.token) 
-            sendNotification("Radarin_es3a", message, friend.token);
-            
+            sendNotification("Radarin_es3a", message, friend.token);            
     }
 
     isMapNotAreadyAccessed = false;
@@ -71,11 +59,11 @@ export async function notifyOpenMap() {
 export function notifyNearbyFriend(friendWebId) {
     solidAuth.currentSession().then(session => {
         if(!session)
-            return
+            return;
         fetchName(friendWebId).then(friendName => {
             showNotification({ 
-                'title': '¡Estás cerca de un amigo!',
-                'body': 'Tu amig@ ' + friendName + ' está cerca de ti'})
-        })
-    })
+                "title": "¡Estás cerca de un amigo!",
+                "body": "Tu amig@ " + friendName + " está cerca de ti"});
+        });
+    });
 }

@@ -1,61 +1,56 @@
-import React from 'react';
-
-import { fetchName } from '../../services/fetchProfile';
-import './Admin.css'
-import { getUsers } from '../../api/api';
-import { deleteUser } from '../../services/deleteFromDB';
-import { Button } from 'react-bootstrap';
-
-
+import React from "react";
+import { fetchName } from "../../services/fetchProfile";
+import "./Admin.css";
+import { getUsers } from "../../api/api";
+import { deleteUser } from "../../services/deleteFromDB";
+import { Button } from "react-bootstrap";
 
 class Admin extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { users: []  }
+        this.state = { users: [] };
     }
 
     componentDidMount() {
-        this.fetchUsers()
+        this.fetchUsers();
     }
 
     async fetchUsers() {
-
         try {
-            let users = await getUsers();
-            let usersFiltrados = [];
-            for (let index in users) {
-                try {
-                    let user = await fetchName(users[index].webId);
-                    if (!(user === "radarin")) {
-                        usersFiltrados.push(user)
+            getUsers().then((users) => {
+                let usersFiltrados = [];
+                users.forEach(index => {
+                    try {
+                        fetchName(index.webId).then((user) => {
+                            if(!user)
+                                return;
+                            if (!(user === "radarin")) {
+                                usersFiltrados.push(user);
+                                this.setState({ users: usersFiltrados });
+                            }
+                        });
+                    } catch (error) {
+                        console.log("No se ha podido insertar: " + index.webId);
                     }
-                } catch (error) {
-                    console.log("No se ha podido insertar: " + users[index].webId);
-                }
-            }
-            console.log(usersFiltrados)
-            this.setState({ users: usersFiltrados });
-            //this.setState({ users: todosLosUsers });
+                });
+                this.setState({ users: usersFiltrados });
+                //this.setState({ users: todosLosUsers });
+            });
         }
         catch (error) {
-            console.log("Error fetching user list from restapi. Is it on?")
+            console.log("Error fetching user list from restapi. Is it on?");
         }
     }
 
-
-
-
     render() {
-        const handleClickOnDelete = (user) => {    
+        const handleClickOnDelete = (user, index) =>{
             deleteUser(user);
-            console.log(user);
-            // this.setState({});
-          }
-        
-
+            let users = this.state.users;
+            this.state.users.splice(index,1);
+            this.setState({users: users});
+        };
         return (
             <>
-                
                 <div className="container adminContainer">
                     <h1 className="display-5 text-light">Zona del Administrador</h1>
                     <div className="row">
@@ -67,12 +62,11 @@ class Admin extends React.Component {
                                     <div className="card w-100 text-white bg-dark">
                                         <div className="card-body ">
                                             <h5 className="card-title">{user}</h5>
-                                            {<Button type="button" className="btn btn-danger" onClick={handleClickOnDelete(user)} >Eliminar usuario</Button>}
+                                            {<Button type="button" className="btn btn-danger" onClick={() => handleClickOnDelete(user,i)} >Eliminar usuario</Button>}
                                         </div>
                                     </div>
-                                )
+                                );
                             })}
-
                         </div>
                         <div className="col-md-auto  p-3 border border-light rounded">
                             <h2 className="display-6 text-light">Usuarios Conectados</h2>
@@ -88,14 +82,10 @@ class Admin extends React.Component {
                                 )
                             })}
                         </div>
-
                     </div>
                 </div>
-
-
             </>
-        )
-
+        );
     }
 }
 

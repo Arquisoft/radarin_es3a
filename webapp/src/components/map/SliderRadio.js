@@ -4,19 +4,19 @@ import Grid from "@material-ui/core/Grid";
 import Slider from "@material-ui/core/Slider";
 import Input from "@material-ui/core/Input";
 // import VolumeUp from "@material-ui/icons/VolumeUp";
-import { changeRadius } from './Markers'
+import { changeRadius } from "./Markers";
 
 const useStyles = makeStyles({
   root: {
-    color: '#e56387',
+    color: "#e56387",
     width: 300,
     height: 8,
   },
   slider: {
     width: 210,
-    color:'#e56387',
+    color:"#e56387",
     padding: 0,
-    margin:0
+    margin:0,
   },
   input: {
     width: 50,
@@ -24,17 +24,17 @@ const useStyles = makeStyles({
   thumb: {
     height: 24,
     width: 24,
-    backgroundColor: '#fff',
-    border: '2px solid currentColor',
+    backgroundColor: "#fff",
+    border: "2px solid currentColor",
     marginTop: -8,
     marginLeft: -12,
-    '&:focus, &:hover, &$active': {
-      boxShadow: 'inherit',
+    "&:focus, &:hover, &$active": {
+      boxShadow: "inherit",
     },
   },
   active: {},
   valueLabel: {
-    left: 'calc(-50% + 4px)',
+    left: "calc(-50% + 4px)",
   },
   track: {
     height: 8,
@@ -46,20 +46,18 @@ const useStyles = makeStyles({
   },
 });
 
-
-
 export default function InputSlider() {
   const classes = useStyles();
   const [value, setValue] = React.useState(30);
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
-    changeRadius(event.target.value)
+    changeRadius(newValue);
   };
 
   const handleInputChange = (event) => {
     setValue(event.target.value === "" ? "" : Number(event.target.value));
-    changeRadius(event.target.value)
+    changeRadius(event.target.value);
   };
 
   const handleBlur = () => {

@@ -5,7 +5,7 @@
 
 This diagram represents the main abstract structure of the application.
 
-image:05-BuildingBlockDiagram.png[Building Block]
+image:images/05-BuildingBlockDiagram.png[Building Block]
 
 
 
