@@ -18,8 +18,8 @@ class Docs extends React.Component {
     render() {
 
         return (
-            <div className="article toc2 toc-left container-fluid bg-light">
-                <div className="row justify-content-center">
+            <div className="article toc2 toc-left container-fluid bg-light text-dark">
+                <div className="titleTest row justify-content-center">
                     <h1  ><span className="image"><img src={LogoASW} alt="arc42" /></span> Radarin Es3a</h1>
                 </div>
 
@@ -1180,18 +1180,167 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
                                     </div>
                                 </div>
                             </div>
+
+
+
+                            <div id="header"></div>
+                <div id="content">
+                    <div class="sect1">
+                        <h2 id="section-anexos">Annexed</h2>
+                        <div class="sectionbody">
+                            <div class="sect2">
+                                <h3 id="_tests">Tests</h3>
+                                <div class="paragraph">
+                                    <p>
+                                        The webb app and the REST API have been tested in order to solve
+                                        the biggest ammount of issues
+              </p>
+                                </div>
+                                <div class="sect3">
+                                    <h4 id="_webapp">Webapp</h4>
+                                    <div class="sect4">
+                                        <h5 id="_unitary_testing">Unitary testing</h5>
+                                        <div class="paragraph">
+                                            <p>We have done tests about the main parts of the webapp:</p>
+                                        </div>
+                                        <div class="ulist">
+                                            <ul>
+                                                <li>
+                                                    <p>Interface :</p>
+                                                    <div class="ulist">
+                                                        <ul>
+                                                            <li>
+                                                                <p>
+                                                                    The app is rendered as spected, whatever the size
+                                                                    of the screen is.
+                            </p>
+                                                            </li>
+                                                            <li>
+                                                                <p>
+                                                                    The interface changes if the user is logged, a
+                                                                    regular user is using the app or the admin is
+                                                                    using the app.
+                            </p>
+                                                            </li>
+                                                            <li>
+                                                                <p>All the components show the spected info.</p>
+                                                            </li>
+                                                            <li>
+                                                                <p>
+                                                                    The admin window works as spected and anly appears
+                                                                    if the admin is the logged user.
+                            </p>
+                                                            </li>
+                                                            <li>
+                                                                <p>
+                                                                    The login web page (Inrupt) is showed fine and
+                                                                    redirects from and back to Radarin.
+                            </p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="sect4">
+                                        <h5 id="_acceptance_and_stress_tests">
+                                            Acceptance and stress tests
+                </h5>
+                                        <div class="paragraph">
+                                            <p>
+                                                We did some acceptance and stress tests to the system to
+                                                prove if the environment can deal with this kind of
+                                                situations.
+                  </p>
+                                        </div>
+                                        <div class="paragraph">
+                                            <p>
+                                                We logged with all of our PODs, in order to simulate a real
+                                                world situation. In all the PODs we did the following
+                  </p>
+                                        </div>
+                                        <div class="paragraph">
+                                            <p>*Beggining: The user logged on in his POD with friends.</p>
+                                        </div>
+                                        <div class="paragraph">
+                                            <p>
+                                                *Actions performed: The user looked for the friends on the
+                                                map, and changed the area for the search
+                  </p>
+                                        </div>
+                                        <div class="paragraph">
+                                            <p>
+                                                *End: The user checked that all of their friends were in the
+                                                list.
+                  </p>
+                                        </div>
+                                        <div class="paragraph">
+                                            <p>
+                                                *Results: The webapp performed well, with reduced loadtimes,
+                                                mostly in the communication with the PODs service. All the
+                                                users could do the tasks. ==== Mobile app
+                  </p>
+                                        </div>
+                                    </div>
+                                    <div class="sect4">
+                                        <h5 id="_unitary_testing_2">Unitary Testing</h5>
+                                        <div class="paragraph">
+                                            <p>
+                                                We reproduced the same tests from the webapp. The
+                                                information deployed shows perfectly fine for load format
+                                                screens and the app is functional. Taking into account the
+                                                facility of moving around with the phone, we proved that the
+                                                real time location works, that means:
+                  </p>
+                                        </div>
+                                        <div class="ulist">
+                                            <ul>
+                                                <li>
+                                                    <p>The user&#8217;s mark moves while he moves.</p>
+                                                </li>
+                                                <li>
+                                                    <p>The other users can se it.</p>
+                                                </li>
+                                                <li>
+                                                    <p>The notifications work fine.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="sect4">
+                                        <h5 id="_automatic_tests">Automatic tests</h5>
+                                        <div class="paragraph">
+                                            <p>
+                                                Some automatic tests where developed, in order to automatize
+                                                the task of debug the code. All the tests run automatic at
+                                                the deploying task, and can be run locally by calling "npm
+                                                -test". With this, we acomplish: * Increase the code
+                                                coverage, which means that the code have the smallest
+                                                ammount of errors as possible. * Ensure that the system
+                                                works as spected. * Find improvement niches
+                  </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                         </div>
 
                     </div>
 
                 </div>
-                <div id="footer">
-                    <div id="footer-text">
-                        Last updated 2021-04-11 15:35:29 +0200
-                </div>
-                </div>
 
+                
+                <div id="footer">
+                    <div id="footer-text">Last updated 2021-05-02 06:13:45 +0200</div>
+                </div>
             </div>
+
         );
     }
 }
