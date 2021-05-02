@@ -11,7 +11,7 @@ describe("<Navbar />", () => {
 
     it("renders without crashing", () => {
         const editor = shallow(<Navbar />);           
-        const expectedOutput = "<p class=\"logoLetra logo navbar-brand\"><img src=\"/navbarIcon.svg\" to=\"/\" alt=\"Radarin\"/>RADARIN</p>";
+        const expectedOutput = "<p class=\"logoLetra logo navbar-brand\"><img class=\"imgLogo\" src=\"/navbarIcon.svg\" to=\"/\" alt=\"Radarin\"/>RADARIN</p>";
         const realOutput = editor.find("p").html();
         console.log(realOutput);
         expect(realOutput.indexOf(expectedOutput)> -1).toEqual(true);

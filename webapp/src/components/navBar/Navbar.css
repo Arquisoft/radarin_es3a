@@ -53,8 +53,10 @@
   right: 0;
   margin-right: 3vh;
 }
+
 .navbar-logo {
   position: absolute;
+  margin-top: 50px;
 }
 
 .imgLogo{
