@@ -38,8 +38,6 @@ function Navbar() {
     });
    }, []);
 
-  console.log(admin);
-  
   return (
     <>
       <nav className="navbar  navbar-expand-lg navbar-dark bg-dark ">
