@@ -15,8 +15,6 @@ function Navbar() {
 
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
-  // Saltaba error, comentado - Raúl
-  //const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick();
 
   const [admin, setAdmin] = useState(false);
@@ -41,12 +39,12 @@ function Navbar() {
   return (
     <>
       <nav className="navbar  navbar-expand-lg navbar-dark bg-dark ">
-        <Link to="/" className="nav-links navbar-logo" onClick={closeMobileMenu} ><p className="logoLetra logo navbar-brand"><img src="/navbarIcon.svg" to="/" alt="Radarin" ></img>RADARIN</p></Link>
+        <Link to="/" className="nav-links navbar-logo" onClick={closeMobileMenu} ><p className="logoLetra logo navbar-brand"><img className="imgLogo" src="/navbarIcon.svg" to="/" alt="Radarin" ></img>RADARIN</p></Link>
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div id="navbarNavDropdown" className={`${isNavCollapsed ? "collapse" : ""} navbar-collapse`}>
+        <div id="navbarNavDropdown" className={'navbar-collapse'}>
           <ul className="navbar-nav">
             <li className="nav-item active">
               <Link to="/" className="nav-links nav-link" onClick={closeMobileMenu}>Home</Link>
