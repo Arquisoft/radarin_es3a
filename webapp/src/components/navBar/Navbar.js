@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
-import { LoggedOut, LoggedIn, LogoutButton } from '@solid/react';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/js/dist/dropdown';
-import solidAuth from 'solid-auth-client';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+import { LoggedOut, LoggedIn, LogoutButton } from "@solid/react";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/js/dist/dropdown";
+import solidAuth from "solid-auth-client";
 
 function Navbar() {
   function setClick(){
@@ -55,41 +55,41 @@ function Navbar() {
             <LoggedIn>
             { !admin ?
               <li className="nav-item">
-               <Link to='/map' className='nav-links nav-link' onClick={closeMobileMenu}>Map</Link>
+               <Link to="/map" className="nav-links nav-link" onClick={closeMobileMenu}>Map</Link>
               </li>
             : null}  
             </LoggedIn>
 
             { admin ?
               <li className="nav-item">
-                <Link to='/admin' className='nav-links nav-link' onClick={closeMobileMenu}>Admin</Link>
+                <Link to="/admin" className="nav-links nav-link" onClick={closeMobileMenu}>Admin</Link>
               </li>
             : null}
             
             { !admin ?
               <li className="nav-item">
-                  <Link to='/about-us' className='nav-links nav-link' onClick={closeMobileMenu}>About us</Link>
+                  <Link to="/about-us" className="nav-links nav-link" onClick={closeMobileMenu}>About us</Link>
               </li>
             : null} 
 
             <LoggedIn>
               { !admin ?
                 <li className="nav-item dropdown">
-                  <Link to="#" className='nav-links nav-link dropdown-toggle' onClick={closeMobileMenu} id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Friends <i className='fas fa-caret-down' />
+                  <Link to="#" className="nav-links nav-link dropdown-toggle" onClick={closeMobileMenu} id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Friends <i className="fas fa-caret-down" />
                     </Link>
   
                   <div className="dropdown-menu text-light bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                    <Link to='/friend-list' className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >FriendList</Link>
-                    <Link to='/locations' className='dropdown-item text-light bg-dark nav-links' onClick={closeMobileMenu} >Locations of Friends</Link>
+                    <Link to="/friend-list" className="dropdown-item text-light bg-dark nav-links" onClick={closeMobileMenu} >FriendList</Link>
+                    <Link to="/locations" className="dropdown-item text-light bg-dark nav-links" onClick={closeMobileMenu} >Locations of Friends</Link>
                   </div>
                 </li>
               : null} 
             </LoggedIn>
 
             <LoggedIn>
-              <li className='nav-item'>
-                <LogoutButton type="button" className='btn btn-danger btnL' onClick={closeMobileMenu}>Log out</LogoutButton>
+              <li className="nav-item">
+                <LogoutButton type="button" className="btn btn-danger btnL" onClick={closeMobileMenu}>Log out</LogoutButton>
               </li>
             </LoggedIn>
 
