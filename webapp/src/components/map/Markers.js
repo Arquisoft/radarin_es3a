@@ -53,6 +53,14 @@ class Markers extends React.Component {
             users[0] = that.userLoggedIn;
             that.setState({ users: users });
         };
+
+        this.userLoggedIn = {
+            name: "Yo",
+            location: {
+                lat: undefined,
+                lng: undefined
+            }
+        };
     }
 
     componentWillUnmount() {
