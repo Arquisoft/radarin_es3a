@@ -19,7 +19,7 @@ class Docs extends React.Component {
 
         return (
             <div className="article toc2 toc-left container-fluid bg-light text-dark">
-                <div className="row justify-content-center">
+                <div className="titleTest row justify-content-center">
                     <h1  ><span className="image"><img src={LogoASW} alt="arc42" /></span> Radarin Es3a</h1>
                 </div>
 
