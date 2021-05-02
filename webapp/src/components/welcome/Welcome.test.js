@@ -11,7 +11,7 @@ import Welcome from "./Welcome";
 
 
 configure({adapter: new Adapter()});
-describe("<Welcome />",()=>{
+describe("<Welcome />",() => {
 
     afterAll(cleanup);
 
@@ -61,6 +61,4 @@ describe("<Welcome />",()=>{
     //     expect(realOutput.indexOf(expectedOutput)> -1).toEqual(true);
     //     console.log(realOutput.indexOf(expectedOutput));
     // });
-
-
 });

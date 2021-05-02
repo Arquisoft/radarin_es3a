@@ -6,7 +6,7 @@ import { shallow, configure } from "enzyme";
 
 
 configure({adapter: new Adapter()});
-describe("<SignIn />",()=>{
+describe("<SignIn />",() => {
     afterAll(cleanup);
 
     // Comprobaciones para "h1"

@@ -9,7 +9,7 @@ import FriendList from "./FriendList";
 
 
 configure({adapter: new Adapter()});
-describe("<FriendList />",()=>{
+describe("<FriendList />",() => {
     afterAll(cleanup);
     
     // Comprobaciones para "h1"
@@ -36,4 +36,3 @@ describe("<FriendList />",()=>{
     });
 
 });
-

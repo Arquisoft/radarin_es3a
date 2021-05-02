@@ -44,7 +44,7 @@ class Admin extends React.Component {
     }
 
     render() {
-        const handleClickOnDelete = (user, index) =>{
+        const handleClickOnDelete = (user, index) => {
             deleteUser(user);
             let users = this.state.users;
             this.state.users.splice(index,1);
