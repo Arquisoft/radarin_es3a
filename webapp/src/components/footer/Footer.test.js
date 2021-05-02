@@ -12,14 +12,14 @@ describe("<Footer />", () => {
 
     it("renders without crashing", () => {
         const editor = shallow(<Footer />);
-        expect(editor.find("footer.footer").length).toEqual(1);
+        expect(editor.find("footer.footerRad").length).toEqual(1);
     });
 
 
     it("renders text of the footer", () => {
         const editor = shallow(<Footer />);
         const expectedOutput = "<p>Proyecto creado para la asignatura de ASW de la Escuela de Ingenieria Informatica de Oviedo</p>";
-        const realOutput = editor.find("footer.footer").html();
+        const realOutput = editor.find("footer.footerRad").html();
         expect(realOutput.indexOf(expectedOutput) > -1).toEqual(true);
     });
 

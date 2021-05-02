@@ -54,6 +54,10 @@
   margin-right: 3vh;
 }
 .navbar-logo {
-  margin-top: 40px;
   position: absolute;
+}
+
+.imgLogo{
+  position: relative;
+  height: 60px;
 }

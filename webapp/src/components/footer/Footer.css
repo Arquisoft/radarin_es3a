@@ -1,5 +1,5 @@
 
-.footer {
+.footerRad {
   text-align: center !important;
   padding: 1em 0 !important;
   background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
@@ -12,11 +12,11 @@
   height: 150px;
 };
 
-.footer.p {
+.footerRad.p {
   text-align: center  !important;
 };
 
-.footer a:link,
+.footerRad a:link,
   a:visited,
   a:active {
     text-decoration: none;
