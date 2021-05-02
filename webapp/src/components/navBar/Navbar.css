@@ -28,7 +28,7 @@
 }
 
 @media (max-width: 992px) {
-  .navbar-nav { 
+  .navbar-nav {
     position: absolute;
     right: 0;
     top: 80px;
@@ -63,3 +63,4 @@
   position: relative;
   height: 60px;
 }
+

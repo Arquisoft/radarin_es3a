@@ -60,13 +60,16 @@ form {
   color: #fff;
   text-decoration: none;
 }
+
 .sc-eCImvq:hover {
   color: #8bb6e0;
   text-decoration: none;
-  text-decoration: none!important;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    -webkit-appearance: button;
+  text-decoration: none !important;
+  transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  -webkit-appearance: button;
 }
 
 .sc-jRQAMF {
@@ -76,11 +79,13 @@ form {
   display: inline-block;
   font-weight: 400;
   /* color: #212529; */
+
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
   user-select: none;
   /* background-color: transparent; */
+
   border: 1px solid transparent;
   border-top-color: transparent;
   border-right-color: transparent;
@@ -90,24 +95,30 @@ form {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    -webkit-appearance: button;
+  transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  -webkit-appearance: button;
 }
+
 .sc-jRQAMF:hover {
   color: #212529;
   text-decoration: none;
 }
+
 a {
   text-decoration: none !important;
 
 }
+
 a:hover {
   text-decoration: none !important;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     -webkit-appearance: button;
 }
+
 .contenedorSignIn {
   padding: 5vh;
   margin: -5vh;
