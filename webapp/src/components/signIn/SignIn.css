@@ -13,9 +13,9 @@ body {
 
 .paper {
   margin-top: 8vh;
-  display: flex ;
-  flex-direction: column ;
-  align-items: center ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 form {
@@ -38,7 +38,7 @@ form {
   background-color: #fff;
   width: 3vw;
   height: 3vw;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .solid-pod-link {
@@ -54,4 +54,41 @@ form {
 
 .MuiGrid-container {
   justify-content: center;
+}
+.sc-eCImvq {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sc-jRQAMF {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #0062cc;
+  display: inline-block;
+  font-weight: 400;
+  /* color: #212529; */
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  /* background-color: transparent; */
+  border: 1px solid transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: button;
+}
+.sc-jRQAMF:hover {
+  color: #212529;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
 }

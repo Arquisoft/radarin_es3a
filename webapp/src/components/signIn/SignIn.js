@@ -13,7 +13,7 @@ export default function SignIn() {
   return (
     <Container  component="main" maxWidth="xs">
       <CssBaseline  />
-      <div  className="paper">
+      <div  className="paper ">
         <div className="icon-circle" >
           <img src={LogoR} className="rIcon" alt="icono" />
         </div>
@@ -28,7 +28,7 @@ export default function SignIn() {
               formButtonText={("Login")}
               btnTxtWebId={("Insertar WebID")}
               btnTxtProvider={("Selecciona tu Proveedor")}
-              className="provider-login-component"
+              className="provider-login-component "
               callbackUri={`${window.location.origin}/`}
               errorsText={{
                 unknown: ("Error Desconocido"),
