@@ -25,7 +25,7 @@ export async function fetchProfile () {
     const webIdDoc = await fetchDocument(currentSession.webId);
     profile = webIdDoc.getSubject(currentSession.webId);
     return profile;
-};
+}
 
 export async function fetchName(webId) {
   if(!webId) {

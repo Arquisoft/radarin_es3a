@@ -88,7 +88,7 @@ export default function MapComponent() {
         });
       }
     });
-  };
+  }
 
   useEffect(() => {
     let timer;
@@ -111,8 +111,8 @@ export default function MapComponent() {
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => { restarCurrentPosition(); mapRef.current = map; }, []);
 
-  if (loadError) { return "Error loadinf maps"; };
-  if (!isLoaded) { return "Loading Maps"; };
+  if (loadError) { return "Error loadinf maps"; }
+  if (!isLoaded) { return "Loading Maps"; }
 
   return (
     <div className="mapa">

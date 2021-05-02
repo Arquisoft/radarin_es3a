@@ -214,5 +214,5 @@ class Markers extends React.Component {
     }
 }
 
-export function updateUserMarker(location) { updateMarker(location); };
+export function updateUserMarker(location) { updateMarker(location); }
 export default Markers;

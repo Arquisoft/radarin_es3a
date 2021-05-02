@@ -21,10 +21,11 @@ class UsersLocation extends React.Component{
             let usersFiltrados = [];
             for (let index in users) {
                 try {
-                    let user = await getUserByWebId(users[index].webId);
-                    if (!(user === "radarin")) {
-                        usersFiltrados.push(users[index]);
-                    }
+                    getUserByWebId(users[index].webId).then((user) => {
+                        if (!(user === "radarin")) {
+                            usersFiltrados.push(users[index]);
+                        }
+                    });
                 } catch (error) {
                     console.log("No se ha podido insertar: " + users[index].webId);
                 }

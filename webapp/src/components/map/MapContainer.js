@@ -12,7 +12,7 @@ export default function MapContainer() {
 
     function switchOnOff() {
         setOn(!on);
-    };
+    }
 
     return (
         <div className="contenedorMapContainer container-fluid  p-0 m-0">

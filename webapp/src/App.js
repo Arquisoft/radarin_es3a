@@ -33,7 +33,7 @@ export function showNotification(notification) {
       duration: 3000
     }
   });
-};
+}
 
 function prepareToAndroidNotifications() {
   window.saveToken = new Event("saveToken");
@@ -56,7 +56,7 @@ function prepareToAndroidNotifications() {
     };
     showNotification(notification);
   });
-};
+}
 
 function FuntionGetLoggedUser() {
   const loggedIn = useLoggedIn();
