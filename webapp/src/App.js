@@ -1,63 +1,25 @@
-import React, { useEffect } from 'react';
-import Navbar from './components/navBar/Navbar';
-import './App.css';
-import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import {useLoggedIn} from '@solid/react';
-import Welcome  from './components/welcome/Welcome';
-import SignIn from './components/signIn/SignIn';
-import AboutUs from './components/aboutUs/AboutUs';
-import UsersLocation from './components/UsersLocation'
-import Admin from './components/admin/Admin'
-import FriendList from './components/friendlist/FriendList'
-import { getToken, onMessageListener } from './services/firebase';
-import { saveUserToken } from './services/updateUserData';
-import ReactNotification from 'react-notifications-component'
-import 'react-notifications-component/dist/theme.css'
-import { store } from 'react-notifications-component';
-import Footer from './components/footer/Footer';
-import 'bootstrap/dist/css/bootstrap.css';
-import MapContainer from './components/map/MapContainer';
+import React, { useEffect } from "react";
+import Navbar from "./components/navBar/Navbar";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import {useLoggedIn} from "@solid/react";
+import Welcome  from "./components/welcome/Welcome";
+import SignIn from "./components/signIn/SignIn";
+import AboutUs from "./components/aboutUs/AboutUs";
+import UsersLocation from "./components/UsersLocation";
+import Admin from "./components/admin/Admin";
+import FriendList from "./components/friendlist/FriendList";
+import { getToken, onMessageListener } from "./services/firebase";
+import { saveUserToken } from "./services/updateUserData";
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import { store } from "react-notifications-component";
+import Footer from "./components/footer/Footer";
+import "bootstrap/dist/css/bootstrap.css";
+import MapContainer from "./components/map/MapContainer";
 
 
 var log;
-export default function App() {
-  log = FuntionGetLoggedUser();
-  useEffect(() => {
-    // Obtener token de app móvil
-    if(window.Android) 
-      prepareToAndroidNotifications()
-    else 
-      getToken( token => {
-        saveUserToken(token);
-      });
-  }, []);
-  
-  onMessageListener().then(payload => {
-    showNotification(payload.notification)
-  }).catch(err => console.log('failed: ', err));
-
-  return (
-    <Router>
-      <ReactNotification types={[
-          {
-            htmlClasses: ['notification__item--custom'],
-            name: 'custom'
-          }
-        ]}/>
-      <Navbar />
-      <Switch>
-        <Route path='/' exact component={Welcome} />
-        <PrivateRoute path='/map' component={MapContainer} />
-        <Route path='/sign-in'  component={SignIn} />
-        <Route path='/about-us'  component={AboutUs} />
-        <PrivateRoute path='/locations' component={UsersLocation} />
-        <PrivateRoute path='/admin' component={Admin} />
-        <PrivateRoute path='/friend-list' component={FriendList} />
-      </Switch>
-      <Footer/>
-    </Router>
-  );          
-}
 
 export function showNotification(notification) {
   store.addNotification({
@@ -71,29 +33,29 @@ export function showNotification(notification) {
       duration: 3000
     }
   });
-}
+};
 
 function prepareToAndroidNotifications() {
-  window.saveToken = new Event('saveToken');
+  window.saveToken = new Event("saveToken");
 
-  window.addEventListener('saveToken', function() {
-    const token = window.Android.getToken()
+  window.addEventListener("saveToken", function() {
+    const token = window.Android.getToken();
     if(token)
       saveUserToken(token);
   }, false);
 
-  window.Android.getFirebaseToken()
+  window.Android.getFirebaseToken();
 
-  window.showNotification = new Event('showNotification')
+  window.showNotification = new Event("showNotification");
 
-  window.addEventListener('showNotification', () => {
+  window.addEventListener("showNotification", () => {
     const notification = {
-      'title': window.Android.getNotificationTitle(),
-      'body': window.Android.getNotificationBody()
-    }
-    showNotification(notification)
-  })
-}
+      "title": window.Android.getNotificationTitle(),
+      "body": window.Android.getNotificationBody()
+    };
+    showNotification(notification);
+  });
+};
 
 function FuntionGetLoggedUser() {
   const loggedIn = useLoggedIn();
@@ -104,6 +66,45 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
     log
     ? <Component {...props} />
-    : <Redirect to='/'/> 
+    : <Redirect to="/"/> 
     )}/>
-)
+);
+
+export default function App() {
+  log = FuntionGetLoggedUser();
+  useEffect(() => {
+    // Obtener token de app móvil
+    if(window.Android) 
+      prepareToAndroidNotifications();
+    else 
+      getToken( token => {
+        saveUserToken(token);
+      });
+  }, []);
+  
+  onMessageListener().then(payload => {
+    showNotification(payload.notification);
+  }).catch(err => console.log("failed: ", err));
+
+  return (
+    <Router>
+      <ReactNotification types={[
+          {
+            htmlClasses: ["notification__item--custom"],
+            name: "custom"
+          }
+        ]}/>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Welcome} />
+        <PrivateRoute path="/map" component={MapContainer} />
+        <Route path="/sign-in"  component={SignIn} />
+        <Route path="/about-us"  component={AboutUs} />
+        <PrivateRoute path="/locations" component={UsersLocation} />
+        <PrivateRoute path="/admin" component={Admin} />
+        <PrivateRoute path="/friend-list" component={FriendList} />
+      </Switch>
+      <Footer/>
+    </Router>
+  );          
+}

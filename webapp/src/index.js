@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-//import $ from 'jquery';
-//import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-//import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+//import $ from "jquery";
+//import Popper from "popper.js";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+//import reportWebVitals from "./reportWebVitals";
 
-const container = document.createElement('div');
+const container = document.createElement("div");
 document.body.appendChild(container);
 ReactDOM.render(<App/>, container);
 

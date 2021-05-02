@@ -25,25 +25,29 @@ public class AndroidJSInterface {
 
     @JavascriptInterface
     public void getFirebaseToken() {
-        FirebaseMessaging.getInstance().getToken()
-                .addOnCompleteListener(new OnCompleteListener<String>() {
-                    @Override
-                    public void onComplete(@NonNull Task<String> task) {
-                        if (!task.isSuccessful()) {
-                            Log.w(MyFirebaseMessagingService.TAG, "Fetching FCM registration token failed", task.getException());
-                            return;
+        try {
+            FirebaseMessaging.getInstance().getToken()
+                    .addOnCompleteListener(new OnCompleteListener<String>() {
+                        @Override
+                        public void onComplete(@NonNull Task<String> task) {
+                            if (!task.isSuccessful()) {
+                                Log.w(MyFirebaseMessagingService.TAG, "Fetching FCM registration token failed", task.getException());
+                                return;
+                            }
+
+                            // Get new FCM registration token
+                            String token = task.getResult();
+
+                            // Log and toast
+                            String msg = "Obtenido token: " + token;
+                            Log.d(MyFirebaseMessagingService.TAG, msg);
+
+                            MyFirebaseMessagingService.sendRegistrationToServer(token);
                         }
-
-                        // Get new FCM registration token
-                        String token = task.getResult();
-
-                        // Log and toast
-                        String msg = "Obtenido token: " + token;
-                        Log.d(MyFirebaseMessagingService.TAG, msg);
-
-                        MyFirebaseMessagingService.sendRegistrationToServer(token);
-                    }
-                });
+                    });
+        } catch(Exception error) {
+            Log.w(MyFirebaseMessagingService.TAG, "Fetching FCM registration token failed", error);
+        }
     }
 
     @JavascriptInterface

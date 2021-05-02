@@ -1,4 +1,4 @@
-import SliderRadio from './SliderRadio';
+import SliderRadio from "./SliderRadio";
 
 export default function SliderContainer() {
     return (

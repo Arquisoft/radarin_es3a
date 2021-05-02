@@ -3,27 +3,32 @@
   height: 80px !important;
   z-index: 1;
 }
+
 .navbar-collapse {
   background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
 }
+
 .nav-item {
   left: 0;
   padding-left: 3em;
   margin: 1vh;
 }
+
 .navbar-brand {
   height: 6em;
   width: 7em;
   padding: 0;
   margin: 0em 0em 0em 0em;
 }
+
 .navbar-nav {
     position: absolute;
     padding-right: 2vw;
-    right:0;
+    right: 0;
 }
+
 @media (max-width: 992px) {
-  .navbar-nav {
+  .navbar-nav { 
     position: absolute;
     right: 0;
     top: 80px;
@@ -31,6 +36,7 @@
     background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
   }
 }
+
 .logoLetra {
   z-index: 3;
   display: inline;
@@ -42,12 +48,12 @@
   text-decoration: none;
 }
 
-.navbar-toggler{
+.navbar-toggler {
   position: absolute;
   right: 0;
   margin-right: 3vh;
 }
-.navbar-logo{
+.navbar-logo {
   margin-top: 40px;
   position: absolute;
 }
