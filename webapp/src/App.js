@@ -100,7 +100,6 @@ export default function App() {
         <PrivateRoute path="/map" component={MapContainer} />
         <Route path="/sign-in"  component={SignIn} />
         <Route path="/about-us"  component={AboutUs} />
-        <PrivateRoute path="/locations" component={UsersLocation} />
         <PrivateRoute path="/admin" component={Admin} />
         <PrivateRoute path="/friend-list" component={FriendList} />
       </Switch>
