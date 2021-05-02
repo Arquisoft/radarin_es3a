@@ -69,7 +69,7 @@ router.post("/users/update/token", async (req, res) => {
     let webId = req.body.webId;
     let token = req.body.token;
 
-    let user = await User.findOne({ webId: webId });
+    let user = await User.findOne({ webId });
     if (!user) {
         user = new User({
             webId,
@@ -124,12 +124,12 @@ router.post("/notification", async (req, res) => {
 
     const data = {
         "notification": {
-            "title": title,
+            title,
             "body": message,
             "click_action": "https://radarines3awebapp.herokuapp.com/",
             "icon": "https://radarines3awebapp.herokuapp.com/LogoR.png"
         },
-        "to": to
+        to
     };
     const config = {
         "mode": "cors",

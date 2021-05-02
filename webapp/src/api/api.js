@@ -4,7 +4,7 @@ export async function addUser(webId, location){
     let response = await fetch(apiEndPoint+"/users/add", {
         method: "POST",
         headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({"webId": webId, "location": location})
+        body: JSON.stringify({webId, location})
       });
     return await response.json();
 }

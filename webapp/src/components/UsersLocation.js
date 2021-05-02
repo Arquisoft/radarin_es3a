@@ -20,17 +20,12 @@ class UsersLocation extends React.Component{
             let users = await getUsers();
             let usersFiltrados = [];
             for (let index in users) {
-                if(!index) {
-                    return;
-                }
-                try {
+                if(index) {
                     getUserByWebId(users[index].webId).then((user) => {
                         if (!(user === "radarin")) {
                             usersFiltrados.push(users[index]);
                         }
                     });
-                } catch (error) {
-                    return;
                 }
             }
             this.setState({users});

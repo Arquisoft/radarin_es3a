@@ -42,7 +42,7 @@ export async function fetchName(webId) {
   const name = await profile.getString(foaf.name);
   names.set(webId, name);
   return name;
-};
+}
 
 export async function fetchPhoto(webId) {
   if(!webId) {

@@ -31,7 +31,7 @@ class Admin extends React.Component {
                             }
                         });
                     } catch (error) {
-                        console.log("No se ha podido insertar: " + index.webId);
+                        return;
                     }
                 });
                 this.setState({ users: usersFiltrados });
@@ -39,7 +39,7 @@ class Admin extends React.Component {
             });
         }
         catch (error) {
-            console.log("Error fetching user list from restapi. Is it on?");
+            return;
         }
     }
 
@@ -80,7 +80,7 @@ class Admin extends React.Component {
                                             <span className="badge badge-pill badge-danger">Danger</span>
                                         </div>
                                     </div>
-                                )
+                                );
                             })}
                         </div>
                     </div>

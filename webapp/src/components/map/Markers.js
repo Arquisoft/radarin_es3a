@@ -9,7 +9,7 @@ import { setUser } from "./MapComponent";
 import { saveUserLocation } from "../../services/updateUserData";
 
 let radius = 50;
-let updateMarker = (location) => { console.log("No definido"); };
+let updateMarker = (location) => { return; };
 
 export function changeRadius(newRadius) {
     if(!isNaN(newRadius)) {radius = newRadius;}return radius;
