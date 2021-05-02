@@ -1,12 +1,7 @@
 import React from "react";
-import "./Docs.css";
+//import "./Docs.css";
 
 class Docs extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    componentDidMount() {
-    }
 
     render() {
 

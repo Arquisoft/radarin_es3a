@@ -53,7 +53,14 @@
   right: 0;
   margin-right: 3vh;
 }
+
 .navbar-logo {
-  margin-top: 40px;
   position: absolute;
+  margin-top: 50px;
+  
+}
+
+.imgLogo{
+  position: relative;
+  height: 60px;
 }
