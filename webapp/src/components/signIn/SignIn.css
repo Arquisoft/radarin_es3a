@@ -64,7 +64,8 @@ form {
 .sc-eCImvq:hover {
   color: #8bb6e0;
   text-decoration: none !important;
-  transition: color 0.15s ease-in-out,
+  transition:
+    color 0.15s ease-in-out,
     background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
@@ -90,7 +91,7 @@ form {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
-  transition: 
+  transition:
     color 0.15s ease-in-out,
     background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out,
@@ -122,4 +123,4 @@ a:hover {
   padding: 5vh;
   margin: -5vh;
   min-height: calc(100vh - 250px + 10vh);
-} 
+}

@@ -89,7 +89,7 @@ export default function App() {
   
   onMessageListener().then((payload) => {
     showNotification(payload.notification);
-  }).catch((err) => console.log("failed: ", err));
+  }).catch((err) => {});
 
   return (
     <Router>
