@@ -42,7 +42,7 @@ class FriendList extends React.Component {
                     return;
                 }
                 users[i].photo = photo;
-                that.setState({ users: users });
+                that.setState({ users });
             });
             fetchName(user.webId).then((name) => {
                 if (!name) {
@@ -54,7 +54,7 @@ class FriendList extends React.Component {
 
             return user;
         });
-        this.setState({ users: users });
+        this.setState({ users });
     }
 
     render() {

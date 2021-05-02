@@ -52,7 +52,7 @@ class Markers extends React.Component {
         updateMarker = (location) => {
             that.userLoggedIn.location = location;
             users[0] = that.userLoggedIn;
-            that.setState({ users: users });
+            that.setState({ users });
         };
 
         this.userLoggedIn = {
@@ -97,7 +97,7 @@ class Markers extends React.Component {
                 }
             };
         });
-        this.setState({friends: friends});
+        this.setState({friends});
 
         this.fetchUsers();
     }
@@ -115,7 +115,7 @@ class Markers extends React.Component {
             }
                 
             users[0] = this.userLoggedIn;
-            this.setState({ users: users });
+            this.setState({ users });
 
             var friends = this.state.friends;
             var that = this;

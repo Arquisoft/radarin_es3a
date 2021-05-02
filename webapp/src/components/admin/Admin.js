@@ -48,7 +48,7 @@ class Admin extends React.Component {
             deleteUser(user);
             let users = this.state.users;
             this.state.users.splice(index,1);
-            this.setState({users: users});
+            this.setState({users});
         };
         return (
             <>

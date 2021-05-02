@@ -15,13 +15,13 @@ router.post("/users/add", async (req, res) => {
     let webId = req.body.webId;
     let location = req.body.location;
     //Check if the device is already in the db
-    let user = await User.findOne({ webId: webId });
+    let user = await User.findOne({ webId });
     if (user) {
         res.send({ error: "Error: This user is already registered" });
     } else {
         user = new User({
-            webId: webId,
-            location: location,
+            webId,
+            location,
         });
         await user.save();
         res.send(user);
@@ -32,9 +32,9 @@ router.post("/users/add", async (req, res) => {
 router.post("/users/remove", async (req, res) => {
     let webId = req.body.webId;
     //Check if the device is already in the db
-    let user = await User.findOne({ webId: webId });
+    let user = await User.findOne({ webId });
     if (user) {
-        await user.remove({ webId: webId });
+        await user.remove({ webId });
         res.send(user);
     }
     res.send({ error: "Error: This user does not exist" });
@@ -42,7 +42,7 @@ router.post("/users/remove", async (req, res) => {
 
 router.get("/users/byWebId", async (req, res) => {
     var webId = req.headers.webid;
-    let user = await User.findOne({ webId: webId });
+    let user = await User.findOne({ webId });
     res.send(user);
 });
 
@@ -50,11 +50,11 @@ router.post("/users/update", async (req, res) => {
     let webId = req.body.webId;
     let location = req.body.location;
 
-    let user = await User.findOne({ webId: webId });
+    let user = await User.findOne({ webId });
     if (!user) {
         user = new User({
-            webId: webId,
-            location: location,
+            webId,
+            location
         });
         await user.save();
         res.send(user);
@@ -72,8 +72,8 @@ router.post("/users/update/token", async (req, res) => {
     let user = await User.findOne({ webId: webId });
     if (!user) {
         user = new User({
-            webId: webId,
-            token: token,
+            webId,
+            token,
             location: {
                 lat: "",
                 lng: ""
@@ -104,7 +104,7 @@ router.post("/email/send", async (req, res) => {
     let mailDetails = {
         from: "Radarin.info@gmail.com",
         to: destinatary,
-        subject: subject,
+        subject,
         text: message
     };
 
