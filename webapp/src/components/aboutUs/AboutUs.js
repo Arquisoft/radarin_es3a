@@ -23,14 +23,6 @@ class AboutUs extends React.Component {
                 POD: "https://error404usernamenotfound.inrupt.net/profile/card#me"
             },
             {
-                Nombre: "Raúl Mínguez Rodríguez",
-                UO: "UO252192",
-                GitHubName: "Error404UsernameNotFound",
-                GitHub: "https://github.com/Error404UsernameNotFound",
-                PODName: "",
-                POD: "https://error404usernamenotfound.inrupt.net/profile/card#me"
-            },
-            {
                 Nombre: "Pablo Diaz Rubio",
                 UO: "UO271245",
                 GitHubName: "UO271245",
