@@ -2,6 +2,11 @@ const request = require("supertest");
 const server = require("./server-for-tests");
 // const app = require("../")
 
+var app;
+var webIdEx;
+var response;
+var locationEx;
+
 /**
  * Connect to a new in-memory database before running any tests.
  */

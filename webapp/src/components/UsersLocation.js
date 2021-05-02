@@ -20,6 +20,9 @@ class UsersLocation extends React.Component{
             let users = await getUsers();
             let usersFiltrados = [];
             for (let index in users) {
+                if(!index) {
+                    return;
+                }
                 try {
                     getUserByWebId(users[index].webId).then((user) => {
                         if (!(user === "radarin")) {
@@ -27,14 +30,14 @@ class UsersLocation extends React.Component{
                         }
                     });
                 } catch (error) {
-                    console.log("No se ha podido insertar: " + users[index].webId);
+                    return;
                 }
             }
             this.setState({users});
         }
         catch(error)
         {
-            console.log("Error fetching user list from restapi. Is it on?");
+            return;
         }
     }
 

@@ -110,10 +110,8 @@ router.post("/email/send", async (req, res) => {
 
     mailTransporter.sendMail(mailDetails, function (error, info) {
         if (err) {
-            console.log("Error Occurs");
             res.send(500, error.message);
         } else {
-            console.log("Email sent successfully");
             res.status(200).jsonp(req.body);
         }
     });

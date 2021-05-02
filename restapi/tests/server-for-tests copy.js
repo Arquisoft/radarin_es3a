@@ -2,23 +2,23 @@
 This server file allow to start the restapi using an in-memory database
 This will be handy for testing
 */
-
 const { MongoMemoryServer } = require("mongodb-memory-server");
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const api = require("../api");
 
+var mongod;
+var app;
+var server;
+
 module.exports.startdb = async () => {
     mongod = new MongoMemoryServer({ instance: { port: 27017,dbName: "testdb"}});
-    const mongo_uri =await mongod.getUri();
-    console.log(mongo_uri);
+    const mongoUri =await mongod.getUri();
 }
 
 module.exports.startserver = async () => {
-    console.log("conecceting to database");
     await mongoose.connect("mongodb://127.0.0.1:27017/testdb?", { useNewUrlParser: true,useUnifiedTopology: true });
-    console.log("connected");
     app = express();
 
     app.use(cors());
@@ -27,7 +27,6 @@ module.exports.startserver = async () => {
     app.use("/api", api);
 
     server = await app.listen(5000);
-    console.log("Server has started!");
     return app;
 }
 

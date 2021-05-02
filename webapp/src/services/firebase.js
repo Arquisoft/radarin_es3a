@@ -26,14 +26,11 @@ try {
 function requestPermission(func) {
   Notification.requestPermission().then(async (permission) => {
     if (permission === "denied") {
-        console.log("Permission wasn't granted. Allow a retry.");
         return;
     } else if (permission === "default") {
-        console.log("The permission request was dismissed.");
         return;
     }
     const token = await messaging.getToken();
-    console.log("user token: ", token);
 
     func(token);
 });
@@ -44,17 +41,14 @@ export const getToken = (func) => {
     return messaging.getToken({vapidKey: "BHlbBCyBGj27GsWwC87p4G15nhu2HgROHqAi8ty92MHgv3YVVXvK_YPy_FFRHGUain-0KSPQgrbdH4SY0aDXfc4"})
         .then((currentToken) => {
       if (currentToken) {
-        console.log("current token for client: ", currentToken);
         func(currentToken);
         // Track the token -> client mapping, by sending to backend server
         // show on the UI that permission is secured
       } else {
-        console.log("No registration token available. Request permission to generate one.");
         requestPermission(func);
         // shows on the UI that permission is required 
       }
     }).catch((err) => {
-      console.log("An error occurred while retrieving token. ", err);
       // catch error while creating client token
       requestPermission(func);
     });

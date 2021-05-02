@@ -9,13 +9,15 @@ export async function deleteUser(name) {
     }
     let users = await getUsers();
     for (let index in users) {
-        try {
-            let user = await fetchName(users[index].webId);
-            if ((user === name )) {
-              deleteFromDB(users[index].webId);
+        if(index) {
+            try {
+                let user = await fetchName(users[index].webId);
+                if ((user === name )) {
+                deleteFromDB(users[index].webId);
+                }
+            } catch (error) {
+                return;
             }
-        } catch (error) {
-            console.log("No se ha podido insertar: " + users[index].webId);
         }
     }
 }

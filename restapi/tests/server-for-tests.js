@@ -8,16 +8,17 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const api = require("../api");
 
+var mongod;
+var app;
+var server;
+
 module.exports.startdb = async () => {
     mongod = new MongoMemoryServer({ instance: { port: 27017,dbName: "testdb"}});
-    const mongo_uri =await mongod.getUri();
-    console.log(mongo_uri);
+    const mongoUri =await mongod.getUri();
 };
 
 module.exports.startserver = async () => {
-    console.log("conecceting to database");
     await mongoose.connect("mongodb://127.0.0.1:27017/testdb?", { useNewUrlParser: true,useUnifiedTopology: true });
-    console.log("connected");
     app = express();
 
     app.use(cors());
@@ -44,7 +45,9 @@ module.exports.clearDatabase = async () => {
     const collections = mongoose.connection.collections;
 
     for (const key in collections) {
-        const collection = collections[key];
-        await collection.deleteMany();
+        if(key) {
+            const collection = collections[key];
+            await collection.deleteMany();
+        }
     }
 };

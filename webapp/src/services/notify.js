@@ -39,22 +39,24 @@ export async function notifyOpenMap() {
     try{
         name = await fetchName(currentSession.webId);
         friends = await fetchFriends();
-    } catch(err){console.log(err);}
+    } catch(err){ return;}
   
     for(let index in friends) {
-        let friendName = await fetchName(friends[index]);
-        let message = "Hola " + friendName + ", ¡Tu amig@ " + name + " se acaba de conectar a Radarin_es3a!";
-       
-        let friendEmail = await fetchEmail(friends[index]);
-        if(friendEmail) {    
-            sendEmail("Radarin_es3a", 
-                        message,
-                        friendEmail);
-        }
+        if(friends[index]) {
+            let friendName = await fetchName(friends[index]);
+            let message = "Hola " + friendName + ", ¡Tu amig@ " + name + " se acaba de conectar a Radarin_es3a!";
+        
+            let friendEmail = await fetchEmail(friends[index]);
+            if(friendEmail) {    
+                sendEmail("Radarin_es3a", 
+                            message,
+                            friendEmail);
+            }
 
-        let friend = await getUserByWebId(friends[index]);
-        if(friend && friend.token) {
-            sendNotification("Radarin_es3a", message, friend.token);
+            let friend = await getUserByWebId(friends[index]);
+            if(friend && friend.token) {
+                sendNotification("Radarin_es3a", message, friend.token);
+            }
         }
     }
 
