@@ -59,6 +59,14 @@ form {
   color: #fff;
   text-decoration: none;
 }
+.sc-eCImvq:hover {
+  color: #8bb6e0;
+  text-decoration: none;
+  text-decoration: none!important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: button;
+}
 
 .sc-jRQAMF {
   color: #fff;
@@ -89,6 +97,20 @@ form {
   color: #212529;
   text-decoration: none;
 }
-a:hover {
-  text-decoration: none;
+a {
+  text-decoration: none!important;
+
 }
+a:hover {
+  text-decoration: none!important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: button;
+}
+.contenedorSignIn {
+  padding: 5vh;
+  margin: -5vh;
+  min-height: calc(100vh - 250px + 10vh);
+  
+ 
+} 
