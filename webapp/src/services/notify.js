@@ -7,24 +7,6 @@ import { showNotification } from "../App";
 
 let isMapNotAreadyAccessed = true;
 
-export async function notify(webId) {
-    let user;
-    try{
-        user = await getUserByWebId(webId);
-    }catch{
-        user = {token:""};
-    }
-    if(!user){
-        return;
-    }
-    const token = user.token;
-    if(!token || token === "") {
-        return;
-    }
-
-    sendNotification("Hola", "Esto es una prueba de notificación", token);
-}
-
 export async function notifyOpenMap() {    
     if(!isMapNotAreadyAccessed) {
         return;
