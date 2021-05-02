@@ -13,8 +13,9 @@ let names = new Map();
 let photos = new Map();
 
 export async function fetchProfile () {
-    if(profile)
+    if(profile) {
       return profile;
+    }
     
     const currentSession = await solidAuth.currentSession();
     if (!currentSession) {
@@ -27,11 +28,13 @@ export async function fetchProfile () {
 };
 
 export async function fetchName(webId) {
-  if(!webId)
+  if(!webId) {
     return null;
+  }
 
-  if(names.get(webId))
+  if(names.get(webId)) {
     return names.get(webId);
+  }
 
   const webIdDoc = await fetchDocument(webId);
   const profile = webIdDoc.getSubject(webId);
@@ -42,11 +45,13 @@ export async function fetchName(webId) {
 };
 
 export async function fetchPhoto(webId) {
-  if(!webId)
+  if(!webId) {
     return null;
+  }
 
-  if(photos.get(webId))
+  if(photos.get(webId)) {
     return photos.get(webId);
+  }
 
   var myDataset = await getSolidDataset(webId.split("#me")[0]);
   const profile = getThing(myDataset, webId);

@@ -40,8 +40,9 @@ function prepareToAndroidNotifications() {
 
   window.addEventListener("saveToken", function() {
     const token = window.Android.getToken();
-    if(token)
+    if(token) {
       saveUserToken(token);
+    }
   }, false);
 
   window.Android.getFirebaseToken();
@@ -74,12 +75,14 @@ export default function App() {
   log = FuntionGetLoggedUser();
   useEffect(() => {
     // Obtener token de app móvil
-    if(window.Android) 
+    if(window.Android) {
       prepareToAndroidNotifications();
-    else 
+    }
+    else {
       getToken( token => {
         saveUserToken(token);
       });
+    }
   }, []);
   
   onMessageListener().then(payload => {

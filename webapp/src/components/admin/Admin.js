@@ -22,8 +22,9 @@ class Admin extends React.Component {
                 users.forEach(index => {
                     try {
                         fetchName(index.webId).then((user) => {
-                            if(!user)
+                            if(!user) {
                                 return;
+                            }
                             if (!(user === "radarin")) {
                                 usersFiltrados.push(user);
                                 this.setState({ users: usersFiltrados });

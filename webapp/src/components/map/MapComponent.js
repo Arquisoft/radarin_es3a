@@ -35,8 +35,9 @@ let accedido = false;
 
 
 export default function MapComponent() {
-  if(!accedido)
+  if(!accedido) {
     notifyOpenMap(); // Notificar que ha abierto la app
+  }
 
   accedido = true;
 
@@ -110,7 +111,7 @@ export default function MapComponent() {
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => { restarCurrentPosition(); mapRef.current = map; }, []);
 
-  if (loadError) return "Error loadinf maps";
+  if (loadError) { return "Error loadinf maps"; };
   if (!isLoaded) { return "Loading Maps"; };
 
   return (

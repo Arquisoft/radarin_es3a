@@ -4,8 +4,9 @@ import { foaf } from "rdf-namespaces";
 let friends;
 
 export async function fetchFriends() {
-    if(friends)
+    if(friends) {
         return friends;
+    }
 
     let profile = await fetchProfile();
     if(profile == null){

@@ -12,8 +12,9 @@ let radius = 50;
 let updateMarker = (location) => { console.log("No definido"); }
 
 export function changeRadius(newRadius) {
-    if(!isNaN(newRadius))
+    if(!isNaN(newRadius)) {
         radius = newRadius;
+    }
     return radius;
 }
 
@@ -70,8 +71,9 @@ class Markers extends React.Component {
 
     async fetchFriends() {
         const currentSession = await solidAuth.currentSession();
-        if (!currentSession)
+        if (!currentSession) {
             return;
+        }
 
         this.userLoggedIn = {
             name: "Yo",
@@ -104,11 +106,13 @@ class Markers extends React.Component {
         try {
             let users = this.state.users;
             const currentSession = await solidAuth.currentSession();
-            if (!currentSession)
+            if (!currentSession) {
                 return;
+            }
             this.userLoggedIn = await getUserByWebId(currentSession.webId);
-            if(!this.userLoggedIn || !this.userLoggedIn.location) 
+            if(!this.userLoggedIn || !this.userLoggedIn.location) {
                 return;
+            }
                 
             users[0] = this.userLoggedIn;
             this.setState({ users: users });
@@ -123,8 +127,9 @@ class Markers extends React.Component {
                         fetchName(user.webId).then((name) => {
                             user.name = name;
                             friend.name = name;
-                            if(!user.location)
+                            if(!user.location) {
                                 return;
+                            }
                             friend.location = user.location;
                             if (distanceInKmBetweenEarthCoordinates(
                                     that.userLoggedIn.location.lat, that.userLoggedIn.location.lng,
@@ -144,8 +149,9 @@ class Markers extends React.Component {
     }
 
     update() {
-        if(!this.userLoggedIn.location)
+        if(!this.userLoggedIn.location) {
             return;
+        }
 
         let friends = this.state.friends;
         let users = this.state.users;
@@ -153,15 +159,17 @@ class Markers extends React.Component {
 
         friends.forEach(friend => {
             getUserByWebId(friend.webId).then( newUser => {
-                if(!newUser)
+                if(!newUser) {
                     return;
+                }
 
                 newUser.name = friend.name;
                 // Comprobar si ya estaba en el mapa
                 let index = users.findIndex(user => user.webId === newUser.webId);
                 if(!newUser.location) { // No está conectado
-                    if(index !== -1) // Está en el mapa y se ha desconectado
+                    if(index !== -1) { // Está en el mapa y se ha desconectado
                         users.splice(index, 1);
+                    }
                     return;
                 }
 
@@ -171,10 +179,12 @@ class Markers extends React.Component {
                     newUser.location.lat, newUser.location.lng) < radius;
                 if(index !== -1) {
                     if(newUser.location !== users[index].location) {
-                        if(inRadius)
+                        if(inRadius) {
                             users[index] = newUser;
-                        else 
+                        }
+                        else {
                             users.splice(index, 1);
+                        }
                     }
                 } else if(inRadius) {
                     notifyNearbyFriend(newUser.webId);

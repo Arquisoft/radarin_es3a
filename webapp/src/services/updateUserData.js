@@ -3,8 +3,9 @@ import { updateLocation, updateToken } from "../api/api";
 
 export async function saveUserToken(token) {
     const currentSession = await solidAuth.currentSession();
-    if(!currentSession)
+    if(!currentSession) {
         return null;
+    }
 
     updateToken(currentSession.webId, token);
 };
@@ -20,8 +21,9 @@ export async function saveUserLocation(location) {
 
 export async function removeUserToken() {
     const currentSession = await solidAuth.currentSession();
-    if(!currentSession)
+    if(!currentSession) {
         return null;
+    }
 
     updateToken(currentSession.webId, "");
 };

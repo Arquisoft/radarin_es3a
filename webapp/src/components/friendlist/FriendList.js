@@ -25,8 +25,9 @@ class FriendList extends React.Component {
 
     async fetchUsers() {
         const currentSession = await solidAuth.currentSession();
-        if (!currentSession)
-                return null;
+        if (!currentSession) {
+            return null;
+        }
 
         let that = this;
         let users = await fetchFriends();
@@ -37,14 +38,16 @@ class FriendList extends React.Component {
                 name: ""
             };
             fetchPhoto(user.webId).then(photo => {
-                if (!photo)
+                if (!photo) {
                     return;
+                }
                 users[i].photo = photo;
                 that.setState({ users: users });
             });
             fetchName(user.webId).then(name => {
-                if (!name)
+                if (!name) {
                     name = users[i].webId;
+                }
                 users[i].name = name;
                 that.setState({ users: users });
             });
