@@ -62,11 +62,11 @@ export async function notifyOpenMap() {
 }
 
 export function notifyNearbyFriend(friendWebId) {
-    solidAuth.currentSession().then(session => {
+    solidAuth.currentSession().then((session) => {
         if(!session) {
             return;
         }
-        fetchName(friendWebId).then(friendName => {
+        fetchName(friendWebId).then((friendName) => {
             showNotification({ 
                 "title": "¡Estás cerca de un amigo!",
                 "body": "Tu amig@ " + friendName + " está cerca de ti"});

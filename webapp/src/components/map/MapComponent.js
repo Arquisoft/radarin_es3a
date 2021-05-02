@@ -58,7 +58,7 @@ export default function MapComponent() {
 
         actualPosition = { lat: position.coords.latitude, lng: position.coords.longitude };
 
-        solidAuth.currentSession().then(session => {
+        solidAuth.currentSession().then((session) => {
           if (session) {
             updateLocation(session.webId, actualPosition);
             updateUserMarker(actualPosition);
@@ -75,7 +75,7 @@ export default function MapComponent() {
 
         actualPosition = { lat: newPos.coords.latitude, lng: newPos.coords.longitude };
 
-        solidAuth.currentSession().then(session => {
+        solidAuth.currentSession().then((session) => {
           if (session) {
             updateUserMarker(actualPosition);
             updateLocation(session.webId, actualPosition);
@@ -98,7 +98,7 @@ export default function MapComponent() {
   });
 
   function restarCurrentPosition() {
-    setCurrentPosition(prevC => prevC = {
+    setCurrentPosition((prevC) => prevC = {
       lat: latitude,
       lng: longitude
     });

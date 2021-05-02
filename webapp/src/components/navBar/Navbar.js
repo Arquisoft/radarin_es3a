@@ -33,7 +33,7 @@ function Navbar() {
   }
 
    useEffect(() => {
-    isAdmin().then(result => {
+    isAdmin().then((result) => {
       setAdmin(result);
     });
    }, []);

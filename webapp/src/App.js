@@ -79,15 +79,15 @@ export default function App() {
       prepareToAndroidNotifications();
     }
     else {
-      getToken( token => {
+      getToken((token) => {
         saveUserToken(token);
       });
     }
   }, []);
   
-  onMessageListener().then(payload => {
+  onMessageListener().then((payload) => {
     showNotification(payload.notification);
-  }).catch(err => console.log("failed: ", err));
+  }).catch((err) => console.log("failed: ", err));
 
   return (
     <Router>

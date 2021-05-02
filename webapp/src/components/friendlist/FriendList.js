@@ -37,14 +37,14 @@ class FriendList extends React.Component {
                 photo: "./user.png",
                 name: ""
             };
-            fetchPhoto(user.webId).then(photo => {
+            fetchPhoto(user.webId).then((photo) => {
                 if (!photo) {
                     return;
                 }
                 users[i].photo = photo;
                 that.setState({ users: users });
             });
-            fetchName(user.webId).then(name => {
+            fetchName(user.webId).then((name) => {
                 if (!name) {
                     name = users[i].webId;
                 }

@@ -24,7 +24,7 @@ try {
 }
 
 function requestPermission(func) {
-  Notification.requestPermission().then(async permission => {
+  Notification.requestPermission().then(async (permission) => {
     if (permission === "denied") {
         console.log("Permission wasn't granted. Allow a retry.");
         return;

@@ -64,7 +64,7 @@ class AboutUs extends React.Component {
                     <h1 className="display-5 text-light">Radarin Es3a</h1>
                     <div>
                         <h2 className="display-6 text-light">Colaboradores: </h2>
-                        {this.state.integrantes.map(integrante => (
+                        {this.state.integrantes.map((integrante) => (
                             <>
                                 <div className="card mb-3 bg-dark " >
                                     <div className="row g-0 ">

@@ -21,7 +21,7 @@ import { fetchEmail, replaceEmail } from "./fetchEmail";
 // });
 
 test("Comprobar que no se devuelve el email correspondiente a un webID", () => {
-    return fetchEmail("https://uo258273.inrupt.net/profile/card#me").then(data =>
+    return fetchEmail("https://uo258273.inrupt.net/profile/card#me").then((data) =>
         expect(data).toBeNull());
 });
 

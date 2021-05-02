@@ -19,7 +19,7 @@ class Admin extends React.Component {
         try {
             getUsers().then((users) => {
                 let usersFiltrados = [];
-                users.forEach(index => {
+                users.forEach((index) => {
                     try {
                         fetchName(index.webId).then((user) => {
                             if(!user) {

@@ -87,7 +87,7 @@ class Markers extends React.Component {
         this.setState({ users: this.state.users });
 
         let friends = await fetchFriends();
-        friends = friends.map(friend => {
+        friends = friends.map((friend) => {
             return {
                 name: friend,
                 webId: friend,
@@ -121,7 +121,7 @@ class Markers extends React.Component {
             var that = this;
 
             friends.forEach((friend) => {
-                getUserByWebId(friend.webId).then( user => {
+                getUserByWebId(friend.webId).then((user) => {
                     if (user){
                         // Cargar información por si la necesitamos luego
                         fetchName(user.webId).then((name) => {
@@ -157,8 +157,8 @@ class Markers extends React.Component {
         let users = this.state.users;
         let that = this;
 
-        friends.forEach(friend => {
-            getUserByWebId(friend.webId).then( newUser => {
+        friends.forEach((friend) => {
+            getUserByWebId(friend.webId).then((newUser) => {
                 if(!newUser) {
                     return;
                 }
@@ -197,7 +197,7 @@ class Markers extends React.Component {
 
     render() {
         return (
-            this.state.users.map(item => {
+            this.state.users.map((item) => {
                 return (
                     <Marker
                         key={item.webId}
