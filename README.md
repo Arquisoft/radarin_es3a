@@ -41,13 +41,8 @@ You should be able to access the application in [http://localhost:3000](http://l
 ## Colaboradores
 
 -   Raúl Mínguez Rodríguez (Error404UsernameNotFound)
-
 -   Pablo Diaz Rubio (UO271245)
-
 -   Juan Mencía Menéndez (UO264197)
-
 -   Thalía Cuetos Fernández (UO264545)
-
 -   Luis Martínez Moreno (UO258273)
-
 -   Adolfo Rodríguez Sánchez (UO271620)
