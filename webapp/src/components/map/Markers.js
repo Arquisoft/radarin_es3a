@@ -57,16 +57,13 @@ class Markers extends React.Component {
 
         this.userLoggedIn = {
             name: "Yo",
-            location: {
-                lat: undefined,
-                lng: undefined
-            }
+            location: { }
         };
     }
 
     componentWillUnmount() {
         clearInterval(this.timer);
-        saveUserLocation(undefined); // Limpiar localización
+        saveUserLocation(); // Limpiar localización
     }
 
     async fetchFriends() {
@@ -78,10 +75,7 @@ class Markers extends React.Component {
         this.userLoggedIn = {
             name: "Yo",
             webId: currentSession.webId,
-            location: {
-                lat: undefined,
-                lng: undefined
-            }
+            location: { }
         };
         this.state.users.push(this.userLoggedIn);
         this.setState({ users: this.state.users });

@@ -22,7 +22,7 @@ export async function deleteFromDB(webId){
         return await response.json();
     } catch(error) {
         console.log("weapp/api error");
-        return undefined;
+        return;
     }
 }
 
@@ -41,7 +41,7 @@ export async function getUserByWebId(webId) {
     try {
         return await response.json();
     } catch(error) {
-        return undefined;
+        return;
     }  
 }
 
@@ -56,7 +56,7 @@ export async function updateToken(webId, token) {
     try {
         return await response.json();
     } catch(error) {
-        return undefined;
+        return;
     }
 }
 

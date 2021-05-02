@@ -70,8 +70,8 @@ describe("user ", () => {
         response = await request(app).get("/api/users/byWebId")
             .set("webId", "Inexistente");
         expect(response.statusCode).toBe(200);
-        expect(response.body.webId).toBe(undefined);
-        expect(response.body.location).toStrictEqual(undefined);
+        expect(response.body.webId).toBe();
+        expect(response.body.location).toStrictEqual();
     });
     /**
      * Test that the location of an existing user can be updated
