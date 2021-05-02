@@ -6,7 +6,7 @@ import {useLoggedIn} from "@solid/react";
 import Welcome  from "./components/welcome/Welcome";
 import SignIn from "./components/signIn/SignIn";
 import AboutUs from "./components/aboutUs/AboutUs";
-import UsersLocation from "./components/UsersLocation";
+import Docs from "./components/docs/Docs";
 import Admin from "./components/admin/Admin";
 import FriendList from "./components/friendlist/FriendList";
 import { getToken, onMessageListener } from "./services/firebase";
@@ -100,6 +100,7 @@ export default function App() {
         <PrivateRoute path="/map" component={MapContainer} />
         <Route path="/sign-in"  component={SignIn} />
         <Route path="/about-us"  component={AboutUs} />
+        <Route path="/docs"  component={Docs} />
         <PrivateRoute path="/admin" component={Admin} />
         <PrivateRoute path="/friend-list" component={FriendList} />
       </Switch>
