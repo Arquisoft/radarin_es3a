@@ -10,7 +10,7 @@ import Docs from "./components/docs/Docs";
 import Admin from "./components/admin/Admin";
 import FriendList from "./components/friendlist/FriendList";
 import { getToken, onMessageListener } from "./services/firebase";
-import { saveUserToken } from "./services/updateUserData";
+import { saveUserLocation, saveUserToken } from "./services/updateUserData";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { store } from "react-notifications-component";
@@ -74,6 +74,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 export default function App() {
   log = FuntionGetLoggedUser();
   useEffect(() => {
+    window.onbeforeunload = () => saveUserLocation();
+
     // Obtener token de app móvil
     if(window.Android) {
       prepareToAndroidNotifications();

@@ -95,7 +95,7 @@ describe("user ", () => {
         expect(response.statusCode).toBe(200);
         expect(response.body.webId).toBe(webIdEx);
         expect(response.body.location).toStrictEqual(newLocationEx);
-    })
+    });
     /**
      * Tests that the location of a non-existent user can be updated, adding the user to the database
      */

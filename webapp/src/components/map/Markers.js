@@ -9,7 +9,7 @@ import { setUser } from "./MapComponent";
 import { saveUserLocation } from "../../services/updateUserData";
 
 let radius = 50;
-let updateMarker = (location) => { console.log("No definido"); };
+let updateMarker = (location) => { return; };
 
 export function changeRadius(newRadius) {
     if(!isNaN(newRadius)) {
@@ -138,7 +138,7 @@ class Markers extends React.Component {
             this.timer = setInterval(() => that.update(), 3000);
         }
         catch (error) {
-            console.log(error);
+            return;
         }
     }
 
