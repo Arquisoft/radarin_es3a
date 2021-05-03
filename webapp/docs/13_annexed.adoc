@@ -19,19 +19,16 @@ We have done tests about the main parts of the webapp:
 ** The admin window works as spected and anly appears if the admin is the logged user.
 ** The login web page (Inrupt) is showed fine and redirects from and back to Radarin.
 
-===== Acceptance and stress tests
+===== Acceptance test
 
-We did some acceptance and stress tests to the system to prove if the environment can deal with this kind of situations.
+We did an acceptance test to check if a user not logged in the app could access the friendlist of the application. Ideally, the user would be redirected to the Welcome page of the site.
 
-We logged with all of our PODs, in order to simulate a real world situation. In all the PODs we did the following
+*Beggining: A user wants to access the friendlist functionality while not been logged in.
 
-*Beggining: The user logged on in his POD with friends.
+*Actions performed: The user tries to access the /friend-list link.
 
-*Actions performed: The user looked for the friends on the map, and changed the area for the search
+*End: The user is redirected to the Welcome page.
 
-*End: The user checked that all of their friends were in the list.
-
-*Results: The webapp performed well, with reduced loadtimes, mostly in the communication with the PODs service. All the users could do the tasks.
 ==== Mobile app
 
 ===== Unitary Testing
