@@ -16,8 +16,8 @@
   text-align: center !important;
 }
 
-.footerRad a:visited,
-a:active, a:link {
+.footerRad a:active,
+a:visited,
+a:link {
   text-decoration: none;
-  color: #fff;
-}
+  color: #fff;}

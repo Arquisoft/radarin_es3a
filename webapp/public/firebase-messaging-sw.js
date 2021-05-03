@@ -15,6 +15,7 @@ var firebaseConfig = {
 try {
   firebase.initializeApp(firebaseConfig);
 } catch (error) {
+  return;
 }
 
 // Retrieve firebase messaging
