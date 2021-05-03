@@ -21,9 +21,7 @@ function connect(){
         app.use(express.json());
         app.use("/api", api);
 
-        app.listen(process.env.PORT || 5000, () => {
-            console.log("Server has started! Using db in "+mongoUri);
-        });
+        app.listen(process.env.PORT || 5000, () => {});
     });
 }
 

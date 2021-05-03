@@ -1,5 +1,4 @@
 import React from "react";
-import "./DocsRadarin.css";
 import LogoASW from './images/LogoASW.png';
 import ContextDiagram from './images/01_ContextDiagram.png';
 import BusinessContextDiagram from './images/03_BusinessContextDiagram.png';
