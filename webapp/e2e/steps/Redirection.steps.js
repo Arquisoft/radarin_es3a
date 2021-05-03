@@ -3,7 +3,7 @@ const feature = loadFeature("./features/Redirection.feature");
 
 defineFeature(feature, test => {
     beforeAll(async () => {
-        await global.page.goto("http://localhost:3000/");
+        await global.page.goto("https://radarines3awebapp.herokuapp.com");
     });
 
 
@@ -22,7 +22,7 @@ defineFeature(feature, test => {
         });
 
         when("Tries to access the URL", async () => {
-            await page.goto("http://localhost:3000/friend-list");
+            await page.goto("https://radarines3awebapp.herokuapp.com/friend-list");
         });
         then("The user meets the welcome page", async () => {
             await expect(page).toMatch("Bienvenidos a Radarin");
