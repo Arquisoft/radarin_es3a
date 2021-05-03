@@ -1192,7 +1192,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
                                 <div class="paragraph">
                                     <p>
                                         The webb app and the REST API have been tested in order to solve
-                                        the biggest ammount of issues
+                                        the biggest ammount of issues.
               </p>
                                 </div>
                                 <div class="sect3">
@@ -1205,7 +1205,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
                                         <div class="ulist">
                                             <ul>
                                                 <li>
-                                                    <p>Interface :</p>
+                                                    <p>Interface: </p>
                                                     <div class="ulist">
                                                         <ul>
                                                             <li>
@@ -1244,41 +1244,26 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
                                     </div>
                                     <div class="sect4">
                                         <h5 id="_acceptance_and_stress_tests">
-                                            Acceptance and stress tests
+                                            Acceptance tests
                 </h5>
                                         <div class="paragraph">
                                             <p>
-                                                We did some acceptance and stress tests to the system to
-                                                prove if the environment can deal with this kind of
-                                                situations.
+                                                We did an acceptance test to check if a user not logged in the app 
+                                                could access the friendlist of the application. Ideally, the user 
+                                                would be redirected to the Welcome page of the site.
+                  </p>
+                                        </div>
+                                        <div class="paragraph">
+                                            <p>*Beggining: A user wants to access the friendlist functionality while not been logged in.</p>
+                                        </div>
+                                        <div class="paragraph">
+                                            <p>
+                                                *Actions performed: The user tries to access the /friend-list link.
                   </p>
                                         </div>
                                         <div class="paragraph">
                                             <p>
-                                                We logged with all of our PODs, in order to simulate a real
-                                                world situation. In all the PODs we did the following
-                  </p>
-                                        </div>
-                                        <div class="paragraph">
-                                            <p>*Beggining: The user logged on in his POD with friends.</p>
-                                        </div>
-                                        <div class="paragraph">
-                                            <p>
-                                                *Actions performed: The user looked for the friends on the
-                                                map, and changed the area for the search
-                  </p>
-                                        </div>
-                                        <div class="paragraph">
-                                            <p>
-                                                *End: The user checked that all of their friends were in the
-                                                list.
-                  </p>
-                                        </div>
-                                        <div class="paragraph">
-                                            <p>
-                                                *Results: The webapp performed well, with reduced loadtimes,
-                                                mostly in the communication with the PODs service. All the
-                                                users could do the tasks. ==== Mobile app
+                                                *End: The user is redirected to the Welcome page.
                   </p>
                                         </div>
                                     </div>
@@ -1299,7 +1284,7 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
                                                     <p>The user&#8217;s mark moves while he moves.</p>
                                                 </li>
                                                 <li>
-                                                    <p>The other users can se it.</p>
+                                                    <p>The other users can see it.</p>
                                                 </li>
                                                 <li>
                                                     <p>The notifications work fine.</p>
@@ -1314,10 +1299,10 @@ Created by Dr. Peter Hruschka &amp; Dr. Gernot Starke.</p>
                                                 Some automatic tests where developed, in order to automatize
                                                 the task of debug the code. All the tests run automatic at
                                                 the deploying task, and can be run locally by calling "npm
-                                                -test". With this, we acomplish: * Increase the code
+                                                run test". With this, we acomplish: * Increase the code
                                                 coverage, which means that the code have the smallest
                                                 ammount of errors as possible. * Ensure that the system
-                                                works as spected. * Find improvement niches
+                                                works as spected. * Find improvement niches.
                   </p>
                                         </div>
                                     </div>
